@@ -22,12 +22,12 @@ class CreateFamiliesTable extends Migration
             
             $table->string('name');
             $table->string('surname');
-            $table->string('image');
-            $table->string('city');
-            $table->string('address');
-            $table->string('cel');
-            $table->string('tel_home');
-            $table->string('tel_work');
+            $table->string('image')->nullable();
+            $table->string('city')->nullable();
+            $table->string('address')->nullable();
+            $table->string('cel')->nullable();
+            $table->string('tel_home')->nullable();
+            $table->string('tel_work')->nullable();
 
 
             $table->timestamps();

@@ -20,17 +20,17 @@ class CreateStudentsTable extends Migration
             $table->string('name');
             $table->string('surname');
             $table->string('age');
-            $table->string('image');
-            $table->string('cel');
+            $table->string('image')->nullable();
+            $table->string('cel')->nullable();
             
             //$table->string('document');
-            $table->string('enrollment');
+            $table->string('enrollment')->nullable();
 
-            $table->longText('health_problems');
-            $table->string('remedies');
-            $table->string('vaccinations');
-            $table->string('medical_society');
-            $table->string('tel_medical_society');
+            $table->longText('health_problems')->nullable();
+            $table->string('remedies')->nullable();
+            $table->string('vaccinations')->nullable();
+            $table->string('medical_society')->nullable();
+            $table->string('tel_medical_society')->nullable();
 
             $table->integer('school_id');
             $table->integer('group_id');

@@ -17,14 +17,16 @@ class CreateSchoolsTable extends Migration
             $table->bigIncrements('id');
             $table->string('type');
             $table->string('name');
-            $table->string('subtitle');
-            $table->string('image');
+            $table->string('subtitle')->nullable();
+            $table->string('email', 30)->unique();
+            $table->string('tel')->nullable();
+            $table->string('image')->nullable();
             $table->string('country');
             $table->string('city');
-            $table->string('address');
-            $table->longText('description');
-            $table->string('lat');
-            $table->string('lng');
+            $table->string('address')->nullable();
+            $table->longText('description')->nullable();
+            $table->string('lat')->nullable();
+            $table->string('lng')->nullable();
             $table->timestamps();
         });
     }

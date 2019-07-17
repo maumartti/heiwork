@@ -21,7 +21,7 @@ class CreateTeachersTable extends Migration
             $table->string('suername');
             $table->string('image');
             $table->string('age');
-            $table->string('cel');
+            $table->string('cel')->nullable();
             $table->timestamps();
         });
     }
