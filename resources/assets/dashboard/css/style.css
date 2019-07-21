@@ -24500,3 +24500,25 @@ div.tagsinput {
 .sidebar .nav .nav-item .nav-link .menu-icon {
     width: 20px;
 }
+.mdi::before{
+    color:#000;
+}
+.input-group-text{
+    border-color: #354168 !important;
+    border-right: none;
+}
+.formlogs{
+    border: 1px solid #354168 !important;
+    border-left:none !important;
+}
+.auth.theme-two .auto-form-wrapper form .form-group .submit-btn{
+    background: #fccd1a;
+    border-color: #ffd33b;
+    color:#000;
+}
+.auth.theme-two .banner-section .slide-content.bg-1{
+    background: url('/images/login.jpg');
+    background-position: center right;
+    background-size: 95%;
+    background-repeat: no-repeat;
+}
