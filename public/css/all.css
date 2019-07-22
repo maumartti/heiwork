@@ -25191,15 +25191,15 @@ div.tagsinput {
 .sidebar .nav .nav-item .nav-link .menu-icon {
     width: 20px;
 }
-.mdi::before{
+.formLogin .mdi::before{
     color:#000;
 }
 .input-group-text{
-    border-color: #354168 !important;
+    border-color: #8a9ad0 !important;
     border-right: none;
 }
 .formlogs{
-    border: 1px solid #354168 !important;
+    border: 1px solid #8a9ad0 !important;
     border-left:none !important;
 }
 .auth.theme-two .auto-form-wrapper form .form-group .submit-btn{
@@ -25209,7 +25209,7 @@ div.tagsinput {
 }
 .auth.theme-two .banner-section .slide-content.bg-1{
     background: url('/images/login.jpg');
-    background-position: center right;
-    background-size: 95%;
+    background-size: cover;
+    background-position: 80% 50%;
     background-repeat: no-repeat;
 }

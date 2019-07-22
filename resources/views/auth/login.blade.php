@@ -15,7 +15,8 @@
                 <p>Don't have an account?</p>
                 <a class="btn get-started-btn" href="register-2.html">GET STARTED</a>
               </div>
-              <form action="#">
+              <form method="POST" class="formLogin" action="{{ route('login') }}">
+                @csrf
                 <h3 class="mr-auto">Hello! let's get started</h3>
                 <p class="mb-5 mr-auto">Enter your details below.</p>
                 <div class="form-group">
@@ -23,7 +24,12 @@
                     <div class="input-group-prepend" style="height: 32px;">
                       <span class="input-group-text"><i class="mdi mdi-account-outline"></i></span>
                     </div>
-                    <input type="text" class="form-control formlogs" placeholder="Username">
+                    <input id="email" type="email" class="form-control formlogs @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Correo electronico" required autocomplete="email" autofocus>
+                        @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                   </div>
                 </div>
                 <div class="form-group">
@@ -31,7 +37,12 @@
                     <div class="input-group-prepend" style="height: 32px;">
                       <span class="input-group-text"><i class="mdi mdi-lock-outline"></i></span>
                     </div>
-                    <input type="password" class="form-control formlogs" placeholder="Password">
+                    <input id="password" type="password" class="form-control formlogs @error('password') is-invalid @enderror" name="password" placeholder="Contraseña" required autocomplete="current-password">
+                        @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                   </div>
                 </div>
                 <div class="form-group">

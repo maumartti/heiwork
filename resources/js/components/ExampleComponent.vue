@@ -21,3 +21,8 @@
         }
     }
 </script>
+<style scoped>
+    .home{
+        color:red;
+    }
+</style>
