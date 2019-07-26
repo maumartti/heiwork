@@ -12114,7 +12114,7 @@ button.close {
 
 a.close.disabled {
   pointer-events: none; }
-
+/*
 .toast {
   max-width: 350px;
   overflow: hidden;
@@ -12147,7 +12147,7 @@ a.close.disabled {
 
 .toast-body {
   padding: 0.75rem; }
-
+*/
 .modal-open {
   overflow: hidden; }
   .modal-open .modal {
@@ -22813,6 +22813,7 @@ div.tagsinput {
   border-color: #f3f3f3; }
 
 /* Toast */
+/*
 .jq-toast-wrap .jq-icon-success {
   background-color: #08d26f; }
 
@@ -22824,7 +22825,7 @@ div.tagsinput {
 
 .jq-toast-wrap .jq-icon-error {
   background-color: #ff7474; }
-
+*/
 /* Typeahead */
 .gist,
 .tt-menu {
@@ -24511,6 +24512,9 @@ div.tagsinput {
     border: 1px solid #8a9ad0 !important;
     border-left:none !important;
 }
+.form-control{
+    border: 1px solid #8a9ad0 !important;
+}
 .auth.theme-two .auto-form-wrapper form .form-group .submit-btn{
     background: #fccd1a;
     border-color: #ffd33b;
@@ -24521,4 +24525,11 @@ div.tagsinput {
     background-size: cover;
     background-position: 80% 50%;
     background-repeat: no-repeat;
+}
+.dropify-wrapper {
+    border: 2px dashed #8a9ad0;
+    border-radius: 7px;
+}
+#toast-container {
+    padding-top: 65px;
 }

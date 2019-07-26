@@ -21,6 +21,7 @@ class CreateStudentsTable extends Migration
             $table->string('surname');
             $table->string('age');
             $table->string('image')->nullable();
+            $table->string('tel')->nullable();
             $table->string('cel')->nullable();
             
             //$table->string('document');

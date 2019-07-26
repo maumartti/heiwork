@@ -22,7 +22,7 @@
 	            <div class="collapse" id="page-layouts">
 	              <ul class="nav flex-column sub-menu">
 	                <li class="nav-item"> <router-link class="nav-link" to="/AgregarInstituto"><a>Agregar Instituto</a></router-link></li>
-	                <li class="nav-item"> <a class="nav-link" href="pages/layout/rtl-layout.html">RTL</a></li>
+	                <li class="nav-item"> <a class="nav-link" href="pages/layout/rtl-layout.html">Institutos Agregados</a></li>
 	                <li class="nav-item"> <a class="nav-link" href="pages/layout/horizontal-menu.html">Menu 3</a></li>
 	                <li class="nav-item"> <a class="nav-link" href="pages/layout/horizontal-menu-2.html">Menu 4</a></li>
 	              </ul>

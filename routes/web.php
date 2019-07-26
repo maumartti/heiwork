@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('instituto', 'InstitutoController');
+Route::resource('school', 'SchoolController');
 
 
 Route::get("{any}", "HomeController@index")->where("any", ".*"); //renderiza los reload del SPA

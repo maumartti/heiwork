@@ -1,5 +1,7 @@
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+@import "~toastr/build/toastr";
 
-@import "variables";
-
-@import "~bootstrap/scss/bootstrap";
+@import '~sweetalert2/src/variables';
+ 
+$swal2-background: #990000;
+ 
+@import '~sweetalert2/src/sweetalert2';
