@@ -8,14 +8,14 @@
 	          <p class="card-description">
 	          	Complete el formulario con los datos requeridos
 	          </p>
-	          <form v-on:submit.prevent="addSchool()" class="forms-sample">
+	          <form v-on:submit.prevent="addSchool()" class="forms-sample" enctype="multipart/form-data">
 	            <div class="form-group">
 	              <label for="exampleInputName1">Name</label>
-	              <input type="text" v-model="name" class="form-control" id="exampleInputName1" placeholder="Name">
+	              <input type="text" v-model="name" class="form-control" id="exampleInputName1" placeholder="Name" required>
 	            </div>
 	            <div class="form-group">
 	              <label for="exampleInputEmail3">Email address</label>
-	              <input type="email" v-model="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
+	              <input type="email" v-model="email" class="form-control" id="exampleInputEmail3" placeholder="Email" required>
 	            </div>
 	            <div class="form-group">
 	            	<label for="frase">Frase de la Institución</label>
@@ -27,39 +27,35 @@
 	            </div>
 	            <div class="form-group">	
 	            	<!--<i class="flag-icon flag-icon-ad" title="ad" id="ad"></i>            	-->
-                    <label for="exampleFormControlSelect1">País</label>
-                    <select v-model="country" class="form-control form-control-lg" data-show-icon="true" id="paises">                    
-						<option value="Argentina">Argentina</option>
-						<option value="">Bolivia</option>
-						<option value="">Chile</option>
-						<option value="">Colombia</option>
-						<option value="">Costa Rica</option>
-						<option value="">Cuba</option>
-						<option value="">Ecuador</option>
-						<option value="">El Salvador</option>
-						<option value="">España</option>
-						<option value="">Guayana Francesa</option>
-						<option value="">Granada</option>
-						<option value="">Guatemala</option>
-						<option value="">Guayana</option>
-						<option value="">Haití</option>
-						<option value="">Honduras</option>
-						<option value="">Jamaica</option>
-						<option value="">México</option>
-						<option value="">Nicaragua</option>
-						<option value="">Paraguay</option>
-						<option value="">Panamá</option>
-						<option value="">Perú</option>
-						<option value="">Puerto Rico</option>
-						<option value="">República Dominicana</option>
-						<option value="">Surinam</option>
-						<option value="">Uruguay</option>
-						<option value="">Venezuela</option>
+                    <label for="paises">País</label>
+                    <select v-model="country" class="form-control form-control-lg" id="paises" required>                    
+						<option value="AR">Argentina</option>
+						<option value="BO">Bolivia</option>
+						<option value="CL">Chile</option>
+						<option value="CO">Colombia</option>
+						<option value="CR">Costa Rica</option>
+						<option value="EC">Ecuador</option>
+						<option value="SV">El Salvador</option>
+						<option value="ES">España</option>
+						<option value="GD">Granada</option>
+						<option value="GT">Guatemala</option>
+						<option value="GY">Guayana</option>
+						<option value="HT">Haití</option>
+						<option value="HN">Honduras</option>
+						<option value="MX">México</option>
+						<option value="NI">Nicaragua</option>
+						<option value="PY">Paraguay</option>
+						<option value="PA">Panamá</option>
+						<option value="PE">Perú</option>
+						<option value="PR">Puerto Rico</option>
+						<option value="DO">República Dominicana</option>
+						<option value="UY">Uruguay</option>
+						<option value="VE">Venezuela</option>
                     </select>                  
 	            </div>
 	            <div class="form-group">
 	              <label for="exampleInputCity1">City</label>
-	              <input type="text" v-model="city" class="form-control" id="exampleInputCity1" placeholder="Location">
+	              <input type="text" v-model="city" class="form-control" id="exampleInputCity1" placeholder="Location" required>
 	            </div>
 	            <div class="form-group">
 	              <label for="exampleTextarea1">Dirección</label>
@@ -74,15 +70,33 @@
 	              <input v-model="cel" type="tel" class="form-control" id="exampleInputCelular" placeholder="Celular">
 	            </div>
 
-	            <div class="col-lg-12 pl-0 grid-margin stretch-card">
+	            <div class="col-lg-12 pl-0 mb-0 grid-margin stretch-card">
 	              <div class="card">
 	                <div class="card-body pl-0 pt-0">
 	                  <label>Logo del Instituto</label>
-	                  <input @change="processFile" type="file" accept="image/*" class="dropify"/>
+	                  <input @change="processImage" type="file" accept="image/*" class="dropify"/>
 	                </div>
 	              </div>
 	            </div>
+				
+				<div class="form-group">
+					<label for="estado">Estado</label>
+					<select v-model="status" id="estado" class="form-control">
+						<option value="Demo">Demo</option>
+						<option value="Pendiente">Pendiente</option>
+						<option value="Activo">Activo</option>
+						<option value="Atrasado">Atrasado</option>
+						<option value="Suspendido">Suspendido</option>
+					</select>
+				</div>
 
+				<div class="form-group">
+					<label for="type">Tipo</label>
+					<select v-model="type" id="type" class="form-control">
+						<option value="Kinder">Kinder</option>
+						<option value="Primaria">Primaria</option>
+					</select>
+				</div>
 	            <button type="submit" class="btn btn-success mr-2">Agregar</button>
 	          </form>
 	        </div>
@@ -91,9 +105,9 @@
 	    <div class="col-md-6 grid-margin stretch-card">
 	    	<div class="card">
 	    		<div class="card-body">                           
-                  <h4 class="card-title">Instituciones</h4>
+                  <h4 class="card-title">Instituciones Agregadas</h4>
                   <p class="card-description">
-                    Lista de todos los Institutos
+                    <router-link to="VerInstitutos"><i class="mdi mdi-file-document-box"></i> Ver lista completa </router-link>
                   </p>
                   <table class="table">
                     <thead>
@@ -102,15 +116,20 @@
                         <th>País</th>
                         <th>Tipo</th>
                         <th>Status</th>
+                        <th>Ver</th>
                       </tr>
                     </thead>
                     <tbody>
 
                       <tr v-for="school in schools">
-                        <td>{{school.name}}</td>
-                        <td>{{school.country}}</td>
+                        <td><router-link :to="'VerInstituto/'+school.id">{{school.name}}</router-link></td>
+                        <td>{{school.country}} <i :class="'flag-icon flag-icon-'+school.country.toLowerCase()"></i></td>
                         <td>{{school.type}}</td>
                         <td><label class="badge badge-success">Pending</label></td>
+                        <td><router-link :to="'VerInstituto/'+school.id" class="btn btn-primary p-0">
+                        		<i class="mdi mdi-eye fs20 ml-1"></i>
+                        	</router-link>
+                        </td>
                       </tr>
 
                     </tbody>
@@ -132,11 +151,12 @@
 			return{
 				schools:[],
 				name:'',
-				type:'Gardin',
+				type:'Kinder',
+				status:'Demo',
 				email:'',
 				subtitle:'',
 				description:'',
-				country:'',
+				country:'AR',
 				city:'',
 				address:'',
 				tel:'',
@@ -151,7 +171,7 @@
 		},
 		methods:{
 			getSchools: function(){
-				axios.get('school').then(response => {
+				axios.get('AppSchool').then(response => {
 					this.schools = response.data;
 				});
 			},
@@ -164,23 +184,30 @@
                     //console.log(this.image);
                 };
             },
+            processImage: function(e){
+                this.image = e.target.files[0];
+            },
 			addSchool: function(){
-				var url = 'school';
-				axios.post(url,{
-					name:this.name,
-					type:this.type,
-					email:this.email,
-					subtitle:this.subtitle,
-					description:this.description,
-					country:this.country,
-					city:this.city,
-					address:this.address,
-					tel:this.tel,
-					cel:this.cel,
-					image:this.image,
-					lng:null,
-					lat:null
-				}).then(response => {
+				const formData = new FormData();
+				formData.append('image', this.image, this.image.filename);
+				formData.append('name', this.name);
+				formData.append('type', this.type);
+				formData.append('status', this.status);
+				formData.append('email', this.email);
+				formData.append('subtitle', this.subtitle);
+				formData.append('description', this.description);
+				formData.append('country', this.country);
+				formData.append('city', this.city);
+				formData.append('address', this.address);
+				formData.append('tel', this.tel);
+				formData.append('cel', this.cel);
+				formData.append('lng', null);
+				formData.append('lat', null);
+
+				var url = 'AppSchool';
+				axios.post(url,
+					formData
+				).then(response => {
 					toastr.success('Instituto Agregado');
 					this.$swal({title:'Agregado',type:'success'});
 					//$("html, body").animate({ scrollTop: 0 }, "slow");

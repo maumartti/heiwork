@@ -7573,7 +7573,7 @@ blockquote {
 
 b,
 strong {
-  font-weight: bolder; }
+  font-weight: bold; }
 
 small {
   font-size: 80%; }
@@ -16016,7 +16016,7 @@ body {
   font-size: 1rem;
   font-family: "Open Sans", sans-serif;
   font-weight: 300;
-  color: #354168; }
+  color: #222; }
 
 .h1,
 .h2,
@@ -24532,4 +24532,18 @@ div.tagsinput {
 }
 #toast-container {
     padding-top: 65px;
+}
+.fs20{
+    font-size:20px;
+}
+.btn-light.dropdown-toggle {
+    color: #212529;
+    background-color: #fff !important;
+    border-color: #fff !important;
+
+}
+@media (max-width: 767px){
+    .d-sm{
+        display:inline-block !important;
+    }
 }

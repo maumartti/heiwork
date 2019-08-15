@@ -8,18 +8,23 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <!-- favicon -->
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/favicon/apple-touch-icon.png') }}">
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon/favicon-32x32.png') }}">
-  <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon/favicon-16x16.png') }}">
-  <link rel="manifest" href="{{ asset('images/favicon/site.webmanifest') }}">
-  <link rel="mask-icon" href="{{ asset('images/favicon/safari-pinned-tab.svg') }}" color="#5bbad5">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('/images/favicon/apple-touch-icon.png') }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('/images/favicon/favicon-32x32.png') }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('/images/favicon/favicon-16x16.png') }}">
+  <link rel="manifest" href="{{ asset('/images/favicon/site.webmanifest') }}">
+  <link rel="mask-icon" href="{{ asset('/images/favicon/safari-pinned-tab.svg') }}" color="#5bbad5">
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
 
   <title>Kinderin</title>
   <!-- plugins:css -->
-  <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/all.css') }}">
+  <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
+  <link rel="stylesheet" href="{{ asset('/css/all.css') }}">
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap" rel="stylesheet">
+
 </head>
 
 <body class="sidebar-light">
@@ -184,7 +189,6 @@
               </a>
                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                   Sign Out
-                </a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: one;">
                   @csrf
                 </form>
@@ -192,7 +196,7 @@
             </div>
           </li>
         </ul>
-        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+        <button id="menuBtn" class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
           <span class="mdi mdi-menu"></span>
         </button>
       </div>
@@ -270,7 +274,7 @@
         </ul>
       </div>
       <!-- Menu lateral de app -->
-      <menu-app-component></menu-app-component>
+      <menu-app-component user="{{Auth::user()}}"></menu-app-component>
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
@@ -293,8 +297,8 @@
   <!-- container-scroller -->
 
 
-  <script src="js/app.js"></script>
-  <script src="js/scripts.js"></script>
+  <script src="/js/app.js"></script>
+  <script src="/js/scripts.js"></script>
 </body>
 
 </html>

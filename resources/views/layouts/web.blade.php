@@ -44,6 +44,19 @@
             <a href="/register" class="nav-link">Register</a>
           </li>
         </ul>
+
+        <div class="dropdown show d-none d-sm">
+          <a class="btn btn-light dropdown-toggle p-2" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="mdi mdi-menu" style="font-size:24px;margin-left:3px;"></span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="left:-122px;">
+            <a class="dropdown-item" href="/login">Login</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </div>
+
+
       </div>
     </nav>
     <!-- partial -->
