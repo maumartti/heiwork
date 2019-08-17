@@ -5,8 +5,9 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 const routes = [
-	{path:'/AgregarInstituto', name:'AgregarInstituto', component:require('./components/AgregarInstituto.vue').default},
-	{path:'/VerInstituto/:id', name:'VerInstituto', component:require('./components/VerInstituto.vue').default}
+	{path:'/institutos', name:'institutos', component:require('./components/Institutos.vue').default},
+	{path:'/instituto/:id', name:'instituto', component:require('./components/Instituto.vue').default},
+	{path:'/personal/:id', name:'personal', component:require('./components/Personal.vue').default}
 ];
 
 const router = new VueRouter({

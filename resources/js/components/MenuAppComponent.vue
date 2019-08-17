@@ -22,7 +22,7 @@
 	            <div class="collapse" id="page-layouts">
 	              <ul class="nav flex-column sub-menu">
 	                <li class="nav-item"> 
-	                	<router-link class="nav-link p-0" to="/AgregarInstituto" >
+	                	<router-link class="nav-link p-0" to="/institutos" >
 	                		<span class="col-12 p-3" @click="closeMenu">Agregar Instituto</span>
 	                	</router-link>
                 	</li>

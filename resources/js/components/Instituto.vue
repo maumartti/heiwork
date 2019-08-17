@@ -5,20 +5,23 @@
                 <div class="card-body">
                   <div class="profile-header text-white">
                     <div class="d-flex justify-content-around">
-                      <div class="profile-info d-flex align-items-center">
-                        <img class="rounded-circle img-lg" src="https://placehold.it/100x100" alt="profile image">
+                      <div class="profile-info d-flex align-items-center mr-1">
+                        <img class="rounded-circle img-lg" :src="'/images/schools/'+school.image" alt="profile image">
                       </div>
-                      <div class="details">
+                      <div class="details">                                           
                         <div class="detail-col">
-                          <p>Projects</p>
+                          <p>Alumnos</p>
                           <p>130</p>
                         </div>
                         <div class="detail-col">
-                          <p>Projects</p>
-                          <p>130</p>
+                          <p>Personal</p>
+                          <p>14</p>
                         </div>
                       </div>
                     </div>
+                      <div class="pt-4 text-center">  
+                        <p><strong>Director:</strong> Noelia Machado</p> 
+                      </div> 
                   </div>
                   <div class="profile-body">
                     <ul class="nav tab-switch" role="tablist">
@@ -35,7 +38,7 @@
                           <div class="tab-pane fade show active pr-3" id="user-profile-info" role="tabpanel" aria-labelledby="user-profile-info-tab">
                             <table class="table table-borderless w-100 mt-4">
                               <tr>
-                                <td><strong>Nombre Institución :</strong> {{school.name}}</td>
+                                <td><strong>Institución :</strong> {{school.name}}</td>
                                 <td><strong>Tipo :</strong> {{school.type}}</td>
                               </tr>
                               <tr>
@@ -223,6 +226,7 @@
                                 </router-link>
                             </li>
                           </ul>
+                        <router-link :to="'/personal/'+school.id" class="btn btn-xs btn-rounded btn-warning ml-1" >ver todos <i class="mdi mdi-eye"></i></router-link>
                         </div>
                         <h5 class="my-4">Pending</h5>
                         <div class="new-accounts">
@@ -274,6 +278,30 @@
                 </div>
               </div>
             </div>
+
+            <!-- Modal Profesores -->
+			<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+			  <div class="modal-dialog modal-dialog-centered" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="exampleModalLongTitle">Personal Docente</h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body">
+			        ...
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			        <button type="button" class="btn btn-primary">Save changes</button>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- End Modal -->
+
+
         </div>
    
 </template>

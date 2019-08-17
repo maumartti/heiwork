@@ -12,14 +12,15 @@ class SchoolController extends Controller
 		return $schools;
 	}
     public function store(Request $request){
-    	
+    	$data = $request->all();
     	//nombra y guarda image
     	if($request->image != 'null'){
-    		$imageName = bcrypt(16).'.'.$request->image->getClientOriginalExtension();
-        	$request->image->move(public_path('images/schools'), $imageName);
+    		$imageName = str_random(16).'.'.$request->image->getClientOriginalExtension();
+        	$request->image->move(public_path('images/schools'), $imageName);        	
+        	$data['image'] = $imageName;//le ponemos el nombre ceado para guardarlo en BD
         }
 
-		$school = School::create($request->all());
+		$school = School::create($data);
 		$school->save();
 	}
 	public function show(Request $request){
