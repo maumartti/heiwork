@@ -20,6 +20,8 @@
   <!-- plugins:css -->
   <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
   <link rel="stylesheet" href="{{ asset('/css/all.css') }}">
+  
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
 

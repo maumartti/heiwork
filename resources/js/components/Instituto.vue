@@ -4,23 +4,24 @@
               <div class="card">
                 <div class="card-body">
                   <div class="profile-header text-white">
-                    <div class="d-flex justify-content-around">
-                      <div class="profile-info d-flex align-items-center mr-1">
+                    <div class="row">
+                      <div class="col-md-3 col-sm-12 text-center">
                         <img class="rounded-circle img-lg" :src="'/images/schools/'+school.image" alt="profile image">
                       </div>
-                      <div class="details">                                           
-                        <div class="detail-col">
-                          <p>Alumnos</p>
-                          <p>130</p>
+                      <div class="col-md-3 col-sm-12">                                           
+                        <div class="p-2">
+                          <h4><span class="badge badge-pill badge-light text-dark p-2">Alumnos <strong>38</strong></span></h4>
                         </div>
-                        <div class="detail-col">
-                          <p>Personal</p>
-                          <p>14</p>
+                        <div class="p-2">
+                          <h4><span class="badge badge-pill badge-light text-dark p-2">Personal <strong>14</strong></span></h4>
                         </div>
                       </div>
+                      <div class="col-md-6 col-sm-12">
+                      	<h1>{{school.name}}</h1>
+                      </div>
                     </div>
-                      <div class="pt-4 text-center">  
-                        <p><strong>Director:</strong> Noelia Machado</p> 
+                      <div class="col-md-4 col-sm-12 pt-4">  
+                        <h4><span class="badge badge-pill badge-success text-dark p-2">Director: <strong>Noelia Machado</strong></span></h4>
                       </div> 
                   </div>
                   <div class="profile-body">

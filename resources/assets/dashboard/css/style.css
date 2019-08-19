@@ -22006,7 +22006,7 @@ body.avgrund-active {
 
 /* Dropify */
 .dropify-wrapper {
-  border: 2px dashed #f3f3f3;
+  border: 2px dashed #a4f99a;
   border-radius: 7px; }
   .dropify-wrapper:hover {
     background-size: 30px 30px;
@@ -24487,7 +24487,12 @@ div.tagsinput {
 
 
 
-
+.btn-danger {
+    background-color: #ff4b4b;
+}
+.btn-danger:hover{
+    background-color: #f73f3f;
+}
 .navbar.default-layout{
     background: #ffd134 /*#ffd33b*/ /*#fccd1a*/  /*#F9E9A7*/;
 }
@@ -24530,7 +24535,7 @@ div.tagsinput {
     background-repeat: no-repeat;
 }
 .dropify-wrapper {
-    border: 2px dashed #f9eb9a;
+    border: 2px dashed #a4f99a;
     border-radius: 7px;
 }
 #toast-container {
@@ -24551,7 +24556,7 @@ div.tagsinput {
     }
 }
 .profile-page .profile-header {
-    background: #ffd134;
+    background: #71b8d9;
 }
 .profile-page .profile-header{
     padding: 40px;
@@ -24568,3 +24573,26 @@ div.tagsinput {
 .modal-content{
     background: #fff;
 }
+/*** dropyfy ****/
+  .el-icon-loading {font-size:24px;position:absolute;top:45%;left:45%;font-weight:bold;color:#5d56f9}
+  .dropzone-area.full{position: absolute;background: transparent;border:none;top: 0;left: 0;right: 0;bottom: 0;margin: auto;height: 100%;width: 100%;}
+  .dropzone-area.full .dropzone-message,.dropzone-area.full .dropzone-preview{opacity:0 !important;}
+  .dropify{opacity: 0;position: absolute;height: 210px;cursor: pointer}
+  .dropify-preview{height: 210px;background-color: #666;z-index: 15}
+  .dropify:hover ~ .dropify-preview{background-color: #888;}
+  .dropzone-area {display: block;position: relative;cursor: pointer;overflow: hidden;width: 100%;max-width: 100%;height: 200px;padding: 5px 10px;font-size: 14px;line-height: 22px;color: #585858;background-color: #FFF;background-image: none;text-align: center;border: 2px solid #cccccc;-webkit-transition: border-color .15s linear;transition: border-color .15s linear;border-radius: 4px;}
+  .dropzone-area:hover{background-size: 30px 30px;background-image: -webkit-linear-gradient(135deg,#F6F6F6 25%,transparent 25%,transparent 50%,#F6F6F6 50%,#F6F6F6 75%,transparent 75%,transparent);background-image: linear-gradient(-45deg,#F6F6F6 25%,transparent 25%,transparent 50%,#F6F6F6 50%,#F6F6F6 75%,transparent 75%,transparent);-webkit-animation: stripes 2s linear infinite;animation: stripes 2s linear infinite;}
+  .dropzone-area input {position: absolute;top: 0;right: 0;bottom: 0;left: 0;height: 100%;width: 100%;opacity: 0;cursor: pointer;z-index: 5;}
+  .dropzone-info {font-size: 13px;font-size: 0.8125rem;color: #A8A8A8;letter-spacing: 0.4px;}
+  .dropzone-button {position: absolute;top: 10px;right: 10px;display: none;}
+  .dropzone-preview {width: 100%;height: 100%;position: absolute;top:0;left:0;}
+  .dropzone-preview img {width: 100% !important; height: auto !important;position: absolute !important;top: 0 !important;bottom: 0 !important;margin: auto !important;left: 0 !important;}
+  .dropzone-img{width: 185px;height: 210px;display: inline-block;overflow: hidden;padding: 2px;position: relative;}
+  .dropzone-img span{width:95% !important;position: absolute;padding: 3px 8px;background: rgba(255,255,255,.5);right: 3px;top: 5px;border-radius: 3px;z-index: 999;border: 2px solid #ccc;}
+  .dropzone-img span:hover {width:95% !important;transition: .3s all;background: #fff;}
+  .dropzone-remove{position: absolute !important;right:2%;top:2%;opacity: 0.6;z-index: 5}
+  .dropzone-remove:hover{opacity: 1}
+  .dropzone-message{position: relative;top: 50%;-webkit-transform: translateY(-50%);transform: translateY(-50%);}
+  .dropzone-message p {margin: 5px 0 0;color: #777;text-transform: uppercase;}
+  .file-icon {font-size: 70px;color: #CCC;}
+/** end dropyfy **/
