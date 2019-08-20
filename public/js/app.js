@@ -2416,7 +2416,8 @@ __webpack_require__.r(__webpack_exports__);
       lat: '',
       schoolSelectEdit: [],
       imageEdit: null,
-      componentKey: 0,
+      componentSlimAdd: 0,
+      componentSlimEdit: 0,
       slimOptions: {
         ratio: '1:1',
         saveInitialImage: true,
@@ -2436,7 +2437,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     reloadSlim: function reloadSlim() {
-      this.componentKey += 1; //esto recarga el slim cropper image
+      this.componentSlimAdd += 1; //esto recarga el slim cropper image
     },
     getSchools: function getSchools() {
       var _this = this;
@@ -2475,6 +2476,7 @@ __webpack_require__.r(__webpack_exports__);
       formData.append('lat', null);
       var url = 'AppSchool';
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(url, formData).then(function (response) {
+        _this2.image = '';
         $('#exampleModalCenter').modal('hide');
         toastr__WEBPACK_IMPORTED_MODULE_1___default.a.success('Instituto Agregado'); //this.$swal({title:'Agregado',type:'success'});
 
@@ -2490,7 +2492,7 @@ __webpack_require__.r(__webpack_exports__);
         }
       }
 
-      this.reloadSlim();
+      this.componentSlimEdit += 1;
     },
     editSchool: function editSchool() {
       var _this3 = this;
@@ -2500,6 +2502,11 @@ __webpack_require__.r(__webpack_exports__);
         var imageValue = JSON.parse($('#slim1').find('input:hidden').attr('value')); //objeto value image
 
         this.schoolSelectEdit.image = imageValue.output.image; //solo codigo base64
+      }
+
+      if ($('#slim1').attr('data-state') == 'empty') {
+        //por si se borra la imagen y queda sin imagen
+        this.schoolSelectEdit.image = null;
       }
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.put('AppSchool/' + this.schoolSelectEdit.id, this.schoolSelectEdit).then(function (response) {
@@ -41105,14 +41112,22 @@ var instance = null
   props: ['options','initialimage'],
   name: 'slim-cropper',
   mounted: function () {
-    this.options.initialImage = this.initialimage;
-    if (this.options.initialImage) {
+
+    //agregado 
+    var imgName = "null";
+    if(typeof this.initialimage !== 'undefined'){
+        this.options.initialImage = this.initialimage;//inicial imagen colocada en el conponent 
+        var imgName = this.initialimage.split('/').pop();
+    }
+    //end agregado
+
+    if (this.options.initialImage && imgName != "undefined" && imgName != "null") {
       var img = document.createElement('img')
       img.setAttribute('alt', '')
       img.src = this.options.initialImage
       this.$el.appendChild(img)
     }
-    instance = new _slim_module_js__WEBPACK_IMPORTED_MODULE_0__["default"](this.$el, this.options)
+    instance = new _slim_module_js__WEBPACK_IMPORTED_MODULE_0__["default"](this.$el, this.options, this.initialimage)
   },
   beforeDestroy: function () {
     instance.destroy()
@@ -42375,7 +42390,7 @@ var render = function() {
                                 _c(
                                   "slim-cropper",
                                   {
-                                    key: _vm.componentKey,
+                                    key: _vm.componentSlimEdit,
                                     attrs: {
                                       options: _vm.slimOptions,
                                       initialimage:
@@ -42999,7 +43014,7 @@ var render = function() {
                                 _c(
                                   "slim-cropper",
                                   {
-                                    key: _vm.componentKey,
+                                    key: _vm.componentSlimAdd,
                                     attrs: {
                                       options: _vm.slimOptions,
                                       id: "slim"
@@ -59777,15 +59792,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!************************************************!*\
   !*** ./resources/js/components/Institutos.vue ***!
   \************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Institutos_vue_vue_type_template_id_2f98fcdf_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Institutos.vue?vue&type=template&id=2f98fcdf&scoped=true& */ "./resources/js/components/Institutos.vue?vue&type=template&id=2f98fcdf&scoped=true&");
 /* harmony import */ var _Institutos_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Institutos.vue?vue&type=script&lang=js& */ "./resources/js/components/Institutos.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Institutos_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Institutos_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -59815,7 +59829,7 @@ component.options.__file = "resources/js/components/Institutos.vue"
 /*!*************************************************************************!*\
   !*** ./resources/js/components/Institutos.vue?vue&type=script&lang=js& ***!
   \*************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

@@ -65,7 +65,7 @@
 		              <div class="card">
 		                <div class="card-body">
 		                  <label>Logo del Instituto</label>
-		                 <slim-cropper :options="slimOptions" :key="componentKey" :initialimage="'../../../images/schools/'+schoolSelectEdit.image" id="slim1" >
+		                 <slim-cropper :options="slimOptions" :key="componentSlimEdit" :initialimage="'../../../images/schools/'+schoolSelectEdit.image" id="slim1" >
 						      <input type="file" name="slim1" />						      
 						  </slim-cropper> 
 		                </div>
@@ -185,7 +185,7 @@
 		              <div class="card">
 		                <div class="card-body">
 		                  <label>Logo del Instituto</label>
-		                  <slim-cropper :options="slimOptions" id="slim" :key="componentKey" >
+		                  <slim-cropper :options="slimOptions" id="slim" :key="componentSlimAdd" >
 						      <!--<img :src="'../../../images/proyectos/'+proyecto.foto" alt="">-->
 						      <input type="file" name="slim" />
 						  </slim-cropper> 
@@ -323,7 +323,8 @@
 				schoolSelectEdit:[],
 				
 				imageEdit:null,
-				componentKey:0,
+				componentSlimAdd:0,
+				componentSlimEdit:0,
 				slimOptions: {
                     ratio: '1:1',
                     saveInitialImage:true,
@@ -343,7 +344,7 @@
 		},
 		methods:{
 			reloadSlim: function(){
-				this.componentKey += 1;//esto recarga el slim cropper image
+				this.componentSlimAdd += 1;//esto recarga el slim cropper image
 			},
 			getSchools: function(){
 				axios.get('AppSchool').then(response => {
@@ -380,6 +381,7 @@
 				axios.post(url,
 					formData
 				).then(response => {
+					this.image = '';
 					$('#exampleModalCenter').modal('hide');
 					toastr.success('Instituto Agregado');
 					//this.$swal({title:'Agregado',type:'success'});
@@ -394,13 +396,16 @@
 						this.schoolSelectEdit = this.schools[i];						
 					}
 				}
-				this.reloadSlim();
+				this.componentSlimEdit+=1;
 			},
 			editSchool: function(){
 				if($('#slim1').find('input:hidden').attr('value')){//si exsiste valor
 					let imageValue = JSON.parse($('#slim1').find('input:hidden').attr('value'));//objeto value image
 					this.schoolSelectEdit.image = imageValue.output.image; //solo codigo base64
 				}				
+				if($('#slim1').attr('data-state') == 'empty'){//por si se borra la imagen y queda sin imagen
+					this.schoolSelectEdit.image = null;
+				}
 
 				axios.put('AppSchool/'+this.schoolSelectEdit.id,this.schoolSelectEdit).then(response =>{
 					toastr.success('Actualizado con exito!');

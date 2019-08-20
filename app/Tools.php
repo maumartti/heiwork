@@ -16,8 +16,8 @@ class Tools extends Model
         $imageName = str_random(16).'.'.$extencion;
         return array('image' => $image, 'imageName' => $imageName);
     }
-    public static function deleteImage($filepath){
-	    $old_image = $filepath;
+    public static function deleteImage($filepath,$fileName){
+	    $old_image = $filepath.$fileName;
 	    if (file_exists($old_image)) {
 	       @unlink($old_image);
 	    }

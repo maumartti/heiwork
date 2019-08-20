@@ -18,14 +18,15 @@ class SchoolController extends Controller
     	$data = $request->all();
 
     	
-    	if($request->image != 'null'){
+    	if($request->image != null && $request->image != 'null'){
     		/**** OBTENEMOS Y GUARDAMOS LA FOTO BASE 64 *****/
     		$tools = New Tools;
 	        $dataImg = $tools->base64toImage($request->image);//ingresa el base64 y retorna la imagen + nombre random 16
-	        file_put_contents(public_path(). '/images/schools/' . $dataImg['imageName'], base64_decode($dataImg['image']));
+	        file_put_contents(public_path().'/images/schools/'.$dataImg['imageName'], base64_decode($dataImg['image']));
 	        $data['image'] = $dataImg['imageName'];//renombramos con el nuevo nombre de imagen al objeto		   
 	        /***** END GUARDAMOS FOTO SERVER ***/
         }
+
 		$school = School::create($data);
 		$school->save();
 	}
@@ -37,16 +38,16 @@ class SchoolController extends Controller
 		$tools = New Tools;
 		$data = $request->all();
 
-		if($request->image != 'null'){
-			
+		if($request->image != null && $request->image != 'null'){		
 			//borramos la imagen que ya tiene del servidor
 			$school = School::find($request->route('AppSchool'))->first();
-			$tools->deleteImage(public_path().'/images/schools/'.$school->image);
+			$tools->deleteImage(public_path().'/images/schools/', $school->image);
 
 	        $dataImg = $tools->base64toImage($request->image);//ingresa el base64 y retorna la imagen + nombre random 16
 	        file_put_contents(public_path(). '/images/schools/' . $dataImg['imageName'], base64_decode($dataImg['image']));
-	        $data['image'] = $dataImg['imageName'];//renombramos con el nuevo nombre de imagen al objeto		   	    
-    	}
+	        $data['image'] = $dataImg['imageName'];//renombramos con el nuevo nombre de imagen al objeto		
+		}
+
 		School::find($request->route('AppSchool'))->update($data);
 	}
 	public function destroy(Request $request){
@@ -54,7 +55,7 @@ class SchoolController extends Controller
 		$school = School::find($request->route('AppSchool'));
 		if($school){
 			$school->delete();
-			$tools->deleteImage(public_path().'/images/schools/'.$school->image);
+			$tools->deleteImage(public_path().'/images/schools/', $school->image);
 			return $school;
 		}
 	}
