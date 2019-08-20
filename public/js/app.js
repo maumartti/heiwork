@@ -2415,6 +2415,7 @@ __webpack_require__.r(__webpack_exports__);
       lng: '',
       lat: '',
       schoolSelectEdit: [],
+      formSend: true,
       imageEdit: null,
       componentSlimAdd: 0,
       componentSlimEdit: 0,
@@ -2452,6 +2453,8 @@ __webpack_require__.r(__webpack_exports__);
     addSchool: function addSchool() {
       var _this2 = this;
 
+      this.formSend = false; //bloquea boton enviar para no reenviar
+
       if ($('#slim').find('input:hidden').attr('value')) {
         //si exsiste valor
         var imageValue = JSON.parse($('#slim').find('input:hidden').attr('value')); //objeto value image
@@ -2478,11 +2481,14 @@ __webpack_require__.r(__webpack_exports__);
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(url, formData).then(function (response) {
         _this2.image = '';
         $('#exampleModalCenter').modal('hide');
+        _this2.formSend = true; //desbloquea boton send
+
         toastr__WEBPACK_IMPORTED_MODULE_1___default.a.success('Instituto Agregado'); //this.$swal({title:'Agregado',type:'success'});
 
         _this2.getSchools();
       })["catch"](function (error) {
         toastr__WEBPACK_IMPORTED_MODULE_1___default.a.error('Error al agregar');
+        _this2.formSend = true; //desbloquea boton send
       });
     },
     schoolEdit: function schoolEdit(id) {
@@ -2496,6 +2502,8 @@ __webpack_require__.r(__webpack_exports__);
     },
     editSchool: function editSchool() {
       var _this3 = this;
+
+      this.formSend = false; //bloquea boton enviar para no reenviar
 
       if ($('#slim1').find('input:hidden').attr('value')) {
         //si exsiste valor
@@ -2516,8 +2524,10 @@ __webpack_require__.r(__webpack_exports__);
         _this3.getSchools();
 
         $('#modalEdit').modal('hide');
+        _this3.formSend = true; //desbloquea boton send
       })["catch"](function (error) {
         toastr__WEBPACK_IMPORTED_MODULE_1___default.a.error('Error al guardar !');
+        _this3.formSend = true; //desbloquea boton send
       });
     },
     schoolDelete: function schoolDelete(id) {
@@ -42956,7 +42966,29 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(4)
+                  _c("div", { staticClass: "modal-footer" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-secondary",
+                        attrs: { type: "button", "data-dismiss": "modal" }
+                      },
+                      [_vm._v("Cancelar")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-warning",
+                        attrs: {
+                          type: "submit",
+                          id: "btnGuardar",
+                          disabled: !_vm.formSend
+                        }
+                      },
+                      [_vm._v("Guardar")]
+                    )
+                  ])
                 ]
               )
             ])
@@ -42996,7 +43028,7 @@ var render = function() {
                   }
                 },
                 [
-                  _vm._m(5),
+                  _vm._m(4),
                   _vm._v(" "),
                   _c("div", { staticClass: "modal-body" }, [
                     _c("div", { staticClass: "form-row" }, [
@@ -43531,7 +43563,29 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(6)
+                  _c("div", { staticClass: "modal-footer" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-secondary",
+                        attrs: { type: "button", "data-dismiss": "modal" }
+                      },
+                      [_vm._v("Cancelar")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-success",
+                        attrs: {
+                          type: "submit",
+                          id: "btnAgregar",
+                          disabled: !_vm.formSend
+                        }
+                      },
+                      [_vm._v("Agregar")]
+                    )
+                  ])
                 ]
               )
             ])
@@ -43616,27 +43670,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-footer" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-secondary",
-          attrs: { type: "button", "data-dismiss": "modal" }
-        },
-        [_vm._v("Cancelar")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        { staticClass: "btn btn-warning", attrs: { type: "submit" } },
-        [_vm._v("Guardar")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "modal-header" }, [
       _c(
         "h4",
@@ -43661,27 +43694,6 @@ var staticRenderFns = [
           }
         },
         [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-footer" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-secondary",
-          attrs: { type: "button", "data-dismiss": "modal" }
-        },
-        [_vm._v("Cancelar")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        { staticClass: "btn btn-success", attrs: { type: "submit" } },
-        [_vm._v("Agregar")]
       )
     ])
   }

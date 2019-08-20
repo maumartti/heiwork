@@ -159,7 +159,7 @@
 			      </div>
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-		        <button type="submit" class="btn btn-warning">Guardar</button>
+		        <button type="submit" class="btn btn-warning" id="btnGuardar" :disabled="!formSend">Guardar</button>
 		      </div>
 		      </form>
 		    </div>
@@ -280,7 +280,7 @@
 			      </div>
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-		        <button type="submit" class="btn btn-success">Agregar</button>
+		        <button type="submit" class="btn btn-success" id="btnAgregar" :disabled="!formSend">Agregar</button>
 		      </div>
 		      </form>
 		    </div>
@@ -321,6 +321,7 @@
 				lng:'',
 				lat:'',
 				schoolSelectEdit:[],
+				formSend:true,
 				
 				imageEdit:null,
 				componentSlimAdd:0,
@@ -356,6 +357,7 @@
                 //console.log(this.image);
             },
 			addSchool: function(){
+				this.formSend = false;//bloquea boton enviar para no reenviar
 				if($('#slim').find('input:hidden').attr('value')){//si exsiste valor
 					let imageValue = JSON.parse($('#slim').find('input:hidden').attr('value'));//objeto value image
 					this.image = imageValue.output.image; //solo codigo base64
@@ -383,11 +385,13 @@
 				).then(response => {
 					this.image = '';
 					$('#exampleModalCenter').modal('hide');
+					this.formSend = true;//desbloquea boton send
 					toastr.success('Instituto Agregado');
 					//this.$swal({title:'Agregado',type:'success'});
 					this.getSchools();
 				}).catch(error =>{
 					toastr.error('Error al agregar');
+					this.formSend = true;//desbloquea boton send
 				})
 			},
 			schoolEdit: function(id){
@@ -399,6 +403,7 @@
 				this.componentSlimEdit+=1;
 			},
 			editSchool: function(){
+				this.formSend = false;//bloquea boton enviar para no reenviar
 				if($('#slim1').find('input:hidden').attr('value')){//si exsiste valor
 					let imageValue = JSON.parse($('#slim1').find('input:hidden').attr('value'));//objeto value image
 					this.schoolSelectEdit.image = imageValue.output.image; //solo codigo base64
@@ -412,8 +417,10 @@
 					this.schoolSelectEdit = [];//lo vaciamos 
 					this.getSchools();
 					$('#modalEdit').modal('hide');
+					this.formSend = true;//desbloquea boton send
 				}).catch(error =>{
 					toastr.error('Error al guardar !');
+					this.formSend = true;//desbloquea boton send
 				});
 			},
 			schoolDelete: function(id){

@@ -38,10 +38,11 @@ class SchoolController extends Controller
 		$tools = New Tools;
 		$data = $request->all();
 
+		//borramos la imagen que ya tiene del servidor
+		$school = School::find($request->route('AppSchool'));
+		$tools->deleteImage(public_path().'/images/schools/', $school->image);
+
 		if($request->image != null && $request->image != 'null'){		
-			//borramos la imagen que ya tiene del servidor
-			$school = School::find($request->route('AppSchool'))->first();
-			$tools->deleteImage(public_path().'/images/schools/', $school->image);
 
 	        $dataImg = $tools->base64toImage($request->image);//ingresa el base64 y retorna la imagen + nombre random 16
 	        file_put_contents(public_path(). '/images/schools/' . $dataImg['imageName'], base64_decode($dataImg['image']));

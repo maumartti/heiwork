@@ -18,8 +18,8 @@ class Tools extends Model
     }
     public static function deleteImage($filepath,$fileName){
 	    $old_image = $filepath.$fileName;
-	    if (file_exists($old_image)) {
-	       @unlink($old_image);
+	    if (file_exists($old_image) && $fileName != 'null' && $fileName != null) {
+	        unlink($old_image);
 	    }
 	}
 }
