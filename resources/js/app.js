@@ -5,8 +5,8 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 const routes = [
-	{path:'/institutos', name:'institutos', component:require('./components/Institutos.vue').default},
-	{path:'/instituto/:id', name:'instituto', component:require('./components/Instituto.vue').default},
+	{path:'/companys', name:'companys', component:require('./components/Companys.vue').default},
+	{path:'/company/:id', name:'company', component:require('./components/Company.vue').default},
 	{path:'/personal/:id', name:'personal', component:require('./components/Personal.vue').default}
 ];
 

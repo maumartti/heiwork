@@ -2,7 +2,7 @@
     <div class="col-lg-12 grid-margin stretch-card p-0">
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title">Personal De la Institución</h4>
+          <h4 class="card-title">Usuarios</h4>
           <button type="button" class="btn btn-success btn-xs mb-2" data-toggle="modal" data-target="#exampleModalCenter">
 		  	Agregar Nuevo <i class="mdi mdi-account-plus"></i>
 		  </button>
@@ -173,7 +173,7 @@
 		    <div class="modal-content">
 		      <form v-on:submit.prevent="" class="forms-sample" enctype="multipart/form-data">
 		      <div class="modal-header">
-		        <h5 class="modal-title" id="exampleModalLongTitle">Agregar Trabajador</h5>
+		        <h5 class="modal-title" id="exampleModalLongTitle">Agregar Usuario</h5>
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		          <span aria-hidden="true">&times;</span>
 		        </button>
@@ -183,95 +183,58 @@
 		      		<div class="col-md-3 grid-margin stretch-card">
 		              <div class="card">
 		                <div class="card-body">
-		                  <label>Logo del Instituto</label>
-		                  <input  type="file" accept="image/*" class="dropify"/>
+		                  <label>Foto de perfil</label>
+		                  <slim-cropper :options="slimOptions" :key="componentSlimAdd"  id="slim1" >
+						      <input type="file" name="slim1" />						      
+						  </slim-cropper>
 		                </div>
 		              </div>
 		            </div>
-					<div class="col-md-3">
-			            <div class="form-group">
-			              <label for="exampleInputName1">Name</label>
-			              <input type="text"  class="form-control" id="exampleInputName1" placeholder="Name" required>
+					
+					<div class="col-md-9 p-5">
+			            <div class="form-group row">
+			              <label for="exampleInputName1"class="col-md-3 col-form-label text-md-right" >Nombre</label>
+			              <div class="col-md-6">
+			              	<input type="text"  class="form-control" id="exampleInputName1" placeholder="Nombre" required>
+			              </div>	
 			            </div>
-			            <div class="form-group">
-			              <label for="exampleInputEmail3">Email address</label>
-			              <input type="email"  class="form-control" id="exampleInputEmail3" placeholder="Email" required>
-			            </div>
-			            <div class="form-group">
-			            	<label for="frase">Frase de la Institución</label>
-			            	<input type="text"  class="form-control" id="frase" placeholder="Frase">
-			            </div>
-			            <div class="form-group">
-			              <label for="exampleTextarea1">Descripción</label>
-			              <textarea  class="form-control" id="exampleTextarea1" rows="2"></textarea>
-			            </div>
-		        	</div>
-		        	<div class="col-md-3">
-			            <div class="form-group">	
+			            <div class="form-group row">
+			              <label for="exampleInputEmail1" class="col-md-3 col-form-label text-md-right">Correo Electrónico</label>
+			              <div class="col-md-6">
+			              	<input type="text"  class="form-control" id="exampleInputEmail1" placeholder="maria@correo.com" required>
+			              </div>
+			            </div>			           
+
+			            <div class="form-group row">
+                            <label for="password" class="col-md-3 col-form-label text-md-right">Contraseña</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control" name="password" required autocomplete="new-password">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password-confirm" class="col-md-3 col-form-label text-md-right">Repite Contraseña</label>
+
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            </div>
+                        </div>
+                        
+			            <div class="form-group row">	
 			            	<!--<i class="flag-icon flag-icon-ad" title="ad" id="ad"></i>            	-->
-		                    <label for="paises">País</label>
-		                    <select  class="form-control" id="paises" required>                    
-								<option value="AR">Argentina</option>
-								<option value="BO">Bolivia</option>
-								<option value="CL">Chile</option>
-								<option value="CO">Colombia</option>
-								<option value="CR">Costa Rica</option>
-								<option value="EC">Ecuador</option>
-								<option value="SV">El Salvador</option>
-								<option value="ES">España</option>
-								<option value="GD">Granada</option>
-								<option value="GT">Guatemala</option>
-								<option value="GY">Guayana</option>
-								<option value="HT">Haití</option>
-								<option value="HN">Honduras</option>
-								<option value="MX">México</option>
-								<option value="NI">Nicaragua</option>
-								<option value="PY">Paraguay</option>
-								<option value="PA">Panamá</option>
-								<option value="PE">Perú</option>
-								<option value="PR">Puerto Rico</option>
-								<option value="DO">República Dominicana</option>
-								<option value="UY">Uruguay</option>
-								<option value="VE">Venezuela</option>
-		                    </select>                  
-			            </div>
-			            <div class="form-group">
-			              <label for="exampleInputCity1">City</label>
-			              <input type="text"  class="form-control" id="exampleInputCity1" placeholder="Location" required>
-			            </div>
-			            <div class="form-group">
-			              <label for="exampleTextarea1">Dirección</label>
-			              <textarea  class="form-control" id="exampleTextarea1" rows="2"></textarea>
-			            </div>
-			            <div class="form-group">
-			              <label for="exampleInputTelefono">Telefono</label>
-			              <input type="tel" class="form-control" id="exampleInputTelefono" placeholder="Telefono">
+		                    <label for="paises" class="col-md-3 col-form-label text-md-right">Tipo de cuenta</label>
+
+		                    <div class="col-md-6">
+			                    <select  class="form-control" id="type" required>          
+			                    	<option value="">Selecione uno ..</option>
+	                                <option value="root">Root</option>
+	                                <option value="admin">Admin</option>
+	                                <option value="usuario">Usuario</option>
+			                    </select>  
+			                </div>                    
 			            </div>
 			        </div>
-			        <div class="col-md-3">    
-			            <div class="form-group">
-			              <label for="exampleInputCelular">Celular</label>
-			              <input type="tel" class="form-control" id="exampleInputCelular" placeholder="Celular">
-			            </div>		            
-						
-						<div class="form-group">
-							<label for="estado">Estado</label>
-							<select  id="estado" class="form-control">
-								<option value="Demo">Demo</option>
-								<option value="Pendiente">Pendiente</option>
-								<option value="Activo">Activo</option>
-								<option value="Atrasado">Atrasado</option>
-								<option value="Suspendido">Suspendido</option>
-							</select>
-						</div>
-						<div class="form-group">
-							<label for="type">Tipo</label>
-							<select  id="type" class="form-control">
-								<option value="Kinder">Kinder</option>
-								<option value="Primaria">Primaria</option>
-							</select>
-						</div>
-					</div>	
 	        	</div>						            		          
   		      </div>
 		      <div class="modal-footer">
@@ -287,7 +250,42 @@
     </div>
 </template>
 <script>
-	export default{
+	import Slim from 'slim/slim.vue';
 
+	export default{
+		components:{
+			'slim-cropper' : Slim
+		},
+		data(){
+			return{
+
+				name:'',
+				email:'',
+				password:'',
+				password_confirmation:'',
+
+
+				imageEdit:null,
+				componentSlimAdd:0,
+				componentSlimEdit:0,
+				slimOptions: {
+                    ratio: '1:1',
+                    saveInitialImage:true,
+                    initialImage: '',
+                    download: false,
+                    uploadBase64:true,
+                    label: 'Agregar foto <p><i class="material-icons" style="font-size:45px;">touch_app</i></p>',
+                    willSave: function(data, ready) { //data imagen cargada o editada
+                        ready(data);
+                        //console.log(data);
+                    },   	
+                }
+
+
+			}
+		},
+		setUser: function(){
+
+		}
 	}
 </script>

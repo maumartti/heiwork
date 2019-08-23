@@ -17,25 +17,27 @@
 	            </div>
 	          </li>
 	          
-	          <li class="nav-item" v-if="userAuth.type == 'admin'">
+	          <li class="nav-item" v-if="userAuth.type == 'root'">
 	            <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false" aria-controls="page-layouts"> <img class="menu-icon" src="/images/menu_icons/00.png" alt="menu icon"> <span class="menu-title">Admin</span><i class="menu-arrow"></i></a>
 	            <div class="collapse" id="page-layouts">
 	              <ul class="nav flex-column sub-menu">
 	                <li class="nav-item"> 
-	                	<router-link class="nav-link p-0" to="/institutos" >
-	                		<span class="col-12 p-3" @click="closeMenu">Agregar Instituto</span>
+	                	<router-link class="nav-link p-0" to="/companys" >
+	                		<span class="col-12 p-3" @click="closeMenu">Empresas</span>
 	                	</router-link>
                 	</li>
-	                <li class="nav-item"> <a class="nav-link" href="pages/layout/rtl-layout.html">Institutos Agregados</a></li>
+                	<!--
+	                <li class="nav-item"> <a class="nav-link" href="pages/layout/rtl-layout.html">Empresas Agregados</a></li>
 	                <li class="nav-item"> <a class="nav-link" href="pages/layout/horizontal-menu.html">Menu 3</a></li>
 	                <li class="nav-item"> <a class="nav-link" href="pages/layout/horizontal-menu-2.html">Menu 4</a></li>
+	            -->
 	              </ul>
 	            </div>
 	          </li>
 	          
 	          <li class="nav-item" v-if="userAuth.type == 'SchoolDirector'"> 
 	          	<a class="nav-link" href="index.html"> 
-	          		<img class="menu-icon" src="/images/menu_icons/61.png" alt="menu icon"> <span class="menu-title">Instituto</span></a> </li>
+	          		<img class="menu-icon" src="/images/menu_icons/61.png" alt="menu icon"> <span class="menu-title">Empresa</span></a> </li>
 	          <li class="nav-item" v-if="userAuth.type == 'SchoolDirector'">
 	            <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false" aria-controls="page-layouts"> <img class="menu-icon" src="/images/menu_icons/01.png" alt="menu icon"> <span class="menu-title">Alumnos</span><i class="menu-arrow"></i></a>
 	            <div class="collapse" id="page-layouts">

@@ -2,9 +2,9 @@
 	<div class="col-lg-12 grid-margin stretch-card p-0">
       <div class="card">
         <div class="card-body">                        
-          <h4 class="card-title">Instituciones Agregadas <i class="mdi mdi-bank"></i></h4>
+          <h4 class="card-title">Empresas Agregadas <i class="mdi mdi-store"></i></h4>
           <button type="button" class="btn btn-success btn-xs mb-2" @click="reloadSlim" data-toggle="modal" data-target="#exampleModalCenter">
-		  	Agregar Nuevo <i class="mdi mdi-bank"></i>
+		  	Agregar Nuevo <i class="mdi mdi-store"></i>
 		  </button>
 		  <div class="table-responsive">
 	          <table class="table">
@@ -20,22 +20,22 @@
 	              </tr>
 	            </thead>
 	            <tbody>
-	              <tr v-for="school in schools">
-	                <td><router-link :to="'VerInstituto/'+school.id">{{school.name}}</router-link></td>
-	                <td>{{school.country}} <i :class="'flag-icon flag-icon-'+school.country.toLowerCase()"></i></td>
-	                <td>{{school.type}}</td>
+	              <tr v-for="company in companys">
+	                <td><router-link :to="'company/'+company.id">{{company.name}}</router-link></td>
+	                <td>{{company.country}} <i :class="'flag-icon flag-icon-'+company.country.toLowerCase()"></i></td>
+	                <td>{{company.type}}</td>
 	                <td><label class="badge badge-success">Pending</label></td>
-	                <td><router-link :to="'instituto/'+school.id" class="btn btn-info p-1">
+	                <td><router-link :to="'company/'+company.id" class="btn btn-info p-1">
 	                		<i class="mdi mdi-eye fs20 ml-1"></i>
 	                	</router-link>
 	                </td>
 	                <td>
-	                	<button type="button" @click="schoolEdit(school.id)" class="btn btn-warning p-1" data-toggle="modal" data-target="#modalEdit">
+	                	<button type="button" @click="companyEdit(company.id)" class="btn btn-warning p-1" data-toggle="modal" data-target="#modalEdit">
 	                		<i class="mdi mdi-pencil fs20 ml-1"></i>
 	                	</button>
 	                </td>
 	                <td>
-	                	<button type="button" @click="schoolDelete(school.id)" class="btn btn-danger p-1" >
+	                	<button type="button" @click="companyDelete(company.id)" class="btn btn-danger p-1" >
 	                		<i class="mdi mdi-delete fs20 ml-1"></i>
 	                	</button>
 	                </td>
@@ -52,7 +52,7 @@
 		<div class="modal fade bd-example-modal-lg" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
 		  <div class="modal-dialog modal-lg" role="document">
 		    <div class="modal-content">
-	          <form v-on:submit.prevent="editSchool()" class="forms-sample" enctype="multipart/form-data">
+	          <form v-on:submit.prevent="editCompany()" class="forms-sample" enctype="multipart/form-data">
 		      <div class="modal-header">
 		        <h4 class="modal-title text-warning" id="exampleModalLongTitle">Editar Institución <i class="mdi mdi-pencil"></i></h4>
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -64,8 +64,8 @@
 		      		<div class="col-md-3 grid-margin stretch-card">
 		              <div class="card">
 		                <div class="card-body">
-		                  <label>Logo del Instituto</label>
-		                 <slim-cropper :options="slimOptions" :key="componentSlimEdit" :initialimage="'../../../images/schools/'+schoolSelectEdit.image" id="slim1" >
+		                  <label>Logo</label>
+		                 <slim-cropper :options="slimOptions" :key="componentSlimEdit" :initialimage="'../../../images/companys/'+companySelectEdit.image" id="slim1" >
 						      <input type="file" name="slim1" />						      
 						  </slim-cropper> 
 		                </div>
@@ -74,26 +74,26 @@
 					<div class="col-md-3">
 			            <div class="form-group">
 			              <label for="exampleInputName1">Name</label>
-			              <input type="text" v-model="schoolSelectEdit.name" class="form-control" id="exampleInputName1" placeholder="Name" required>
+			              <input type="text" v-model="companySelectEdit.name" class="form-control" id="exampleInputName1" placeholder="Name" required>
 			            </div>
 			            <div class="form-group">
 			              <label for="exampleInputEmail3">Email address</label>
-			              <input type="email" v-model="schoolSelectEdit.email" class="form-control" id="exampleInputEmail3" placeholder="Email" required>
+			              <input type="email" v-model="companySelectEdit.email" class="form-control" id="exampleInputEmail3" placeholder="Email" required>
 			            </div>
 			            <div class="form-group">
 			            	<label for="frase">Frase de la Institución</label>
-			            	<input type="text" v-model="schoolSelectEdit.subtitle" class="form-control" id="frase" placeholder="Frase">
+			            	<input type="text" v-model="companySelectEdit.subtitle" class="form-control" id="frase" placeholder="Frase">
 			            </div>
 			            <div class="form-group">
 			              <label for="exampleTextarea1">Descripción</label>
-			              <textarea v-model="schoolSelectEdit.description" class="form-control" id="exampleTextarea1" rows="2"></textarea>
+			              <textarea v-model="companySelectEdit.description" class="form-control" id="exampleTextarea1" rows="2"></textarea>
 			            </div>
 		        	</div>
 		        	<div class="col-md-3">
 			            <div class="form-group">	
 			            	<!--<i class="flag-icon flag-icon-ad" title="ad" id="ad"></i>            	-->
 		                    <label for="paises">País</label>
-		                    <select v-model="schoolSelectEdit.country" class="form-control" id="paises" required>                    
+		                    <select v-model="companySelectEdit.country" class="form-control" id="paises" required>                    
 								<option value="AR">Argentina</option>
 								<option value="BO">Bolivia</option>
 								<option value="CL">Chile</option>
@@ -120,26 +120,26 @@
 			            </div>
 			            <div class="form-group">
 			              <label for="exampleInputCity1">City</label>
-			              <input type="text" v-model="schoolSelectEdit.city" class="form-control" id="exampleInputCity1" placeholder="Location" required>
+			              <input type="text" v-model="companySelectEdit.city" class="form-control" id="exampleInputCity1" placeholder="Location" required>
 			            </div>
 			            <div class="form-group">
 			              <label for="exampleTextarea1">Dirección</label>
-			              <textarea v-model="schoolSelectEdit.address" class="form-control" id="exampleTextarea1" rows="2"></textarea>
+			              <textarea v-model="companySelectEdit.address" class="form-control" id="exampleTextarea1" rows="2"></textarea>
 			            </div>
 			            <div class="form-group">
 			              <label for="exampleInputTelefono">Telefono</label>
-			              <input type="tel" v-model="schoolSelectEdit.tel" class="form-control" id="exampleInputTelefono" placeholder="Telefono">
+			              <input type="tel" v-model="companySelectEdit.tel" class="form-control" id="exampleInputTelefono" placeholder="Telefono">
 			            </div>
 			        </div>
 			        <div class="col-md-3">    
 			            <div class="form-group">
 			              <label for="exampleInputCelular">Celular</label>
-			              <input type="tel" v-model="schoolSelectEdit.cel" class="form-control" id="exampleInputCelular" placeholder="Celular">
+			              <input type="tel" v-model="companySelectEdit.cel" class="form-control" id="exampleInputCelular" placeholder="Celular">
 			            </div>		            
 						
 						<div class="form-group">
 							<label for="estado">Estado</label>
-							<select v-model="schoolSelectEdit.status" id="estado" class="form-control">
+							<select v-model="companySelectEdit.status" id="estado" class="form-control">
 								<option value="Demo">Demo</option>
 								<option value="Pendiente">Pendiente</option>
 								<option value="Activo">Activo</option>
@@ -149,7 +149,7 @@
 						</div>
 						<div class="form-group">
 							<label for="type">Tipo</label>
-							<select v-model="schoolSelectEdit.type" id="type" class="form-control">
+							<select v-model="companySelectEdit.type" id="type" class="form-control">
 								<option value="Kinder">Kinder</option>
 								<option value="Primaria">Primaria</option>
 							</select>
@@ -172,9 +172,9 @@
 		<div class="modal fade bd-example-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
 		  <div class="modal-dialog modal-lg" role="document">
 		    <div class="modal-content">
-	          <form v-on:submit.prevent="addSchool()" class="forms-sample" enctype="multipart/form-data">
+	          <form v-on:submit.prevent="addCompany()" class="forms-sample" enctype="multipart/form-data">
 		      <div class="modal-header">
-		        <h4 class="modal-title text-success" id="exampleModalLongTitle">Agregar Institución <i class="mdi mdi-plus"></i></h4>
+		        <h4 class="modal-title text-success" id="exampleModalLongTitle">Agregar Empresa <i class="mdi mdi-plus"></i></h4>
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		          <span aria-hidden="true">&times;</span>
 		        </button>
@@ -184,7 +184,7 @@
 		      		<div class="col-md-3 grid-margin stretch-card">
 		              <div class="card">
 		                <div class="card-body">
-		                  <label>Logo del Instituto</label>
+		                  <label>Logo</label>
 		                  <slim-cropper :options="slimOptions" id="slim" :key="componentSlimAdd" >
 						      <!--<img :src="'../../../images/proyectos/'+proyecto.foto" alt="">-->
 						      <input type="file" name="slim" />
@@ -305,7 +305,7 @@
   		},
 		data(){
 			return{
-				schools:[],
+				companys:[],
 				name:'',
 				type:'Kinder',
 				status:'Demo',
@@ -320,7 +320,7 @@
 				image:null,
 				lng:'',
 				lat:'',
-				schoolSelectEdit:[],
+				companySelectEdit:[],
 				formSend:true,
 				
 				imageEdit:null,
@@ -341,22 +341,22 @@
 			}
 		},
 		created(){
-			this.getSchools();
+			this.getCompanys();
 		},
 		methods:{
 			reloadSlim: function(){
 				this.componentSlimAdd += 1;//esto recarga el slim cropper image
 			},
-			getSchools: function(){
-				axios.get('AppSchool').then(response => {
-					this.schools = response.data;
+			getCompanys: function(){
+				axios.get('AppCompany').then(response => {
+					this.companys = response.data;
 				});
 			},
             processImage: function(e){
                 this.image = e.target.files[0];
                 //console.log(this.image);
             },
-			addSchool: function(){
+			addCompany: function(){
 				this.formSend = false;//bloquea boton enviar para no reenviar
 				if($('#slim').find('input:hidden').attr('value')){//si exsiste valor
 					let imageValue = JSON.parse($('#slim').find('input:hidden').attr('value'));//objeto value image
@@ -379,43 +379,43 @@
 				formData.append('lng', null);
 				formData.append('lat', null);
 
-				var url = 'AppSchool';
+				var url = 'AppCompany';
 				axios.post(url,
 					formData
 				).then(response => {
 					this.image = '';
 					$('#exampleModalCenter').modal('hide');
 					this.formSend = true;//desbloquea boton send
-					toastr.success('Instituto Agregado');
+					toastr.success('company Agregado');
 					//this.$swal({title:'Agregado',type:'success'});
-					this.getSchools();
+					this.getCompanys();
 				}).catch(error =>{
 					toastr.error('Error al agregar');
 					this.formSend = true;//desbloquea boton send
 				})
 			},
-			schoolEdit: function(id){
-				for(var i in this.schools){
-					if(this.schools[i].id == id){
-						this.schoolSelectEdit = this.schools[i];						
+			companyEdit: function(id){
+				for(var i in this.companys){
+					if(this.companys[i].id == id){
+						this.companySelectEdit = this.companys[i];						
 					}
 				}
 				this.componentSlimEdit+=1;
 			},
-			editSchool: function(){
+			editCompany: function(){
 				this.formSend = false;//bloquea boton enviar para no reenviar
 				if($('#slim1').find('input:hidden').attr('value')){//si exsiste valor
 					let imageValue = JSON.parse($('#slim1').find('input:hidden').attr('value'));//objeto value image
-					this.schoolSelectEdit.image = imageValue.output.image; //solo codigo base64
+					this.companySelectEdit.image = imageValue.output.image; //solo codigo base64
 				}				
 				if($('#slim1').attr('data-state') == 'empty'){//por si se borra la imagen y queda sin imagen
-					this.schoolSelectEdit.image = null;
+					this.companySelectEdit.image = null;
 				}
 
-				axios.put('AppSchool/'+this.schoolSelectEdit.id,this.schoolSelectEdit).then(response =>{
+				axios.put('AppCompany/'+this.companySelectEdit.id,this.companySelectEdit).then(response =>{
 					toastr.success('Actualizado con exito!');
-					this.schoolSelectEdit = [];//lo vaciamos 
-					this.getSchools();
+					this.companySelectEdit = [];//lo vaciamos 
+					this.getCompanys();
 					$('#modalEdit').modal('hide');
 					this.formSend = true;//desbloquea boton send
 				}).catch(error =>{
@@ -423,11 +423,11 @@
 					this.formSend = true;//desbloquea boton send
 				});
 			},
-			schoolDelete: function(id){
-				if(confirm("¿seguro de eliminar este Instituto?")){
-					axios.delete('AppSchool/'+id).then(response =>{
+			companyDelete: function(id){
+				if(confirm("¿seguro de eliminar este company?")){
+					axios.delete('AppCompany/'+id).then(response =>{
 						toastr.success('Eliminado!');
-						this.getSchools();
+						this.getCompanys();
 					}).catch(error => {
 						toastr.error('Error');
 					});

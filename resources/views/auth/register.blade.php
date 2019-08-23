@@ -61,6 +61,19 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Typo de cuenta') }}</label>
+
+                            <div class="col-md-6">
+                                <select name="type" id="type" class="form-control" required>
+                                    <option value="">Selecione uno ..</option>
+                                    <option value="root">Root</option>
+                                    <option value="admin">Admin</option>
+                                    <option value="usuario">Usuario</option>
+                                </select>
+                            </div>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

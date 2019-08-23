@@ -6,18 +6,19 @@
                   <div class="profile-header text-white">
                     <div class="row">
                       <div class="col-md-3 col-sm-12 text-center">
-                        <img class="rounded-circle img-lg" :src="'/images/schools/'+school.image" alt="profile image">
+                      	<img v-if="company.image == null" class="rounded-circle img-lg" src="/images/no-image-company.png" alt="profile image">
+                        <img v-else class="rounded-circle img-lg" :src="'/images/companys/'+company.image" alt="profile image">
                       </div>
                       <div class="col-md-3 col-sm-12">                                           
                         <div class="p-2">
-                          <h4><span class="badge badge-pill badge-light text-dark p-2">Alumnos <strong>38</strong></span></h4>
+                          <h4><span class="badge badge-pill badge-light text-dark p-2">Artículos <strong>38</strong></span></h4>
                         </div>
                         <div class="p-2">
-                          <h4><span class="badge badge-pill badge-light text-dark p-2">Personal <strong>14</strong></span></h4>
+                          <h4><span class="badge badge-pill badge-light text-dark p-2">Usuarios <strong>4</strong></span></h4>
                         </div>
                       </div>
                       <div class="col-md-6 col-sm-12">
-                      	<h1>{{school.name}}</h1>
+                      	<h1>{{company.name}}</h1>
                       </div>
                     </div>
                       <div class="col-md-4 col-sm-12 pt-4">  
@@ -39,20 +40,20 @@
                           <div class="tab-pane fade show active pr-3" id="user-profile-info" role="tabpanel" aria-labelledby="user-profile-info-tab">
                             <table class="table table-borderless w-100 mt-4">
                               <tr>
-                                <td><strong>Institución :</strong> {{school.name}}</td>
-                                <td><strong>Tipo :</strong> {{school.type}}</td>
+                                <td><strong>Institución :</strong> {{company.name}}</td>
+                                <td><strong>Tipo :</strong> {{company.type}}</td>
                               </tr>
                               <tr>
-                                <td><strong>País :</strong> {{school.country}} <i :class="'flag-icon flag-icon-'+school.countryLow"></i></td>
-                                <td><strong>Email :</strong> {{school.email}}</td>
+                                <td><strong>País :</strong> {{company.country}} <i :class="'flag-icon flag-icon-'+company.countryLow"></i></td>
+                                <td><strong>Email :</strong> {{company.email}}</td>
                               </tr>
                               <tr>
-                                <td><strong>Ciudad :</strong> {{school.city}}</td>
-                                <td><strong>Teléfono :</strong> {{school.tel}}</td>
+                                <td><strong>Ciudad :</strong> {{company.city}}</td>
+                                <td><strong>Teléfono :</strong> {{company.tel}}</td>
                               </tr>
                               <tr>
-                              	<td><strong>Dirección :</strong> {{school.address}}</td>
-                              	<td><strong>Web :</strong> <a :href="school.web">Página web</a></td>
+                              	<td><strong>Dirección :</strong> {{company.address}}</td>
+                              	<td><strong>Web :</strong> <a :href="company.web">Página web</a></td>
                               </tr>
                             </table>
                             <div class="row mt-5 pb-4 border-bottom">
@@ -196,7 +197,7 @@
                         </div>
                       </div>
                       <div class="col-md-3">
-                        <h5 class="my-4">Personal Docente</h5>
+                        <h5 class="my-4">Usuarios</h5>
                         <div class="new-accounts">
                           <ul class="chats">
                             <li class="chat-persons">
@@ -227,7 +228,7 @@
                                 </router-link>
                             </li>
                           </ul>
-                        <router-link :to="'/personal/'+school.id" class="btn btn-xs btn-rounded btn-warning ml-1" >ver todos <i class="mdi mdi-eye"></i></router-link>
+                        <router-link :to="'/personal/'+company.id" class="btn btn-xs btn-rounded btn-warning ml-1" >ver todos <i class="mdi mdi-eye"></i></router-link>
                         </div>
                         <h5 class="my-4">Pending</h5>
                         <div class="new-accounts">
@@ -314,18 +315,18 @@
 	export default {
 		data(){
 			return{
-				school:[]
+				company:[]
 			}
 		},
 		created(){
-			this.getSchool();
+			this.getCompany();
 		},
 		methods:{
-			getSchool: function(){
-				axios.get('/AppSchool/'+this.$route.params.id).then(response => {
-					this.school = response.data;
-					this.school.countryLow = this.school.country.toLowerCase();
-					this.school.web = 'www.losDuenedes.com';
+			getCompany: function(){
+				axios.get('/AppCompany/'+this.$route.params.id).then(response => {
+					this.company = response.data;
+					this.company.countryLow = this.company.country.toLowerCase();
+					this.company.web = 'www.losDuenedes.com';
 				});
 			},
 			/*
