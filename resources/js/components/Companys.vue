@@ -412,7 +412,7 @@
 					this.companySelectEdit.image = null;
 				}
 
-				axios.put('AppCompany/'+this.companySelectEdit.id,this.companySelectEdit).then(response =>{
+				axios.put('/AppCompany/'+this.companySelectEdit.id,this.companySelectEdit).then(response =>{
 					toastr.success('Actualizado con exito!');
 					this.companySelectEdit = [];//lo vaciamos 
 					this.getCompanys();

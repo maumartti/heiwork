@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="{{ asset('/css/all.css') }}">
   
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+  <script src="https://kit.fontawesome.com/89a986593b.js"></script>
 
 
 <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap" rel="stylesheet">
@@ -280,7 +280,7 @@
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
-          <router-view></router-view>
+          <router-view userauth="{{Auth::user()}}"></router-view>
         </div>
         <!-- content-wrapper ends -->
         <!-- partial:partials/_footer.html -->

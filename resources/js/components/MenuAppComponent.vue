@@ -6,8 +6,8 @@
 	            <div class="nav-link">
 	              <div class="profile-image"> <img src="https://placehold.it/100x100" alt="image"/> <span class="online-status online"></span> </div>
 	              <div class="profile-name">
-	                <p class="name">Sebastian Brayden</p>
-	                <p class="designation">UI/UX Designer</p>
+	                <p class="name"><router-link :to="'/user/'+userAuth.id">{{userAuth.name}}</router-link></p>
+	                <p class="designation">{{userAuth.sector}}</p>
 	              </div>
 	              <div class="notification-panel mt-4">
 	                <span><i class="mdi mdi-settings"></i></span>

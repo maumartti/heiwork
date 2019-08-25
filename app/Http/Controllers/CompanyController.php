@@ -19,12 +19,9 @@ class CompanyController extends Controller
 
     	
     	if($request->image != null && $request->image != 'null'){
-    		/**** OBTENEMOS Y GUARDAMOS LA FOTO BASE 64 *****/
+    		//guardamos imagen server
     		$tools = New Tools;
-	        $dataImg = $tools->base64toImage($request->image);//ingresa el base64 y retorna la imagen + nombre random 16
-	        file_put_contents(public_path().'/images/companys/'.$dataImg['imageName'], base64_decode($dataImg['image']));
-	        $data['image'] = $dataImg['imageName'];//renombramos con el nuevo nombre de imagen al objeto		   
-	        /***** END GUARDAMOS FOTO SERVER ***/
+    		$data['image'] = $tools->saveImage64('/images/companys/',$request->image);
         }
 
 		$company = Company::create($data);
@@ -40,13 +37,11 @@ class CompanyController extends Controller
 
 		//borramos la imagen que ya tiene del servidor
 		$company = Company::find($request->route('AppCompany'));
-		$tools->deleteImage(public_path().'/images/companys/', $company->image);
+		$tools->deleteImage('/images/companys/', $company->image);
 
-		if($request->image != null && $request->image != 'null'){		
-
-	        $dataImg = $tools->base64toImage($request->image);//ingresa el base64 y retorna la imagen + nombre random 16
-	        file_put_contents(public_path(). '/images/companys/' . $dataImg['imageName'], base64_decode($dataImg['image']));
-	        $data['image'] = $dataImg['imageName'];//renombramos con el nuevo nombre de imagen al objeto		
+		if($request->image != null && $request->image != 'null'){
+			//guardamos imagen		
+			$data['image'] = $tools->saveImage64('/images/companys', $request->image);	
 		}
 
 		Company::find($request->route('AppCompany'))->update($data);
@@ -56,7 +51,7 @@ class CompanyController extends Controller
 		$company = Company::find($request->route('AppCompany'));
 		if($company){
 			$company->delete();
-			$tools->deleteImage(public_path().'/images/companys/', $company->image);
+			$tools->deleteImage('/images/companys/', $company->image);
 			return $company;
 		}
 	}
