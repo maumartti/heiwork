@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('company_id')->default(0);
             $table->string('name');
+            $table->string('subtitle')->nullable();
             $table->string('type');
             $table->string('cel')->nullable();            
             $table->string('email', 30)->unique();

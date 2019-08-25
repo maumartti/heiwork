@@ -57,9 +57,11 @@ class UserController extends Controller
 			$data['image'] = $tools->saveImage64('/images/users/', $request->image);	
 		}
 
-		if($data['password'] != ''){
+		if(isset($data['password']) && $data['password'] != ''){ 
 			$data['password'] = bcrypt($data['password']);
-		}
+		}else{
+            $data['password'] = $user->password;
+        }
 
 		User::find($request->route('AppUser'))->update($data);
 	}

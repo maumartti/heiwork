@@ -19,6 +19,7 @@
                       </div>
                       <div class="col-md-6 col-sm-12">
                       	<h1>{{user.name}}</h1>
+                        <h2 class="font-italic">"{{user.subtitle}}"</h2>
                       </div>
                     </div>
                     <div class="row">
@@ -96,7 +97,7 @@
               </div>
             </div>
 
-        <!-- Modal Editar -->
+            <!-- Modal Editar -->
             <div class="modal fade bd-example-modal-lg" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
               <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
@@ -112,57 +113,89 @@
                       <div class="col-md-3 grid-margin stretch-card">
                           <div class="card">
                             <div class="card-body">
-                              <label>Foto de perfil</label>
-                              <slim-cropper :options="slimOptions" :key="componentSlimEdit" :initialimage="'/images/users/'+user.image" id="slim1" >
-                          <input type="file" name="slim1" />                  
-                      </slim-cropper>
+                              <label>Foto</label>
+                             <slim-cropper :options="slimOptions" :key="componentSlimEdit" :initialimage="'/images/users/'+user.image" id="slim1" >
+                                  <input type="file" name="slim1" />                  
+                             </slim-cropper> 
                             </div>
                           </div>
                         </div>
-                  
-                  <div class="col-md-9 p-5">
-                          <div class="form-group row">
-                            <label for="exampleInputName1"class="col-md-3 col-form-label text-md-right" >Nombre</label>
-                            <div class="col-md-6">
-                              <input type="text" v-model="user.name" class="form-control" id="exampleInputName1" placeholder="Nombre" required>
-                            </div>  
+                      <div class="col-md-3">
+                          <div class="form-group">
+                            <label for="exampleInputName1">Name</label>
+                            <input type="text" v-model="user.name" class="form-control" id="exampleInputName1" placeholder="Name" required>
                           </div>
-                          <div class="form-group row">
-                            <label for="exampleInputEmail1" class="col-md-3 col-form-label text-md-right">Correo Electrónico</label>
-                            <div class="col-md-6">
-                              <input type="text" v-model="user.email" class="form-control" id="exampleInputEmail1" placeholder="maria@correo.com" required>
-                            </div>
-                          </div>                 
-
-                          <div class="form-group row">
-                                    <label for="password" class="col-md-3 col-form-label text-md-right">Contraseña</label>
-
-                                    <div class="col-md-6">
-                                        <input id="password" v-model="user.password" type="password" class="form-control" name="password" >
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label for="password-confirm" class="col-md-3 col-form-label text-md-right">Repite Contraseña</label>
-
-                                    <div class="col-md-6">
-                                        <input id="password-confirm" v-model="user.password_confirmation" type="password" class="form-control" name="password_confirmation" >
-                                    </div>
-                                </div>
-                                
-                          <div class="form-group row">  
-                            <!--<i class="flag-icon flag-icon-ad" title="ad" id="ad"></i>             -->
-                                <label for="paises" class="col-md-3 col-form-label text-md-right">Tipo de cuenta</label>
-
-                                <div class="col-md-6">
-                                  <select v-model="user.type" class="form-control" id="type" required>          
-                                    <option value="">Selecione uno ..</option>                                  
-                                          <option value="admin">Admin</option>
-                                          <option value="usuario">Usuario</option>
-                                  </select>  
-                              </div>                    
+                          <div class="form-group">
+                            <label for="exampleInputEmail3">Email address</label>
+                            <input type="email" v-model="user.email" class="form-control" id="exampleInputEmail3" placeholder="Email" required>
+                          </div>
+                          <div class="form-group">
+                            <label for="frase">Frase de la Institución</label>
+                            <input type="text" v-model="user.subtitle" class="form-control" id="frase" placeholder="Frase">
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleTextarea1">Descripción</label>
+                            <textarea v-model="user.description" class="form-control" id="exampleTextarea1" rows="2"></textarea>
                           </div>
                       </div>
+                      <div class="col-md-3">
+                        <div class="form-group">  
+                            <!--<i class="flag-icon flag-icon-ad" title="ad" id="ad"></i>             -->
+                            <label for="paises">País</label>
+                            <select v-model="user.country" class="form-control" id="paises" required>                    
+                              <option value="AR">Argentina</option>
+                              <option value="BO">Bolivia</option>
+                              <option value="CL">Chile</option>
+                              <option value="CO">Colombia</option>
+                              <option value="CR">Costa Rica</option>
+                              <option value="EC">Ecuador</option>
+                              <option value="SV">El Salvador</option>
+                              <option value="ES">España</option>
+                              <option value="GD">Granada</option>
+                              <option value="GT">Guatemala</option>
+                              <option value="GY">Guayana</option>
+                              <option value="HT">Haití</option>
+                              <option value="HN">Honduras</option>
+                              <option value="MX">México</option>
+                              <option value="NI">Nicaragua</option>
+                              <option value="PY">Paraguay</option>
+                              <option value="PA">Panamá</option>
+                              <option value="PE">Perú</option>
+                              <option value="PR">Puerto Rico</option>
+                              <option value="DO">República Dominicana</option>
+                              <option value="UY">Uruguay</option>
+                              <option value="VE">Venezuela</option>
+                            </select>                  
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputCity1">City</label>
+                            <input type="text" v-model="user.city" class="form-control" id="exampleInputCity1" placeholder="Location" required>
+                          </div>
+                        <div class="form-group">
+                          <label for="exampleInputCelular">Celular</label>
+                          <input type="tel" v-model="user.cel" class="form-control" id="exampleInputCelular" placeholder="Celular">
+                        </div>                
+                    
+                        <div class="form-group">
+                          <label for="state">Estado</label>
+                          <select v-model="user.state" id="state" class="form-control">
+                            <option value="">Selecione uno ..</option>
+                            <option value="trabajando">Trabajando</option>
+                            <option value="buscando">Buscando</option>
+                            <option value="vacaciones">Vacaciónes</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-3">    
+                        <div class="form-group">
+                          <label for="sector">Sector</label>
+                          <select v-model="user.sector" id="sector" class="form-control">
+                            <option value="IT Programción">IT Programción</option>
+                            <option value="Traducción">Traducción</option>
+                            <option value="Diseño Grafico">Diseño Grafico</option>
+                          </select>
+                        </div>
+                      </div>  
                     </div>                                      
                     </div>
                   <div class="modal-footer">
@@ -250,14 +283,7 @@
 				});
 			},
       userEdit: function(id){
-        /*
-        for(var i in this.usersCompany){
-          if(this.usersCompany[i].id == id ){
-            this.user = this.usersCompany[i];
-            this.componentSlimEdit +=1;
-          }
-        }*/
-
+        this.componentSlimEdit +=1;
       },
       editUser: function(){
         this.formSend = false;//bloquea boton enviar para no reenviar
@@ -271,8 +297,7 @@
 
         axios.put('/AppUser/'+this.user.id,this.user).then(response =>{
           toastr.success('Actualizado con exito!');
-          this.user = [];//lo vaciamos 
-          this.getUsers();
+          this.getUser();
           $('#modalEdit').modal('hide');
           this.formSend = true;//desbloquea boton send
         }).catch(error =>{
@@ -326,12 +351,18 @@
 	}
 </script>
 <style scoped>
+h1, p, label, span{
+  font-family: 'Montserrat', sans-serif;
+}
+h2{
+    font-family: 'Sriracha', cursive;
+}
 .fa-whatsapp{
   font-size: 20px;
   color:lime;
 }
 #btnPerfil{
-  padding:4px 10px !important;
+  padding:6px 10px !important;
 }
 #btnPerfil > strong{
   vertical-align: sub;

@@ -82,6 +82,12 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right" for="exampleInputSub1">Tu frase de cabecera</label>
+                            <div class="col-md-6">
+                                <input type="text" name="subtitle" class="form-control" id="exampleInputSub1" placeholder="Frase de cabecera" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label class="col-md-4 col-form-label text-md-right" for="exampleTextarea1">Descripción de ti</label>
                             <div class="col-md-6">
                                 <textarea name="description" class="form-control" id="exampleTextarea1" rows="2"></textarea>

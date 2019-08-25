@@ -20,10 +20,13 @@
   <!-- plugins:css -->
   <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
   <link rel="stylesheet" href="{{ asset('/css/all.css') }}">
-  
+
+  <!-- icons -->  
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="https://kit.fontawesome.com/89a986593b.js"></script>
 
+
+<link href="https://fonts.googleapis.com/css?family=Sriracha&display=swap" rel="stylesheet">
 
 <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap" rel="stylesheet">
 

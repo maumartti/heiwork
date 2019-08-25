@@ -74,6 +74,7 @@ class RegisterController extends Controller
             'state' => $data['state'],
             'image' => null,
             'password' => $data['password'],
+            'subtitle' => $data['subtitle'],
             'description' => $data['description'],
             'lat' => null,
             'lng' => null,
