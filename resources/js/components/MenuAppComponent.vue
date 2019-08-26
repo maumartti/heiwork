@@ -4,7 +4,11 @@
         	<ul class="nav">
 	          <li class="nav-item nav-profile">
 	            <div class="nav-link">
-	              <div class="profile-image"> <img src="https://placehold.it/100x100" alt="image"/> <span class="online-status online"></span> </div>
+	              <div class="profile-image"> 
+	              	<img v-if="userAuth.image == null" src="/images/no-user.png" alt="image">
+	              	<img v-else :src="'/images/users/'+userAuth.image" alt="image"/> 
+	              	<span class="online-status online"></span> 
+	              </div>
 	              <div class="profile-name">
 	                <p class="name"><router-link :to="'/user/'+userAuth.id">{{userAuth.name}}</router-link></p>
 	                <p class="designation">{{userAuth.sector}}</p>

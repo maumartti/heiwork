@@ -2627,6 +2627,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 var $ = jquery__WEBPACK_IMPORTED_MODULE_0___default.a;
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3315,6 +3319,45 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //import $ from 'jquery';
 
 
@@ -3469,7 +3512,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nh1[data-v-7f050fd2], p[data-v-7f050fd2], label[data-v-7f050fd2], span[data-v-7f050fd2]{\n  font-family: 'Montserrat', sans-serif;\n}\nh2[data-v-7f050fd2]{\n    font-family: 'Sriracha', cursive;\n}\n.fa-whatsapp[data-v-7f050fd2]{\n  font-size: 20px;\n  color:lime;\n}\n#btnPerfil[data-v-7f050fd2]{\n  padding:6px 10px !important;\n}\n#btnPerfil > strong[data-v-7f050fd2]{\n  vertical-align: sub;\n  font-size: 12px;\n}\n#btnPerfil > strong > i[data-v-7f050fd2]{\n  font-size: 14px;\n}\n", ""]);
+exports.push([module.i, "\nh1[data-v-7f050fd2], p[data-v-7f050fd2], label[data-v-7f050fd2], span[data-v-7f050fd2]{\n  font-family: 'Montserrat', sans-serif;\n}\nh2[data-v-7f050fd2]{\n    font-family: 'Sriracha', cursive;\n}\nh4[data-v-7f050fd2], strong[data-v-7f050fd2]{\n  color: #354168 !important;\n}\n.fa-whatsapp[data-v-7f050fd2]{\n  font-size: 20px;\n  color:lime;\n}\n#btnPerfil[data-v-7f050fd2]{\n  padding:6px 10px !important;\n}\n#btnPerfil > strong[data-v-7f050fd2]{\n  vertical-align: sub;\n  font-size: 12px;\n}\n#btnPerfil > strong > i[data-v-7f050fd2]{\n  font-size: 14px;\n}\n.badgeCircle[data-v-7f050fd2]{\n  width: 20.8px;\n}\n.badgeBig[data-v-7f050fd2]{\n  font-size: 0.75rem;\n}\n\n", ""]);
 
 // exports
 
@@ -61875,7 +61918,20 @@ var render = function() {
         _c("ul", { staticClass: "nav" }, [
           _c("li", { staticClass: "nav-item nav-profile" }, [
             _c("div", { staticClass: "nav-link" }, [
-              _vm._m(0),
+              _c("div", { staticClass: "profile-image" }, [
+                _vm.userAuth.image == null
+                  ? _c("img", {
+                      attrs: { src: "/images/no-user.png", alt: "image" }
+                    })
+                  : _c("img", {
+                      attrs: {
+                        src: "/images/users/" + _vm.userAuth.image,
+                        alt: "image"
+                      }
+                    }),
+                _vm._v(" "),
+                _c("span", { staticClass: "online-status online" })
+              ]),
               _vm._v(" "),
               _c("div", { staticClass: "profile-name" }, [
                 _c(
@@ -61896,13 +61952,13 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _vm._m(1)
+              _vm._m(0)
             ])
           ]),
           _vm._v(" "),
           _vm.userAuth.type == "root"
             ? _c("li", { staticClass: "nav-item" }, [
-                _vm._m(2),
+                _vm._m(1),
                 _vm._v(" "),
                 _c(
                   "div",
@@ -61940,27 +61996,27 @@ var render = function() {
             : _vm._e(),
           _vm._v(" "),
           _vm.userAuth.type == "SchoolDirector"
-            ? _c("li", { staticClass: "nav-item" }, [_vm._m(3)])
+            ? _c("li", { staticClass: "nav-item" }, [_vm._m(2)])
             : _vm._e(),
           _vm._v(" "),
           _vm.userAuth.type == "SchoolDirector"
             ? _c("li", { staticClass: "nav-item" }, [
-                _vm._m(4),
+                _vm._m(3),
                 _vm._v(" "),
-                _vm._m(5)
+                _vm._m(4)
               ])
             : _vm._e(),
           _vm._v(" "),
           _vm.userAuth.type == "SchoolDirector"
             ? _c("li", { staticClass: "nav-item" }, [
-                _vm._m(6),
+                _vm._m(5),
                 _vm._v(" "),
-                _vm._m(7)
+                _vm._m(6)
               ])
             : _vm._e(),
           _vm._v(" "),
           _vm.userAuth.type == "SchoolDirector"
-            ? _c("li", { staticClass: "nav-item" }, [_vm._m(8)])
+            ? _c("li", { staticClass: "nav-item" }, [_vm._m(7)])
             : _vm._e()
         ])
       ]
@@ -61968,18 +62024,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "profile-image" }, [
-      _c("img", {
-        attrs: { src: "https://placehold.it/100x100", alt: "image" }
-      }),
-      _vm._v(" "),
-      _c("span", { staticClass: "online-status online" })
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -63171,88 +63215,157 @@ var render = function() {
     _c("div", { staticClass: "col-12" }, [
       _c("div", { staticClass: "card" }, [
         _c("div", { staticClass: "card-body" }, [
-          _c("div", { staticClass: "profile-header text-white" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-md-3 col-sm-12 text-center" }, [
-                _vm.user.image == null
-                  ? _c("img", {
-                      staticClass: "rounded-circle img-lg",
-                      attrs: {
-                        src: "/images/no-user.png",
-                        alt: "profile image"
-                      }
-                    })
-                  : _c("img", {
-                      staticClass: "rounded-circle img-lg",
-                      attrs: {
-                        src: "/images/users/" + _vm.user.image,
-                        alt: "profile image"
-                      }
-                    })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-3 col-sm-12" }, [
-                _c("div", { staticClass: "p-2" }, [
-                  _c("h4", [
-                    _c(
-                      "span",
-                      {
-                        staticClass:
-                          "badge badge-pill badge-light text-dark p-2"
-                      },
-                      [
-                        _c("strong", [_vm._v("País :")]),
-                        _vm._v(" " + _vm._s(_vm.user.country) + " "),
-                        _c("i", {
-                          class: "flag-icon flag-icon-" + _vm.user.countryLow
-                        })
-                      ]
-                    )
+          _c(
+            "div",
+            {
+              staticClass: "profile-header text-white",
+              style: {
+                backgroundImage: "url(/images/" + _vm.user.image_cover + ")"
+              }
+            },
+            [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-3 col-sm-12 text-center" }, [
+                  _vm.user.image == null
+                    ? _c("img", {
+                        staticClass: "rounded-circle img-lg",
+                        attrs: {
+                          src: "/images/no-user.png",
+                          alt: "profile image"
+                        }
+                      })
+                    : _c("img", {
+                        staticClass: "rounded-circle img-lg",
+                        attrs: {
+                          src: "/images/users/" + _vm.user.image,
+                          alt: "profile image"
+                        }
+                      })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-3 col-sm-12" }, [
+                  _c("div", { staticClass: "p-2" }, [
+                    _c("h4", [
+                      _c(
+                        "span",
+                        {
+                          staticClass:
+                            "badge badge-pill badge-light text-dark p-2"
+                        },
+                        [
+                          _c("strong", [_vm._v("País :")]),
+                          _vm._v(" " + _vm._s(_vm.user.country) + " "),
+                          _c("i", {
+                            class: "flag-icon flag-icon-" + _vm.user.countryLow
+                          })
+                        ]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "p-2" }, [
+                    _c("h4", [
+                      _c(
+                        "span",
+                        {
+                          staticClass:
+                            "badge badge-pill badge-light text-dark p-2"
+                        },
+                        [_vm._m(0), _vm._v(" " + _vm._s(_vm.user.city) + " ")]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "p-2" }, [
+                    _c("h4", [
+                      _c(
+                        "span",
+                        {
+                          staticClass:
+                            "badge badge-pill badge-light text-dark p-2"
+                        },
+                        [
+                          _vm.user.state == "trabajando"
+                            ? _c(
+                                "span",
+                                {
+                                  staticClass:
+                                    "badge badge-pill badge-success badgeCircle",
+                                  style: "border: 2px solid #2fae70;"
+                                },
+                                [_vm._v(" ")]
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.user.state == "buscando"
+                            ? _c(
+                                "span",
+                                {
+                                  staticClass:
+                                    "badge badge-pill badge-info badgeCircle",
+                                  style: "border: 2px solid #3c91c8;"
+                                },
+                                [_vm._v(" ")]
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.user.state == "vacaciones"
+                            ? _c(
+                                "span",
+                                {
+                                  staticClass:
+                                    "badge badge-pill badge-danger badgeCircle",
+                                  style: "border: 2px solid #ea6060;"
+                                },
+                                [_vm._v(" ")]
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _c("strong", [_vm._v(_vm._s(_vm.user.state))])
+                        ]
+                      )
+                    ])
                   ])
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "p-2" }, [
-                  _c("h4", [
-                    _c(
-                      "span",
-                      {
-                        staticClass:
-                          "badge badge-pill badge-light text-dark p-2"
-                      },
-                      [_vm._m(0), _vm._v(" " + _vm._s(_vm.user.city) + " ")]
-                    )
+                _c("div", { staticClass: "col-md-6 col-sm-12" }, [
+                  _c("h1", [_vm._v(_vm._s(_vm.user.name))]),
+                  _vm._v(" "),
+                  _c("h2", { staticClass: "font-italic" }, [
+                    _vm._v('"' + _vm._s(_vm.user.subtitle) + '"')
                   ])
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-md-6 col-sm-12" }, [
-                _c("h1", [_vm._v(_vm._s(_vm.user.name))]),
-                _vm._v(" "),
-                _c("h2", { staticClass: "font-italic" }, [
-                  _vm._v('"' + _vm._s(_vm.user.subtitle) + '"')
-                ])
+              _c("div", { staticClass: "row" }, [
+                _c(
+                  "div",
+                  { staticClass: "col-md-3 col-sm-12 pt-4 text-center" },
+                  [
+                    _c("h4", [
+                      _c(
+                        "span",
+                        {
+                          staticClass:
+                            "badge badge-pill badge-light text-dark p-2 badgeBig"
+                        },
+                        [
+                          _c("strong", [
+                            _c("i", { staticClass: "fas fa-cube" }),
+                            _vm._v(
+                              "\n                            " +
+                                _vm._s(_vm.user.sector) +
+                                " \n                          "
+                            )
+                          ])
+                        ]
+                      )
+                    ])
+                  ]
+                )
               ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c(
-                "div",
-                { staticClass: "col-md-3 col-sm-12 pt-4 text-center" },
-                [
-                  _c("h4", [
-                    _c(
-                      "span",
-                      {
-                        staticClass:
-                          "badge badge-pill badge-success text-dark p-2"
-                      },
-                      [_c("strong", [_vm._v(_vm._s(_vm.user.sector))])]
-                    )
-                  ])
-                ]
-              )
-            ])
-          ]),
+            ]
+          ),
           _vm._v(" "),
           _c("div", { staticClass: "profile-body" }, [
             _vm.userAuth.id == _vm.user.id
@@ -63284,68 +63397,143 @@ var render = function() {
                   [
                     _c("tr", [
                       _c("td", [
-                        _c("strong", [_vm._v("Nombre :")]),
-                        _vm._v(" " + _vm._s(_vm.user.name))
+                        _c(
+                          "h4",
+                          {
+                            staticClass:
+                              "badge badge-pill badge-light text-dark p-2 badgeBig"
+                          },
+                          [
+                            _c("strong", [_vm._v("Nombre :")]),
+                            _vm._v(" " + _vm._s(_vm.user.name))
+                          ]
+                        )
                       ]),
                       _vm._v(" "),
                       _c("td", [
-                        _c("strong", [_vm._v("Sector :")]),
-                        _vm._v(" " + _vm._s(_vm.user.sector))
+                        _c(
+                          "h4",
+                          {
+                            staticClass:
+                              "badge badge-pill badge-light text-dark p-2 badgeBig"
+                          },
+                          [
+                            _c("strong", [_vm._v("Sector :")]),
+                            _vm._v(" " + _vm._s(_vm.user.sector))
+                          ]
+                        )
                       ])
                     ]),
                     _vm._v(" "),
                     _c("tr", [
                       _c("td", [
-                        _c("strong", [_vm._v("País :")]),
-                        _vm._v(" " + _vm._s(_vm.user.country) + " "),
-                        _c("i", {
-                          class: "flag-icon flag-icon-" + _vm.user.countryLow
-                        })
+                        _c(
+                          "h4",
+                          {
+                            staticClass:
+                              "badge badge-pill badge-light text-dark p-2 badgeBig"
+                          },
+                          [
+                            _c("strong", [_vm._v("País :")]),
+                            _vm._v(" " + _vm._s(_vm.user.country) + " "),
+                            _c("i", {
+                              class:
+                                "flag-icon flag-icon-" + _vm.user.countryLow
+                            })
+                          ]
+                        )
                       ]),
                       _vm._v(" "),
                       _c("td", [
-                        _c("strong", [_vm._v("Email :")]),
-                        _vm._v(" " + _vm._s(_vm.user.email))
+                        _c(
+                          "h4",
+                          {
+                            staticClass:
+                              "badge badge-pill badge-light text-dark p-2 badgeBig"
+                          },
+                          [
+                            _c("strong", [_vm._v("Email :")]),
+                            _vm._v(" " + _vm._s(_vm.user.email))
+                          ]
+                        )
                       ])
                     ]),
                     _vm._v(" "),
                     _c("tr", [
                       _c("td", [
-                        _c("strong", [_vm._v("Ciudad :")]),
-                        _vm._v(" " + _vm._s(_vm.user.city))
+                        _c(
+                          "h4",
+                          {
+                            staticClass:
+                              "badge badge-pill badge-light text-dark p-2 badgeBig"
+                          },
+                          [
+                            _c("strong", [_vm._v("Ciudad :")]),
+                            _vm._v(" " + _vm._s(_vm.user.city))
+                          ]
+                        )
                       ]),
                       _vm._v(" "),
                       _c("td", [
-                        _c("strong", [
-                          _c("i", { staticClass: "fab fa-whatsapp" }),
-                          _vm._v(" "),
-                          _c(
-                            "a",
-                            {
-                              staticStyle: { "vertical-align": "text-top" },
-                              attrs: {
-                                href: "https://wa.me/" + _vm.user.cel,
-                                target: "_blank"
-                              }
-                            },
-                            [_vm._v("Send Whatsapp")]
-                          )
-                        ])
+                        _c(
+                          "h4",
+                          {
+                            staticClass:
+                              "badge badge-pill badge-light text-dark p-2 badgeBig"
+                          },
+                          [
+                            _c("strong", [_vm._v("Web :")]),
+                            _vm._v(" "),
+                            _c("a", { attrs: { href: _vm.user.web } }, [
+                              _vm._v("Página web")
+                            ])
+                          ]
+                        )
                       ])
                     ]),
                     _vm._v(" "),
                     _c("tr", [
                       _c("td", [
-                        _c("strong", [_vm._v("Descripción :")]),
-                        _vm._v(" " + _vm._s(_vm.user.description))
-                      ]),
-                      _vm._v(" "),
+                        _c(
+                          "h4",
+                          {
+                            staticClass:
+                              "badge badge-pill badge-light text-dark p-2 badgeBig"
+                          },
+                          [
+                            _c("strong", [_vm._v("Descripción :")]),
+                            _vm._v(" " + _vm._s(_vm.user.description))
+                          ]
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
                       _c("td", [
-                        _c("strong", [_vm._v("Web :")]),
-                        _vm._v(" "),
-                        _c("a", { attrs: { href: _vm.user.web } }, [
-                          _vm._v("Página web")
-                        ])
+                        _c(
+                          "h4",
+                          {
+                            staticClass:
+                              "badge badge-pill badge-light text-dark p-2 badgeBig"
+                          },
+                          [
+                            _c("strong", [
+                              _c("i", { staticClass: "fab fa-whatsapp" }),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                {
+                                  staticStyle: { "vertical-align": "text-top" },
+                                  attrs: {
+                                    href: "https://wa.me/" + _vm.user.cel,
+                                    target: "_blank"
+                                  }
+                                },
+                                [_vm._v("Contactar por Whatsapp")]
+                              )
+                            ])
+                          ]
+                        )
                       ])
                     ])
                   ]
@@ -79387,15 +79575,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!***************************************************!*\
   !*** ./resources/js/components/UserComponent.vue ***!
   \***************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _UserComponent_vue_vue_type_template_id_7f050fd2_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UserComponent.vue?vue&type=template&id=7f050fd2&scoped=true& */ "./resources/js/components/UserComponent.vue?vue&type=template&id=7f050fd2&scoped=true&");
 /* harmony import */ var _UserComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UserComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/UserComponent.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _UserComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _UserComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _UserComponent_vue_vue_type_style_index_0_id_7f050fd2_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UserComponent.vue?vue&type=style&index=0&id=7f050fd2&scoped=true&lang=css& */ "./resources/js/components/UserComponent.vue?vue&type=style&index=0&id=7f050fd2&scoped=true&lang=css&");
+/* empty/unused harmony star reexport *//* harmony import */ var _UserComponent_vue_vue_type_style_index_0_id_7f050fd2_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UserComponent.vue?vue&type=style&index=0&id=7f050fd2&scoped=true&lang=css& */ "./resources/js/components/UserComponent.vue?vue&type=style&index=0&id=7f050fd2&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -79427,7 +79614,7 @@ component.options.__file = "resources/js/components/UserComponent.vue"
 /*!****************************************************************************!*\
   !*** ./resources/js/components/UserComponent.vue?vue&type=script&lang=js& ***!
   \****************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

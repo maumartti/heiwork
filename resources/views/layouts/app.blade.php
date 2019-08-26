@@ -173,7 +173,12 @@
           </li>
           <li class="nav-item dropdown d-none d-xl-inline-block">
             <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-              <span class="mr-3">Hello, Sebastian !</span><img class="img-xs rounded-circle" src="https://placehold.it/100x100" alt="Profile image">
+              <span class="mr-3">Hello, Sebastian !</span>
+              @if(Auth::user()->image != null)
+                <img class="img-xs rounded-circle" src="/images/users/{{Auth::user()->image}}" alt="image" class="profile-pic">
+              @else
+                <img class="img-xs rounded-circle" src="/images/no-user.png" alt="image" class="profile-pic">
+              @endif
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <a class="dropdown-item p-0">

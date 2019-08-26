@@ -63,6 +63,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $numCover = rand(1,3);
+
         return User::create([
             'name' => $data['name'],
             'type' => $data['type'],
@@ -73,6 +75,7 @@ class RegisterController extends Controller
             'sector' => $data['sector'],
             'state' => $data['state'],
             'image' => null,
+            'image_cover' => 'portada'.$numCover.'.jpg',
             'password' => $data['password'],
             'subtitle' => $data['subtitle'],
             'description' => $data['description'],

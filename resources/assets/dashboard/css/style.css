@@ -24557,7 +24557,7 @@ div.tagsinput {
 }
 .profile-page .profile-header {
     background: #b5d9ea;
-    background-image: url('/images/portada.jpg');
+    /*background-image: url('/images/portada.jpg');*/
 }
 .profile-page .profile-header{
     padding: 40px;

@@ -27,6 +27,7 @@ class CreateUsersTable extends Migration
             $table->string('sector');
             $table->string('state');
             $table->string('image')->nullable();
+            $table->string('image_cover');
             $table->string('password');
             $table->string('description')->nullable();
             $table->string('lat')->nullable();
