@@ -3,7 +3,7 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-body">
-                  <div class="profile-header text-white" :style="{backgroundImage:'url(/images/'+user.image_cover+')'}">
+                  <div class="profile-header text-white" style="background:url(/images/portada1.jpg)">
                     <div class="row">
                       <div class="col-md-3 col-sm-12 text-center">
                       	<img v-if="user.image == null" class="rounded-circle img-lg" src="/images/no-user.png" alt="profile image">
@@ -11,25 +11,23 @@
                       </div>
                       <div class="col-md-3 col-sm-12">                                           
                         <div class="p-2">
-                          <h4><span class="badge badge-pill badge-light text-dark p-2"><strong>País :</strong> {{user.country}} <i :class="'flag-icon flag-icon-'+user.countryLow"></i></span></h4>
+                          <h4><span class="badge badge-pill badge-light text-dark p-2"><strong>País :</strong> UY <i class="flag-icon flag-icon-uy"></i></span></h4>
                         </div>
                         <div class="p-2">
-                          <h4><span class="badge badge-pill badge-light text-dark p-2"><strong>Ciudad <i class="mdi mdi-city"></i> :</strong> {{user.city}} </span></h4>
+                          <h4><span class="badge badge-pill badge-light text-dark p-2"><strong>Ciudad <i class="mdi mdi-city"></i> :</strong> Montevideo </span></h4>
                         </div>
                         <div class="p-2">
                           <h4>
                             <span class="badge badge-pill badge-light text-dark p-2"> 
-                              <span v-if="user.state == 'trabajando'" :style="'border: 2px solid #2fae70;'" class="badge badge-pill badge-success badgeCircle">&nbsp;</span>
-                              <span v-if="user.state == 'buscando'" :style="'border: 2px solid #3c91c8;'" class="badge badge-pill badge-info badgeCircle">&nbsp;</span>
-                              <span v-if="user.state == 'vacaciones'" :style="'border: 2px solid #ea6060;'" class="badge badge-pill badge-danger badgeCircle">&nbsp;</span>
-                              <strong>{{user.state}}</strong> 
+                              <span  :style="'border: 2px solid #2fae70;'" class="badge badge-pill badge-success badgeCircle">&nbsp;</span>
+                              <strong>Trbajando</strong> 
                             </span>
                           </h4>
                         </div>
                       </div>
                       <div class="col-md-6 col-sm-12">
                       	<h1>{{user.name}}</h1>
-                        <h2 class="font-italic">"{{user.subtitle}}"</h2>
+                        <h2 class="font-italic">"Siempre busco el mejor resultado"</h2>
                       </div>
                     </div>
                     <div class="row">
@@ -43,7 +41,7 @@
                             <i v-else class="fas fa-cube"></i>
                           -->
                             <i class="fas fa-cube"></i>
-                            {{user.sector}} 
+                            Diseño Grafico 
                           </strong></span>
                         </h4>
                       </div> 
@@ -62,12 +60,12 @@
                               <strong>Nombre :</strong> {{user.name}}</h4>
                             </td>
                             <td><h4 class="badge badge-pill badge-light text-dark p-2 badgeBig">
-                              <strong>Sector :</strong> {{user.sector}}</h4>
+                              <strong>Sector :</strong> Diseño</h4>
                             </td>
                           </tr>
                           <tr>
                             <td><h4 class="badge badge-pill badge-light text-dark p-2 badgeBig">
-                              <strong>País :</strong> {{user.country}} <i :class="'flag-icon flag-icon-'+user.countryLow"></i></h4>
+                              <strong>País :</strong> Uruguay <i :class="'flag-icon flag-icon-uy'"></i></h4>
                             </td>
                             <td><h4 class="badge badge-pill badge-light text-dark p-2 badgeBig">
                               <strong>Email :</strong> {{user.email}}</h4>
@@ -75,32 +73,30 @@
                           </tr>
                           <tr>
                             <td><h4 class="badge badge-pill badge-light text-dark p-2 badgeBig">
-                              <strong>Ciudad :</strong> {{user.city}}</h4>
+                              <strong>Ciudad :</strong> Montevideo</h4>
                             </td>
                           	<td><h4 class="badge badge-pill badge-light text-dark p-2 badgeBig">
-                              <strong>Web :</strong> <a :href="user.web">Página web</a></h4>
+                              <strong>Web :</strong> <a href="#">Página web</a></h4>
                             </td>
                           </tr>
                           <tr>
                           	<td><h4 class="badge badge-pill badge-light text-dark p-2 badgeBig">
-                              <strong>Descripción :</strong> {{user.description}}</h4>
+                              <strong>Descripción :</strong> Trabajo de forma remota y freelance</h4>
                             </td>
                           </tr>
                           <tr>
-                            <td><h4 class="badge badge-pill badge-light text-dark p-2 badgeBig">
-                              <strong><i class="fab fa-whatsapp"></i> <a :href="'https://wa.me/'+user.cel" target="_blank" style="vertical-align: text-top;">Contactar por Whatsapp</a></strong></h4>
-                            </td>
+            
                           </tr>  
                         </table>
                                                                             
                       </div>
                       <div class="col-md-3">
-                        <h5 class="my-4">Cercanos</h5>
+                        <h5 class="my-4">Otros Colegas</h5>
                         <div class="new-accounts">
                           <ul class="chats">
                             <li class="chat-persons">
                               <router-link to="#">
-                                  <span class="pro-pic"><img src="https://placehold.it/100x100" alt="profile image"></span>
+                                  <span class="pro-pic"><img src="/images/users/face1.jpg" alt="profile image"></span>
                                   <div class="user">
                                     <p class="u-name">Marina Michel</p>
                                     <p class="u-designation">Business Development</p>
@@ -109,7 +105,7 @@
                             </li>
                             <li class="chat-persons">
                               <router-link to="#">
-                                  <span class="pro-pic"><img src="https://placehold.it/100x100" alt="profile image"></span>
+                                  <span class="pro-pic"><img src="/images/users/face2.jpg" alt="profile image"></span>
                                   <div class="user">
                                     <p class="u-name">Stella Johnson</p>
                                     <p class="u-designation">SEO Expert</p>
@@ -118,7 +114,7 @@
                             </li>
                             <li class="chat-persons">
                               <router-link to="#">
-                                  <span class="pro-pic"><img src="https://placehold.it/100x100" alt="profile image"></span>
+                                  <span class="pro-pic"><img src="/images/users/face4.jpg" alt="profile image"></span>
                                   <div class="user">
                                     <p class="u-name">Peter Joo</p>
                                     <p class="u-designation">UI/UX designer</p>
@@ -126,8 +122,7 @@
                                 </router-link>
                             </li>
                           </ul>
-                          <router-link :to="'/personal/'+user.id" class="btn btn-xs btn-rounded btn-warning ml-1" >ver todos <i class="mdi mdi-eye"></i></router-link>
-                        </div>
+                         </div>
                         
                       </div>
                     </div>
@@ -317,7 +312,7 @@
 			getUser: function(){
 				axios.get('/AppUser/'+this.$route.params.id).then(response => {
 					this.user = response.data;
-					this.user.countryLow = this.user.country.toLowerCase();
+					//this.user.countryLow = this.user.country.toLowerCase();
 					this.user.web = 'www.losDuenedes.com';
 				});
 			},

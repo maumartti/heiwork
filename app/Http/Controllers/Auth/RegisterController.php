@@ -3,10 +3,14 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Notification;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Carbon\Carbon;
+use App\Notifications\WelcomeUser;
+use App\Error;
 
 class RegisterController extends Controller
 {
@@ -28,7 +32,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -52,6 +56,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'g-recaptcha-response' => ['required','captcha'],
         ]);
     }
 
@@ -61,27 +66,47 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
-    {
-        $numCover = rand(1,3);
-
-        return User::create([
+    protected function create(array $data){
+        /**/
+        $now = Carbon::now();
+        $oneMonth = $now->addMonth();//un mes desde hoy
+        $oneMonthFormat =  $oneMonth->format('Y-m-d H:i:s');
+        /**/
+        $code = strtolower(str_random(32));
+        /**/
+        $user = User::create([
             'name' => $data['name'],
-            'type' => $data['type'],
+            'code' => $code,
             'email' => $data['email'],
-            'cel' => $data['cel'],
-            'country' => $data['country'],
-            'city' => $data['city'],
-            'sector' => $data['sector'],
-            'state' => $data['state'],
-            'image' => null,
-            'image_cover' => 'portada'.$numCover.'.jpg',
-            'password' => $data['password'],
-            'subtitle' => $data['subtitle'],
-            'description' => $data['description'],
-            'lat' => null,
-            'lng' => null,
             'password' => Hash::make($data['password']),
+            'image' => null,
+            'type' => 'usuario',
+            'register_by' => 'web',
+            'expire_plan' => $oneMonthFormat
         ]);
+
+
+        //creamos notificacion de bienvenida para el usuario*/
+        $data = array(
+            'notification_user_id' => $user->id,
+            'type' => 'welcome2',
+            'message' => 'Bienvenido a Heiwork, aquí podrás encontrar empleo como freelance, publicar proyectos y postularte en las ofertas publicadas en nuestra web, comparte con tus colegas esta nueva comunidad. Gracias!',
+        );
+        Notification::create($data);
+        // end notificacion
+
+        //enviar correo de bienvenida
+        $data = collect();       
+        $data->user = $user;
+        $user->notify(new WelcomeUser($data));
+
+        //si NO existe error al enviar correo de bienvenida con este user se guarda
+        $mailError = Error::where('user_email',$user->email)->first();
+        if(!$mailError){//si no exite error de envio de mail dejamos en 1 
+            $user->update(['email_welcome_send' => 1]);
+        }
+        // end correo
+
+        return $user;
     }
 }

@@ -13,7 +13,37 @@ return [
     | to have a conventional place to find your various credentials.
     |
     */
-
+    'mailjet' => [
+        'key' => env('MAILJET_APIKEY'),
+        'secret' => env('MAILJET_APISECRET'),
+        'transactional' => [
+            'call' => true,
+            'options' => [
+                'url' => 'api.mailjet.com',
+                'version' => 'v3.1',
+                'call' => true,
+                'secured' => true
+            ]
+        ],
+        'common' => [
+            'call' => true,
+            'options' => [
+                'url' => 'api.mailjet.com',
+                'version' => 'v3',
+                'call' => true,
+                'secured' => true
+            ]
+        ],
+        'v4' => [
+            'call' => true,
+            'options' => [
+                'url' => 'api.mailjet.com',
+                'version' => 'v4',
+                'call' => true,
+                'secured' => true
+            ]
+        ],
+    ],
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),
         'secret' => env('MAILGUN_SECRET'),
@@ -43,5 +73,17 @@ return [
             'tolerance' => env('STRIPE_WEBHOOK_TOLERANCE', 300),
         ],
     ],
+
+    'facebook' => [
+        'client_id' => '3188561374602779',
+        'client_secret' => '3ffd636db80e1568432fe627d311f240',
+        'redirect' => 'https://heiwork.com/auth/facebook/callback',
+    ],    
+
+    'google' => [
+        'client_id' =>'844309830034-mca296cvk83ulkrb5q3urs7gpvl8m5d3.apps.googleusercontent.com',
+        'client_secret' => 'SslSiaHsMcKaxSrWkxU8-8QM',
+        'redirect' => 'https://heiwork.com/auth/google/callback',
+    ],     
 
 ];

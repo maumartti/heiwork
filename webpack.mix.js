@@ -17,17 +17,19 @@ mix.js('resources/js/app.js', 'public/js')
 	  'resources/assets/dashboard/vendors/chart.js/Chart.min.js',
 	  'resources/assets/dashboard/vendors/raphael/raphael.min.js',
 	  'resources/assets/dashboard/vendors/morris.js/morris.min.js',
+	  'resources/assets/dashboard/vendors/dropify/dropify.min.js',
+	  'resources/assets/dashboard/vendors/jquery-file-upload/jquery.uploadfile.min.js',
+	  'resources/assets/dashboard/vendors/jquery-tags-input/jquery.tagsinput.min.js',
+	  'resources/assets/dashboard/vendors/dropzone/dropzone.js',
 	  'resources/assets/dashboard/js/off-canvas.js',
 	  'resources/assets/dashboard/js/hoverable-collapse.js',
 	  'resources/assets/dashboard/js/settings.js',
 	  'resources/assets/dashboard/js/todolist.js',
 	  'resources/assets/dashboard/js/dashboard.js',
-	  'resources/assets/dashboard/vendors/dropify/dropify.min.js',
-	  'resources/assets/dashboard/vendors/jquery-file-upload/jquery.uploadfile.min.js',
-	  'resources/assets/dashboard/vendors/jquery-tags-input/jquery.tagsinput.min.js',
-	  'resources/assets/dashboard/vendors/dropzone/dropzone.js',
 	  'resources/assets/dashboard/js/dropify.js',
-	  'resources/assets/dashboard/js/dropzone.js'
+	  'resources/assets/dashboard/js/dropzone.js',
+	  'resources/assets/dashboard/js/tooltips.js',
+	  'resources/assets/dashboard/js/popover.js'
 		], 'public/js/scripts.js')
     .sass('resources/sass/app.scss', 'public/css')
     .styles([

@@ -1,254 +1,269 @@
 <template>
-    <div class="col-lg-12 grid-margin stretch-card p-0">
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title">Usuarios</h4>
-          <button type="button" class="btn btn-success btn-xs mb-2" data-toggle="modal" data-target="#exampleModalCenter">
-		  	Agregar Nuevo <i class="mdi mdi-account-plus"></i>
-		  </button>
-		  <div class="table-responsive">
-	          <table class="table table-striped">
-	            <thead>
-	              <tr>
-	                <th>
-	                  User
-	                </th>
-	                <th>
-	                  Nombre
-	                </th>
-	                <th>
-	                  Tipo
-	                </th>
-	                <th>
-	                  Email
-	                </th>
-	                <th>
-	                  Empresa
-	                </th>
-	                <th>
-	                  Creado
-	                </th>
-	                <th>
-	                	Ver
-	                </th>
-	                <th>
-	                	Editar
-	                </th>
-	                <th>
-	                	Borrar
-	                </th>
-	              </tr>
-	            </thead>
-	            <tbody>	              
-	              <tr v-for="user in usersCompany">
-	                <td class="py-1">
-	                  <img v-if="user.image == 'null'" src="/images/no-user.png" alt="image" />		
-	                  <img v-else :src="'/images/users/'+user.image" alt="image"/>
-	                </td>
-	                <td>
-	                  {{user.name}}
-	                </td>
-	                <td>
-	                	<label v-if="user.type == 'admin'" class="badge badge-success">{{user.type}}</label>
-	                	<label v-if="user.type == 'usuario'" class="badge badge-info">{{user.type}}</label>
-	                </td>
-	                <td>
-	                  {{user.email}}
-	                </td>
-	                <td>
-	                  {{company.name}}
-	                </td>
-	                <td>	                  
-	                  {{ momentDate(user.created_at) }}
-	                </td>
-	                <td>
-	                	<router-link :to="'/user/'+user.id" class="btn btn-info p-1">
-	                		<i class="mdi mdi-eye fs20 ml-1"></i>
-	                	</router-link>
-	                </td>
-	                <td>
-	                	<button type="button" @click="userEdit(user.id)" class="btn btn-warning p-1" data-toggle="modal" data-target="#modalEdit">
-	                		<i class="mdi mdi-pencil fs20 ml-1"></i>
-	                	</button>
-	                </td>
-	                <td>
-	                	<button type="button" @click="userDelete(user.id)" class="btn btn-danger p-1" >
-	                		<i class="mdi mdi-delete fs20 ml-1"></i>
-	                	</button>
-	                </td>
-	              </tr>
-	            </tbody>
-	          </table>
-	       </div>  
-        </div>
-      </div>
-	
-		<!-- Modal Editar -->
-		<div class="modal fade bd-example-modal-lg" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-		  <div class="modal-dialog modal-lg" role="document">
-		    <div class="modal-content">
-	          <form v-on:submit.prevent="editUser()" class="forms-sample" enctype="multipart/form-data">
-		      <div class="modal-header">
-		        <h4 class="modal-title text-warning" id="exampleModalLongTitle">Editar Usuario <i class="mdi mdi-pencil"></i></h4>
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		          <span aria-hidden="true">&times;</span>
-		        </button>
-		      </div>
-		      <div class="modal-body">
-		      	<div class="form-row">
-		      		<div class="col-md-3 grid-margin stretch-card">
-		              <div class="card">
-		                <div class="card-body">
-		                  <label>Foto de perfil</label>
-		                  <slim-cropper :options="slimOptions" :key="componentSlimEdit" :initialimage="'/images/users/'+userSelectEdit.image" id="slim1" >
-						      <input type="file" name="slim1" />						      
-						  </slim-cropper>
-		                </div>
-		              </div>
-		            </div>
-					
-					<div class="col-md-9 p-5">
-			            <div class="form-group row">
-			              <label for="exampleInputName1"class="col-md-3 col-form-label text-md-right" >Nombre</label>
-			              <div class="col-md-6">
-			              	<input type="text" v-model="userSelectEdit.name" class="form-control" id="exampleInputName1" placeholder="Nombre" required>
-			              </div>	
-			            </div>
-			            <div class="form-group row">
-			              <label for="exampleInputEmail1" class="col-md-3 col-form-label text-md-right">Correo Electrónico</label>
-			              <div class="col-md-6">
-			              	<input type="text" v-model="userSelectEdit.email" class="form-control" id="exampleInputEmail1" placeholder="maria@correo.com" required>
+	<div>
+	    <div class="col-lg-12 grid-margin stretch-card p-0">
+	      <div class="card">
+	        <div class="card-body">
+	          <h4 class="card-title">Usuarios</h4>
+	          <button type="button" class="btn btn-success btn-xs mb-2" data-toggle="modal" data-target="#exampleModalCenter">
+			  	Agregar Nuevo <i class="mdi mdi-account-plus"></i>
+			  </button>
+			  <div v-if="usersCompany.length != 0" class="table-responsive">
+		          <table class="table table-striped">
+		            <thead>
+		              <tr>
+		                <th>
+		                  Foto
+		                </th>
+		                <th>
+		                  Nombre
+		                </th>
+		                <th>
+		                  Tipo
+		                </th>
+		                <th>
+		                  Email
+		                </th>
+		                <th>
+		                  Progreso
+		                </th>
+		                <th>
+		                  Creado
+		                </th>
+		                <th>
+		                	Ver
+		                </th>
+		                <th>
+		                	Editar
+		                </th>
+		                <th>
+		                	Borrar
+		                </th>
+		              </tr>
+		            </thead>
+		            <tbody>	              
+		              <tr v-for="user in usersCompany">
+		                <td class="py-1">
+		                  <img v-if="user.image == 'null'" src="/images/no-user.png" alt="image" />		
+		                  <img v-else :src="'/images/users/'+user.image" alt="image"/>
+		                </td>
+		                <td>
+		                  {{user.name}}
+		                </td>
+		                <td>
+		                	<label v-if="user.type == 'admin'" class="badge badge-success">{{user.type}}</label>
+		                	<label v-if="user.type == 'usuario'" class="badge badge-info">{{user.type}}</label>
+		                </td>
+		                <td>
+		                  {{user.email}}
+		                </td>
+		                <td>
+		                  <div class="progress">
+	                        <div class="progress-bar bg-success" role="progressbar" :style="'width: '+user.progreso+'%'" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+	                      </div>
+		                </td>
+		                <td>	                  
+		                  {{ momentDate(user.created_at) }}
+		                </td>
+		                <td>
+		                	<router-link :to="'/user/'+user.id" class="btn btn-info p-1">
+		                		<i class="mdi mdi-eye fs20 ml-1"></i>
+		                	</router-link>
+		                </td>
+		                <td>
+		                	<button type="button" @click="userEdit(user.id)" class="btn btn-warning p-1" data-toggle="modal" data-target="#modalEdit">
+		                		<i class="mdi mdi-pencil fs20 ml-1"></i>
+		                	</button>
+		                </td>
+		                <td>
+		                	<button type="button" @click="userDelete(user.id)" class="btn btn-danger p-1" >
+		                		<i class="mdi mdi-delete fs20 ml-1"></i>
+		                	</button>
+		                </td>
+		              </tr>
+		            </tbody>
+		          </table>
+		       </div>
+		       <div v-else class="col-md-12">
+			    	<div class="card pt-5">
+			      	<div class="card-body text-center pt-5">  
+			      		<div class="spinner-border text-primary" role="status" style="font-size: 40px;width: 100px;height: 100px;">
+						  <span class="sr-only" >Loading...</span>
+						</div>					
+					</div>  
+				  </div>
+			    </div>
+
+	        </div>
+	      </div>
+		
+			<!-- Modal Editar -->
+			<div class="modal fade bd-example-modal-lg" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+			  <div class="modal-dialog modal-lg" role="document">
+			    <div class="modal-content">
+		          <form v-on:submit.prevent="editUser()" class="forms-sample" enctype="multipart/form-data">
+			      <div class="modal-header">
+			        <h4 class="modal-title text-warning" id="exampleModalLongTitle">Editar Usuario <i class="mdi mdi-pencil"></i></h4>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body">
+			      	<div class="form-row">
+			      		<div class="col-md-3 grid-margin stretch-card">
+			              <div class="card">
+			                <div class="card-body">
+			                  <label>Foto de perfil</label>
+			                  <slim-cropper :options="slimOptions" :key="componentSlimEdit" :initialimage="'/images/users/'+userSelectEdit.image" id="slim1" >
+							      <input type="file" name="slim1" />						      
+							  </slim-cropper>
+			                </div>
 			              </div>
-			            </div>			           
-
-			            <div class="form-group row">
-                            <label for="password" class="col-md-3 col-form-label text-md-right">Contraseña</label>
-
-                            <div class="col-md-6">
-                                <input id="password" v-model="userSelectEdit.password" type="password" class="form-control" name="password" >
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-3 col-form-label text-md-right">Repite Contraseña</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" v-model="userSelectEdit.password_confirmation" type="password" class="form-control" name="password_confirmation" >
-                            </div>
-                        </div>
-                        
-			            <div class="form-group row">	
-			            	<!--<i class="flag-icon flag-icon-ad" title="ad" id="ad"></i>            	-->
-		                    <label for="paises" class="col-md-3 col-form-label text-md-right">Tipo de cuenta</label>
-
-		                    <div class="col-md-6">
-			                    <select v-model="userSelectEdit.type" class="form-control" id="type" required>          
-			                    	<option value="">Selecione uno ..</option>	                                
-	                                <option value="admin">Admin</option>
-	                                <option value="usuario">Usuario</option>
-			                    </select>  
-			                </div>                    
 			            </div>
-			        </div>
-	        	</div>						            		          
-  		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-		        <button type="submit" class="btn btn-warning" id="btnGuardar" :disabled="!formSend">Guardar</button>
-		      </div>
-		      </form>
-		    </div>
-		  </div>
-		</div>
-		<!-- End Modal -->
+						
+						<div class="col-md-9 p-5">
+				            <div class="form-group row">
+				              <label for="exampleInputName1"class="col-md-3 col-form-label text-md-right" >Nombre</label>
+				              <div class="col-md-6">
+				              	<input type="text" v-model="userSelectEdit.name" class="form-control" id="exampleInputName1" placeholder="Nombre" required>
+				              </div>	
+				            </div>
+				            <div class="form-group row">
+				              <label for="exampleInputEmail1" class="col-md-3 col-form-label text-md-right">Correo Electrónico</label>
+				              <div class="col-md-6">
+				              	<input type="text" v-model="userSelectEdit.email" class="form-control" id="exampleInputEmail1" placeholder="maria@correo.com" required>
+				              </div>
+				            </div>			           
+
+				            <div class="form-group row">
+	                            <label for="password" class="col-md-3 col-form-label text-md-right">Contraseña</label>
+
+	                            <div class="col-md-6">
+	                                <input id="password" v-model="userSelectEdit.password" type="password" class="form-control" name="password" >
+	                            </div>
+	                        </div>
+
+	                        <div class="form-group row">
+	                            <label for="password-confirm" class="col-md-3 col-form-label text-md-right">Repite Contraseña</label>
+
+	                            <div class="col-md-6">
+	                                <input id="password-confirm" v-model="userSelectEdit.password_confirmation" type="password" class="form-control" name="password_confirmation" >
+	                            </div>
+	                        </div>
+	                        
+				            <div class="form-group row">	
+				            	<!--<i class="flag-icon flag-icon-ad" title="ad" id="ad"></i>            	-->
+			                    <label for="paises" class="col-md-3 col-form-label text-md-right">Tipo de cuenta</label>
+
+			                    <div class="col-md-6">
+				                    <select v-model="userSelectEdit.type" class="form-control" id="type" required>          
+				                    	<option value="">Selecione uno ..</option>	                                
+		                                <option value="admin">Admin</option>
+		                                <option value="usuario">Usuario</option>
+				                    </select>  
+				                </div>                    
+				            </div>
+				        </div>
+		        	</div>						            		          
+	  		      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+			        <button type="submit" class="btn btn-warning" id="btnGuardar" :disabled="!formSend">Guardar</button>
+			      </div>
+			      </form>
+			    </div>
+			  </div>
+			</div>
+			<!-- End Modal -->
 
 
-      	<!-- Modal Agregar -->
-		<div class="modal fade bd-example-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-		  <div class="modal-dialog modal-lg" role="document">
-		    <div class="modal-content">
-		      <form v-on:submit.prevent="setUser" class="forms-sample" enctype="multipart/form-data">
-		      <div class="modal-header">
-		        <h5 class="modal-title" id="exampleModalLongTitle">Agregar Usuario</h5>
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		          <span aria-hidden="true">&times;</span>
-		        </button>
-		      </div>
-		      <div class="modal-body">
-		      	<div class="form-row">
-		      		<div class="col-md-3 grid-margin stretch-card">
-		              <div class="card">
-		                <div class="card-body">
-		                  <label>Foto de perfil</label>
-		                  <slim-cropper :options="slimOptions" :key="componentSlimAdd"  id="slim" >
-						      <input type="file" name="slim" />						      
-						  </slim-cropper>
-		                </div>
-		              </div>
-		            </div>
-					
-					<div class="col-md-9 p-5">
-			            <div class="form-group row">
-			              <label for="exampleInputName1"class="col-md-3 col-form-label text-md-right" >Nombre</label>
-			              <div class="col-md-6">
-			              	<input type="text" v-model="name" class="form-control" id="exampleInputName1" placeholder="Nombre" required>
-			              </div>	
-			            </div>
-			            <div class="form-group row">
-			              <label for="exampleInputEmail1" class="col-md-3 col-form-label text-md-right">Correo Electrónico</label>
-			              <div class="col-md-6">
-			              	<input type="text" v-model="email" class="form-control" id="exampleInputEmail1" placeholder="maria@correo.com" required>
+	      	<!-- Modal Agregar -->
+			<div class="modal fade bd-example-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+			  <div class="modal-dialog modal-lg" role="document">
+			    <div class="modal-content">
+			      <form v-on:submit.prevent="setUser" class="forms-sample" enctype="multipart/form-data">
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="exampleModalLongTitle">Agregar Usuario</h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body">
+			      	<div class="form-row">
+			      		<div class="col-md-3 grid-margin stretch-card">
+			              <div class="card">
+			                <div class="card-body">
+			                  <label>Foto de perfil</label>
+			                  <slim-cropper :options="slimOptions" :key="componentSlimAdd"  id="slim" >
+							      <input type="file" name="slim" />						      
+							  </slim-cropper>
+			                </div>
 			              </div>
-			            </div>			           
-
-			            <div class="form-group row">
-                            <label for="password" class="col-md-3 col-form-label text-md-right">Contraseña</label>
-
-                            <div class="col-md-6">
-                                <input id="password" v-model="password" type="password" class="form-control" name="password" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-3 col-form-label text-md-right">Repite Contraseña</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" v-model="password_confirmation" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-                        
-			            <div class="form-group row">	
-			            	<!--<i class="flag-icon flag-icon-ad" title="ad" id="ad"></i>            	-->
-		                    <label for="paises" class="col-md-3 col-form-label text-md-right">Tipo de cuenta</label>
-
-		                    <div class="col-md-6">
-			                    <select v-model="type" class="form-control" id="type" required>          
-			                    	<option value="">Selecione uno ..</option>	                                
-	                                <option value="admin">Admin</option>
-	                                <option value="usuario">Usuario</option>
-			                    </select>  
-			                </div>                    
 			            </div>
-			        </div>
-	        	</div>						            		          
-  		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-		        <button :disabled="!formSend" type="submit" class="btn btn-success">Agregar</button>
-		      </div>
-		      </form>
-		    </div>
-		  </div>
-		</div>
-		<!-- End Modal -->
+						
+						<div class="col-md-9 p-5">
+				            <div class="form-group row">
+				              <label for="exampleInputName1"class="col-md-3 col-form-label text-md-right" >Nombre</label>
+				              <div class="col-md-6">
+				              	<input type="text" v-model="name" class="form-control" id="exampleInputName1" placeholder="Nombre" required>
+				              </div>	
+				            </div>
+				            <div class="form-group row">
+				              <label for="exampleInputEmail1" class="col-md-3 col-form-label text-md-right">Correo Electrónico</label>
+				              <div class="col-md-6">
+				              	<input type="text" v-model="email" class="form-control" id="exampleInputEmail1" placeholder="maria@correo.com" required>
+				              </div>
+				            </div>			           
 
-    </div>
+				            <div class="form-group row">
+	                            <label for="password" class="col-md-3 col-form-label text-md-right">Contraseña (min 8)</label>
+
+	                            <div class="col-md-6">
+	                                <input id="password" v-model="password" type="password" class="form-control" name="password" required>
+	                            </div>
+	                        </div>
+
+	                        <div class="form-group row">
+	                            <label for="password-confirm" class="col-md-3 col-form-label text-md-right">Repite Contraseña</label>
+
+	                            <div class="col-md-6">
+	                                <input id="password-confirm" v-model="password_confirmation" type="password" class="form-control" name="password_confirmation" required>
+	                            </div>
+	                        </div>
+	                        
+				            <div class="form-group row">	
+				            	<!--<i class="flag-icon flag-icon-ad" title="ad" id="ad"></i>            	-->
+			                    <label for="paises" class="col-md-3 col-form-label text-md-right">Tipo de cuenta</label>
+
+			                    <div class="col-md-6">
+				                    <select v-model="type" class="form-control" id="type" required>          
+				                    	<option value="">Selecione uno ..</option>	                                
+		                                <option value="admin">Admin</option>
+		                                <option value="usuario">Usuario</option>
+				                    </select>  
+				                </div>                    
+				            </div>
+				        </div>
+		        	</div>						            		          
+	  		      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+			        <button :disabled="!formSend" type="submit" class="btn btn-success">Agregar</button>
+			      </div>
+			      </form>
+			    </div>
+			  </div>
+			</div>
+			<!-- End Modal -->
+
+	    </div>
+	</div>    
 </template>
 <script>
 	import Slim from 'slim/slim.vue';
 	import axios from 'axios';
 	import toastr from 'toastr';
 	import moment from 'moment';
+
 
 	export default{
 		components:{
@@ -265,7 +280,7 @@
 				password:'',
 				password_confirmation:'',
 				type:'',
-				company_id: this.$route.params.id,
+				company_id:1,
 				image:null,
 
 				formSend:true,
@@ -291,6 +306,7 @@
 		},
 		created(){
 			this.getUsers();
+			console.log('init');
 		},
 		methods:{
 			momentDate: function(date){
@@ -308,7 +324,7 @@
 				}
 
 				const formData = new FormData();
-				formData.append('company_id', this.company_id);
+				//formData.append('company_id', this.company_id);
 				formData.append('name', this.name);
 				formData.append('email', this.email);
 				formData.append('password', this.password);
@@ -330,13 +346,13 @@
 			 	})
 			},
 			getUsers: function(){
-				axios.get('/AppUser/'+this.$route.params.id).then(response=>{
-					this.usersCompany = response.data[0];
+				axios.get('/AppUsers/'+this.$route.params.id).then(response=>{
+					this.usersCompany = response.data;
 					/*for(var i in this.usersCompany){
 						var date = this.usersCompany[i].created_at;
 						this.usersCompany[i].created_at = moment(date).format('DD-MM-YYYY');
 					}*/
-					this.company = response.data[1];
+					//this.company = response.data[1];
 				})
 			},
 			userEdit: function(id){

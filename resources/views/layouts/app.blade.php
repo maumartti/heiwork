@@ -16,8 +16,9 @@
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
 
-  <title>Kinderin</title>
+  <title>Tikilander</title>
   <!-- plugins:css -->
+  
   <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
   <link rel="stylesheet" href="{{ asset('/css/all.css') }}">
 
@@ -30,6 +31,14 @@
 
 <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap" rel="stylesheet">
 
+<style>
+@media (max-width: 992px){
+  .navbar-brand-wrapper{
+    padding: 0px !important;
+  }
+}  
+
+</style>
 </head>
 
 <body class="sidebar-light">
@@ -59,7 +68,7 @@
           <li class="nav-item dropdown">
             <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
               <i class="mdi mdi-message-text-outline"></i>
-              <span class="count bg-primary">2</span>
+              <span class="count bg-info">2</span>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
               <div class="dropdown-item py-3">
@@ -173,12 +182,8 @@
           </li>
           <li class="nav-item dropdown d-none d-xl-inline-block">
             <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-              <span class="mr-3">Hello, Sebastian !</span>
-              @if(Auth::user()->image != null)
-                <img class="img-xs rounded-circle" src="/images/users/{{Auth::user()->image}}" alt="image" class="profile-pic">
-              @else
-                <img class="img-xs rounded-circle" src="/images/no-user.png" alt="image" class="profile-pic">
-              @endif
+              <span class="mr-3">Hello,  !</span>
+                <img class="img-xs rounded-circle" src="/images/mauro.jpg" alt="image" class="profile-pic">
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <a class="dropdown-item p-0">
@@ -198,7 +203,7 @@
                 Check Inbox
               </a>
                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                  Sign Out
+                  Cerrar sesión
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: one;">
                   @csrf
                 </form>
@@ -305,7 +310,8 @@
     <!-- page-body-wrapper ends -->
   </div>
   <!-- container-scroller -->
-
+  
+  
 
   <script src="/js/app.js"></script>
   <script src="/js/scripts.js"></script>
