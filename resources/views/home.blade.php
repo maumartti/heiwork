@@ -233,18 +233,7 @@ $icons = [
                     <!-- <div class="alert alert-info alert-dismissible fade show mt-3" role="alert" style="font-size:16px;width:100%;text-align:center;padding-right:15px;margin:0px;padding:0px;">
                         <p style="font-size:12px;margin:0px;font-weight:bold;">Selecciona ver proyectos o perfiles freelancers</p>
                     </div> -->
-                    <ul class="nav nav-pills mb-3" id="pills-tab-one" role="tablist">
-                         @if(Request::segment(2) != 'Busco')  
-                        <li class="nav-item" style="width:50%;" role="presentation">
-                        <a class="nav-link active p-3" id="pills-home-tab-one" data-toggle="pill" href="#pills-home-one" role="tab" aria-controls="pills-home-one" aria-selected="true"><i class="mdi mdi-content-copy" style="margin-right:2px;"></i> Programación IT</a>
-                        </li>
-                        @endif
-                        @if(Request::segment(2) != 'Ofrezco')
-                        <li class="nav-item" style="width:50%;" role="presentation">
-                        <a class="nav-link p-3" id="pills-profile-tab-one" data-toggle="pill" href="#pills-profile-one" role="tab" aria-controls="pills-profile-one"><i class="mdi mdi-account-circle" style="margin-right:2px;"></i> Comunidad Online </a>                             
-                        </li>
-                        @endif
-                    </ul>
+                    
 
                     <div class="tab-content" id="pills-tabContent-one">
                          <!-- pesta;a  1 -->
@@ -377,93 +366,24 @@ $icons = [
                 <div class="col-lg-12 grid-margin stretch-card p-0 mb-2">           
                     <div class="card" style="border-radius:20px;">
                         <div class="card-body pt-0 pb-3 px-2 text-center">                            
-                            <a class="btn btn-info btn-block text-white mt-3 mb-3 p-3 rounded-pill" href="/publicar" style="font-size:18px;">Publicar Oferta de Empleo <i class="mdi mdi-plus-circle-outline ml-1" style="margin-left:0.5px;"></i></a>
-                            <div class="p-3 text-left contFilter">
-                                <h2>Filtros de búsqueda <img id="showFilter" src="/images/caret-down-square-fill.svg"></h2>
-                                <div class="row">
-                                    <div class="col-md-3 col-sm-12">
-                                        <label style="font-weight:bold;font-size:10px;">Tipo de publicación</label>
-                                        <select name="type" id="typeF" class="form-control font-weight-bold" >
-                                            <option value="" selected="true">Selecciona uno..</option>
-                                            @if(Request::segment(2) == 'Ofrezco')
-                                                <option value="Ofrezco" selected>Ofrece empleo</option>
-                                            @else
-                                                <option value="Ofrezco">Ofrece empleo</option>
-                                            @endif
-                                            @if(Request::segment(2) == 'Busco')
-                                                <option value="Busco" selected>Busca empleo</option>
-                                            @else
-                                                <option value="Busco">Busca empleo</option>
-                                            @endif
-                                        </select>
-                                    </div> 
-                                    <div class="col-md-3 col-sm-12">
-                                        <label style="font-weight:bold;font-size:10px;">Categoría</label>
-                                        <select id="categoryF" class="form-control font-weight-bold">
-                                            <option value="">Selecciona uno..</option>
-                                            <option value="Programación Web" <?php if(Request::segment(3) == "Programación Web") echo 'selected'; ?> >Programación Web</option>
-                                            <option value="Wordpress" <?php if(Request::segment(3) == "Wordpress") echo 'selected'; ?> >Wordpress</option>
-                                            <option value="Apps Android, iOS" <?php if(Request::segment(3) == "Apps Android, iOS") echo 'selected'; ?> >Apps Android, iOS</option>
-                                            <option value="Aplicaciones de escritorio" <?php if(Request::segment(3) == "Aplicaciones de escritorio") echo 'selected'; ?> >Aplicaciones de escritorio</option>
-                                            <option value="Diseño Web" <?php if(Request::segment(3) == "Diseño Web") echo 'selected'; ?> >Diseño Web</option>
-                                            <option value="Diseño de Logo" <?php if(Request::segment(3) == "Diseño de Logo") echo 'selected'; ?> >Diseño de Logo</option>
-                                            <option value="Ilustraciones" <?php if(Request::segment(3) == "Ilustraciones") echo 'selected'; ?> >Ilustraciones</option>
-                                            <option value="Crear o editar audio, video" <?php if(Request::segment(3) == "Crear o editar audio, video") 'selected'; ?> >Crear o editar audio, video</option>
-                                            <option value="Modelos 3D" <?php if(Request::segment(3) == "Modelos 3D") echo 'selected'; ?> >Modelos 3D</option>
-                                            <option value="Fotografía" <?php if(Request::segment(3) == "Fotografía") echo 'selected'; ?> >Fotografía</option>
-                                            <option value="Diseño de moda" <?php if(Request::segment(3) == "Diseño de moda") echo 'selected'; ?> >Diseño de moda</option>
-                                            <option value="Redacción y Traducción" <?php if(Request::segment(3) == "Redacción y Traducción") echo 'selected'; ?> >Redacción y Traducción</option>
-                                            <option value="Marketing Digital y Ventas" <?php if(Request::segment(3) == "Marketing Digital y Ventas") echo 'selected'; ?> >Marketing Digital y Ventas</option>
-                                            <option value="SEO" <?php if(Request::segment(3) == "SEO") echo 'selected'; ?> >SEO</option>
-                                            <option value="Soporte Administrativo" <?php if(Request::segment(3) == "Soporte Administrativo") echo 'selected'; ?> >Soporte Administrativo</option>
-                                            <option value="Legal" <?php if(Request::segment(3) == "Legal") echo 'selected'; ?> >Legal</option>
-                                            <option value="Finanzas y Negocios" <?php if(Request::segment(3) == "Finanzas y Negocios") echo 'selected'; ?> >Finanzas y Negocios</option>
-                                            <option value="Ingeniería y Arquitectura" <?php if(Request::segment(3) == "Ingeniería y Arquitectura") echo 'selected'; ?> >Ingeniería y Arquitectura</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6 col-sm-6" style="padding-top:27px;">
-                                        <button type="button" id="btnFilter" class="btn btn-primary w-50">Buscar</button>
-                                        @if(Request::segment(3) || Request::segment(2))
-                                        <a href="/" class="btn btn-secondary">Quiar filtro</a> 
-                                        @endif
-                                    </div> 
-                                    <div class="col-md-3 col-sm-6" style="padding-top:27px;">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    @if(isset($category) || isset($type))
-                                        <div class="col-md-12">
-                                            <h5 class="col-md-12 mt-1 font-weight-bold">Filtros aplicados:</h5>
-                                            <div class="row pl-4">
-                                            @isset($type)
-                                                <h6 class="mt-2 col-md-3">: {{$type}} empleo</h6>
-                                            @endisset
-                                            @isset($category)
-                                                <h6 class="mt-2 col-md-4">: {{$category}}</h6>
-                                            @endisset
-                                            </div>                                            
-                                        </div>    
-                                    @endif
-                                </div>
-                               
-                            </div>
-
+                            <!-- <a class="btn btn-info btn-block text-white mt-3 mb-3 p-3 rounded-pill" href="/publicar" style="font-size:18px;">Publicar Oferta de Empleo <i class="mdi mdi-plus-circle-outline ml-1" style="margin-left:0.5px;"></i></a> -->
+                            
                             <!-- pestañas -->
-                            <div class="col-md-10 px-4 py-3 mt-3" style="background:#EFFBEA;border-radius: 20px;text-align:left;position:relative;">
+                            <!-- <div class="col-md-10 px-4 py-3 mt-3" style="background:#EFFBEA;border-radius: 20px;text-align:left;position:relative;">
                             oooo
-                            </div>
+                            </div> -->
                             <div class="alert alert-info alert-dismissible fade show mt-3" role="alert" style="font-size:16px;width:100%;text-align:center;padding-right:15px;margin:0px;padding:0px;">
-                                <p style="font-size:12px;margin:0px;font-weight:bold;">Selecciona ver proyectos o perfiles</p>
+                                <p style="font-size:12px;margin:0px;font-weight:bold;">Selecciona ver de la comunidad o empleos</p>
                             </div>
                             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                              @if(Request::segment(2) != 'Ofrezco')
+                                <li class="nav-item" style="width:50%;" role="presentation">
+                                  <a class="nav-link active p-3  @if(Request::segment(2) == 'Busco') active @endif" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" @if(Request::segment(2) == 'Busco') aria-selected="true" @else aria-selected="false" @endif><i class="mdi mdi-account-multiple" style="font-size: 17px;position: relative;top: -2px;margin-right: 3px;"></i> Comunidad</a>                             
+                                </li>
+                                @endif
                               @if(Request::segment(2) != 'Busco')  
                               <li class="nav-item" style="width:50%;" role="presentation">
-                                <a class="nav-link p-3" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true"><i class="mdi mdi-content-copy" style="margin-right:2px;"></i> Ofertas</a>
-                              </li>
-                              @endif
-                              @if(Request::segment(2) != 'Ofrezco')
-                              <li class="nav-item" style="width:50%;" role="presentation">
-                                <a class="nav-link active p-3  @if(Request::segment(2) == 'Busco') active @endif" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" @if(Request::segment(2) == 'Busco') aria-selected="true" @else aria-selected="false" @endif><i class="mdi mdi-account-circle" style="margin-right:2px;"></i> Profesionales </a>                             
+                                <a class="nav-link p-3" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true"><i class="mdi mdi-content-copy" style="margin-right:2px;"></i> Empleos</a>
                               </li>
                               @endif
                             </ul>
@@ -476,6 +396,82 @@ $icons = [
 
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                        <!-- filtros -->
+                        <div class="col-lg-12 grid-margin stretch-card p-0 mb-2">           
+                            <div class="card" style="border-radius:20px;">
+                                <div class="card-body pt-0 pb-3">
+                                    <div class="p-3 text-left contFilter">
+                                        <h2>Filtros de búsqueda <img id="showFilter" src="/images/caret-down-square-fill.svg"></h2>
+                                        <div class="row">
+                                            <div class="col-md-3 col-sm-12">
+                                                <label style="font-weight:bold;font-size:10px;">Tipo de publicación</label>
+                                                <select name="type" id="typeF" class="form-control font-weight-bold" >
+                                                    <option value="" selected="true">Selecciona uno..</option>
+                                                    @if(Request::segment(2) == 'Ofrezco')
+                                                        <option value="Ofrezco" selected>Ofrece empleo</option>
+                                                    @else
+                                                        <option value="Ofrezco">Ofrece empleo</option>
+                                                    @endif
+                                                    @if(Request::segment(2) == 'Busco')
+                                                        <option value="Busco" selected>Busca empleo</option>
+                                                    @else
+                                                        <option value="Busco">Busca empleo</option>
+                                                    @endif
+                                                </select>
+                                            </div> 
+                                            <div class="col-md-3 col-sm-12">
+                                                <label style="font-weight:bold;font-size:10px;">Categoría</label>
+                                                <select id="categoryF" class="form-control font-weight-bold">
+                                                    <option value="">Selecciona uno..</option>
+                                                    <option value="Programación Web" <?php if(Request::segment(3) == "Programación Web") echo 'selected'; ?> >Programación Web</option>
+                                                    <option value="Wordpress" <?php if(Request::segment(3) == "Wordpress") echo 'selected'; ?> >Wordpress</option>
+                                                    <option value="Apps Android, iOS" <?php if(Request::segment(3) == "Apps Android, iOS") echo 'selected'; ?> >Apps Android, iOS</option>
+                                                    <option value="Aplicaciones de escritorio" <?php if(Request::segment(3) == "Aplicaciones de escritorio") echo 'selected'; ?> >Aplicaciones de escritorio</option>
+                                                    <option value="Diseño Web" <?php if(Request::segment(3) == "Diseño Web") echo 'selected'; ?> >Diseño Web</option>
+                                                    <option value="Diseño de Logo" <?php if(Request::segment(3) == "Diseño de Logo") echo 'selected'; ?> >Diseño de Logo</option>
+                                                    <option value="Ilustraciones" <?php if(Request::segment(3) == "Ilustraciones") echo 'selected'; ?> >Ilustraciones</option>
+                                                    <option value="Crear o editar audio, video" <?php if(Request::segment(3) == "Crear o editar audio, video") 'selected'; ?> >Crear o editar audio, video</option>
+                                                    <option value="Modelos 3D" <?php if(Request::segment(3) == "Modelos 3D") echo 'selected'; ?> >Modelos 3D</option>
+                                                    <option value="Fotografía" <?php if(Request::segment(3) == "Fotografía") echo 'selected'; ?> >Fotografía</option>
+                                                    <option value="Diseño de moda" <?php if(Request::segment(3) == "Diseño de moda") echo 'selected'; ?> >Diseño de moda</option>
+                                                    <option value="Redacción y Traducción" <?php if(Request::segment(3) == "Redacción y Traducción") echo 'selected'; ?> >Redacción y Traducción</option>
+                                                    <option value="Marketing Digital y Ventas" <?php if(Request::segment(3) == "Marketing Digital y Ventas") echo 'selected'; ?> >Marketing Digital y Ventas</option>
+                                                    <option value="SEO" <?php if(Request::segment(3) == "SEO") echo 'selected'; ?> >SEO</option>
+                                                    <option value="Soporte Administrativo" <?php if(Request::segment(3) == "Soporte Administrativo") echo 'selected'; ?> >Soporte Administrativo</option>
+                                                    <option value="Legal" <?php if(Request::segment(3) == "Legal") echo 'selected'; ?> >Legal</option>
+                                                    <option value="Finanzas y Negocios" <?php if(Request::segment(3) == "Finanzas y Negocios") echo 'selected'; ?> >Finanzas y Negocios</option>
+                                                    <option value="Ingeniería y Arquitectura" <?php if(Request::segment(3) == "Ingeniería y Arquitectura") echo 'selected'; ?> >Ingeniería y Arquitectura</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6" style="padding-top:27px;">
+                                                <button type="button" id="btnFilter" class="btn btn-primary w-50">Buscar</button>
+                                                @if(Request::segment(3) || Request::segment(2))
+                                                <a href="/" class="btn btn-secondary">Quiar filtro</a> 
+                                                @endif
+                                            </div> 
+                                            <div class="col-md-3 col-sm-6" style="padding-top:27px;">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            @if(isset($category) || isset($type))
+                                                <div class="col-md-12">
+                                                    <h5 class="col-md-12 mt-1 font-weight-bold">Filtros aplicados:</h5>
+                                                    <div class="row pl-4">
+                                                    @isset($type)
+                                                        <h6 class="mt-2 col-md-3">: {{$type}} empleo</h6>
+                                                    @endisset
+                                                    @isset($category)
+                                                        <h6 class="mt-2 col-md-4">: {{$category}}</h6>
+                                                    @endisset
+                                                    </div>                                            
+                                                </div>    
+                                            @endif
+                                        </div>
+                                    </div>    
+                                </div>    
+                            </div>    
+                        </div>    
+                        <!-- filtros -->    
                         @foreach($applications as $key => $application)
                             @if($application->type == 'Ofrezco' && $application->created_at < '2022-02-01 00:00:00')
                                 @php
@@ -508,7 +504,6 @@ $icons = [
                                 <div class="col-lg-12 grid-margin stretch-card p-0 mb-2">           
                                   <div class="card" style="border-radius:20px;">
                                     <div class="card-body pt-3 pb-3">
-
 
                                         <div class="row">
                                             <div class="col-md-2 text-center">
@@ -737,6 +732,19 @@ $icons = [
 
 
                         <div class="tab-pane  active @if(Request::segment(2) == 'Busco') show active @endif" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                            <div class="col-lg-12 grid-margin stretch-card p-0 mb-2">           
+                                <div class="card" style="border-radius:20px;">
+                                    <div class="card-body pt-3 pb-3">
+                                        <h4 class="mb-3">Mercados IT</h4>
+                                        <a href="#"><p style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:5px 0px;display:inline-block;"><i class="ml-1 flag-icon flag-icon-ar" title="ar" id="ar" style="position:relative;top:1px;"></i> Argentina</p></a>
+                                        <a href="#"><p style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:5px 0px;display:inline-block;"><i class="ml-1 flag-icon flag-icon-cl" title="cl" id="cl" style="position:relative;top:1px;"></i> Chile</p></a>
+                                        <a href="#"><p style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:5px 0px;display:inline-block;"><i class="ml-1 flag-icon flag-icon-co" title="co" id="co" style="position:relative;top:1px;"></i> Colombia</p></a>
+                                        <a href="#"><p style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:5px 0px;display:inline-block;"><i class="ml-1 flag-icon flag-icon-uy" title="uy" id="uy" style="position:relative;top:1px;"></i> Uruguay</p></a>
+                                        <a href="#"><p style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:5px 0px;display:inline-block;"><i class="ml-1 flag-icon flag-icon-mx" title="mx" id="mx" style="position:relative;top:1px;"></i> Mexico</p></a>
+                                        <a href="#"><p style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:5px 0px;display:inline-block;"><i class="ml-1 flag-icon flag-icon-nz" title="nz" id="nz" style="position:relative;top:1px;"></i> New Zeland</p></a>
+                                    </div>
+                                </div>
+                            </div>
                         @foreach($applications as $key => $application)
                             @if($application->type == 'Busco')
                                 @php
@@ -773,7 +781,7 @@ $icons = [
                                   <div class="card" style="border-radius:20px;">
                                     <div class="card-body pt-3 pb-3">
 
-
+                                    <!-- temas de la comunidad -->
                                         <div class="row">
                                             <div class="col-md-2 text-center">
                                                 <div style="width: ;width: 90px;margin: auto;position: relative;">

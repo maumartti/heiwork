@@ -184,11 +184,11 @@
           </li>
           -->
           <li class="nav-item">
-            <a href="/freelancers" class="nav-link"><i class="mdi mdi-account-multiple"></i>Freelancers</a>
+            <a href="/freelancers" class="nav-link"><i class="mdi mdi-account-multiple"></i>Perfiles</a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a href="/planes"  class="nav-link"><i class="mdi mdi-bookmark-outline"></i>Planes</a>
-          </li>
+          </li> -->
           <!--
           <li class="nav-item" style="background: #58ac58;">
             <a href="/ganar-dinero" class="nav-link "><i class="mdi mdi-currency-usd mr-1"></i>Gana! 60%</a>
