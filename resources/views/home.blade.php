@@ -5,18 +5,18 @@
 @section('head')
 
     @if(Request::segment(2) == 'Ofrezco')
-    <title>Ofertas de trabajo freelance | HeiWork</title>
+    <title>Comunidad IT | HeiWork</title>
     <link rel="canonical" href="https://heiwork.com">
-    <meta name="description" content="Proyectos de desarrollo de tiendas online en heiwork.com, e-commerce para tu negocio aplicando tus ideas en nuestra lista prioridades">
+    <meta name="description" content="Comunidad de profesionales IT en heiwork.com, comunidad enfocada a brindar datos del mercado laboral para, freelancers del mundo IT, nomades digitáles que quieren emigrar, programadores, diseñadores, y más.">
     @elseif(Request::segment(2) == 'Busco')
     <title>Freelancers buscando empleo | HeiWork</title>
     <link rel="canonical" href="https://heiwork.com">
-    <meta name="description" content="Busca freelancer para contratar como teletrabajadores que desarrollen tu tienda online? en toda Latinoamérica hay profesionales freelancer">
+    <meta name="description" content="Comunidad de profesionales IT en heiwork.com, comunidad enfocada a brindar datos del mercado laboral para, freelancers del mundo IT, nomades digitáles que quieren emigrar, programadores, diseñadores, y más.">
     @else
-    <title>HeiWork | E-commerce para empresas en español</title>
+    <title>HeiWork | Comunidad IT</title>
     <link rel="canonical" href="https://heiwork.com">
-    <meta name="description" content="Adquiere un E-commerce desarrollado por freelancers profesionales en español, publica gratis y contrata nuestros servicios profesionales en nuestra comunidad y adquiere tu tienda online">
-    <meta name="keywords" content="trabajo freelance, tienda online, programador, e-commerce, heiwork.com">
+    <meta name="description" content="Comunidad de profesionales IT en heiwork.com, comunidad enfocada a brindar datos del mercado laboral para, freelancers del mundo IT, nomades digitáles que quieren emigrar, programadores, diseñadores, y más.">
+    <meta name="keywords" content="trabajo freelance, Mercado laboral, programador, e-commerce, heiwork.com">
     @endif
 
     <meta name="apple-mobile-web-app-title" content="Trabajos Freelance">
@@ -198,20 +198,20 @@ $icons = [
                                         </p>
                                     </div>   
                                 @else    
-                                    <h1 style="font-size: 1.6rem;text-align:center;">Heiwork <a href="/blog/tags/e_commerce">E-commerce</a>, tiendas online</h1>
-                                    <p>Adquiere o encuentra <strong>Tiendas online desarrolladas de forma freelance</strong> gratis,en nuestra bolsa de <strong>trabajo freelance</strong> puedes aplicar a ofertas de <strong><a href="/teletrabajo-freelance">teletrabajo</a></strong> en toda la región, Latinoamérica y el mundo. Regístrate gratis y publica tus habilidades en nuestra plataforma diseñada de forma ágil y práctica, <strong>consigue los mejores resultados hoy mismo!, con tu propia tienda en linea.</strong></p>
+                                    <h1 style="font-size: 1.6rem;text-align:center;">Heiwork comunidad IT online</h1>
+                                    <p>Forma parte de <strong>la comunidad de desarrolladas y diseñadores</strong> gratis,en nuestra bolsa de <strong>trabajo freelance</strong> puedes aplicar a ofertas de <strong><a href="/teletrabajo-freelance">teletrabajo</a></strong> en toda la región, Latinoamérica y el mundo. Regístrate gratis y publica tus habilidades en nuestra plataforma diseñada de forma ágil y práctica, <strong>consigue los mejores resultados hoy mismo.</strong></p>
                                     <div style="border:2px solid white;background:white;border-radius:10px;width:100%;display:flex;margin-bottom:10px;">
                                         <img src="/images/h111.png" class="m-auto w-100" alt="trabajos y proyectos freelance"  style="border-radius:10px;">
                                         <!--<img src="/images/h33.jpeg" class="m-auto w-50" alt="diseñadora freelancer" style="border-radius:10px;">-->
                                     </div>
-                                    <p>Únete a la <strong>comunidad y plataforma e-commerce con trabajadores freelancer</strong> creada para toda Latinoamérica y países hispanohablantes, con el fin de conectar clientes con profesionales freelancers dispuestos a crecer tu ecommerce y dar lo mejor de si en todo momento, <strong>Únete ahora a Heiwork y obtiene tu tienda online.</strong>.</p>
+                                    <p>Únete a la <strong>comunidad IT de trabajadores freelancer y nómadas digigáles</strong> creada para toda Latinoamérica y países hispanohablantes, con el fin de conectar clientes con profesionales freelancers dispuestos a crecer tu ecommerce y dar lo mejor de si en todo momento, <strong>Únete ahora a Heiwork.</strong>.</p>
                                     <div style="border:2px solid white;background:white;border-radius:10px;width:100%;display:flex;margin-bottom:0px;">
                                         <img src="/images/h222.png" class="m-auto" alt="contrato freelancer" style="width:160px;">
                                         <p class="w-50 p-3 mb-0">
                                         Trabaja o contrata nuevos clientes, genera pagos online desde tu proppio punto de venta en linea, haciendo visible tus productos con nosotros rápidamente y en pocos pasos. 
                                         </p>
                                     </div>    
-                                    <p><strong>Obtiene tu tienda en linea hoy!.</strong> trabajando y puliendo tus habilidades en nuevos proyectos de tiendas en linea publicados por nuestros socios, empresas, clientes y emprendedores que buscan talento humano.</p>
+                                    <p><strong>Buscas emigrar como IT ?.</strong> trabajando y puliendo tus habilidades en nuevos proyectos desde cualquiér parte del mundo, trabajando para empresas, clientes y emprendedores que buscan talento humano.</p>
                                 @endif
                                      <!--botones like fb -->
                                      <!--
@@ -236,12 +236,12 @@ $icons = [
                     <ul class="nav nav-pills mb-3" id="pills-tab-one" role="tablist">
                          @if(Request::segment(2) != 'Busco')  
                         <li class="nav-item" style="width:50%;" role="presentation">
-                        <a class="nav-link active p-3" id="pills-home-tab-one" data-toggle="pill" href="#pills-home-one" role="tab" aria-controls="pills-home-one" aria-selected="true"><i class="mdi mdi-content-copy" style="margin-right:2px;"></i> Programación de e-commerce</a>
+                        <a class="nav-link active p-3" id="pills-home-tab-one" data-toggle="pill" href="#pills-home-one" role="tab" aria-controls="pills-home-one" aria-selected="true"><i class="mdi mdi-content-copy" style="margin-right:2px;"></i> Programación IT</a>
                         </li>
                         @endif
                         @if(Request::segment(2) != 'Ofrezco')
                         <li class="nav-item" style="width:50%;" role="presentation">
-                        <a class="nav-link p-3" id="pills-profile-tab-one" data-toggle="pill" href="#pills-profile-one" role="tab" aria-controls="pills-profile-one"><i class="mdi mdi-account-circle" style="margin-right:2px;"></i> Tiendas Online </a>                             
+                        <a class="nav-link p-3" id="pills-profile-tab-one" data-toggle="pill" href="#pills-profile-one" role="tab" aria-controls="pills-profile-one"><i class="mdi mdi-account-circle" style="margin-right:2px;"></i> Comunidad Online </a>                             
                         </li>
                         @endif
                     </ul>
@@ -311,29 +311,7 @@ $icons = [
                                 <div class="card-body pt-1 pb-1 px-2 text-center">
                                     <div class="row">
                                         <div class="col-12">
-                                            <h2 style="font-size:2.40rem !important">La Importancia de Tener una <a href="https://heiwork.com/blog/e-commerce-uruguay">Tienda en Línea para Tu Negocio en Uruguay</a> y Chile</h2>
-                                            <p style="font-size:16px;">En la era digital, tener una <strong>tienda en línea o E-commerce</strong> se ha convertido en una necesidad para empresas de todos los tamaños en <strong>Uruguay y Chile como en el resto de Latinoamérica</strong>. Ya no se trata solo de una opción para los gigantes del comercio electrónico, sino que incluso los negocios pequeños y medianos pueden beneficiarse enormemente de la presencia en línea. En este artículo, exploraremos la importancia de tener una tienda en línea para tu negocio, sin importar su tamaño.</p>
-                                            <h3>1. Alcance Global</h3>
-                                            <p style="font-size:16px;">Una de las ventajas más evidentes de tener una tienda en línea es la posibilidad de llegar a un público global. Uruguay y Chile son países con una base de consumidores cada vez más digital, y contar con una tienda en línea te permite traspasar fronteras y llegar a clientes en todo el mundo. Esto amplía significativamente tu base de clientes y, en consecuencia, tus oportunidades de crecimiento.</p>
-                                            <h3>2. Mayor Visibilidad y Competitividad</h3>
-                                            <p style="font-size:16px;">Tener una tienda en línea te hace visible en el vasto mundo de internet. Los consumidores buscan productos y servicios en línea, y si tu negocio no está presente, es probable que se pierdan la oportunidad de conocerte. Además, la competencia en el mundo digital es intensa, por lo que estar presente en línea es esencial para competir con otras empresas, independientemente de su tamaño.</p>
-                                            <h3>3. Reducción de Costos Operativos</h3>
-                                            <p style="font-size:16px;">En comparación con las tiendas físicas, mantener una tienda en línea suele ser más económico. No es necesario invertir en alquiler de locales, gastos de mantenimiento, ni personal de ventas en la misma medida. Además, puedes operar las 24 horas del día, los 7 días de la semana, sin costo adicional. Esto puede ser un alivio para los negocios pequeños y medianos que buscan reducir gastos operativos.</p>
-                                            <h3>4. Facilidad de Gestión</h3>
-                                            <p style="font-size:16px;">Administrar una tienda en línea es más sencillo en muchos aspectos. Puedes gestionar tu inventario, procesar pedidos y atender a los clientes desde la comodidad de tu oficina o casa. Además, existen numerosas herramientas y plataformas que simplifican la gestión de una tienda en línea, lo que facilita la vida de los emprendedores y dueños de negocios.</p>
-                                            <h3>5. Personalización y Experiencia del Cliente</h3>
-                                            <p style="font-size:16px;">Una tienda en línea te brinda la oportunidad de personalizar la experiencia del cliente. Puedes ofrecer recomendaciones personalizadas, promociones específicas y un proceso de compra más amigable. Esto crea una conexión más fuerte con tus clientes y puede aumentar la fidelidad a la marca.</p>
-                                            <h3>6. Acceso a Datos y Análisis</h3>
-                                            <p style="font-size:16px;">El comercio en línea te proporciona datos valiosos sobre el comportamiento de tus clientes. Puedes analizar métricas como el tráfico del sitio web, las tasas de conversión y las preferencias de los clientes. Estos datos te permiten tomar decisiones informadas para mejorar tus estrategias de marketing y ventas.</p>
-                                            <h3>7. Crecimiento y Escalabilidad</h3>
-                                            <p style="font-size:16px;">Una tienda en línea te da la flexibilidad de crecer y expandirte a medida que tu negocio crece. Puedes agregar nuevos productos o servicios, segmentar tu mercado, y adaptar tu estrategia a medida que avanzas. Esta escalabilidad es esencial para el éxito a largo plazo de tu negocio.</p>
-                                            <h3>8. Tienda Abierta las 24/7</h3>
-                                            <p style="font-size:16px;">Una de las mayores ventajas de una tienda en línea es que nunca cierra. Los clientes pueden comprar en cualquier momento, lo que significa que puedes generar ingresos incluso mientras duermes. Esto amplía tus oportunidades de venta y te permite atender a un público más amplio.</p>
-                                            <h3>9. Adaptación a la Nueva Normalidad</h3>
-                                            <p style="font-size:16px;">La pandemia de COVID-19 aceleró la adopción del comercio electrónico. La capacidad de seguir operando en línea durante los confinamientos fue vital para muchos negocios. Incluso a medida que la situación se estabiliza, la preferencia por las compras en línea sigue siendo alta. Tener una tienda en línea te ayuda a adaptarte a esta nueva normalidad.</p>
-                                            <h3>10. Mayor Comodidad para los Clientes</h3>
-                                            <p style="font-size:16px;">Los consumidores aprecian la comodidad de comprar en línea. Pueden explorar productos, comparar precios y realizar compras desde la comodidad de sus hogares. Esto se traduce en una experiencia de compra más agradable para tus clientes, lo que puede generar lealtad a la marca.</p>
-                                            <p style="font-size:16px;">En resumen, tener una tienda en línea es esencial para los negocios en Uruguay y Chile, sin importar su tamaño. Ofrece una serie de ventajas que incluyen un alcance global, mayor visibilidad, reducción de costos operativos y la posibilidad de proporcionar una experiencia personalizada a los clientes. Además, en un mundo en constante evolución, tener una presencia en línea es una estrategia inteligente para adaptarse a las cambiantes preferencias de los consumidores. Si aún no has considerado la opción de tener una tienda en línea, este es el momento de hacerlo para asegurar el crecimiento y el éxito continuo de tu negocio.</p>
+                                            <h2 style="font-size:2.40rem !important">Comunidad de profesionales IT</h2>
                                         </div>
                                     </div>
                                     <div class="row mt-2 px-2">
@@ -472,10 +450,7 @@ $icons = [
 
                             <!-- pestañas -->
                             <div class="col-md-10 px-4 py-3 mt-3" style="background:#EFFBEA;border-radius: 20px;text-align:left;position:relative;">
-                                <h4><a href="https://asyster.com/blog/5-mejores-software-psicologos-uruguay"><b>Mejor software para psicólogos</b></a>, sistema diseñado para que los psicólogos que trabajen en consulta con sus pacientes y mejoren mejorar su organización de agenda y turnos. </p>
-                                <p><strong>Asyster</strong>, un innovador software diseñado para profesionales de la salud mental y médicos en <strong>Uruguay, Chile, España, Perú, Colombia y México</strong>, ha revolucionado la gestión de consultorios y clínicas. Es una herramienta integral que brinda soporte a <strong>psicólogos, psicoterapeutas, psicomotricistas, oftalmólogos, odontólogos</strong> y otros profesionales cuyas prácticas involucren campos relacionados con la psicología. La versatilidad de Asyster se refleja en su capacidad para adaptarse a diversas especialidades, abarcando incluso aquellos rubros que comienzan con las letras 'psico', demostrando así su compromiso con la diversidad de profesionales de la salud.</p>
-                                <p>Con funciones personalizadas para cada especialidad, <strong>Asyster</strong> facilita la gestión de agendas, <strong>historias clínicas, facturación y seguimiento de pacientes</strong>. Los psicólogos y demás profesionales pueden centrarse en su atención al paciente, ya que Asyster <strong>optimiza las tareas administrativas</strong> y proporciona un entorno digital seguro para el almacenamiento de información confidencial. Además, este sistema cuenta con actualizaciones regulares y un equipo de soporte comprometido, asegurando que los usuarios estén siempre respaldados por la última tecnología y las <strong>mejores prácticas en gestión de consultorios</strong>.</p>
-                                <p>Asyster no solo se destaca por su eficiencia, sino también por su capacidad de adaptación a las regulaciones específicas de cada país en el que opera. Esto garantiza que los profesionales de la salud en Uruguay, Chile, España, Perú, Colombia y México cumplan con los requisitos normativos locales, manteniendo así la integridad de sus prácticas y el bienestar de sus pacientes. En su primer año, Asyster ha logrado consolidarse como una herramienta esencial para aquellos que buscan una <strong>solución integral y especializada en la gestión de sus consultorios médicos</strong>.</p>
+                            oooo
                             </div>
                             <div class="alert alert-info alert-dismissible fade show mt-3" role="alert" style="font-size:16px;width:100%;text-align:center;padding-right:15px;margin:0px;padding:0px;">
                                 <p style="font-size:12px;margin:0px;font-weight:bold;">Selecciona ver proyectos o perfiles</p>
@@ -943,7 +918,7 @@ $icons = [
                             <i class="ml-0 flag-icon flag-icon-{{$user->country}} flagScroll" title="{{$user->country}}" id="{{$user->country}}" style="position:absolute;top:45px;left:50px;width: 20px;"></i>
                             <p class="font-weight-bold communityNameUS2 text-black" style="font-size: 12px;"><span>{{substr($userName[0],0,8)}}</span></p>
                         </div>
-                        </li>vvvvv
+                        </li>
                     @endforeach 
                 </ul>
                 <div id="closeScroll" style="display:none;width: 26.5px;height:26.5px;text-align: center;right:0px;position: relative;top:-50px;float: right;background: white;border-radius: 100%;border: 1px solid grey;">

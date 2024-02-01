@@ -138,6 +138,22 @@
             margin-bottom: 15px;
         }
     }
+    .btn-get-started {
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: 500;
+        font-size: 20px;
+        letter-spacing: 1px;
+        display: inline-block;
+        padding: 10px 42px 11px 42px;
+        border-radius: 50px;
+        transition: 0.5s;
+        margin: 5px 0px 40px 0px;
+            margin-left: 0px;
+        color: #fff;
+        background: #4da64e !important;
+        border: 2px solid #318c34 !important;
+        box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    }
 </style>
 @endsection
 @section('content')

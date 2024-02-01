@@ -234,8 +234,8 @@
                                 </div>   
                         @endforeach
 
-                        <!-- formulario de commentarios -->
-                        <form action="/postComment" method="POST"> 
+                        <!-- formulario de commentarios /postComment-->
+                        <form action="" method="POST"> 
                             @csrf
                             <h3 class="mt-5">Publicar comentario</h3>
 
@@ -266,7 +266,7 @@
                             <div class="form-group">
                                 <input type="hidden" name="id" value="{{ md5('comunidadFreelanceLatinoamerica') }}">
                                 <input type="hidden" name="type" value="{{ md5('article') }}">
-                                <input type="submit" class="btn btn-primary btn-block" value="Publicar Comentario">
+                                <!-- <input type="submit" class="btn btn-primary btn-block" value="Publicar Comentario"> -->
                             </div>  
                         </form>
                     </div>
