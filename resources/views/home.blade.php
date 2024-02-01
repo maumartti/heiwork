@@ -372,19 +372,19 @@ $icons = [
                             <!-- <div class="col-md-10 px-4 py-3 mt-3" style="background:#EFFBEA;border-radius: 20px;text-align:left;position:relative;">
                             oooo
                             </div> -->
-                            <div class="alert alert-info alert-dismissible fade show mt-3" role="alert" style="font-size:16px;width:100%;text-align:center;padding-right:15px;margin:0px;padding:0px;">
-                                <p style="font-size:12px;margin:0px;font-weight:bold;">Selecciona ver de la comunidad o empleos</p>
-                            </div>
+                            <!-- <div class="alert alert-info alert-dismissible fade show mt-3" role="alert" style="font-size:16px;width:100%;text-align:center;padding-right:15px;margin:0px;padding:0px;">
+                                <p style="font-size:12px;margin:0px;font-weight:bold;">Selecciona ver empleos o temas de la comunidad</p>
+                            </div> -->
                             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                               @if(Request::segment(2) != 'Ofrezco')
                                 <li class="nav-item" style="width:50%;" role="presentation">
                                   <a class="nav-link active p-3  @if(Request::segment(2) == 'Busco') active @endif" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" @if(Request::segment(2) == 'Busco') aria-selected="true" @else aria-selected="false" @endif><i class="mdi mdi-account-multiple" style="font-size: 17px;position: relative;top: -2px;margin-right: 3px;"></i> Comunidad</a>                             
                                 </li>
                                 @endif
-                              @if(Request::segment(2) != 'Busco')  
-                              <li class="nav-item" style="width:50%;" role="presentation">
-                                <a class="nav-link p-3" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true"><i class="mdi mdi-content-copy" style="margin-right:2px;"></i> Empleos</a>
-                              </li>
+                                @if(Request::segment(2) != 'Busco')  
+                                <li class="nav-item" style="width:50%;" role="presentation">
+                                  <a class="nav-link p-3" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true"><i class="mdi mdi-content-copy" style="margin-right:2px;"></i> Empleos</a>
+                                </li>
                               @endif
                             </ul>
 
@@ -734,15 +734,19 @@ $icons = [
                         <div class="tab-pane  active @if(Request::segment(2) == 'Busco') show active @endif" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                             <div class="col-lg-12 grid-margin stretch-card p-0 mb-2">           
                                 <div class="card" style="border-radius:20px;">
-                                    <div class="card-body pt-3 pb-3">
+                                    <div class="card-body pt-3 pb-0">
                                         <h4 class="mb-3">Mercados IT</h4>
-                                        <a href="#"><p style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:5px 0px;display:inline-block;"><i class="ml-1 flag-icon flag-icon-ar" title="ar" id="ar" style="position:relative;top:1px;"></i> Argentina</p></a>
-                                        <a href="#"><p style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:5px 0px;display:inline-block;"><i class="ml-1 flag-icon flag-icon-cl" title="cl" id="cl" style="position:relative;top:1px;"></i> Chile</p></a>
-                                        <a href="#"><p style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:5px 0px;display:inline-block;"><i class="ml-1 flag-icon flag-icon-co" title="co" id="co" style="position:relative;top:1px;"></i> Colombia</p></a>
-                                        <a href="#"><p style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:5px 0px;display:inline-block;"><i class="ml-1 flag-icon flag-icon-uy" title="uy" id="uy" style="position:relative;top:1px;"></i> Uruguay</p></a>
-                                        <a href="#"><p style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:5px 0px;display:inline-block;"><i class="ml-1 flag-icon flag-icon-mx" title="mx" id="mx" style="position:relative;top:1px;"></i> Mexico</p></a>
-                                        <a href="#"><p style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:5px 0px;display:inline-block;"><i class="ml-1 flag-icon flag-icon-nz" title="nz" id="nz" style="position:relative;top:1px;"></i> New Zeland</p></a>
+                                        <a href="#"><p style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:2px 0px;display:inline-block;"><i class="ml-1 flag-icon flag-icon-ar" title="ar" id="ar" style="position:relative;top:1px;"></i> Argentina</p></a>
+                                        <a href="#"><p style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:2px 0px;display:inline-block;"><i class="ml-1 flag-icon flag-icon-au" title="au" id="au" style="position:relative;top:1px;"></i> Australia</p></a>
+                                        <a href="#"><p style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:2px 0px;display:inline-block;"><i class="ml-1 flag-icon flag-icon-ca" title="ca" id="ca" style="position:relative;top:1px;"></i> Canadá</p></a>
+                                        <a href="#"><p style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:2px 0px;display:inline-block;"><i class="ml-1 flag-icon flag-icon-cl" title="cl" id="cl" style="position:relative;top:1px;"></i> Chile</p></a>
+                                        <a href="#"><p style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:2px 0px;display:inline-block;"><i class="ml-1 flag-icon flag-icon-co" title="co" id="co" style="position:relative;top:1px;"></i> Colombia</p></a>
+                                        <a href="#"><p style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:2px 0px;display:inline-block;"><i class="ml-1 flag-icon flag-icon-es" title="es" id="es" style="position:relative;top:1px;"></i> España</p></a>
+                                        <a href="#"><p style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:2px 0px;display:inline-block;"><i class="ml-1 flag-icon flag-icon-mx" title="mx" id="mx" style="position:relative;top:1px;"></i> Mexico</p></a>
+                                        <a href="#"><p style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:2px 0px;display:inline-block;"><i class="ml-1 flag-icon flag-icon-nz" title="nz" id="nz" style="position:relative;top:1px;"></i> New zealand</p></a>
+                                        <a href="#"><p style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:2px 0px;display:inline-block;"><i class="ml-1 flag-icon flag-icon-pe" title="pe" id="pe" style="position:relative;top:1px;"></i> Perú</p></a>
                                     </div>
+                                    <a href="#"><p style="font-size:13px;font-weight:bold;border-radius: 20px;padding:3px 12px;width:max-content;margin:0px;display:inline-block;width: 100%;text-align: center;padding: 0px;"><i class="mdi mdi-arrow-down-drop-circle" title="ver todos" style="font-size:16px;"></i> Ver Todos</p></a>
                                 </div>
                             </div>
                         @foreach($applications as $key => $application)
