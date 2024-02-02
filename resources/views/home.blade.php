@@ -760,6 +760,9 @@ $icons = [
                                     <!-- temas de la comunidad -->
                                     @foreach($applications as $key => $application)
                                         @if($application->type == 'Busco')
+                                            @php
+                                                $userName = explode(' ',$application->user->name);
+                                            @endphp    
                                             <div class="col-lg-12 grid-margin stretch-card p-0 mb-2">           
                                             <div class="card" style="border-radius:20px;">
                                                 <div class="card-body pt-3 pb-3 px-2">
@@ -767,12 +770,24 @@ $icons = [
                                                 <!-- temas de la comunidad -->
                                                     <div class="">
                                                         <div class="col-md-12 px-4 py-3" style="background:#EFFBEA;border-radius: 20px;text-align:left;position:relative;">
-                                                            <h3 class="mt-3 font-weight-bold"><a href="/freelancer/{{$application->user->code}}">{{$application->title}}</a></h3>
+                                                            <h3 class="mt-3 mb-0 font-weight-bold">
+                                                                <!-- <img class="rounded-circle mt-1 mb-0 mr-1 float-left" src="/images/users/{{($application->user->image == null ? 'no-user.png' : $application->user->image)}}" style="width:34px;height:34px; @if($application->user->plan == 'professional') border:2px solid #55c12e @elseif($application->user->plan == 'premium') border:2px solid #007bff @else border:2px solid grey @endif" data-toggle="tooltip" data-placement="top" title="{{$userName[0]}}" alt="{{$userName[0]}}"> -->
+                                                                <a href="/freelancer/{{$application->user->code}}">{{$application->title}}</a>
+                                                            </h3>
                                                             @php                                                       
                                                                 $text = strip_tags($application->text);//quitamos etiquetas html
                                                             @endphp
-                                                                <p style="font-size:14px;margin-bottom:0px;">{{$text}}</p>
+                                                                <p class="mt-1" style="font-size:14px;margin-bottom:0px;">{{$text}}</p>
                                                                 <div class="row">
+                                                                    <div class="col-4 col-md-2 px-1" style="width: 230px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
+                                                                        <img class="rounded-circle mt-1 mb-0 mr-1 " src="/images/users/{{($application->user->image == null ? 'no-user.png' : $application->user->image)}}" style="margin: 8px 0px auto !important;width:30px;height:30px; @if($application->user->plan == 'professional') border:2px solid #55c12e @elseif($application->user->plan == 'premium') border:2px solid #007bff @else border:2px solid grey @endif" data-toggle="tooltip" data-placement="top" title="{{$userName[0]}}" alt="{{$userName[0]}}">
+                                                                        <p class="font-weight-bold m-0 mt-2 communityNameUS" style="display: inline; position: relative; top: 6px;">
+                                                                            <span><a href="/freelancer/{{$application->user->code}}">{{$userName[0]}}</a></span>
+                                                                        </p>
+                                                                        <!-- <div class="mb-0 mt-2 cont1 text-center" style=":#a49200;cursor:pointer;background: #ffffd9;padding:4px;font-size:0.8rem;border:1px solid;border-radius:4px;font-weight:bold;right:0px;margin-bottom: 0px !important;"  data-toggle="tooltip" data-placement="bottom" title="Ofrece empleo">
+                                                                            <p class="m-0" style="font-size:14px;font-weight:bold;color:#68685a;">x</p>
+                                                                        </div> -->
+                                                                    </div>
                                                                     <div class="col-4 col-md-2 px-1">
                                                                         <div class="mb-0 mt-2 text-center"  data-toggle="tooltip" data-placement="bottom" title="xxxxx" style="cursor:pointer;border:1px solid #28a745;border-radius:4px;padding: 4px;font-size: 8px;background: #e7ffd9;color:#28a745;font-weight: bold;">
                                                                             <p class="m-0" style="font-size: 14px;font-weight: bold;"><i class="mdi mdi-eye"></i> 133</p>
@@ -781,11 +796,6 @@ $icons = [
                                                                     <div class="col-4 col-md-2 px-1">
                                                                         <div class="mb-0 mt-2 cont1 text-center" style="padding:4px;font-size:0.8rem;color:#286ba7;cursor:pointer;background: #ebf3ff;border:1px solid;border-radius:4px;font-weight:bold;right:0px;margin-bottom: 0px !important;"  data-toggle="tooltip" data-placement="bottom" title="Ofrece empleo">
                                                                             <p class="m-0" style="font-size:14px;font-weight:bold;"> <i class="mdi mdi-tooltip-text"></i> 101</p>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-4 col-md-2 px-1">
-                                                                        <div class="mb-0 mt-2 cont1 text-center" style=":#a49200;cursor:pointer;background: #ffffd9;padding:4px;font-size:0.8rem;border:1px solid;border-radius:4px;font-weight:bold;right:0px;margin-bottom: 0px !important;"  data-toggle="tooltip" data-placement="bottom" title="Ofrece empleo">
-                                                                            <p class="m-0" style="font-size:14px;font-weight:bold;color:#68685a;">x</p>
                                                                         </div>
                                                                     </div>
                                                                 </div>
