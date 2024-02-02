@@ -73,7 +73,7 @@
                         <div class="col-12 d-flex mb-3">
                             <div class="contDetails">
                                 <i class="ti-settings mr-2"></i>
-                                <h6 class="font-weight-normal">support@heiwork.com</h6>
+                                <h6 class="font-weight-normal">hello@heiwork.com</h6>
                             </div>
                         </div>
                     </div>
