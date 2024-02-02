@@ -365,7 +365,7 @@ $icons = [
                 </div>             
                 <div class="col-lg-12 grid-margin stretch-card p-0 mb-2">           
                     <div class="card" style="border-radius:20px;">
-                        <div class="card-body pt-0 pb-3 px-2 text-center">                            
+                        <div class="card-body pt-2 pb-3 px-3 text-center">                            
                             <!-- <a class="btn btn-info btn-block text-white mt-3 mb-3 p-3 rounded-pill" href="/publicar" style="font-size:18px;">Publicar Oferta de Empleo <i class="mdi mdi-plus-circle-outline ml-1" style="margin-left:0.5px;"></i></a> -->
                             
                             <!-- pestañas -->
@@ -378,7 +378,7 @@ $icons = [
                             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                               @if(Request::segment(2) != 'Ofrezco')
                                 <li class="nav-item" style="width:50%;" role="presentation">
-                                  <a class="nav-link active p-3  @if(Request::segment(2) == 'Busco') active @endif" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" @if(Request::segment(2) == 'Busco') aria-selected="true" @else aria-selected="false" @endif><i class="mdi mdi-account-multiple" style="font-size: 17px;position: relative;top: -2px;margin-right: 3px;"></i> Comunidad</a>                             
+                                  <a class="nav-link active p-3  @if(Request::segment(2) == 'Busco') active @endif" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" @if(Request::segment(2) == 'Busco') aria-selected="true" @else aria-selected="false" @endif><i class="mdi mdi-tooltip-text" style="font-size: 17px;position: relative;top: -2px;margin-right: 3px;"></i> Comunidad</a>                             
                                 </li>
                                 @endif
                                 @if(Request::segment(2) != 'Busco')  
@@ -749,6 +749,62 @@ $icons = [
                                     <a href="#"><p style="font-size:13px;font-weight:bold;border-radius: 20px;padding:3px 12px;width:max-content;margin:0px;display:inline-block;width: 100%;text-align: center;padding: 0px;"><i class="mdi mdi-arrow-down-drop-circle" title="ver todos" style="font-size:16px;"></i> Ver Todos</p></a>
                                 </div>
                             </div>
+
+
+
+
+
+                            <div class="col-lg-12 grid-margin stretch-card p-0 mb-2">           
+                                <div class="card" style="border-radius:20px;">
+                                    <div class="card-body pt-3 pb-3 px-2">
+                                    <!-- temas de la comunidad -->
+                                    @foreach($applications as $key => $application)
+                                        @if($application->type == 'Busco')
+                                            <div class="col-lg-12 grid-margin stretch-card p-0 mb-2">           
+                                            <div class="card" style="border-radius:20px;">
+                                                <div class="card-body pt-3 pb-3 px-2">
+
+                                                <!-- temas de la comunidad -->
+                                                    <div class="">
+                                                        <div class="col-md-12 px-4 py-3" style="background:#EFFBEA;border-radius: 20px;text-align:left;position:relative;">
+                                                            <h3 class="mt-3 font-weight-bold"><a href="/freelancer/{{$application->user->code}}">{{$application->title}}</a></h3>
+                                                            @php                                                       
+                                                                $text = strip_tags($application->text);//quitamos etiquetas html
+                                                            @endphp
+                                                                <p style="font-size:14px;margin-bottom:0px;">{{$text}}</p>
+                                                                <div class="row">
+                                                                    <div class="col-4 col-md-2 px-1">
+                                                                        <div class="mb-0 mt-2 text-center"  data-toggle="tooltip" data-placement="bottom" title="xxxxx" style="cursor:pointer;border:1px solid #28a745;border-radius:4px;padding: 4px;font-size: 8px;background: #e7ffd9;color:#28a745;font-weight: bold;">
+                                                                            <p class="m-0" style="font-size: 14px;font-weight: bold;"><i class="mdi mdi-eye"></i> 133</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-4 col-md-2 px-1">
+                                                                        <div class="mb-0 mt-2 cont1 text-center" style="padding:4px;font-size:0.8rem;color:#286ba7;cursor:pointer;background: #ebf3ff;border:1px solid;border-radius:4px;font-weight:bold;right:0px;margin-bottom: 0px !important;"  data-toggle="tooltip" data-placement="bottom" title="Ofrece empleo">
+                                                                            <p class="m-0" style="font-size:14px;font-weight:bold;"> <i class="mdi mdi-tooltip-text"></i> 101</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-4 col-md-2 px-1">
+                                                                        <div class="mb-0 mt-2 cont1 text-center" style=":#a49200;cursor:pointer;background: #ffffd9;padding:4px;font-size:0.8rem;border:1px solid;border-radius:4px;font-weight:bold;right:0px;margin-bottom: 0px !important;"  data-toggle="tooltip" data-placement="bottom" title="Ofrece empleo">
+                                                                            <p class="m-0" style="font-size:14px;font-weight:bold;color:#68685a;">x</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <p class="text-left my-2" style="color:black;top:2px;right:17px;position: absolute;font-weight:bold;margin-top: 0px !important;">hace {{$application->diff}}</p> 
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>    
+                                            </div>
+                                        @endif
+                                    @endforeach
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
                         @foreach($applications as $key => $application)
                             @if($application->type == 'Busco')
                                 @php
