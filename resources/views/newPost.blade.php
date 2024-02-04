@@ -172,7 +172,7 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
                       <div class="card" style="border-radius:20px;">
                         <div class="card-body pt-3 pb-3">
                             <h3 class="text-center mb-3">Realizar publicación <i class="mdi mdi-plus-circle-outline" style="position:relative;top:2.2px;"></i></h3>          
-                            <h4 style="font-size:1rem;">Postula tus habilidades o el proyecto en cuál necesitas contratar un profesional</h4>
+                            <!-- <h4 style="font-size:1rem;">Postula tus habilidades o el proyecto en cuál necesitas contratar un profesional</h4> -->
                             @if ($errors->any())
                                 <div class="alert alert-danger">
                                     <ul>
@@ -192,14 +192,14 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
                             <form action="/setApplication" method="POST" style="text-align:left;padding-top:6px;" @if(Auth::user()->register_by == 'web' && Auth::user()->email_verified_at == null /*|| Auth::user()->completeProfile == false*/) onsubmit="alert('Completa tu perfil y verifica tu correo!'); return false;" @endif>
                                  @csrf
                                 <div class="form-group">
-                                     <label style="font-weight:bold;font-size:10px;">Titulo descriptivo ( 122 caracteres max )</label>
+                                     <label style="font-weight:bold;font-size:16px;">Titulo descriptivo ( 122 caracteres max ) :</label>
                                      <input name="title" id="title" onkeypress="return /[a-z 0-9 ñ ´ _ .¿? , @ # * = - $ ! + % & ()]/i.test(event.key)"  style="color:#71B951;" type="text" class="form-control font-weight-bold" placeholder="Titulo descriptivo" maxlength="122" required>
                                 </div>
                                 <div class="form-group">
-                                    <label style="font-weight:bold;font-size:10px;">Publicación dirigida al mercado</label>
+                                    <label style="font-weight:bold;font-size:16px;">Publicación dirigida al mercado:</label>
                                     <select name="type" id="type" class="form-control font-weight-bold" style="color:#71B951;" autocomplete="off" required>
                                         <option value="" selected="true">Selecciona uno..</option>
-                                        <option value="gg">Tema Global ***</option>
+                                        <option value="gg">*** GLOBAL ***</option>
                                         <option value="empleo">Argentina</option>
                                         <option value="empleo">Alemania</option>
                                         <option value="empleo">Bolivia</option>
@@ -264,34 +264,35 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
 
                          
                                 <div class="form-group">
-                                     <label style="font-weight:bold;font-size:10px;">Descripción ( 485 caracteres max )</label>
+                                     <label style="font-weight:bold;font-size:16px;">Descripción ( 485 caracteres max ) :</label>
                                      <textarea name="text" id="editor" contenteditable="true" style="line-height:1.2rem;color:#71B951;" placeholder="Describe las Características ..." cols="30" rows="8" class="form-control font-weight-bold" maxlength="485" ></textarea>
                                     <!--<small id="emailHelp" class="form-text" style="color:black;line-height: 1.2;">
                                         Puede colocar información de contacto si desea para que le contacten directo
                                      </small>-->   
                                 </div>
                                 <div class="form-group">
-                                    <label style="font-weight:bold;font-size:10px;">Categoría</label>
+                                    <label style="font-weight:bold;font-size:16px;">Categoría:</label>
                                     <select name="category" id="" class="form-control font-weight-bold" style="color:#71B951;" autocomplete="off" required>
                                         <option value="">Selecciona uno..</option>
+                                        <option value="Temas generales">Temas generales</option>
+                                        <option value="Trámites y visas">Trámites y visas</option>
                                         <option value="Programación Web">Programación Web</option>
-                                        <option value="Wordpress">Wordpress</option>
                                         <option value="Apps Android, iOS">Apps Android, iOS</option>
                                         <option value="Aplicaciones de escritorio">Aplicaciones de escritorio</option>
                                         <option value="Diseño Web">Diseño Web</option>
                                         <option value="Diseño de Logo">Diseño de Logo</option>
                                         <option value="Ilustraciones">Ilustraciones</option>
-                                        <option value="Crear o editar audio, video">Crear o editar audio, video</option>
-                                        <option value="Modelos 3D">Modelos 3D</option>
-                                        <option value="Fotografía">Fotografía</option>
-                                        <option value="Diseño de moda">Diseño de moda</option>
-                                        <option value="Redacción y Traducción">Redacción y Traducción</option>
-                                        <option value="Marketing Digital y Ventas">Marketing Digital y Ventas</option>
+                                        <option value="Audio y video">Audio y video</option>
+                                        <option value="Desarrollo 3D">Desarrollo 3D</option>
+                                        <option value="Marketing Digital">Marketing Digital</option>
                                         <option value="SEO">SEO</option>
-                                        <option value="Soporte Administrativo">Soporte Administrativo</option>
-                                        <option value="Legal">Legal</option>
-                                        <option value="Finanzas y Negocios">Finanzas y Negocios</option>
-                                        <option value="Ingeniería y Arquitectura">Ingeniería y Arquitectura</option>
+                                        <option value="Video Juegos">Video Juegos</option>
+                                        <option value="Soporte">Soporte</option>
+                                        <option value="Data analytics">Data analytics</option>
+                                        <option value="UI/UX Design">UI/UX Design</option>
+                                        <option value="Ciberseguridad">Ciberseguridad</option>
+                                        <option value="Bases de Datos">Bases de Datos</option>
+                                        <option value="Otros">Otros</option>
                                     </select>
                                 </div>
                                 @if(Auth::user()->register_by == 'web' && Auth::user()->email_verified_at == null /*|| Auth::user()->completeProfile == false*/)

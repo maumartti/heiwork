@@ -736,6 +736,7 @@ $icons = [
                                 <div class="card" style="border-radius:20px;">
                                     <div class="card-body pt-3 pb-0">
                                         <h4 class="mb-3">Mercados IT</h4>
+                                        <a href="#"><p style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:2px 0px;display:inline-block;"><img src="/images/earth.svg" style="width:16px;position:relative;top: -2px;"> Global</p></a>
                                         <a href="#"><p style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:2px 0px;display:inline-block;"><i class="ml-1 flag-icon flag-icon-ar" title="ar" id="ar" style="position:relative;top:1px;"></i> Argentina</p></a>
                                         <a href="#"><p style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:2px 0px;display:inline-block;"><i class="ml-1 flag-icon flag-icon-au" title="au" id="au" style="position:relative;top:1px;"></i> Australia</p></a>
                                         <a href="#"><p style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:2px 0px;display:inline-block;"><i class="ml-1 flag-icon flag-icon-ca" title="ca" id="ca" style="position:relative;top:1px;"></i> Canadá</p></a>
@@ -744,7 +745,6 @@ $icons = [
                                         <a href="#"><p style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:2px 0px;display:inline-block;"><i class="ml-1 flag-icon flag-icon-es" title="es" id="es" style="position:relative;top:1px;"></i> España</p></a>
                                         <a href="#"><p style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:2px 0px;display:inline-block;"><i class="ml-1 flag-icon flag-icon-mx" title="mx" id="mx" style="position:relative;top:1px;"></i> Mexico</p></a>
                                         <a href="#"><p style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:2px 0px;display:inline-block;"><i class="ml-1 flag-icon flag-icon-nz" title="nz" id="nz" style="position:relative;top:1px;"></i> New zealand</p></a>
-                                        <a href="#"><p style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:2px 0px;display:inline-block;"><i class="ml-1 flag-icon flag-icon-pe" title="pe" id="pe" style="position:relative;top:1px;"></i> Perú</p></a>
                                     </div>
                                     <a href="#"><p style="font-size:13px;font-weight:bold;border-radius: 20px;padding:3px 12px;width:max-content;margin:0px;display:inline-block;width: 100%;text-align: center;padding: 0px;"><i class="mdi mdi-arrow-down-drop-circle" title="ver todos" style="font-size:16px;"></i> Ver Todos</p></a>
                                 </div>
@@ -800,15 +800,18 @@ $icons = [
                                                                             <p class="m-0" style="font-size:14px;font-weight:bold;"> <i class="mdi mdi-tooltip-text"></i> 101</p>
                                                                         </div>
                                                                     </div>
-                                                                    <!-- <div class="col-12 col-md-6 px-1">
-                                                                        <div class="mb-0 mt-0 cont1 text-right" style="padding:4px;font-size:0.8rem;color:#286ba7;cursor:pointer;font-weight:bold;right:0px;margin-bottom: 0px !important;"  data-toggle="tooltip" data-placement="bottom" title="Ofrece empleo">
-                                                                        <a href="#"><p style="font-size:11px;font-weight:bold;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:2px 0px;display:inline-block;">Javascript</p></a>
-                                                                            <a>Nuxt</a>,
-                                                                            <a>JavaScript</a>
+                                                                    <!-- <div class="col-1 col-md-1 px-1">
+                                                                        <div class="mb-0 mt-0 pt-2 pl-0 cont1 text-left" style="padding:4px;font-size:0.8rem;color:#286ba7;cursor:pointer;font-weight:bold;right:0px;margin-bottom: 0px !important;"  data-toggle="tooltip" data-placement="bottom" title="Ofrece empleo">
+                                                                        <p data-toggle="tooltip" data-html="true" title="" style="font-size:8px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding: 8px;bottom:10px;margin:0px;display:inline-block;height: 33px;text-align: center;" data-original-title="<em><b>Aplicaciones de escritorio</b>">
+                                                                            <i class="ml-1 mdi mdi mdi-code-array" style="font-size:18px;margin: 0px !important;top: -6px;position: relative;"></i>                                                                                             
+                                                                        </p>
                                                                         </div>
                                                                     </div> -->
                                                                 </div>
                                                                 <div class="text-right pr-2" style="top:-2px;position:absolute;width:100%;left: 0px;">
+                                                                    <p data-toggle="tooltip" data-html="true" title="" style="font-weight:bold;background:#c8eab8;border-radius: 20px;padding: 5px;bottom:10px;margin:0px;display:inline-block;width: 24px;height: 24px;text-align: center;/*! margin-top: 4px; */position: relative;top: 8px;" data-original-title="<em><b>Aplicaciones de escritorio</b>">
+                                                                        <i class="ml-1 mdi mdi mdi-palette"" style="font-size:16px;margin: 0px !important;top: -7px;left: -1px;position: relative;"></i>                                                                                             
+                                                                    </p>
                                                                     <p data-toggle="tooltip" data-placement="top" title="Tema global" style="font-size:11px;font-weight:bold;border-radius: 20px;padding:5px 8px;width:max-content;margin:2px 0px;display:inline-block;"><img src="/images/earth.svg" style="width:16px;position:relative;top: -2px;"></p>
                                                                     <p class="text-left my-2" style="color:black;font-weight:bold;margin-top: 0px !important;display: contents;">hace {{$application->diff}}</p> 
                                                                 </div>
