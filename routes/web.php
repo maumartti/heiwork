@@ -86,6 +86,11 @@ Route::get('/fakeAccounts/{id?}', 'HomeController@getfakeAccounts');
 Route::get('/messagesFakes/{id?}/{idMsj?}', 'HomeController@messagesFakes');
 Route::post('/responseMessageFake','HomeController@responseMessageFake');
 
+//new
+//Route::get('/p/{url}/{code}', 'PostController@show')->name('showPost');
+
+//--
+
 //panel de mensajes cuentas fake
 Route::post('/sendMessageContact', 'HomeController@sendMessageContact')->name('sendMessageContact');
 Route::get('/deleteAccount', 'HomeController@deleteAccount')->name('deleteAccount');

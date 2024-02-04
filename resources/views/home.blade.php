@@ -198,8 +198,8 @@ $icons = [
                                         </p>
                                     </div>   
                                 @else    
-                                    <h1 style="font-size: 1.6rem;text-align:center;">Heiwork comunidad IT online</h1>
-                                    <p>Forma parte de <strong>la comunidad de desarrolladas y diseñadores</strong> gratis,en nuestra bolsa de <strong>trabajo freelance</strong> puedes aplicar a ofertas de <strong><a href="/teletrabajo-freelance">teletrabajo</a></strong> en toda la región, Latinoamérica y el mundo. Regístrate gratis y publica tus habilidades en nuestra plataforma diseñada de forma ágil y práctica, <strong>consigue los mejores resultados hoy mismo.</strong></p>
+                                    <h1 style="font-size: 1.6rem;text-align:center;">Heiwork - Comunidad IT</h1>
+                                    <p>Forma parte de <strong>la comunidad de programadores y profesionales del mundio IT</strong>,es una comunidad creada para que puedas compartir informacieon y ver ofertas de <strong>trabajo freelance</strong> puedes aplicar a ofertas de <strong><a href="/teletrabajo-freelance">teletrabajo</a></strong> en toda la región, Latinoamérica y el mundo. Regístrate gratis y publica tus habilidades en nuestra plataforma diseñada de forma ágil y práctica, <strong>consigue los mejores resultados hoy mismo.</strong></p>
                                     <div style="border:2px solid white;background:white;border-radius:10px;width:100%;display:flex;margin-bottom:10px;">
                                         <img src="/images/h111.png" class="m-auto w-100" alt="trabajos y proyectos freelance"  style="border-radius:10px;">
                                         <!--<img src="/images/h33.jpeg" class="m-auto w-50" alt="diseñadora freelancer" style="border-radius:10px;">-->
@@ -768,7 +768,7 @@ $icons = [
                                                 <div class="card-body pt-3 pb-3 px-2">
 
                                                 <!-- temas de la comunidad -->
-                                                    <div class="">
+                                                    <div class="d-flex justify-content-end align-items-center"">
                                                         <div class="col-md-12 px-4 py-3" style="background:#EFFBEA;border-radius: 20px;text-align:left;position:relative;">
                                                             <h3 class="mt-3 mb-0 font-weight-bold">
                                                                 <!-- <img class="rounded-circle mt-1 mb-0 mr-1 float-left" src="/images/users/{{($application->user->image == null ? 'no-user.png' : $application->user->image)}}" style="width:34px;height:34px; @if($application->user->plan == 'professional') border:2px solid #55c12e @elseif($application->user->plan == 'premium') border:2px solid #007bff @else border:2px solid grey @endif" data-toggle="tooltip" data-placement="top" title="{{$userName[0]}}" alt="{{$userName[0]}}"> -->
@@ -778,15 +778,17 @@ $icons = [
                                                                 $text = strip_tags($application->text);//quitamos etiquetas html
                                                             @endphp
                                                                 <p class="mt-1" style="font-size:14px;margin-bottom:0px;">{{$text}}</p>
+                                                                <ul class="list-inline p-0 mb-2">
+                                                                    <li class="list-inline-item"><a href="#"><strong>Nuxt</strong></a></li>
+                                                                    <li class="list-inline-item"><a href="#"><strong>JavaScript</strong></a></li>
+                                                                    <li class="list-inline-item"><a href="#"><strong>Vue</strong></a></li>
+                                                                </ul>
                                                                 <div class="row">
-                                                                    <div class="col-4 col-md-2 px-1" style="width: 230px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
+                                                                    <div class="col-4 col-md-2 px-1 pl-2" style="width: 230px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
                                                                         <img class="rounded-circle mt-1 mb-0 mr-1 " src="/images/users/{{($application->user->image == null ? 'no-user.png' : $application->user->image)}}" style="margin: 8px 0px auto !important;width:30px;height:30px; @if($application->user->plan == 'professional') border:2px solid #55c12e @elseif($application->user->plan == 'premium') border:2px solid #007bff @else border:2px solid grey @endif" data-toggle="tooltip" data-placement="top" title="{{$userName[0]}}" alt="{{$userName[0]}}">
                                                                         <p class="font-weight-bold m-0 mt-2 communityNameUS" style="display: inline; position: relative; top: 6px;">
                                                                             <span><a href="/freelancer/{{$application->user->code}}">{{$userName[0]}}</a></span>
                                                                         </p>
-                                                                        <!-- <div class="mb-0 mt-2 cont1 text-center" style=":#a49200;cursor:pointer;background: #ffffd9;padding:4px;font-size:0.8rem;border:1px solid;border-radius:4px;font-weight:bold;right:0px;margin-bottom: 0px !important;"  data-toggle="tooltip" data-placement="bottom" title="Ofrece empleo">
-                                                                            <p class="m-0" style="font-size:14px;font-weight:bold;color:#68685a;">x</p>
-                                                                        </div> -->
                                                                     </div>
                                                                     <div class="col-4 col-md-2 px-1">
                                                                         <div class="mb-0 mt-2 text-center"  data-toggle="tooltip" data-placement="bottom" title="xxxxx" style="cursor:pointer;border:1px solid #28a745;border-radius:4px;padding: 4px;font-size: 8px;background: #e7ffd9;color:#28a745;font-weight: bold;">
@@ -798,8 +800,18 @@ $icons = [
                                                                             <p class="m-0" style="font-size:14px;font-weight:bold;"> <i class="mdi mdi-tooltip-text"></i> 101</p>
                                                                         </div>
                                                                     </div>
+                                                                    <!-- <div class="col-12 col-md-6 px-1">
+                                                                        <div class="mb-0 mt-0 cont1 text-right" style="padding:4px;font-size:0.8rem;color:#286ba7;cursor:pointer;font-weight:bold;right:0px;margin-bottom: 0px !important;"  data-toggle="tooltip" data-placement="bottom" title="Ofrece empleo">
+                                                                        <a href="#"><p style="font-size:11px;font-weight:bold;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:2px 0px;display:inline-block;">Javascript</p></a>
+                                                                            <a>Nuxt</a>,
+                                                                            <a>JavaScript</a>
+                                                                        </div>
+                                                                    </div> -->
                                                                 </div>
-                                                                <p class="text-left my-2" style="color:black;top:2px;right:17px;position: absolute;font-weight:bold;margin-top: 0px !important;">hace {{$application->diff}}</p> 
+                                                                <div class="text-right pr-2" style="top:-2px;position:absolute;width:100%;left: 0px;">
+                                                                    <p data-toggle="tooltip" data-placement="top" title="Tema global" style="font-size:11px;font-weight:bold;border-radius: 20px;padding:5px 8px;width:max-content;margin:2px 0px;display:inline-block;"><img src="/images/earth.svg" style="width:16px;position:relative;top: -2px;"></p>
+                                                                    <p class="text-left my-2" style="color:black;font-weight:bold;margin-top: 0px !important;display: contents;">hace {{$application->diff}}</p> 
+                                                                </div>
                                                         </div>
                                                     </div>
                                                 </div>

@@ -196,44 +196,73 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
                                      <input name="title" id="title" onkeypress="return /[a-z 0-9 ñ ´ _ .¿? , @ # * = - $ ! + % & ()]/i.test(event.key)"  style="color:#71B951;" type="text" class="form-control font-weight-bold" placeholder="Titulo descriptivo" maxlength="122" required>
                                 </div>
                                 <div class="form-group">
-                                    <label style="font-weight:bold;font-size:10px;">Tipo de publicación</label>
+                                    <label style="font-weight:bold;font-size:10px;">Publicación dirigida al mercado</label>
                                     <select name="type" id="type" class="form-control font-weight-bold" style="color:#71B951;" autocomplete="off" required>
                                         <option value="" selected="true">Selecciona uno..</option>
-                                        <option value="Ofrezco">Ofrezco empleo</option>
-                                        <option value="Busco">Busco empleo</option>
+                                        <option value="gg">Tema Global ***</option>
+                                        <option value="empleo">Argentina</option>
+                                        <option value="empleo">Alemania</option>
+                                        <option value="empleo">Bolivia</option>
+                                        <option value="empleo">Brasil</option>
+                                        <option value="empleo">Canada</option>
+                                        <option value="empleo">Chile</option>
+                                        <option value="empleo">China</option>
+                                        <option value="empleo">Colombia</option>
+                                        <option value="empleo">Costa Rica</option>
+                                        <option value="empleo">Cuba</option>
+                                        <option value="empleo">Ecuador</option>
+                                        <option value="empleo">EEUU</option>
+                                        <option value="empleo">España</option>
+                                        <option value="empleo">El Salvador</option>
+                                        <option value="empleo">Francia</option>
+                                        <option value="empleo">Granada</option>
+                                        <option value="empleo">Guatemala</option>
+                                        <option value="empleo">Honduras</option>
+                                        <option value="empleo">Irlanda</option>
+                                        <option value="empleo">India</option>
+                                        <option value="empleo">Italia</option>
+                                        <option value="empleo">Israel</option>
+                                        <option value="empleo">México</option>
+                                        <option value="empleo">Nicaragua</option>
+                                        <option value="empleo">Paraguay</option>
+                                        <option value="empleo">Panamá</option>
+                                        <option value="empleo">Perú</option>
+                                        <option value="empleo">Puerto Rico</option>
+                                        <option value="empleo">Portugal</option>
+                                        <option value="empleo">República Dominicana</option>
+                                        <option value="empleo">Gran Bretaña</option>
+                                        <option value="empleo">Uruguay</option>
+                                        <option value="empleo">Venezuela</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label id="presupuestLabel" style="font-weight:bold;font-size:10px;">Presupuesto</label>
-                                    <label id="hoursLabel" style="font-weight:bold;font-size:10px;display:none;">Aspiración x hora</label>
-                                    <select id="presupuest" name="money" class="form-control font-weight-bold" autocomplete="off" style="display:none;color:#71B951;">
-                                        <option value="">Selecciona uno..</option>
-                                        <option value="Menos de $20">Menos de $20 dólares</option>
-                                        <option value="$30 a $50">$30 a $50 dólares</option>
-                                        <option value="$50 a $100">$50 a $100 dólares</option>
-                                        <option value="$100 a $150">$100 a $150 dólares</option>
-                                        <option value="$150 a $200">$150 a $200 dólares</option>
-                                        <option value="$200 a $300">$200 a $300 dólares</option>
-                                        <option value="$300 a $400">$300 a $400 dólares</option>
-                                        <option value="$400 a $500">$400 a $500 dólares</option>
-                                        <option value="$500 a $1000">$500 a $1000 dólares</option>
-                                        <option value="$1000 a $3000">$1000 a $3000 dólares</option>
-                                        <option value="Más de $3000">más de $3000 dólares</option>
-                                    </select>
-                                    <select id="hours" name="money2" class="form-control font-weight-bold" style="color:#71B951;" autocomplete="off">
-                                        <option value="">Selecciona uno..</option>
-                                        <option value="$2 a $5">$2 a $5 dólares x hora </option>
-                                        <option value="$5 a $10">$5 a $10 dólares x hora </option>
-                                        <option value="$10 a $15">$10 a $15 dólares x hora </option>
-                                        <option value="$15 a $20">$15 a $20 dólares x hora </option>
-                                        <option value="$20 a $25">$20 a $25 dólares x hora </option>
-                                        <option value="$25 a $30">$25 a $30 dólares x hora </option>
-                                        <option value="$30 a $35">$30 a $35 dólares x hora </option>
-                                        <option value="$35 a $40">$35 a $40 dólares x hora </option>
-                                        <option value="$45 a $50">$45 a $50 dólares</option>
-                                        <option value="más de $50">más de $50 dólares x hora </option>
-                                    </select>
-                                </div>                            
+                                    <label id="tecnologiasLabel" style="font-weight:bold;font-size:16px;">Tecnologías de IT:</label>
+                                    <div class="d-flex border p-2 pt-0">
+                                        <div class="form-check mr-1 mt-1 mb-1 badge badge-primary">
+                                            <input type="checkbox" class="form-check-input" id="tc1" name="technology" value=".NET" style="float: left;position: relative;left: 20px;">
+                                            <label class="form-check-label mt-1 ml-2 text-dark font-weight-bold" for="tc1">.NET</label>
+                                        </div>
+                                        <div class="form-check mr-1 mt-1 mb-1 badge badge-primary">
+                                            <input type="checkbox" class="form-check-input" id="tc2" name="technology" value="JavaScript" style="float: left;position: relative;left: 20px;">
+                                            <label class="form-check-label mt-1 ml-2 text-dark font-weight-bold" for="tc2">JavaScript</label>
+                                        </div>
+                                        <div class="form-check mr-1 mt-1 mb-1 badge badge-primary">
+                                            <input type="checkbox" class="form-check-input" id="tc3" name="technology" value="Vue" style="float: left;position: relative;left: 20px;">
+                                            <label class="form-check-label mt-1 ml-2 text-dark font-weight-bold" for="tc3">Vue</label>
+                                        </div>
+                                        <div class="form-check mr-1 mt-1 mb-1 badge badge-primary">
+                                            <input type="checkbox" class="form-check-input" id="tc4" name="technology" value="Flutter" style="float: left;position: relative;left: 20px;">
+                                            <label class="form-check-label mt-1 ml-2 text-dark font-weight-bold" for="tc4">Flutter</label>
+                                        </div>
+                                        <div class="form-check mr-1 mt-1 mb-1 badge badge-primary">
+                                            <input type="checkbox" class="form-check-input" id="tc5" name="technology" value="Git" style="float: left;position: relative;left: 20px;">
+                                            <label class="form-check-label mt-1 ml-2 text-dark font-weight-bold" for="tc5">Git</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                         
                                 <div class="form-group">
                                      <label style="font-weight:bold;font-size:10px;">Descripción ( 485 caracteres max )</label>
                                      <textarea name="text" id="editor" contenteditable="true" style="line-height:1.2rem;color:#71B951;" placeholder="Describe las Características ..." cols="30" rows="8" class="form-control font-weight-bold" maxlength="485" ></textarea>
