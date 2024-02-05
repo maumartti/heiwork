@@ -193,79 +193,72 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
                                  @csrf
                                 <div class="form-group">
                                      <label style="font-weight:bold;font-size:16px;">Titulo descriptivo ( 122 caracteres max ) :</label>
-                                     <input name="title" id="title" onkeypress="return /[a-z 0-9 ñ ´ _ .¿? , @ # * = - $ ! + % & ()]/i.test(event.key)"  style="color:#71B951;" type="text" class="form-control font-weight-bold" placeholder="Titulo descriptivo" maxlength="122" required>
+                                     <input name="title" id="title" onkeypress="return /[a-z 0-9 ñ ´ _ .¿? , @ # * = - $ ! + % & ()]/i.test(event.key)"  style="color:#71B951;" type="text" class="form-control font-weight-bold" placeholder="Titulo" maxlength="122" required>
                                 </div>
                                 <div class="form-group">
                                     <label style="font-weight:bold;font-size:16px;">Publicación dirigida al mercado:</label>
                                     <select name="type" id="type" class="form-control font-weight-bold" style="color:#71B951;" autocomplete="off" required>
                                         <option value="" selected="true">Selecciona uno..</option>
                                         <option value="gg">*** GLOBAL ***</option>
-                                        <option value="empleo">Argentina</option>
-                                        <option value="empleo">Alemania</option>
-                                        <option value="empleo">Bolivia</option>
-                                        <option value="empleo">Brasil</option>
-                                        <option value="empleo">Canada</option>
-                                        <option value="empleo">Chile</option>
-                                        <option value="empleo">China</option>
-                                        <option value="empleo">Colombia</option>
-                                        <option value="empleo">Costa Rica</option>
-                                        <option value="empleo">Cuba</option>
-                                        <option value="empleo">Ecuador</option>
-                                        <option value="empleo">EEUU</option>
-                                        <option value="empleo">España</option>
-                                        <option value="empleo">El Salvador</option>
-                                        <option value="empleo">Francia</option>
-                                        <option value="empleo">Granada</option>
-                                        <option value="empleo">Guatemala</option>
-                                        <option value="empleo">Honduras</option>
-                                        <option value="empleo">Irlanda</option>
-                                        <option value="empleo">India</option>
-                                        <option value="empleo">Italia</option>
-                                        <option value="empleo">Israel</option>
-                                        <option value="empleo">México</option>
-                                        <option value="empleo">Nicaragua</option>
-                                        <option value="empleo">Paraguay</option>
-                                        <option value="empleo">Panamá</option>
-                                        <option value="empleo">Perú</option>
-                                        <option value="empleo">Puerto Rico</option>
-                                        <option value="empleo">Portugal</option>
-                                        <option value="empleo">República Dominicana</option>
-                                        <option value="empleo">Gran Bretaña</option>
-                                        <option value="empleo">Uruguay</option>
-                                        <option value="empleo">Venezuela</option>
+                                        <option value="ar">Argentina</option>
+                                        <option value="de">Alemania</option>
+                                        <option value="bo">Bolivia</option>
+                                        <option value="br">Brasil</option>
+                                        <option value="ca">Canadá</option>
+                                        <option value="cl">Chile</option>
+                                        <option value="cn">China</option>
+                                        <option value="co">Colombia</option>
+                                        <option value="cr">Costa Rica</option>
+                                        <option value="cu">Cuba</option>
+                                        <option value="ec">Ecuador</option>
+                                        <option value="us">EEUU</option>
+                                        <option value="es">España</option>
+                                        <option value="sv">El Salvador</option>
+                                        <option value="fr">Francia</option>
+                                        <option value="gd">Granada</option>
+                                        <option value="gt">Guatemala</option>
+                                        <option value="hn">Honduras</option>
+                                        <option value="ie">Irlanda</option>
+                                        <option value="in">India</option>
+                                        <option value="it">Italia</option>
+                                        <option value="il">Israel</option>
+                                        <option value="mx">México</option>
+                                        <option value="ni">Nicaragua</option>
+                                        <option value="py">Paraguay</option>
+                                        <option value="pa">Panamá</option>
+                                        <option value="pe">Perú</option>
+                                        <option value="pr">Puerto Rico</option>
+                                        <option value="pt">Portugal</option>
+                                        <option value="do">República Dominicana</option>
+                                        <option value="gb">Gran Bretaña</option>
+                                        <option value="uy">Uruguay</option>
+                                        <option value="ve">Venezuela</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label id="tecnologiasLabel" style="font-weight:bold;font-size:16px;">Tecnologías de IT:</label>
+                                    <label id="tecnologiasLabel" style="font-weight:bold;font-size:16px;">Tecnologías de IT ( Max 4 / opcional ) :</label>
                                     <div class="d-flex border p-2 pt-0">
+                                        @foreach ($technologies as $key => $tec)
                                         <div class="form-check mr-1 mt-1 mb-1 badge badge-primary">
-                                            <input type="checkbox" class="form-check-input" id="tc1" name="technology" value=".NET" style="float: left;position: relative;left: 20px;">
-                                            <label class="form-check-label mt-1 ml-2 text-dark font-weight-bold" for="tc1">.NET</label>
+                                            <input type="checkbox" class="form-check-input" id="tc{{$key}}" name="technology" value="{{$tec->name}}" style="float: left;position: relative;left: 20px;">
+                                            <label class="form-check-label mt-1 ml-2 text-dark font-weight-bold" for="tc{{$key}}">{{$tec->name}}</label>
                                         </div>
-                                        <div class="form-check mr-1 mt-1 mb-1 badge badge-primary">
-                                            <input type="checkbox" class="form-check-input" id="tc2" name="technology" value="JavaScript" style="float: left;position: relative;left: 20px;">
-                                            <label class="form-check-label mt-1 ml-2 text-dark font-weight-bold" for="tc2">JavaScript</label>
-                                        </div>
-                                        <div class="form-check mr-1 mt-1 mb-1 badge badge-primary">
-                                            <input type="checkbox" class="form-check-input" id="tc3" name="technology" value="Vue" style="float: left;position: relative;left: 20px;">
-                                            <label class="form-check-label mt-1 ml-2 text-dark font-weight-bold" for="tc3">Vue</label>
-                                        </div>
-                                        <div class="form-check mr-1 mt-1 mb-1 badge badge-primary">
-                                            <input type="checkbox" class="form-check-input" id="tc4" name="technology" value="Flutter" style="float: left;position: relative;left: 20px;">
-                                            <label class="form-check-label mt-1 ml-2 text-dark font-weight-bold" for="tc4">Flutter</label>
-                                        </div>
-                                        <div class="form-check mr-1 mt-1 mb-1 badge badge-primary">
-                                            <input type="checkbox" class="form-check-input" id="tc5" name="technology" value="Git" style="float: left;position: relative;left: 20px;">
-                                            <label class="form-check-label mt-1 ml-2 text-dark font-weight-bold" for="tc5">Git</label>
-                                        </div>
+                                        @endforeach
                                     </div>
                                 </div>
 
 
                          
                                 <div class="form-group">
-                                     <label style="font-weight:bold;font-size:16px;">Descripción ( 485 caracteres max ) :</label>
-                                     <textarea name="text" id="editor" contenteditable="true" style="line-height:1.2rem;color:#71B951;" placeholder="Describe las Características ..." cols="30" rows="8" class="form-control font-weight-bold" maxlength="485" ></textarea>
+                                     <label style="font-weight:bold;font-size:16px;">Cita :</label>
+                                     <textarea name="text" id="cita"  style="line-height:1.2rem;color:#71B951;" placeholder="Escribe un resumen de que trata el tema ..." cols="30" rows="4" class="form-control font-weight-bold" maxlength="250" ></textarea>
+                                    <!--<small id="emailHelp" class="form-text" style="color:black;line-height: 1.2;">
+                                        Puede colocar información de contacto si desea para que le contacten directo
+                                     </small>-->   
+                                </div>
+                                <div class="form-group">
+                                     <label style="font-weight:bold;font-size:16px;">Texto :</label>
+                                     <textarea name="text" id="editor" contenteditable="true" style="line-height:1.2rem;color:#71B951;" placeholder="Escribe el contenido ..." cols="30" rows="8" class="form-control font-weight-bold" maxlength="5000" ></textarea>
                                     <!--<small id="emailHelp" class="form-text" style="color:black;line-height: 1.2;">
                                         Puede colocar información de contacto si desea para que le contacten directo
                                      </small>-->   
@@ -275,6 +268,7 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
                                     <select name="category" id="" class="form-control font-weight-bold" style="color:#71B951;" autocomplete="off" required>
                                         <option value="">Selecciona uno..</option>
                                         <option value="Temas generales">Temas generales</option>
+                                        <option value="Pregunta">Pregunta</option>
                                         <option value="Trámites y visas">Trámites y visas</option>
                                         <option value="Programación Web">Programación Web</option>
                                         <option value="Apps Android, iOS">Apps Android, iOS</option>
@@ -292,6 +286,8 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
                                         <option value="UI/UX Design">UI/UX Design</option>
                                         <option value="Ciberseguridad">Ciberseguridad</option>
                                         <option value="Bases de Datos">Bases de Datos</option>
+                                        <option value="Teletrabajo">Teletrabajo</option>
+                                        <option value="Noticia">Noticia</option>
                                         <option value="Otros">Otros</option>
                                     </select>
                                 </div>

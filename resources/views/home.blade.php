@@ -66,6 +66,9 @@
             .cont2{
                 left:0.5px !important;
             }
+            .separateTiem{
+                display:none !important;
+            }
         }
         .text-break{
             text-overflow: ellipsis;
@@ -744,7 +747,7 @@ $icons = [
                                         <a href="#"><p style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:2px 0px;display:inline-block;"><i class="ml-1 flag-icon flag-icon-co" title="co" id="co" style="position:relative;top:1px;"></i> Colombia</p></a>
                                         <a href="#"><p style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:2px 0px;display:inline-block;"><i class="ml-1 flag-icon flag-icon-es" title="es" id="es" style="position:relative;top:1px;"></i> España</p></a>
                                         <a href="#"><p style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:2px 0px;display:inline-block;"><i class="ml-1 flag-icon flag-icon-mx" title="mx" id="mx" style="position:relative;top:1px;"></i> Mexico</p></a>
-                                        <a href="#"><p style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:2px 0px;display:inline-block;"><i class="ml-1 flag-icon flag-icon-nz" title="nz" id="nz" style="position:relative;top:1px;"></i> New zealand</p></a>
+                                        <a href="#"><p style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:2px 0px;display:inline-block;"><i class="ml-1 flag-icon flag-icon-pe" title="pe" id="pe" style="position:relative;top:1px;"></i> Perú</p></a>
                                     </div>
                                     <a href="#"><p style="font-size:13px;font-weight:bold;border-radius: 20px;padding:3px 12px;width:max-content;margin:0px;display:inline-block;width: 100%;text-align: center;padding: 0px;"><i class="mdi mdi-arrow-down-drop-circle" title="ver todos" style="font-size:16px;"></i> Ver Todos</p></a>
                                 </div>
@@ -775,13 +778,16 @@ $icons = [
                                                                 <a href="/freelancer/{{$application->user->code}}">{{$application->title}}</a>
                                                             </h3>
                                                             @php                                                       
-                                                                $text = strip_tags($application->text);//quitamos etiquetas html
+                                                            $text = strip_tags($application->text);//quitamos etiquetas html
                                                             @endphp
-                                                                <p class="mt-1" style="font-size:14px;margin-bottom:0px;">{{$text}}</p>
-                                                                <ul class="list-inline p-0 mb-2">
+                                                            <p class="mt-1" style="font-size:14px;margin-bottom:0px;">{{$text}}</p>
+                                                                <ul class="list-inline p-0 mb-1">
                                                                     <li class="list-inline-item"><a href="#"><strong>Nuxt</strong></a></li>
                                                                     <li class="list-inline-item"><a href="#"><strong>JavaScript</strong></a></li>
                                                                     <li class="list-inline-item"><a href="#"><strong>Vue</strong></a></li>
+                                                                    <li class="list-inline-item"><a href="#"><strong>Asure</strong></a></li>
+                                                                    <li class="list-inline-item separateTiem">|</li>
+                                                                    <li class="list-inline-item"><span style="color:#2e2e2e;font-weight:bold;margin-top: 0px !important;font-size:11px;">Publicado hace {{$application->diff}}</span></li>
                                                                 </ul>
                                                                 <div class="row">
                                                                     <div class="col-4 col-md-2 px-1 pl-2" style="width: 230px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
@@ -812,8 +818,8 @@ $icons = [
                                                                     <p data-toggle="tooltip" data-html="true" title="" style="font-weight:bold;background:#c8eab8;border-radius: 20px;padding: 5px;bottom:10px;margin:0px;display:inline-block;width: 24px;height: 24px;text-align: center;/*! margin-top: 4px; */position: relative;top: 8px;" data-original-title="<em><b>Aplicaciones de escritorio</b>">
                                                                         <i class="ml-1 mdi mdi mdi-palette"" style="font-size:16px;margin: 0px !important;top: -7px;left: -1px;position: relative;"></i>                                                                                             
                                                                     </p>
-                                                                    <p data-toggle="tooltip" data-placement="top" title="Tema global" style="font-size:11px;font-weight:bold;border-radius: 20px;padding:5px 8px;width:max-content;margin:2px 0px;display:inline-block;"><img src="/images/earth.svg" style="width:16px;position:relative;top: -2px;"></p>
-                                                                    <p class="text-left my-2" style="color:black;font-weight:bold;margin-top: 0px !important;display: contents;">hace {{$application->diff}}</p> 
+                                                                    <p class="pr-0" data-toggle="tooltip" data-placement="top" title="Tema global" style="font-size:11px;font-weight:bold;border-radius: 20px;padding:5px 8px;width:max-content;margin:2px 0px;display:inline-block;"><img src="/images/earth.svg" style="width:16px;position:relative;top: -2px;"></p>
+                                                                    <!-- <p class="text-left my-2 haceTime" style="color:black;font-weight:bold;margin-top: 0px !important;display: contents;">hace {{$application->diff}}</p>  -->
                                                                 </div>
                                                         </div>
                                                     </div>

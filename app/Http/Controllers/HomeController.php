@@ -20,6 +20,7 @@ use App\Payment;
 use App\Company;
 use App\Error;
 use App\Tools;
+use App\Technology;
 use App\Notifications\HelloUser;
 use App\Notifications\WelcomeUser;
 use App\Notifications\Invoice;
@@ -1082,9 +1083,10 @@ class HomeController extends Controller
         }else{
             Auth::user()->completeProfile = false;
         }
+        $technologies = Technology::all();
 
         self::getMessagesNotificationAuth();
-        return view('newPost');
+        return view('newPost')->with('technologies',$technologies);
     }
 
     public function verifyexplireplan(Request $request){//cuando se loguea el usuario se verifica siempre esto
