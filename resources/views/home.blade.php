@@ -762,7 +762,7 @@ $icons = [
                                     <div class="card-body pt-3 pb-3 px-2">
                                     <!-- temas de la comunidad -->
                                     @foreach($applications as $key => $application)
-                                        @if($application->type == 'Busco')
+                                        @if($application)
                                             @php
                                                 $userName = explode(' ',$application->user->name);
                                             @endphp    

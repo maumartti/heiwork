@@ -192,7 +192,7 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
                             <form action="/setPost" method="POST" style="text-align:left;padding-top:6px;" @if(Auth::user()->register_by == 'web' && Auth::user()->email_verified_at == null /*|| Auth::user()->completeProfile == false*/) onsubmit="alert('Completa tu perfil y verifica tu correo!'); return false;" @endif>
                                  @csrf
                                 <div class="form-group">
-                                     <label style="font-weight:bold;font-size:16px;">Titulo descriptivo ( 122 caracteres max ) :</label>
+                                     <label style="font-weight:bold;font-size:16px;">Titulo descriptivo ( 122 caracteres max ):</label>
                                      <input name="title" id="title" onkeypress="return /[a-z 0-9 ñ ´ _ .¿? , @ # * = - $ ! + % & ()]/i.test(event.key)"  style="color:#71B951;" type="text" class="form-control font-weight-bold" placeholder="Titulo" maxlength="122" required>
                                 </div>
                                 <div class="form-group">
@@ -236,11 +236,11 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label id="tecnologiasLabel" style="font-weight:bold;font-size:16px;">Tecnologías de IT :</label>
+                                    <label id="tecnologiasLabel" style="font-weight:bold;font-size:16px;">Tecnologías de IT:</label>
                                     <div class="d-flex border p-2 pt-0">
                                         @foreach ($technologies as $key => $tec)
                                         <div class="form-check mr-1 mt-1 mb-1 badge badge-primary">
-                                            <input type="checkbox" class="form-check-input" id="tc{{$key}}" name="technology" value="{{$tec->name}}" style="float: left;position: relative;left: 20px;">
+                                            <input type="checkbox" class="form-check-input" id="tc{{$key}}" name="tech-{{$tec->id}}" value="{{$tec->id}}" style="float: left;position: relative;left: 20px;">
                                             <label class="form-check-label mt-1 ml-2 text-dark font-weight-bold" for="tc{{$key}}">{{$tec->name}}</label>
                                         </div>
                                         @endforeach
@@ -250,14 +250,14 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
 
                          
                                 <div class="form-group">
-                                     <label style="font-weight:bold;font-size:16px;">Cita :</label>
+                                     <label style="font-weight:bold;font-size:16px;">Cita:</label>
                                      <textarea name="cita" id="cita"  style="line-height:1.2rem;color:#71B951;" placeholder="Escribe un resumen de que trata el tema ..." cols="30" rows="4" class="form-control font-weight-bold" maxlength="250" ></textarea>
                                     <!--<small id="emailHelp" class="form-text" style="color:black;line-height: 1.2;">
                                         Puede colocar información de contacto si desea para que le contacten directo
                                      </small>-->   
                                 </div>
                                 <div class="form-group">
-                                     <label style="font-weight:bold;font-size:16px;">Texto :</label>
+                                     <label style="font-weight:bold;font-size:16px;">Texto:</label>
                                      <textarea name="text" id="editor" contenteditable="true" style="line-height:1.2rem;color:#71B951;" placeholder="Escribe el contenido ..." cols="30" rows="8" class="form-control font-weight-bold" maxlength="5000" ></textarea>
                                     <!--<small id="emailHelp" class="form-text" style="color:black;line-height: 1.2;">
                                         Puede colocar información de contacto si desea para que le contacten directo
@@ -265,30 +265,12 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
                                 </div>
                                 <div class="form-group">
                                     <label style="font-weight:bold;font-size:16px;">Categoría:</label>
-                                    <select name="category" id="" class="form-control font-weight-bold" style="color:#71B951;" autocomplete="off" required>
+                                    <select name="category_id" id="" class="form-control font-weight-bold" style="color:#71B951;" autocomplete="off" required>
                                         <option value="">Selecciona uno..</option>
-                                        <option value="Temas generales">Temas generales</option>
-                                        <option value="Pregunta">Pregunta</option>
-                                        <option value="Trámites y visas">Trámites y visas</option>
-                                        <option value="Programación Web">Programación Web</option>
-                                        <option value="Apps Android, iOS">Apps Android, iOS</option>
-                                        <option value="Aplicaciones de escritorio">Aplicaciones de escritorio</option>
-                                        <option value="Diseño Web">Diseño Web</option>
-                                        <option value="Diseño de Logo">Diseño de Logo</option>
-                                        <option value="Ilustraciones">Ilustraciones</option>
-                                        <option value="Audio y video">Audio y video</option>
-                                        <option value="Desarrollo 3D">Desarrollo 3D</option>
-                                        <option value="Marketing Digital">Marketing Digital</option>
-                                        <option value="SEO">SEO</option>
-                                        <option value="Video Juegos">Video Juegos</option>
-                                        <option value="Soporte">Soporte</option>
-                                        <option value="Data analytics">Data analytics</option>
-                                        <option value="UI/UX Design">UI/UX Design</option>
-                                        <option value="Ciberseguridad">Ciberseguridad</option>
-                                        <option value="Bases de Datos">Bases de Datos</option>
-                                        <option value="Teletrabajo">Teletrabajo</option>
-                                        <option value="Noticia">Noticia</option>
-                                        <option value="Otros">Otros</option>
+                                        @foreach ($categoriesPost as $cat)
+                                            <option value="{{$cat->id}}">{{$cat->name}}</option>
+                                        @endforeach
+                                        
                                     </select>
                                 </div>
                                 @if(Auth::user()->register_by == 'web' && Auth::user()->email_verified_at == null /*|| Auth::user()->completeProfile == false*/)

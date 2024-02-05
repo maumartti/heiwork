@@ -22,6 +22,7 @@ use App\Error;
 use App\Tools;
 use App\Technology;
 use App\Post;
+use App\CategoryPost;
 use App\Notifications\HelloUser;
 use App\Notifications\WelcomeUser;
 use App\Notifications\Invoice;
@@ -72,7 +73,7 @@ class HomeController extends Controller
         // endcorreo
 
         $now = Carbon::now();
-        $applications = Application::all()->sortByDesc("id");
+        $applications = Post::all()->sortByDesc("id");
         $libraries = Library::all()->sortByDesc("id");
 
         foreach ($libraries as $key => $value) {
@@ -103,7 +104,7 @@ class HomeController extends Controller
         }
         if(Auth::check()){
             self::getMessagesNotificationAuth();
-        }    
+        }
         //dd($applications);
         $users = User::orderByDesc('id')->limit(11)->get();
         return view('home')->with('applications',$applications)->with('libraries',$libraries)->with('users',$users);
@@ -490,31 +491,38 @@ class HomeController extends Controller
             return redirect('/login');
         }    
 
-        $validated = $request->validate([
-            'title' => 'required|max:122',
-            'country' => 'required|max:2',
-            'cita' => 'required|max:250',
-            'text' => 'required|max:5000',
-            'category' => 'required',
-            'technology' => 'required'
-        ]);
+        // $validated = $request->validate([
+        //     'title' => 'required|max:122',
+        //     'country' => 'required|max:2',
+        //     'cita' => 'required|max:250',
+        //     'text' => 'required|max:5000',
+        //     'category' => 'required',
+        //     'technology' => 'required'
+        // ]);
 
         if(Auth::user()->publications > 0){//si tiene publicaciones
             $data = $request->all();
             $data['user_id'] = Auth::user()->id;
-            dd($data);
-            // if(isset($data['money'])){
-            //     unset($data['money2']);
-            // }else if(isset($data['money2'])){
-            //     $data['money'] = $data['money2'];
-            //     unset($data['money2']);
-            // }
+            //dd($data);
+            
+            //procesamos los checkbox technology
+            $techFields = [];
+            foreach ($data as $key => $value) {
+                if (strpos($key, 'tech-') === 0) {
+                    $techFields[] = $value;
+                    unset($data[$key]);//borramos los originales
+                }
+            }
+            //asignamos 
+            $data['tec1'] = isset($techFields[0]) ? $techFields[0] : null;
+            $data['tec2'] = isset($techFields[1]) ? $techFields[1] : null;
+            $data['tec3'] = isset($techFields[2]) ? $techFields[2] : null;
+            $data['tec4'] = isset($techFields[3]) ? $techFields[3] : null;
 
-            // if($data['type'] == 'Ofrezco'){
-            //     $now = date("Y-m-d H:i:s");
-            //     $nowSum = date("Y-m-d H:i:s",strtotime($now."+ 29 days"));//sumo 29 día
-            //     $data['expire_at'] = $nowSum;
-            // }
+            //dd($data);
+            $tools = New Tools;
+            $data['url'] = $tools->crearUrlTitle($data['title']);
+            $data['code'] = str_pad(rand(1, 999999), 5, '0', STR_PAD_LEFT);
 
             $post = Post::create($data);
             $post->save();
@@ -1123,9 +1131,10 @@ class HomeController extends Controller
             Auth::user()->completeProfile = false;
         }
         $technologies = Technology::all();
+        $categoriesPost = CategoryPost::all();
 
         self::getMessagesNotificationAuth();
-        return view('newPost')->with('technologies',$technologies);
+        return view('newPost')->with('technologies',$technologies)->with('categoriesPost',$categoriesPost);
     }
 
     public function verifyexplireplan(Request $request){//cuando se loguea el usuario se verifica siempre esto
