@@ -73,7 +73,8 @@ class HomeController extends Controller
         // endcorreo
 
         $now = Carbon::now();
-        $applications = Post::all()->sortByDesc("id");
+        $posts = Post::all()->sortByDesc("id");
+        $applications = Application::all()->sortByDesc("id");
         $libraries = Library::all()->sortByDesc("id");
 
         foreach ($libraries as $key => $value) {
@@ -88,6 +89,19 @@ class HomeController extends Controller
             // if($value->expire_at < $now && $value->active == 1){//si expiro ponemos active = 0
             //     Library::find($value->id)->update(['active' => 0]);
             // }
+        }
+        foreach ($posts as $key => $value) {
+            $posts[$key]->user = User::find($value->user_id);
+            $posts[$key]->messages = Message::where('application_id',$value->id)->get()->unique('code');
+            
+            $created_at = Carbon::parse($value['created_at']);
+
+            $diff = explode(' ',$created_at->diffForHumans($now));// 3 Months ago
+            $posts[$key]->diff = $diff[0].' '.$diff[1];
+
+            if($value->expire_at < $now && $value->active == 1){//si expiro ponemos active = 0
+                Application::find($value->id)->update(['active' => 0]);
+            }
         }
         foreach ($applications as $key => $value) {
             $applications[$key]->user = User::find($value->user_id);
@@ -107,7 +121,7 @@ class HomeController extends Controller
         }
         //dd($applications);
         $users = User::orderByDesc('id')->limit(11)->get();
-        return view('home')->with('applications',$applications)->with('libraries',$libraries)->with('users',$users);
+        return view('home')->with('posts',$posts)->with('applications',$applications)->with('libraries',$libraries)->with('users',$users);
     }
 
     public function oferta(Request $request){
@@ -503,6 +517,7 @@ class HomeController extends Controller
         if(Auth::user()->publications > 0){//si tiene publicaciones
             $data = $request->all();
             $data['user_id'] = Auth::user()->id;
+            $data['code'] = str_pad(rand(1, 9999), 4, '0', STR_PAD_LEFT);
             //dd($data);
             
             //procesamos los checkbox technology
@@ -522,7 +537,10 @@ class HomeController extends Controller
             //dd($data);
             $tools = New Tools;
             $data['url'] = $tools->crearUrlTitle($data['title']);
-            $data['code'] = str_pad(rand(1, 999999), 5, '0', STR_PAD_LEFT);
+            $postUniqueUrl = Post::where('url',$data['url'])->first();
+            if($postUniqueUrl){//si existe esta url entonces le agregamos code al final
+                $data['url'] = $data['url'].'-'.$data['code'];
+            }
 
             $post = Post::create($data);
             $post->save();

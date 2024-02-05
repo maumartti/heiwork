@@ -88,7 +88,7 @@ Route::get('/messagesFakes/{id?}/{idMsj?}', 'HomeController@messagesFakes');
 Route::post('/responseMessageFake','HomeController@responseMessageFake');
 
 //new
-//Route::get('/p/{url}/{code}', 'PostController@show')->name('showPost');
+Route::get('/p/{url}/{id}', 'PostController@show')->name('showPost');
 
 //--
 
