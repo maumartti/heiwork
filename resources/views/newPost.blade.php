@@ -189,7 +189,7 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
                                     </div>
                                 </div>
                             @endif -->
-                            <form action="/setApplication" method="POST" style="text-align:left;padding-top:6px;" @if(Auth::user()->register_by == 'web' && Auth::user()->email_verified_at == null /*|| Auth::user()->completeProfile == false*/) onsubmit="alert('Completa tu perfil y verifica tu correo!'); return false;" @endif>
+                            <form action="/setPost" method="POST" style="text-align:left;padding-top:6px;" @if(Auth::user()->register_by == 'web' && Auth::user()->email_verified_at == null /*|| Auth::user()->completeProfile == false*/) onsubmit="alert('Completa tu perfil y verifica tu correo!'); return false;" @endif>
                                  @csrf
                                 <div class="form-group">
                                      <label style="font-weight:bold;font-size:16px;">Titulo descriptivo ( 122 caracteres max ) :</label>
@@ -197,7 +197,7 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
                                 </div>
                                 <div class="form-group">
                                     <label style="font-weight:bold;font-size:16px;">Publicación dirigida al mercado:</label>
-                                    <select name="type" id="type" class="form-control font-weight-bold" style="color:#71B951;" autocomplete="off" required>
+                                    <select name="country" id="type" class="form-control font-weight-bold" style="color:#71B951;" autocomplete="off" required>
                                         <option value="" selected="true">Selecciona uno..</option>
                                         <option value="gg">*** GLOBAL ***</option>
                                         <option value="ar">Argentina</option>
@@ -236,7 +236,7 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label id="tecnologiasLabel" style="font-weight:bold;font-size:16px;">Tecnologías de IT ( Max 4 / opcional ) :</label>
+                                    <label id="tecnologiasLabel" style="font-weight:bold;font-size:16px;">Tecnologías de IT :</label>
                                     <div class="d-flex border p-2 pt-0">
                                         @foreach ($technologies as $key => $tec)
                                         <div class="form-check mr-1 mt-1 mb-1 badge badge-primary">
@@ -251,7 +251,7 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
                          
                                 <div class="form-group">
                                      <label style="font-weight:bold;font-size:16px;">Cita :</label>
-                                     <textarea name="text" id="cita"  style="line-height:1.2rem;color:#71B951;" placeholder="Escribe un resumen de que trata el tema ..." cols="30" rows="4" class="form-control font-weight-bold" maxlength="250" ></textarea>
+                                     <textarea name="cita" id="cita"  style="line-height:1.2rem;color:#71B951;" placeholder="Escribe un resumen de que trata el tema ..." cols="30" rows="4" class="form-control font-weight-bold" maxlength="250" ></textarea>
                                     <!--<small id="emailHelp" class="form-text" style="color:black;line-height: 1.2;">
                                         Puede colocar información de contacto si desea para que le contacten directo
                                      </small>-->   

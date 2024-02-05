@@ -73,6 +73,7 @@ Route::get('/freelancer/{code}', 'HomeController@profile')->name('profile');
 Route::get('/filter/{type?}/{category?}', 'HomeController@filter')->name('filter');
 Route::get('/ocultBoxHome', 'HomeController@ocultBoxHome');
 Route::post('/setApplication','HomeController@setApplication');
+Route::post('/setPost','HomeController@setPost');
 Route::get('/setCountryUser/{country_code}', 'HomeController@setCountryUser');
 Route::get('/setRubroUser/{rubro_code}', 'HomeController@setRubroUser');
 Route::post('/editUser','HomeController@editUser');

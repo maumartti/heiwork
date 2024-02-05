@@ -21,6 +21,7 @@ use App\Company;
 use App\Error;
 use App\Tools;
 use App\Technology;
+use App\Post;
 use App\Notifications\HelloUser;
 use App\Notifications\WelcomeUser;
 use App\Notifications\Invoice;
@@ -480,6 +481,44 @@ class HomeController extends Controller
             $application = Application::create($data);
             $application->save();
             $userAuth = User::find(Auth::user()->id)->decrement('publications',1);//restamos uno
+        }    
+        return redirect('/');
+    }
+
+    public function setPost(Request $request){
+        if(!Auth::check()){
+            return redirect('/login');
+        }    
+
+        $validated = $request->validate([
+            'title' => 'required|max:122',
+            'country' => 'required|max:2',
+            'cita' => 'required|max:250',
+            'text' => 'required|max:5000',
+            'category' => 'required',
+            'technology' => 'required'
+        ]);
+
+        if(Auth::user()->publications > 0){//si tiene publicaciones
+            $data = $request->all();
+            $data['user_id'] = Auth::user()->id;
+            dd($data);
+            // if(isset($data['money'])){
+            //     unset($data['money2']);
+            // }else if(isset($data['money2'])){
+            //     $data['money'] = $data['money2'];
+            //     unset($data['money2']);
+            // }
+
+            // if($data['type'] == 'Ofrezco'){
+            //     $now = date("Y-m-d H:i:s");
+            //     $nowSum = date("Y-m-d H:i:s",strtotime($now."+ 29 days"));//sumo 29 día
+            //     $data['expire_at'] = $nowSum;
+            // }
+
+            $post = Post::create($data);
+            $post->save();
+            //$userAuth = User::find(Auth::user()->id)->decrement('publications',1);//restamos uno
         }    
         return redirect('/');
     }
