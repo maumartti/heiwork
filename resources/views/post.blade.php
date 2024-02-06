@@ -5,14 +5,16 @@
 @section('head')
 
 @php
+if(Auth::check()){
     //$user = Auth::user();
     $userName = explode(' ',$user->name);
+}
 @endphp
 
     <title>HeiWork | {{$post->title}}</title>
     <link rel="canonical" href="https://heiwork.com/p/{{$post->url}}/{{$post->id}}">
     <meta name="description" content="{{$post->cita}}">
-    <meta name="keywords" content="artículo, comunidad IT, {{$user->name}}, plataforma, heiwork">
+    <meta name="keywords" content="artículo, comunidad IT, {{$post->categoryPost->name}}, plataforma, heiwork">
 
 
     <meta name="apple-mobile-web-app-title" content="Artículo de la comunidad IT - Heiwork">
@@ -417,7 +419,7 @@ textarea{
     ];
 
 
-    $linkCountry = str_replace(' ', '-', strtolower($allCountries[$user->country]));
+    //$linkCountry = str_replace(' ', '-', strtolower($allCountries[$user->country]));
 
 
 @endphp
@@ -438,6 +440,7 @@ textarea{
             <div class="row contRowInfo">
                 <div class="col-md-12">
                 @php
+                if(Auth::check()){
                     //$user = Auth::user();
                     $userName = explode(' ',$user->name);
                     $userSurname = '';
@@ -450,6 +453,7 @@ textarea{
                             $myprofile = true;
                         }
                     }
+                }
                 @endphp
                     <!-- <div class="row">
                         <div class="col-md-12">
@@ -590,10 +594,10 @@ textarea{
                           </div>
                       </div>
 
-                 @if(Auth::check() && $myprofile == true)
+                 
                     </div>                          
                 </div>  
-                @endif
+                
 
                 <!-- end card principal perfil -->
                 <!-- lateral drecho -->   

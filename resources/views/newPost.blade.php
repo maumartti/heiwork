@@ -404,18 +404,20 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
 <script>
 ClassicEditor
     .create( document.querySelector( '#editor' ), {
-        toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote' ],
+        toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', 'imageUpload' ],
         heading: {
             options: [
                 { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
-                //{ model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
                 { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' }
             ]
+        },
+        ckfinder: {
+            uploadUrl: '/upload-image' // Ruta para manejar la carga de imágenes
         }
     } )
     .catch( error => {
         console.log( error );
-    } ); 
+    } );
 </script>
 
 <!-- slim cropper -->

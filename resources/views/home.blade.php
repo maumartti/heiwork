@@ -798,7 +798,7 @@ $iconsClass = [
 
                                                 <!-- temas de la comunidad -->
                                                     <div class="d-flex justify-content-end align-items-center"">
-                                                        <div class="col-md-12 px-4 py-3" style="background:#EFFBEA;border-radius: 20px;text-align:left;position:relative;">
+                                                        <div class="col-md-12 px-4 py-3" style="background:#F8F8F8;border-radius: 20px;text-align:left;position:relative;">
                                                             <h3 class="mt-3 mb-0 font-weight-bold">
                                                                 <!-- <img class="rounded-circle mt-1 mb-0 mr-1 float-left" src="/images/users/{{($post->user->image == null ? 'no-user.png' : $post->user->image)}}" style="width:34px;height:34px; @if($post->user->plan == 'professional') border:2px solid #55c12e @elseif($post->user->plan == 'premium') border:2px solid #007bff @else border:2px solid grey @endif" data-toggle="tooltip" data-placement="top" title="{{$userName[0]}}" alt="{{$userName[0]}}"> -->
                                                                 <a href="/p/{{$post->url}}/{{$post->id}}">{{$post->title}}</a>
@@ -847,7 +847,7 @@ $iconsClass = [
                                                                 @else
                                                                     <p class="d-inline-block" data-toggle="tooltip" data-placement="top" title="Refiere a: {{$post->country}}" style="font-size:11px;font-weight:bold;border-radius:8px;padding:3px ;width:max-content;margin:0px;"><i class="ml-1 flag-icon flag-icon-{{$post->country}}" title="{{$post->country}}" id="{{$post->country}}" style="position:relative;top:1px;"></i></p>
                                                                 @endif
-                                                                <p data-toggle="tooltip" data-html="true" title="" data-original-title="<em><b>{{$post->categoryPost->name}}</b>" style="font-weight:bold;background:#c8eab8;border-radius: 20px;padding: 5px;bottom:10px;margin:0px;display:inline-block;height: 24px;text-align: center;/*! margin-top: 4px; */position: relative;top: 8px;">
+                                                                <p data-toggle="tooltip" data-html="true" title="" data-original-title="<em><b>{{$post->categoryPost->name}}</b>" style="font-weight:bold;background:#e3e5e2;border-radius: 20px;padding: 5px;bottom:10px;margin:0px;display:inline-block;height: 24px;text-align: center;/*! margin-top: 4px; */position: relative;top: 8px;">
                                                                     <i class="ml-1 {{$iconsClass[$post->categoryPost->name]}}" style="font-size:16px;margin: 0px !important;top: -7px;left: -1px;position: relative;"></i><span style="position: relative;top: -9px;font-size:11px;">{{$post->categoryPost->name}}</span>                                                                                           
                                                                 </p>
                                                             </div>

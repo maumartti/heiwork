@@ -19,6 +19,6 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        //
+        '/upload-image', // Excluir la ruta de la protección CSRF
     ];
 }

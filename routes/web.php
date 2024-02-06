@@ -89,7 +89,7 @@ Route::post('/responseMessageFake','HomeController@responseMessageFake');
 
 //new
 Route::get('/p/{url}/{id}', 'PostController@show')->name('showPost');
-
+Route::post('/upload-image', 'PostController@uploadImage');
 //--
 
 //panel de mensajes cuentas fake

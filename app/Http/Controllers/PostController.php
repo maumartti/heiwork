@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 use Cookie;
 use Mail;
 use App\Mail\DemoEmail;
@@ -50,6 +52,21 @@ class PostController extends Controller
 				}
 		}
 
+		public function uploadImage(Request $request){
+				$image = $request->file('upload');
+				// Genera un nombre único para el archivo
+				$name = Str::random(32) . '.' . $image->getClientOriginalExtension();
+				// Guarda el archivo en la carpeta deseada dentro de public
+				$image->move(public_path('images/posts'), $name);
+				// Construye la URL del archivo
+				$url = asset('images/posts/' . $name);
+				return response()->json([
+						'uploaded' => true,
+						'fileName' => $name,
+						'url'      => $url,
+				]);
+		}
+		
 
     public function show(Request $request, $url, $id){
 			$post = Post::find($id);
