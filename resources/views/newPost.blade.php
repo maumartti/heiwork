@@ -224,6 +224,7 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
                                         <option value="il">Israel</option>
                                         <option value="mx">México</option>
                                         <option value="ni">Nicaragua</option>
+                                        <option value="nz">New Zealand</option>
                                         <option value="py">Paraguay</option>
                                         <option value="pa">Panamá</option>
                                         <option value="pe">Perú</option>

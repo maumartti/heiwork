@@ -149,6 +149,30 @@ $icons = [
     'Legal' => '<i class="mdi mdi-script" style="font-size:16px;position: relative;top: 1.2px;"></i>',
     'Finanzas y Negocios' => '<i class="mdi mdi-chart-line-stacked" style="font-size:16px;position: relative;top: 1.2px;"></i>',
     'Ingeniería y Arquitectura' => '<i class="mdi mdi-ungroup" style="font-size:16px;position: relative;top: 1.2px;"></i>',
+    'Trámites y visas' => '<i class="mdi mdi-file-document" style="font-size:16px;position: relative;top: 1.2px;"></i>',
+    'Bases de Datos' => '<i class="mdi mdi-database" style="font-size:16px;position: relative;top: 1.2px;"></i>',
+];
+$iconsClass = [
+    'Programación Web' => 'mdi mdi-cloud-tags',
+    'Wordpress' => 'mdi mdi-wordpress',
+    'Apps Android, iOS' => 'mdi mdi-cellphone-iphone',
+    'Aplicaciones de escritorio' => 'mdi mdi-code-array',
+    'Diseño Web' => 'mdi mdi-palette-advanced',
+    'Diseño de Logo' => 'mdi mdi-palette',
+    'Ilustraciones' => 'mdi mdi-palette',
+    'Crear o editar audio, video' => 'mdi mdi-file-video',
+    'Modelos 3D' => 'mdi mdi-printer-3d',
+    'Fotografía' => 'mdi mdi-film',
+    'Diseño de moda' => 'mdi mdi-tshirt-crew',
+    'Redacción y Traducción' => 'mdi mdi-xda',
+    'Marketing Digital y Ventas' => 'mdi mdi-cart',
+    'SEO' => 'mdi mdi-search-web',
+    'Soporte Administrativo' => 'mdi mdi-desktop-mac',
+    'Legal' => 'mdi mdi-script',
+    'Finanzas y Negocios' => 'mdi mdi-chart-line-stacked',
+    'Ingeniería y Arquitectura' => 'mdi mdi-ungroup',
+    'Trámites y visas' => 'mdi mdi-file-document',
+    'Bases de Datos' => 'mdi mdi-database',
 ];
 @endphp
     <div class="container-scroller landing-page">    
@@ -265,6 +289,8 @@ $icons = [
                                             'Legal' => '<i class="mdi mdi-script" style="font-size:16px;position: relative;top: 1.2px;"></i>',
                                             'Finanzas y Negocios' => '<i class="mdi mdi-chart-line-stacked" style="font-size:16px;position: relative;top: 1.2px;"></i>',
                                             'Ingeniería y Arquitectura' => '<i class="mdi mdi-ungroup" style="font-size:16px;position: relative;top: 1.2px;"></i>',
+                                            'Trámites y visas' => '<i class="mdi mdi-file-document" style="font-size:16px;position: relative;top: 1.2px;"></i>',
+                                            'Bases de Datos' => '<i class="mdi mdi-database" style="font-size:16px;position: relative;top: 1.2px;"></i>',
                                         ];
                                     $iconCatApp = '';    
                                     foreach ($icons as $key => $value) {
@@ -791,8 +817,9 @@ $icons = [
                                                             </ul>
                                                             <div class="row">
                                                                 <div class="col-4 col-md-2 px-1 pl-2" style="width: 230px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
+                                                                    <i class="ml-1 flag-icon flag-icon-{{$post->user->country}}" title="{{$post->user->country}}" id="{{$post->user->country}}" style="position:absolute;top:24px;left: 38px;font-size:12px;"></i>
                                                                     <img class="rounded-circle mt-1 mb-0 mr-1 " src="/images/users/{{($post->user->image == null ? 'no-user.png' : $post->user->image)}}" style="margin: 8px 0px auto !important;width:30px;height:30px; @if($post->user->plan == 'professional') border:2px solid #55c12e @elseif($post->user->plan == 'premium') border:2px solid #007bff @else border:2px solid grey @endif" data-toggle="tooltip" data-placement="top" title="{{$userName[0]}}" alt="{{$userName[0]}}">
-                                                                    <p class="font-weight-bold m-0 mt-2 communityNameUS" style="display: inline; position: relative; top: 6px;">
+                                                                    <p class="font-weight-bold m-0 mt-2 communityNameUS" style="display: inline; position: relative; top:-2px;">
                                                                         <span><a href="/p/{{$post->user->code}}">{{$userName[0]}}</a></span>
                                                                     </p>
                                                                 </div>
@@ -815,11 +842,14 @@ $icons = [
                                                                 </div> -->
                                                             </div>
                                                             <div class="text-right pr-2" style="top:-2px;position:absolute;width:100%;left: 0px;">
-                                                                <p data-toggle="tooltip" data-html="true" title="" style="font-weight:bold;background:#c8eab8;border-radius: 20px;padding: 5px;bottom:10px;margin:0px;display:inline-block;width: 24px;height: 24px;text-align: center;/*! margin-top: 4px; */position: relative;top: 8px;" data-original-title="<em><b>Aplicaciones de escritorio</b>">
-                                                                    <i class="ml-1 mdi mdi mdi-palette"" style="font-size:16px;margin: 0px !important;top: -7px;left: -1px;position: relative;"></i>                                                                                             
+                                                                @if($post->country == 'gg')
+                                                                    <p class="pr-0" data-toggle="tooltip" data-placement="top" title="Tema Global" style="font-size:11px;font-weight:bold;border-radius: 20px;padding:5px 8px;width:max-content;margin:2px 0px;display:inline-block;"><img src="/images/earth.svg" style="width:16px;position:relative;top: -2px;" alt="ícono del mundo"></p>
+                                                                @else
+                                                                    <p class="d-inline-block" data-toggle="tooltip" data-placement="top" title="Refiere a: {{$post->country}}" style="font-size:11px;font-weight:bold;border-radius:8px;padding:3px ;width:max-content;margin:0px;"><i class="ml-1 flag-icon flag-icon-{{$post->country}}" title="{{$post->country}}" id="{{$post->country}}" style="position:relative;top:1px;"></i></p>
+                                                                @endif
+                                                                <p data-toggle="tooltip" data-html="true" title="" data-original-title="<em><b>{{$post->categoryPost->name}}</b>" style="font-weight:bold;background:#c8eab8;border-radius: 20px;padding: 5px;bottom:10px;margin:0px;display:inline-block;height: 24px;text-align: center;/*! margin-top: 4px; */position: relative;top: 8px;">
+                                                                    <i class="ml-1 {{$iconsClass[$post->categoryPost->name]}}" style="font-size:16px;margin: 0px !important;top: -7px;left: -1px;position: relative;"></i><span style="position: relative;top: -9px;font-size:11px;">{{$post->categoryPost->name}}</span>                                                                                           
                                                                 </p>
-                                                                <p class="pr-0" data-toggle="tooltip" data-placement="top" title="Tema global" style="font-size:11px;font-weight:bold;border-radius: 20px;padding:5px 8px;width:max-content;margin:2px 0px;display:inline-block;"><img src="/images/earth.svg" style="width:16px;position:relative;top: -2px;"></p>
-                                                                <!-- <p class="text-left my-2 haceTime" style="color:black;font-weight:bold;margin-top: 0px !important;display: contents;">hace {{$post->diff}}</p>  -->
                                                             </div>
                                                         </div>
                                                     </div>

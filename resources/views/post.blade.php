@@ -9,28 +9,28 @@
     $userName = explode(' ',$user->name);
 @endphp
 
-    <title>HeiWork | Perfil de {{$userName[0]}}</title>
-    <link rel="canonical" href="https://heiwork.com/freelancer/{{$user->code}}">
-    <meta name="description" content="Perfil de freelancer {{$user->name}}, de {{$user->country}}">
-    <meta name="keywords" content="perfil, freelancer, {{$user->name}}, plataforma, heiwork">
+    <title>HeiWork | {{$post->title}}</title>
+    <link rel="canonical" href="https://heiwork.com/p/{{$post->url}}/{{$post->id}}">
+    <meta name="description" content="{{$post->cita}}">
+    <meta name="keywords" content="artículo, comunidad IT, {{$user->name}}, plataforma, heiwork">
 
 
-    <meta name="apple-mobile-web-app-title" content="Perfíl Freelance">
-    <meta name="application-name" content="Perfíl Freelance">
+    <meta name="apple-mobile-web-app-title" content="Artículo de la comunidad IT - Heiwork">
+    <meta name="application-name" content="Artículo de la comunidad IT">
     <meta name="msapplication-TileColor" content="#2b5797">
     <meta name="theme-color" content=" #ffffff">
     <meta property="og:site_name" content="HEIWORK">
-    <meta property="og:url" content="https://heiwork.com/freelancer/{{$user->code}}">
-    <meta property="og:image" content="https://heiwork.com/images/users/{{$user->image}}">
-    <meta property="og:title" content="Perfil de freelancer {{$user->name}}, de {{$user->country}}">
-    <meta property="og:description" content="Perfil de freelancer {{$user->name}}, de {{$user->country}}">
+    <meta property="og:url" content="https://heiwork.com/p/{{$post->url}}/{{$post->id}}}">
+    <meta property="og:image" content="https://heiwork.com/images/logoEstandar5.jpeg">
+    <meta property="og:title" content="{{$post->title}} | Heiwork">
+    <meta property="og:description" content="{{$post->cita}}">
     <meta property="og:type" content="website" />
     <meta property="fb:app_id" content="138224130427286">
 
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:description" content="Perfil de freelancer {{$user->name}}, de {{$user->country}}" />
-    <meta name="twitter:title" content="Perfil de freelancer {{$user->name}} | Heiwork" />
-    <meta name="twitter:image" content="https://heiwork.com/images/users/{{$user->image}}" />
+    <meta name="twitter:description" content="{{$post->cita}}" />
+    <meta name="twitter:title" content="{{$post->title}} | Heiwork" />
+    <meta name="twitter:image" content="https://heiwork.com/images/logoEstandar5.jpeg" />
 
 <!-- galery -->
 <link href="/PhotoSwipe%20Responsive%20JavaScript%20Image%20Gallery_files/site.css" rel="stylesheet">
@@ -392,7 +392,7 @@ textarea{
 
 @section('content')
 @php
-    $allCountries = array('ar' => 'Argentina','de' => 'Alemania','bo' => 'Bolivia','br' => 'Brasil','ca' => 'Canada','cl' => 'Chile','cn' => 'China','co' => 'Colombia','cr' => 'Costa rica','cu' => 'Cuba','ec' => 'Ecuador','us' => 'EEUU','es' => 'España','gt' => 'El salvador','fr' => 'Francia','gd' => 'Granada','gt' => 'Guatemala','hn' => 'Honduras','ie' => 'Irlanda','in' => 'India','it' => 'Italia','il' => 'Israel','mx' => 'México','ni' => 'Nicaragua','py' => 'Paraguay','pa' => 'Panamá','pe' => 'Perú','pr' => 'Puerto rico','pt' => 'Portugal','do' => 'República dominicana','gb' => 'Gran bretaña','uy' => 'Uruguay','ve' => 'Venezuela', 'wl' => '');
+    $allCountries = array('nz' => 'Nueva Zelanda','ar' => 'Argentina','de' => 'Alemania','bo' => 'Bolivia','br' => 'Brasil','ca' => 'Canada','cl' => 'Chile','cn' => 'China','co' => 'Colombia','cr' => 'Costa rica','cu' => 'Cuba','ec' => 'Ecuador','us' => 'EEUU','es' => 'España','gt' => 'El salvador','fr' => 'Francia','gd' => 'Granada','gt' => 'Guatemala','hn' => 'Honduras','ie' => 'Irlanda','in' => 'India','it' => 'Italia','il' => 'Israel','mx' => 'México','ni' => 'Nicaragua','py' => 'Paraguay','pa' => 'Panamá','pe' => 'Perú','pr' => 'Puerto rico','pt' => 'Portugal','do' => 'República dominicana','gb' => 'Gran bretaña','uy' => 'Uruguay','ve' => 'Venezuela', 'wl' => '');
     $icons = [
         'Programación Web' => 'mdi mdi-cloud-tags',
         'Wordpress' => 'mdi mdi-wordpress',
@@ -412,6 +412,8 @@ textarea{
         'Legal' => 'mdi mdi-script',
         'Finanzas y Negocios' => 'mdi mdi-chart-line-stacked',
         'Ingeniería y Arquitectura' => 'mdi mdi-ungroup',
+        'Trámites y visas' => 'mdi mdi-file-document',
+        'Bases de Datos' => 'mdi mdi-database',
     ];
 
 
@@ -466,7 +468,7 @@ textarea{
                             <div class="grid-margin stretch-card p-0 mb-2 m-auto" style="margin-bottom: 15px !important;">           
                               <div class="card" style="border-radius:0px;border-radius:10px;">
                                 <div class="card-body pt-3 pb-3">
-                                    <h2 class="font-weight-bold mb-3">Otros freelancers en Heiwork</h2>
+                                    <h2 class="font-weight-bold mb-3">Otros Colegas IT</h2>
                                     @foreach($users as $key => $freelancer)
                                         @php
                                         $freelancerName = explode(' ', $freelancer->name);
@@ -483,7 +485,7 @@ textarea{
                                                 </div>
                                                 <div class="col-8 p-1 pt-2">
                                                     <h4 class="mb-1"><a href="/freelancer/{{$freelancer->code}}">{{$freelancerName[0]}} {{$freelancerSurname}}</a></h4>
-                                                    <p class="mb-1"><i class="mdi mdi-map-marker"></i><span style="font-size:13px;font-weight:bold;"><a href="/freelancers/{{$linkCountryFreelancer}}">{{$allCountries[$freelancer->country]}}</a></span><i class="ml-1 flag-icon flag-icon-{{$freelancer->country}}" title="{{$freelancer->country}}" id="{{$freelancer->country}}" style="position:relative;top:1px;"></i></p>
+                                                    <p class="mb-1"><span style="font-size:13px;font-weight:bold;"><a href="/freelancers/{{$linkCountryFreelancer}}">{{$allCountries[$freelancer->country]}}</a></span><i class="ml-1 flag-icon flag-icon-{{$freelancer->country}}" title="{{$freelancer->country}}" id="{{$freelancer->country}}" style="position:relative;top:1px;"></i></p>
                                                 </div>
                                                 <div class="col-12 p-0 px-1 pt-1 text-center">
                                                     @if($freelancer->rubro != null)
@@ -545,26 +547,32 @@ textarea{
                                                     <p class="mb-1"><span style="font-size:13px;font-weight:bold;"><a href="/freelancers/{{$allCountries[$post->user->country]}}">{{$allCountries[$post->user->country]}}</a></span><i class="ml-1 flag-icon flag-icon-{{$post->user->country}}" title="{{$post->user->country}}" id="{{$post->user->country}}" style="position:relative;top:1px;"></i></p>
                                                 </div>
                                                 <div class="col-12 col-md-6 p-0 px-3 text-left" style="padding-top:0.6rem !important">
+                                                    @if($post->country == 'gg')
+                                                        <p class="d-inline-block" data-toggle="tooltip" data-placement="top" title="No va dirigido a un país en específico" style="background:#e3e5e2;border-radius: 8px;padding:3px;font-size:11px;font-weight:bold;border-radius:8px;padding:3px 8px;width:max-content;margin:0px;vertical-align:top;"><img src="/images/earth.svg" style="width:16px;position:relative;top: -2px;" alt="ícono del mundo"> Tema global</p>
+                                                    @else
+                                                        <p class="d-inline-block" data-toggle="tooltip" data-placement="top" title="{{$post->country}}" style="background:#e3e5e2;font-size:11px;font-weight:bold;border-radius:8px;padding:3px;padding-right:4px;width:max-content;margin:0px;vertical-align:top;"><i class="ml-1 flag-icon flag-icon-{{$post->country}}" title="{{$post->country}}" id="{{$post->country}}" style="position:relative;top:1px;"></i> {{$allCountries[$post->country]}}</p>
+                                                    @endif
                                                     @if($freelancer->rubro != null)
-                                                    <p class="d-inline-block" data-toggle="tooltip" data-html="true" title="<em>Categoría: <b>{{$freelancer->rubro}}</b>" style="font-size:8px;font-weight:bold;background:#e3e5e2;border-radius: 8px;padding:3px 5px;bottom:10px;margin:0px;display:inline-block;height:23px;text-align: center;">
-                                                        <i class="ml-1 mdi {{$icons[$freelancer->rubro]}}" style="font-size:18px;margin: 0px !important;top: -5px;position: relative;"></i>                                                                                             
+                                                    <p class="d-inline-block" data-toggle="tooltip" data-html="true" title="<em>Categoría: <b>{{$post->categoryPost->name}}</b>" style="font-size:8px;font-weight:bold;background:#e3e5e2;border-radius: 8px;padding:3px 5px;bottom:10px;margin:0px;display:inline-block;height:23px;text-align: center;">
+                                                        <i class="ml-1 mdi {{$icons[$post->categoryPost->name]}}" style="font-size:18px;margin: 0px !important;top: -5px;position: relative;"></i>                                                                                             
                                                         @if($freelancer->rubro2 == null && $freelancer->rubro3 == null && $freelancer->rubro4 == null)
                                                         <span style="float: right;margin-left:4px;font-size: 11px;">
-                                                            {{$freelancer->rubro}}
+                                                            {{$post->categoryPost->name}}
                                                         </span>
                                                         @endif
                                                     </p>
                                                     @endif 
-                                                    @if($post->country == 'gg')
-                                                        <p class="d-inline-block" data-toggle="tooltip" data-placement="top" title="No va dirigido a un país en específico" style="background:#e3e5e2;border-radius: 8px;padding:3px;font-size:11px;font-weight:bold;border-radius:8px;padding:3px 8px;width:max-content;margin:0px;vertical-align:top;"><img src="/images/earth.svg" style="width:16px;position:relative;top: -2px;"> Tema global</p>
-                                                    @else
-                                                        <p class=""d-inline-block" data-toggle="tooltip" data-placement="top" title="{{$post->country}}" style="font-size:11px;font-weight:bold;border-radius:10px;padding:3px ;width:max-content;margin:0px;vertical-align:top;"><i class="ml-1 flag-icon flag-icon-{{$post->country}}" title="{{$post->country}}" id="{{$post->country}}" style="position:relative;top:1px;"></i> Dirigido al mercado</p>
-                                                    @endif 
+                                                    <ul class="list-inline p-0 pl-1 m-0">
+                                                        <li class="list-inline-item"><a href="#"><strong>Nuxt</strong></a></li>
+                                                        <li class="list-inline-item"><a href="#"><strong>JavaScript</strong></a></li>
+                                                        <li class="list-inline-item"><a href="#"><strong>Vue</strong></a></li>
+                                                        <li class="list-inline-item"><a href="#"><strong>Asure</strong></a></li>
+                                                    </ul>  
                                                 </div>       
                                             </div>
                                         </div>
-                                        <div class="mt-3">
-                                            <h1>{{$post->title}}</h1>
+                                        <div class="mt-2">
+                                            <h1 class="text-left">{{$post->title}}</h1>
                                             <div class="contText">{!! $post->text !!}</div>
                                             <ul class="list-inline p-0 mb-1 mt-2">
                                                 <li class="list-inline-item"><a href="#"><strong>Nuxt</strong></a></li>
