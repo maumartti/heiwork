@@ -1149,7 +1149,7 @@ class HomeController extends Controller
             Auth::user()->completeProfile = false;
         }
         $technologies = Technology::all();
-        $categoriesPost = CategoryPost::all();
+        $categoriesPost = CategoryPost::orderBy('table_order')->get();
 
         self::getMessagesNotificationAuth();
         return view('newPost')->with('technologies',$technologies)->with('categoriesPost',$categoriesPost);

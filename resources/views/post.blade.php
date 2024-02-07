@@ -16,23 +16,25 @@ if(Auth::check()){
     <meta name="description" content="{{$post->cita}}">
     <meta name="keywords" content="artículo, comunidad IT, {{$post->categoryPost->name}}, plataforma, heiwork">
 
-
     <meta name="apple-mobile-web-app-title" content="Artículo de la comunidad IT - Heiwork">
     <meta name="application-name" content="Artículo de la comunidad IT">
     <meta name="msapplication-TileColor" content="#2b5797">
     <meta name="theme-color" content=" #ffffff">
     <meta property="og:site_name" content="HEIWORK">
     <meta property="og:url" content="https://heiwork.com/p/{{$post->url}}/{{$post->id}}}">
-    <meta property="og:image" content="https://heiwork.com/images/logoEstandar5.jpeg">
+    <meta property="og:image" content="https://heiwork.com/images/category_posts/{{$post->categoryPost->image}}">
     <meta property="og:title" content="{{$post->title}} | Heiwork">
     <meta property="og:description" content="{{$post->cita}}">
     <meta property="og:type" content="website" />
     <meta property="fb:app_id" content="138224130427286">
-
+    <!-- Twitter share image -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:description" content="{{$post->cita}}" />
     <meta name="twitter:title" content="{{$post->title}} | Heiwork" />
-    <meta name="twitter:image" content="https://heiwork.com/images/logoEstandar5.jpeg" />
+    <meta name="twitter:image" content="https://heiwork.com/images/category_posts/{{$post->categoryPost->image}}" />
+    <meta property="og:image:width" content="300">
+    <meta property="og:image:height" content="300">
+    <meta property="og:image" content="https://heiwork.com/images/category_posts/{{$post->categoryPost->image}}">
 
 <!-- galery -->
 <link href="/PhotoSwipe%20Responsive%20JavaScript%20Image%20Gallery_files/site.css" rel="stylesheet">
