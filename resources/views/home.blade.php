@@ -52,6 +52,12 @@
         .cont1{
             margin-bottom: 0.25rem !important;
         }
+        .zoomable-image:hover {
+            transform: scale(1.1); /* Cambiar el valor para ajustar el nivel de zoom */
+        }
+        .zoomable-image:hover {
+            transform: scale(1.1); /* Cambiar el valor para ajustar el nivel de zoom */
+        }
         @media (max-width: 767px){
             #contHome{
                 padding-top: 40px !important;
@@ -151,6 +157,7 @@ $icons = [
     'Ingeniería y Arquitectura' => '<i class="mdi mdi-ungroup" style="font-size:16px;position: relative;top: 1.2px;"></i>',
     'Trámites y visas' => '<i class="mdi mdi-file-document" style="font-size:16px;position: relative;top: 1.2px;"></i>',
     'Bases de Datos' => '<i class="mdi mdi-database" style="font-size:16px;position: relative;top: 1.2px;"></i>',
+    'Noticias' => '<i class="mdi mdi-bullhorn" style="font-size:16px;position: relative;top: 1.2px;"></i>',
 ];
 $iconsClass = [
     'Programación Web' => 'mdi mdi-cloud-tags',
@@ -173,6 +180,7 @@ $iconsClass = [
     'Ingeniería y Arquitectura' => 'mdi mdi-ungroup',
     'Trámites y visas' => 'mdi mdi-file-document',
     'Bases de Datos' => 'mdi mdi-database',
+    'Noticias' => 'mdi mdi-bullhorn',
 ];
 @endphp
     <div class="container-scroller landing-page">    
@@ -806,18 +814,23 @@ $iconsClass = [
                                                             @php                                                       
                                                             $text = strip_tags($post->cita);//quitamos etiquetas html
                                                             @endphp
+                                                            <img src="/images/category_posts/m{{$key}}.png" class="zoomable-image" style="float: left;height:66px;width:66px !important;border-radius:8px;margin-right:8px;margin-top:10px;">
                                                             <p class="mt-1" style="font-size:15px;margin-bottom:0px;">{{$text}}</p>
-                                                            <ul class="list-inline p-0 mb-1 mt-2">
+                                                            <ul class="list-inline p-0 mb-1 mt-0">
+                                                                <li class="list-inline-item">
+                                                                    <p data-toggle="tooltip" data-html="true" title="" data-original-title="<em><b>{{$post->categoryPost->name}}</b>" style="font-weight:bold;background:#e3e5e2;border-radius: 20px;padding:4px 6px;bottom:10px;margin:0px;display:inline-block;height: 24px;text-align: center;/*! margin-top: 4px; */position: relative;top: 8px;">
+                                                                        <i class="ml-1 {{$iconsClass[$post->categoryPost->name]}}" style="font-size:16px;margin: 0px !important;top: -7px;left: -1px;position: relative;"></i><span style="position: relative;top: -9px;font-size:11px;">{{$post->categoryPost->name}}</span>                                                                                           
+                                                                    </p>
+                                                                </li>
+                                                                <li class="list-inline-item separateTiem">|</li>
                                                                 <li class="list-inline-item"><a href="#"><strong>Nuxt</strong></a></li>
                                                                 <li class="list-inline-item"><a href="#"><strong>JavaScript</strong></a></li>
                                                                 <li class="list-inline-item"><a href="#"><strong>Vue</strong></a></li>
                                                                 <li class="list-inline-item"><a href="#"><strong>Asure</strong></a></li>
-                                                                <li class="list-inline-item separateTiem">|</li>
-                                                                <li class="list-inline-item"><span style="color:#2e2e2e;font-weight:bold;margin-top: 0px !important;font-size:11px;">Publicado hace {{$post->diff}}</span></li>
                                                             </ul>
                                                             <div class="row">
-                                                                <div class="col-4 col-md-2 px-1 pl-2" style="width: 230px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
-                                                                    <i class="ml-1 flag-icon flag-icon-{{$post->user->country}}" title="{{$post->user->country}}" id="{{$post->user->country}}" style="position:absolute;top:24px;left: 38px;font-size:12px;"></i>
+                                                                <div class="col-4 col-md-2 px-1" style="width: 230px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;padding-left: 0.8rem !important;">
+                                                                    <i class="ml-1 flag-icon flag-icon-{{$post->user->country}}" title="{{$post->user->country}}" id="{{$post->user->country}}" style="position:absolute;top:24px;left:42px;font-size:12px;"></i>
                                                                     <img class="rounded-circle mt-1 mb-0 mr-1 " src="/images/users/{{($post->user->image == null ? 'no-user.png' : $post->user->image)}}" style="margin: 8px 0px auto !important;width:30px;height:30px; @if($post->user->plan == 'professional') border:2px solid #55c12e @elseif($post->user->plan == 'premium') border:2px solid #007bff @else border:2px solid grey @endif" data-toggle="tooltip" data-placement="top" title="{{$userName[0]}}" alt="{{$userName[0]}}">
                                                                     <p class="font-weight-bold m-0 mt-2 communityNameUS" style="display: inline; position: relative; top:-2px;">
                                                                         <span><a href="/p/{{$post->user->code}}">{{$userName[0]}}</a></span>
@@ -833,7 +846,7 @@ $iconsClass = [
                                                                         <p class="m-0" style="font-size:14px;font-weight:bold;"> <i class="mdi mdi-tooltip-text"></i> 0</p>
                                                                     </div>
                                                                 </div>
-                                                                <!-- <div class="col-1 col-md-1 px-1">
+                                                                <!-- <div class="col-1 col-md-1  px-1">
                                                                     <div class="mb-0 mt-0 pt-2 pl-0 cont1 text-left" style="padding:4px;font-size:0.8rem;color:#286ba7;cursor:pointer;font-weight:bold;right:0px;margin-bottom: 0px !important;"  data-toggle="tooltip" data-placement="bottom" title="Ofrece empleo">
                                                                     <p data-toggle="tooltip" data-html="true" title="" style="font-size:8px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding: 8px;bottom:10px;margin:0px;display:inline-block;height: 33px;text-align: center;" data-original-title="<em><b>Aplicaciones de escritorio</b>">
                                                                         <i class="ml-1 mdi mdi mdi-code-array" style="font-size:18px;margin: 0px !important;top: -6px;position: relative;"></i>                                                                                             
@@ -847,8 +860,11 @@ $iconsClass = [
                                                                 @else
                                                                     <p class="d-inline-block" data-toggle="tooltip" data-placement="top" title="Refiere a: {{$post->country}}" style="font-size:11px;font-weight:bold;border-radius:8px;padding:3px ;width:max-content;margin:0px;"><i class="ml-1 flag-icon flag-icon-{{$post->country}}" title="{{$post->country}}" id="{{$post->country}}" style="position:relative;top:1px;"></i></p>
                                                                 @endif
-                                                                <p data-toggle="tooltip" data-html="true" title="" data-original-title="<em><b>{{$post->categoryPost->name}}</b>" style="font-weight:bold;background:#e3e5e2;border-radius: 20px;padding: 5px;bottom:10px;margin:0px;display:inline-block;height: 24px;text-align: center;/*! margin-top: 4px; */position: relative;top: 8px;">
+                                                                <!-- <p data-toggle="tooltip" data-html="true" title="" data-original-title="<em><b>{{$post->categoryPost->name}}</b>" style="font-weight:bold;background:#e3e5e2;border-radius: 20px;padding: 5px;bottom:10px;margin:0px;display:inline-block;height: 24px;text-align: center;/*! margin-top: 4px; */position: relative;top: 8px;">
                                                                     <i class="ml-1 {{$iconsClass[$post->categoryPost->name]}}" style="font-size:16px;margin: 0px !important;top: -7px;left: -1px;position: relative;"></i><span style="position: relative;top: -9px;font-size:11px;">{{$post->categoryPost->name}}</span>                                                                                           
+                                                                </p>-->
+                                                                <p data-toggle="tooltip" data-html="true" title="" data-original-title="<em><b>{{$post->categoryPost->name}}</b>" style="border-radius: 20px;display:inline-block;height: 24px;text-align: center;position: relative;">
+                                                                    <span style="color:#2e2e2e;font-weight:bold;margin-top: 0px !important;font-size:13px;">Publicado hace {{$post->diff}}</span>                                                                                       
                                                                 </p>
                                                             </div>
                                                         </div>

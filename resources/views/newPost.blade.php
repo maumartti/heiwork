@@ -197,10 +197,12 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
                                 </div>
                                 <div class="form-group">
                                     <label style="font-weight:bold;font-size:16px;">Publicación dirigida al mercado:</label>
+                                    <label style="display:block;font-weight:bold;font-size:12px;">Si planeas abordar un tema vinculado a un país, selecciona cuál</label>
                                     <select name="country" id="type" class="form-control font-weight-bold" style="color:#71B951;" autocomplete="off" required>
                                         <option value="" selected="true">Selecciona uno..</option>
-                                        <option value="gg">*** GLOBAL ***</option>
+                                        <option value="gg">*** NINGUNO EN ESPECÍFICO / TEMA GLOBAL ***</option>
                                         <option value="ar">Argentina</option>
+                                        <option value="au">Australia</option>
                                         <option value="de">Alemania</option>
                                         <option value="bo">Bolivia</option>
                                         <option value="br">Brasil</option>
@@ -210,9 +212,11 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
                                         <option value="co">Colombia</option>
                                         <option value="cr">Costa Rica</option>
                                         <option value="cu">Cuba</option>
+                                        <option value="dk">Dinamarca</option>
                                         <option value="ec">Ecuador</option>
                                         <option value="us">EEUU</option>
                                         <option value="es">España</option>
+                                        <option value="fi">Finlandia</option>
                                         <option value="sv">El Salvador</option>
                                         <option value="fr">Francia</option>
                                         <option value="gd">Granada</option>
@@ -225,6 +229,7 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
                                         <option value="mx">México</option>
                                         <option value="ni">Nicaragua</option>
                                         <option value="nz">New Zealand</option>
+                                        <option value="no">Noruega</option>
                                         <option value="py">Paraguay</option>
                                         <option value="pa">Panamá</option>
                                         <option value="pe">Perú</option>
@@ -233,15 +238,17 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
                                         <option value="do">República Dominicana</option>
                                         <option value="gb">Gran Bretaña</option>
                                         <option value="uy">Uruguay</option>
+                                        <option value="se">Suecia</option>
                                         <option value="ve">Venezuela</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label id="tecnologiasLabel" style="font-weight:bold;font-size:16px;">Tecnologías de IT:</label>
+                                    <label id="tecnologiasLabel" style="font-weight:bold;font-size:16px;">Tecnologías de IT: (opcional)</label>
+                                    <label style="display:block;font-weight:bold;font-size:12px;margin:0px;">( maximo 4 tecnologías )</label>
                                     <div class="d-flex border p-2 pt-0">
                                         @foreach ($technologies as $key => $tec)
                                         <div class="form-check mr-1 mt-1 mb-1 badge badge-primary">
-                                            <input type="checkbox" class="form-check-input" id="tc{{$key}}" name="tech-{{$tec->id}}" value="{{$tec->id}}" style="float: left;position: relative;left: 20px;">
+                                            <input type="checkbox" class="form-check-input tech-checkbox" id="tc{{$key}}" name="tech-{{$tec->id}}" value="{{$tec->id}}" style="float: left;position: relative;left: 20px;">
                                             <label class="form-check-label mt-1 ml-2 text-dark font-weight-bold" for="tc{{$key}}">{{$tec->name}}</label>
                                         </div>
                                         @endforeach
@@ -251,8 +258,8 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
 
                          
                                 <div class="form-group">
-                                     <label style="font-weight:bold;font-size:16px;">Cita:</label>
-                                     <textarea name="cita" id="cita"  style="line-height:1.2rem;color:#71B951;" placeholder="Escribe un resumen de que trata el tema ..." cols="30" rows="4" class="form-control font-weight-bold" maxlength="250" ></textarea>
+                                     <label style="font-weight:bold;font-size:16px;">Cita: ( 120 caracteres min ):</label>
+                                     <textarea name="cita" id="cita"  style="line-height:1.2rem;color:#71B951;" placeholder="Escribe un resumen de que trata el tema ..." cols="30" rows="4" class="form-control font-weight-bold" minlength="140" maxlength="250" ></textarea>
                                     <!--<small id="emailHelp" class="form-text" style="color:black;line-height: 1.2;">
                                         Puede colocar información de contacto si desea para que le contacten directo
                                      </small>-->   
@@ -266,14 +273,22 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
                                 </div>
                                 <div class="form-group">
                                     <label style="font-weight:bold;font-size:16px;">Categoría:</label>
-                                    <select name="category_id" id="" class="form-control font-weight-bold" style="color:#71B951;" autocomplete="off" required>
+                                    <select name="category_id" id="categorySelect" class="form-control font-weight-bold" style="color:#71B951;" autocomplete="off" required>
                                         <option value="">Selecciona uno..</option>
                                         @foreach ($categoriesPost as $cat)
-                                            <option value="{{$cat->id}}">{{$cat->name}}</option>
+                                        <option value="{{$cat->id}}">{{$cat->name}}</option>
                                         @endforeach
-                                        
                                     </select>
                                 </div>
+                                <div class="form-group">
+                                    <div id="imageSelection" style="display: none;">
+                                        <label style="font-weight:bold;font-size:16px;">Selecciona la imagen más adecuada al tema:</label>
+                                        <div class="image-radios row px-3">
+                                            <!-- Aquí se generan los radiobuttons con las imágenes -->
+                                        </div>
+                                    </div>
+                                </div>
+                                
                                 @if(Auth::user()->register_by == 'web' && Auth::user()->email_verified_at == null /*|| Auth::user()->completeProfile == false*/)
                                     <div class="form-group">
                                         <div class="alert alert-danger" role="alert">
@@ -399,6 +414,39 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
 @endsection
 
 @section('script')
+<script>
+    $(document).ready(function() {
+        $('#categorySelect').change(function() {
+            var categoryId = $(this).val();
+            if (categoryId) {
+                $('#imageSelection').show();
+                var imageUrls = ["imagen1.jpg", "imagen2.jpg", "imagen3.jpg", "imagen4.jpg", "imagen5.jpg", "imagen6.jpg", "imagen7.jpg", "imagen8.jpg", "imagen9.jpg", "imagen10.jpg", "imagen11.jpg", "imagen12.jpg"];
+                $('.image-radios').empty(); // Limpiamos cualquier radiobutton anterior
+                $.each(imageUrls, function(index, imageUrl) {
+                    var radioHtml = '<div class="form-check mr-1 mt-1 mb-1 col-6 col-md-3 badge badge-primary">';
+                    radioHtml += '<input type="radio" class="form-check-input" id="imageRadio' + index + '" value="' + imageUrl + '" style="float: left;position: relative;left: 20px;">';
+                    radioHtml += '<label class="form-check-label mt-1 ml-2 text-dark font-weight-bold" for="imageRadio' + index + '"><img src="' + imageUrl + '" alt="Imagen ' + (index + 1) + '"></label>';
+                    radioHtml += '</div>';
+                    $('.image-radios').append(radioHtml);
+                });
+            } else {
+                $('#imageSelection').hide();
+            }
+        });
+    });
+</script>
+<!-- Selecciona solo 4 checkbox -->
+<script>
+    $(document).ready(function() {
+        $('.tech-checkbox').change(function() {
+            var checkedCount = $('.tech-checkbox:checked').length;
+            if (checkedCount > 4) {
+                $(this).prop('checked', false);
+            }
+        });
+    });
+</script>
+
 
 <!-- Editor texto -->
 <script>

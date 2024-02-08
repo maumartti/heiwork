@@ -542,6 +542,51 @@ class HomeController extends Controller
                 $data['url'] = $data['url'].'-'.$data['code'];
             }
 
+            $arrIconCountries = [
+                'ar' => '🇦🇷 AR |',
+                'au' => '🇦🇺 AU |', // Australia
+                'de' => '🇩🇪 DE |',
+                'bo' => '🇧🇴 BO |',
+                'br' => '🇧🇷 BR |',
+                'ca' => '🇨🇦 CA |',
+                'cl' => '🇨🇱 CL |',
+                'cn' => '🇨🇳 CN |',
+                'co' => '🇨🇴 CO |',
+                'cr' => '🇨🇷 CR |',
+                'cu' => '🇨🇺 CU |',
+                'dk' => '🇩🇰 DK |', // Dinamarca
+                'ec' => '🇪🇨 EC |',
+                'us' => '🇺🇸 US |',
+                'es' => '🇪🇸 ES |',
+                'fi' => '🇫🇮 FI |', // Finlandia
+                'sv' => '🇸🇻 SV |',
+                'fr' => '🇫🇷 FR |',
+                'gd' => '🇬🇩 GD |',
+                'gt' => '🇬🇹 GT |',
+                'hn' => '🇭🇳 HN |',
+                'ie' => '🇮🇪 IE |',
+                'in' => '🇮🇳 IN |',
+                'it' => '🇮🇹 IT |',
+                'il' => '🇮🇱 IL |',
+                'mx' => '🇲🇽 MX |',
+                'ni' => '🇳🇮 NI |',
+                'nz' => '🇳🇿 NZ |',
+                'no' => '🇳🇴 NO |', // Noruega
+                'py' => '🇵🇾 PY |',
+                'pa' => '🇵🇦 PA |',
+                'pe' => '🇵🇪 PE |',
+                'pr' => '🇵🇷 PR |',
+                'pt' => '🇵🇹 PT |',
+                'do' => '🇩🇴 DO |',
+                'gb' => '🇬🇧 GB |',
+                'uy' => '🇺🇾 UY |',
+                'se' => '🇸🇪 SE |', // Suecia
+                've' => '🇻🇪 VE |'
+            ];
+            if($data['country'] && $data['country'] != 'gg'){
+                $data['country_icon'] = $arrIconCountries[$data['country']];
+            }
+
             $post = Post::create($data);
             $post->save();
             //$userAuth = User::find(Auth::user()->id)->decrement('publications',1);//restamos uno

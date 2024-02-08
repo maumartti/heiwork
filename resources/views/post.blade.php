@@ -15,7 +15,8 @@ if(Auth::check()){
     <link rel="canonical" href="https://heiwork.com/p/{{$post->url}}/{{$post->id}}">
     <meta name="description" content="{{$post->cita}}">
     <meta name="keywords" content="artículo, comunidad IT, {{$post->categoryPost->name}}, plataforma, heiwork">
-
+    <!-- metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="apple-mobile-web-app-title" content="Artículo de la comunidad IT - Heiwork">
     <meta name="application-name" content="Artículo de la comunidad IT">
     <meta name="msapplication-TileColor" content="#2b5797">
@@ -24,12 +25,12 @@ if(Auth::check()){
     <meta property="og:url" content="https://heiwork.com/p/{{$post->url}}/{{$post->id}}}">
     <meta property="og:image" content="https://heiwork.com/images/category_posts/{{$post->categoryPost->image}}">
     <meta property="og:title" content="{{$post->title}} | Heiwork">
-    <meta property="og:description" content="{{$post->cita}}">
+    <meta property="og:description" content="{{ ($post->country_icon ? $post->country_icon : '') }} {{$post->cita}}">
     <meta property="og:type" content="website" />
     <meta property="fb:app_id" content="138224130427286">
     <!-- Twitter share image -->
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:description" content="{{$post->cita}}" />
+    <meta name="twitter:description" content="{{ ($post->country_icon ? $post->country_icon : '') }} {{$post->cita}}" />
     <meta name="twitter:title" content="{{$post->title}} | Heiwork" />
     <meta name="twitter:image" content="https://heiwork.com/images/category_posts/{{$post->categoryPost->image}}" />
     <meta property="og:image:width" content="300">
@@ -418,6 +419,7 @@ textarea{
         'Ingeniería y Arquitectura' => 'mdi mdi-ungroup',
         'Trámites y visas' => 'mdi mdi-file-document',
         'Bases de Datos' => 'mdi mdi-database',
+        'Noticias' => 'mdi mdi-bullhorn',
     ];
 
 
@@ -549,7 +551,7 @@ textarea{
                                                     <img class="rounded-circle m-auto mt-1 mb-1" src="/images/users/{{($post->user->image == null ? 'no-user.png' : $post->user->image)}}" style="width:60px;height:60px; @if($freelancer->plan == 'professional') border:4px solid #55c12e @elseif($freelancer->plan == 'premium') border:4px solid #007bff @else border:4px solid grey @endif" data-toggle="tooltip" data-placement="top" title="{{$freelancerName[0]}}" alt="{{$freelancerName[0]}} - freelancer de {{$allCountries[$freelancer->country]}}">   
                                                 </div>
                                                 <div class="col-8 col-md-2 p-1 pt-2">
-                                                    <h4 class="mb-1"><a href="/freelancer/{{$freelancer->code}}">{{$freelancerName[0]}} {{$freelancerSurname}}</a></h4>
+                                                    <h4 class="mb-1 font-weight-bold"><a href="/freelancer/{{$freelancer->code}}">{{$freelancerName[0]}} {{$freelancerSurname}}</a></h4>
                                                     <p class="mb-1"><span style="font-size:13px;font-weight:bold;"><a href="/freelancers/{{$allCountries[$post->user->country]}}">{{$allCountries[$post->user->country]}}</a></span><i class="ml-1 flag-icon flag-icon-{{$post->user->country}}" title="{{$post->user->country}}" id="{{$post->user->country}}" style="position:relative;top:1px;"></i></p>
                                                 </div>
                                                 <div class="col-12 col-md-6 p-0 px-3 text-left" style="padding-top:0.6rem !important">
@@ -577,9 +579,13 @@ textarea{
                                                 </div>       
                                             </div>
                                         </div>
+                                        <!-- content post -->
                                         <div class="mt-2">
                                             <h1 class="text-left">{{$post->title}}</h1>
-                                            <div class="contText">{!! $post->text !!}</div>
+                                            <div class="contText">
+                                            <!-- <img src="/images/category_posts/m7.png" style="float: left;height:105px;width:105px !important;border-radius:8px;margin-right:8px;margin-top:6px;"> -->
+                                            {!! $post->text !!}</div>
+                                            <!-- end content -->
                                             <ul class="list-inline p-0 mb-1 mt-2">
                                                 <li class="list-inline-item"><a href="#"><strong>Nuxt</strong></a></li>
                                                 <li class="list-inline-item"><a href="#"><strong>JavaScript</strong></a></li>
@@ -589,7 +595,6 @@ textarea{
                                                 <li class="list-inline-item"><span style="color:#2e2e2e;font-weight:bold;margin-top: 0px !important;font-size:11px;">Publicado hace 2 horas</span></li>
                                             </ul>    
                                         </div>
-                                        
                                     </div>
                                 </div>
                             </div>
