@@ -70,6 +70,8 @@ class PostController extends Controller
 
     public function show(Request $request, $url, $id){
 			$post = Post::find($id);
+			$post->views = $post->views + 1;
+			$post->save();
 
       self::getMessagesNotificationAuth();
 			$user = Auth::user();
