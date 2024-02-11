@@ -62,6 +62,14 @@ if(Auth::check()){
     h2{
         font-size: 1.13rem !important;
     }
+    blockquote{
+        border-left: 5px solid silver;
+        padding-left: 10px;
+        background: #f3f3f3;
+    }
+    .image > img{
+        max-width:100% !important;
+    }
     #imgVue{
         width: 100px;height:100px;top: -50px;left: calc(50% - 50px);
     }
@@ -420,6 +428,7 @@ textarea{
         'Trámites y visas' => 'mdi mdi-file-document',
         'Bases de Datos' => 'mdi mdi-database',
         'Noticias' => 'mdi mdi-bullhorn',
+        'Software escritorio' => 'mdi mdi-bullhorn',
     ];
 
 

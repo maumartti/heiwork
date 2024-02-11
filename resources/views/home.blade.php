@@ -161,6 +161,7 @@ $icons = [
     'Trámites y visas' => '<i class="mdi mdi-file-document" style="font-size:16px;position: relative;top: 1.2px;"></i>',
     'Bases de Datos' => '<i class="mdi mdi-database" style="font-size:16px;position: relative;top: 1.2px;"></i>',
     'Noticias' => '<i class="mdi mdi-bullhorn" style="font-size:16px;position: relative;top: 1.2px;"></i>',
+    'Software escritorio' => '<i class="mdi mdi-bullhorn" style="font-size:16px;position: relative;top: 1.2px;"></i>',
 ];
 $iconsClass = [
     'Programación Web' => 'mdi mdi-cloud-tags',
@@ -184,6 +185,7 @@ $iconsClass = [
     'Trámites y visas' => 'mdi mdi-file-document',
     'Bases de Datos' => 'mdi mdi-database',
     'Noticias' => 'mdi mdi-bullhorn',
+    'Software escritorio' => 'mdi mdi-bullhorn',
 ];
 $arrIconCountries = [
     'ar' => 'Argentina',
@@ -873,10 +875,10 @@ $arrIconCountries = [
                                                                     <p class="d-inline-block" data-toggle="tooltip" data-placement="top" title="Refiere a: {{$post->country}}" style="font-size:11px;font-weight:bold;border-radius:8px;padding:3px ;width:max-content;margin:0px;"><strong class="mr-1 text-uppercase">{{$arrIconCountries[$post->country]}}</strong><i class="ml-1 flag-icon flag-icon-{{$post->country}}" title="{{$post->country}}" id="{{$post->country}}" style="position:relative;top:1px;"></i></p>
                                                                 @endif
                                                                 </li><li class="list-inline-item separateTiem">|</li>
-                                                                <li class="list-inline-item"><a href="#"><strong>Nuxt</strong></a></li>
-                                                                <li class="list-inline-item"><a href="#"><strong>JavaScript</strong></a></li>
-                                                                <li class="list-inline-item"><a href="#"><strong>Vue</strong></a></li>
-                                                                <li class="list-inline-item"><a href="#"><strong>Asure</strong></a></li>
+                                                                @if($post->tec1)<li class="list-inline-item"><a href="#"><strong>{{$post->tecPost1->name}}</strong></a></li>@endif
+                                                                @if($post->tec2)<li class="list-inline-item"><a href="#"><strong>{{$post->tecPost2->name}}</strong></a></li>@endif
+                                                                @if($post->tec3)<li class="list-inline-item"><a href="#"><strong>{{$post->tecPost3->name}}</strong></a></li>@endif
+                                                                @if($post->tec4)<li class="list-inline-item"><a href="#"><strong>{{$post->tecPost4->name}}</strong></a></li>@endif
                                                             </ul>
                                                             <div class="row">
                                                                 <div class="col-4 col-md-2 px-1" style="width: 230px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;padding-left: 0.8rem !important;">
@@ -887,12 +889,12 @@ $arrIconCountries = [
                                                                     </p>
                                                                 </div>
                                                                 <div class="col-4 col-md-2 px-1">
-                                                                    <div class="mb-0 mt-2 text-center"  data-toggle="tooltip" data-placement="bottom" title="xxxxx" style="cursor:pointer;border:1px solid #28a745;border-radius:4px;padding: 4px;font-size: 8px;background: #e7ffd9;color:#28a745;font-weight: bold;">
+                                                                    <div class="mb-0 mt-2 text-center"  data-toggle="tooltip" data-placement="bottom" title="vistas" style="cursor:pointer;border:1px solid #28a745;border-radius:4px;padding: 4px;font-size: 8px;background: #e7ffd9;color:#28a745;font-weight: bold;">
                                                                         <p class="m-0" style="font-size: 14px;font-weight: bold;"><i class="mdi mdi-eye"></i> {{$post->views}}</p>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-4 col-md-2 px-1">
-                                                                    <div class="mb-0 mt-2 cont1 text-center" style="padding:4px;font-size:0.8rem;color:#286ba7;cursor:pointer;background: #ebf3ff;border:1px solid;border-radius:4px;font-weight:bold;right:0px;margin-bottom: 0px !important;"  data-toggle="tooltip" data-placement="bottom" title="Ofrece empleo">
+                                                                    <div class="mb-0 mt-2 cont1 text-center" style="padding:4px;font-size:0.8rem;color:#286ba7;cursor:pointer;background: #ebf3ff;border:1px solid;border-radius:4px;font-weight:bold;right:0px;margin-bottom: 0px !important;"  data-toggle="tooltip" data-placement="bottom" title="Comentarios">
                                                                         <p class="m-0" style="font-size:14px;font-weight:bold;"> <i class="mdi mdi-tooltip-text"></i> 0</p>
                                                                     </div>
                                                                 </div>

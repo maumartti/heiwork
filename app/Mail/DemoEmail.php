@@ -35,7 +35,7 @@ class DemoEmail extends Mailable
      */
     public function build(){
         //dd($this->demo['message']);
-        return $this->from('noreply@heiwork.com')
+        return $this->from('hello@heiwork.com')
                     ->view('emails.demo')
                     ->with(['name' => $this->demo['name'],
                         'email' => $this->demo['email'], 

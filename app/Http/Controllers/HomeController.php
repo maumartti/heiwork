@@ -1178,7 +1178,7 @@ class HomeController extends Controller
             'email'   =>   $request->email,
             'message'   =>   $request->message
         );
-        Mail::to('support@heiwork.com')->send(new DemoEmail($data));
+        Mail::to('hello@heiwork.com')->send(new DemoEmail($data));
         return back()->with('success', 'Thanks for contacting us!');
     }
 
