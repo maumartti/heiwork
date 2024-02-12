@@ -280,6 +280,15 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
                                         @endforeach
                                     </select>
                                 </div>
+                                <label style="font-weight:bold;font-size:16px;">Imagen de portada:</label>
+                                <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
+                                    <label class="btn btn-secondary p-5 col-6">
+                                        <input type="radio" name="options" id="option1" autocomplete="off"> <i class="mdi mdi-cloud-upload"></i> Subir imagen propia
+                                    </label>
+                                    <label class="btn btn-secondary p-5 col-6">
+                                        <input type="radio" name="options" id="option2" autocomplete="off"><i class="mdi mdi-file-image"></i> Seleccionar una imagen
+                                    </label>
+                                </div>
                                 <div class="form-group">
                                     <div id="imageSelection" style="display: none;">
                                         <label style="font-weight:bold;font-size:16px;">Selecciona la imagen más adecuada al tema:</label>

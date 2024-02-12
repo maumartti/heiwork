@@ -815,7 +815,7 @@ $arrIconCountries = [
 
 
                         <div class="tab-pane  active @if(Request::segment(2) == 'Busco') show active @endif" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                            <div class="col-lg-12 grid-margin stretch-card p-0 mb-2">           
+                            <!-- <div class="col-lg-12 grid-margin stretch-card p-0 mb-2">           
                                 <div class="card" style="border-radius:20px;">
                                     <div class="card-body pt-3 pb-0">
                                         <h4 class="mb-3">Mercados IT</h4>
@@ -831,7 +831,7 @@ $arrIconCountries = [
                                     </div>
                                     <a href="#"><p style="font-size:13px;font-weight:bold;border-radius: 20px;padding:3px 12px;width:max-content;margin:0px;display:inline-block;width: 100%;text-align: center;padding: 0px;"><i class="mdi mdi-arrow-down-drop-circle" title="ver todos" style="font-size:16px;"></i> Ver Todos</p></a>
                                 </div>
-                            </div>
+                            </div> -->
 
 
 
