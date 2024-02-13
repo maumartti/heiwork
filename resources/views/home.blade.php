@@ -461,12 +461,12 @@ $arrIconCountries = [
                             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                               @if(Request::segment(2) != 'Ofrezco')
                                 <li class="nav-item" style="width:50%;" role="presentation">
-                                  <a class="nav-link active p-3  @if(Request::segment(2) == 'Busco') active @endif" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" @if(Request::segment(2) == 'Busco') aria-selected="true" @else aria-selected="false" @endif><i class="mdi mdi-tooltip-text" style="font-size: 17px;position: relative;top: -2px;margin-right: 3px;"></i> Comunidad</a>                             
+                                  <a class="nav-link active p-3  @if(Request::segment(2) == 'Busco') active @endif" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" @if(Request::segment(2) == 'Busco') aria-selected="true" @else aria-selected="false" @endif><i class="mdi mdi-file-multiple" style="font-size: 17px;position: relative;top: -2px;margin-right: 3px;"></i> Temas</a>                             
                                 </li>
                                 @endif
                                 @if(Request::segment(2) != 'Busco')  
                                 <li class="nav-item" style="width:50%;" role="presentation">
-                                  <a class="nav-link p-3" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true"><i class="mdi mdi-content-copy" style="margin-right:2px;"></i> Empleos</a>
+                                  <a class="nav-link p-3" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true"><i class="mdi mdi-tooltip-text" style="margin-right:2px;"></i> Shorts</a>
                                 </li>
                               @endif
                             </ul>
@@ -478,83 +478,7 @@ $arrIconCountries = [
         
 
                     <div class="tab-content" id="pills-tabContent">
-                        <div class="tab-pane fade show" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                        <!-- filtros -->
-                        <div class="col-lg-12 grid-margin stretch-card p-0 mb-2">           
-                            <div class="card" style="border-radius:20px;">
-                                <div class="card-body pt-0 pb-3">
-                                    <div class="p-3 text-left contFilter">
-                                        <h2>Filtros de búsqueda <img id="showFilter" src="/images/caret-down-square-fill.svg"></h2>
-                                        <div class="row">
-                                            <div class="col-md-3 col-sm-12">
-                                                <label style="font-weight:bold;font-size:10px;">Tipo de publicación</label>
-                                                <select name="type" id="typeF" class="form-control font-weight-bold" >
-                                                    <option value="" selected="true">Selecciona uno..</option>
-                                                    @if(Request::segment(2) == 'Ofrezco')
-                                                        <option value="Ofrezco" selected>Ofrece empleo</option>
-                                                    @else
-                                                        <option value="Ofrezco">Ofrece empleo</option>
-                                                    @endif
-                                                    @if(Request::segment(2) == 'Busco')
-                                                        <option value="Busco" selected>Busca empleo</option>
-                                                    @else
-                                                        <option value="Busco">Busca empleo</option>
-                                                    @endif
-                                                </select>
-                                            </div> 
-                                            <div class="col-md-3 col-sm-12">
-                                                <label style="font-weight:bold;font-size:10px;">Categoría</label>
-                                                <select id="categoryF" class="form-control font-weight-bold">
-                                                    <option value="">Selecciona uno..</option>
-                                                    <option value="Programación Web" <?php if(Request::segment(3) == "Programación Web") echo 'selected'; ?> >Programación Web</option>
-                                                    <option value="Wordpress" <?php if(Request::segment(3) == "Wordpress") echo 'selected'; ?> >Wordpress</option>
-                                                    <option value="Apps Android, iOS" <?php if(Request::segment(3) == "Apps Android, iOS") echo 'selected'; ?> >Apps Android, iOS</option>
-                                                    <option value="Aplicaciones de escritorio" <?php if(Request::segment(3) == "Aplicaciones de escritorio") echo 'selected'; ?> >Aplicaciones de escritorio</option>
-                                                    <option value="Diseño Web" <?php if(Request::segment(3) == "Diseño Web") echo 'selected'; ?> >Diseño Web</option>
-                                                    <option value="Diseño de Logo" <?php if(Request::segment(3) == "Diseño de Logo") echo 'selected'; ?> >Diseño de Logo</option>
-                                                    <option value="Ilustraciones" <?php if(Request::segment(3) == "Ilustraciones") echo 'selected'; ?> >Ilustraciones</option>
-                                                    <option value="Crear o editar audio, video" <?php if(Request::segment(3) == "Crear o editar audio, video") 'selected'; ?> >Crear o editar audio, video</option>
-                                                    <option value="Modelos 3D" <?php if(Request::segment(3) == "Modelos 3D") echo 'selected'; ?> >Modelos 3D</option>
-                                                    <option value="Fotografía" <?php if(Request::segment(3) == "Fotografía") echo 'selected'; ?> >Fotografía</option>
-                                                    <option value="Diseño de moda" <?php if(Request::segment(3) == "Diseño de moda") echo 'selected'; ?> >Diseño de moda</option>
-                                                    <option value="Redacción y Traducción" <?php if(Request::segment(3) == "Redacción y Traducción") echo 'selected'; ?> >Redacción y Traducción</option>
-                                                    <option value="Marketing Digital y Ventas" <?php if(Request::segment(3) == "Marketing Digital y Ventas") echo 'selected'; ?> >Marketing Digital y Ventas</option>
-                                                    <option value="SEO" <?php if(Request::segment(3) == "SEO") echo 'selected'; ?> >SEO</option>
-                                                    <option value="Soporte Administrativo" <?php if(Request::segment(3) == "Soporte Administrativo") echo 'selected'; ?> >Soporte Administrativo</option>
-                                                    <option value="Legal" <?php if(Request::segment(3) == "Legal") echo 'selected'; ?> >Legal</option>
-                                                    <option value="Finanzas y Negocios" <?php if(Request::segment(3) == "Finanzas y Negocios") echo 'selected'; ?> >Finanzas y Negocios</option>
-                                                    <option value="Ingeniería y Arquitectura" <?php if(Request::segment(3) == "Ingeniería y Arquitectura") echo 'selected'; ?> >Ingeniería y Arquitectura</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-md-6 col-sm-6" style="padding-top:27px;">
-                                                <button type="button" id="btnFilter" class="btn btn-primary w-50">Buscar</button>
-                                                @if(Request::segment(3) || Request::segment(2))
-                                                <a href="/" class="btn btn-secondary">Quiar filtro</a> 
-                                                @endif
-                                            </div> 
-                                            <div class="col-md-3 col-sm-6" style="padding-top:27px;">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            @if(isset($category) || isset($type))
-                                                <div class="col-md-12">
-                                                    <h5 class="col-md-12 mt-1 font-weight-bold">Filtros aplicados:</h5>
-                                                    <div class="row pl-4">
-                                                    @isset($type)
-                                                        <h6 class="mt-2 col-md-3">: {{$type}} empleo</h6>
-                                                    @endisset
-                                                    @isset($category)
-                                                        <h6 class="mt-2 col-md-4">: {{$category}}</h6>
-                                                    @endisset
-                                                    </div>                                            
-                                                </div>    
-                                            @endif
-                                        </div>
-                                    </div>    
-                                </div>    
-                            </div>    
-                        </div>    
-                        <!-- filtros -->    
+                        <div class="tab-pane fade show" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">    
                         @foreach($applications as $key => $application)
                             @if($application->type == 'Ofrezco' && $application->created_at < '2022-02-01 00:00:00')
                                 @php
@@ -603,24 +527,7 @@ $arrIconCountries = [
                                                 <img class="rounded-circle mt-1 mb-1" src="/images/users/{{($application->user->image == null ? 'no-user.png' : $application->user->image)}}" style="width:90px;height:90px; @if($application->user->plan == 'professional') border:3px solid #55c12e @elseif($application->user->plan == 'premium') border:3px solid #007bff @else border:3px solid grey @endif" data-toggle="tooltip" data-placement="top" title="{{$userName[0]}}" alt="{{$userName[0]}}">
                                                 </div>
                                                 <p class="font-weight-bold communityNameUS" style="margin-bottom:0.5rem !important;"><span><a href="/freelancer/{{$application->user->code}}">{{substr($userName[0],0,9)}}</a></span><i class="ml-1 flag-icon flag-icon-{{$application->user->country}}" title="{{$application->user->country}}" id="{{$application->user->country}}" style="position:relative;top:1px;"></i></p>
-                                               @if($application->type == 'Busco')
-                                                <p class="mb-2" style="padding-bottom:2px;font-size:0.8rem;color:#a49200;cursor:pointer;background: #ffffd9;border:1px solid;border-radius:10px;font-weight:bold;"  data-toggle="tooltip" data-placement="bottom" title="Busca empleo">Busco <i class="mdi mdi-magnify" style="font-size:1rem;top: 2px;position: relative;"></i></p>
-                                                <div class="mb-3" data-toggle="tooltip" data-placement="bottom" title="Salario estimado en dólares EEUU" style="cursor:pointer;border:1px solid #28a745;border-radius:10px;padding: 4px;font-size: 8px;background: #e7ffd9;color:#28a745;font-weight: bold;">
-                                                    <p class="m-0" style="font-size: 10px;font-weight: bold;">Aspiración x hora</p>
-                                                    <p class="m-0" style="font-size:13px;font-weight:bold;">{{$application->money}}</p>
-                                               </div>
-                                               @else
-                                               <div class="row text-center">
-                                                <div class="mb-2 col-6 col-md-12 cont1" style="padding:4px;font-size:0.8rem;color:#286ba7;cursor:pointer;background: #ebf3ff;border:1px solid;border-radius:4px;font-weight:bold;right:0px;"  data-toggle="tooltip" data-placement="bottom" title="Ofrece empleo">
-                                                    <p class="m-0 d-none prioridad" style="font-size: 10px;font-weight: bold;" >Prioridad</p>
-                                                    <p class="m-0" style="font-size:13px;font-weight:bold;"><i class="mdi mdi-eye"></i> Remoto</p>
-                                                </div>
-                                                <div class="mb-2 col-6 col-md-12 cont2"  data-toggle="tooltip" data-placement="bottom" title="Presupuesto estimado en dólares EEUU" style="cursor:pointer;border:1px solid #28a745;border-radius:4px;padding: 4px;font-size: 8px;background: #e7ffd9;color:#28a745;font-weight: bold;left:0px;">
-                                                    <p class="m-0" style="font-size: 10px;font-weight: bold;">Presupuesto</p>
-                                                    <p class="m-0" style="font-size:13px;font-weight:bold;">{{$application->money}}</p>
-                                                </div>
-                                                </div>
-                                               @endif
+                                               
                                             </div>
                                             <div class="col-md-10 px-4 py-3" style="background:#EFFBEA;border-radius: 20px;text-align:left;position:relative;">
                                                 @php
@@ -634,19 +541,19 @@ $arrIconCountries = [
                                                 $link = str_replace('ó','o',$link);
                                                 $link = str_replace('ú','u',$link);
                                                 @endphp
-                                                <h3 class="mt-4 font-weight-bold">
+                                                <h3 class="mt-2 mb-1 font-weight-bold">
                                                     <a href="/oferta/{{$link}}/{{$application->id}}">{{$application->title}}</a>
                                                 </h3>
-                                                <p class="pt-2 mb-0" style="font-size: 14px;color:#34373c;">
                                                     @php
                                                         $text = substr($application->text,0,174);//cortamos menor a 160
                                                         $text = substr($text, 0, strrpos($text, ' '));//evita cortar palabras                                                        
                                                         $text = strip_tags($text);//quitamos etiquetas html
                                                     @endphp
-                                                    <p style="font-size:15px;margin-bottom:55px;">{{$text}} ... <a href="/oferta/{{$link}}/{{$application->id}}">Ver más <i class="mdi mdi-share"></i></a></p>
-                                                    <p class="category" style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;position:absolute;bottom:10px;left:80px;margin:0px;display:inline-block;">{!! $iconCatApp !!} {{$categoryName}}</p>
-                                                    <p data-toggle="tooltip" data-html="true" title="<em><b>{{count($application->messages)}} propuestas enviadas</b>" style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding: 12px;width:max-content;position:absolute;bottom:10px;margin:0px;display:inline-block;"><i class="mdi mdi-account"></i> {{count($application->messages)}}</p>
+                                                    <p style="font-size:15px;margin-bottom:42px;">{{$text}}</p>
+                                                    <p class="category" style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:5px 12px;width:max-content;position:absolute;bottom:10px;left:22px !important;margin:0px;display:inline-block;">{!! $iconCatApp !!}</p>
+                                                    <p class="comments" style="font-size:13px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;position:absolute;left:65px;bottom:10px;margin:0px;display:inline-block;padding-right: 40px;">19 Comentarios <i class="mdi mdi-arrow-down-drop-circle-outline" style="font-size: 18px;position: absolute;top: 4px;right: 3px;margin-right: 4px;"></i></p>
                                                     
+                                                
                                                     @auth
                                                         @if($application->user->id != Auth::user()->id)
                                                             @if(count($application->messages) > 0)
@@ -673,42 +580,20 @@ $arrIconCountries = [
                                                                         </button>    
                                                                     @endif
                                                                 @endif
-                                                            @else
-                                                                @if($application->active == 1)
-                                                                    <button type="button" data-toggle="modal" data-target="#modalResponse{{$application->id}}" style="background:#c8eab8;border-radius: 20px;padding: 9px;width:40px;height:40px;display:inline-block;position:absolute;bottom:10px;right:10px;margin:0px;border:none;">
-                                                                        <i class="mdi mdi-comment-processing-outline" style="font-size: 18px;position: relative;top: -3px;"></i>
-                                                                    </button>
-                                                                @else
-                                                                    <button type="button" style="background:#c8eab8;border-radius: 20px;padding: 9px;width:40px;height:40px;display:inline-block;position:absolute;bottom:10px;right:10px;margin:0px;border:none;">
-                                                                        <i class="mdi mdi-close" style="font-size: 18px;position: relative;top: -4px;"  data-toggle="tooltip" data-html="true" title="Proyecto Cerrado"></i>
-                                                                    </button>  
-                                                                @endif
-                                                            @endif 
+                                                            @endif
                                                         @else
-                                                            @if($application->active == 1)
-                                                                <button type="button" data-toggle="modal" data-target="#modalCanelApp{{$application->id}}" style="background:#eab8b8;border-radius: 20px;padding: 9px;width:40px;height:40px;display:inline-block;position:absolute;bottom:10px;right:10px;margin:0px;border:none;">
-                                                                    <i class="mdi mdi-close" style="color: red;font-size: 18px;position: relative;top: -4px;"  data-toggle="tooltip" data-html="true" title="Cerrar Proyecto"></i>
-                                                                </button>  
-                                                            @else
-                                                                <button type="button" style="background:#c8eab8;border-radius: 20px;padding: 9px;width:40px;height:40px;display:inline-block;position:absolute;bottom:10px;right:10px;margin:0px;border:none;">
-                                                                    <i class="mdi mdi-close" style="color: red;font-size: 18px;position: relative;top: -4px;"  data-toggle="tooltip" data-html="true" title="Proyecto Cerrado"></i>
-                                                                </button> 
-                                                            @endif        
+                                                            <button type="button" style="background:#c8eab8;border-radius: 20px;padding: 9px;width:40px;height:40px;display:inline-block;position:absolute;bottom:10px;right:10px;margin:0px;border:none;">
+                                                                <i class="mdi mdi-close" style="color: red;font-size: 18px;position: relative;top: -4px;"  data-toggle="tooltip" data-html="true" title="Proyecto Cerrado"></i>
+                                                            </button>      
                                                         @endif
                                                     @endauth
                                                     @guest
-                                                        @if($application->active == 1)
-                                                            <button type="button" class="btnWrite" data-toggle="tooltip" data-html="true" title="{{$application->views}} visualizaciones" style="background:#c8eab8;border-radius: 20px;padding: 9px;width:80px;height:40px;display:inline-block;position:absolute;bottom:10px;right:10px;margin:0px;border:none;">
-                                                                <i class="mdi mdi-eye" style="font-size: 18px;position: relative;top: -4px;"></i><strong style="position: relative;top: -7px;left: 2px;">{{$application->views}}</strong>
-                                                            </button>
-                                                        @else
-                                                            <button type="button" data-toggle="tooltip" data-html="true" title="Proyecto Cerrado" style="background:#c8eab8;border-radius: 20px;padding: 9px;width:40px;height:40px;display:inline-block;position:absolute;bottom:10px;right:10px;margin:0px;border:none;">
-                                                                <i class="mdi mdi-close" style="font-size: 18px;position: relative;top: -3px;"></i>
-                                                            </button>
-                                                        @endif    
+                                                        <button type="button" data-toggle="tooltip" data-html="true" title="Denunciar esto" style="background:#c8eab8;border-radius: 20px;padding: 9px;width:40px;height:40px;display:inline-block;position:absolute;bottom:10px;right:10px;margin:0px;border:none;">
+                                                            <i class="mdi mdi-alert-circle-outline" style="font-size: 18px;position: relative;top: -4px;"></i>
+                                                        </button>
                                                     @endguest
                                                 </p>
-                                                <p class="text-left my-2" style="color:black;top:2px;right:17px;position: absolute;font-weight:bold;">hace {{$application->diff}}</p>                                    
+                                                <p class="text-left mb-2 mt-0" style="color:black;top:2px;right:17px;position: absolute;font-weight:bold;">hace {{$application->diff}}</p>                                    
                                             </div>
                                         </div>
                                     </div>
