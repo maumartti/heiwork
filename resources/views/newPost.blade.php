@@ -122,7 +122,7 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
     text-align: center;
 }
 .slim-btn-remove{
-    display: none;
+    /* display: none; */
 }
 
 .form-control, .asColorPicker-input, .dataTables_wrapper select, .jsgrid .jsgrid-table .jsgrid-filter-row input[type="text"], .jsgrid .jsgrid-table .jsgrid-filter-row select, .jsgrid .jsgrid-table .jsgrid-filter-row input[type="number"], .select2-container--default .select2-selection--single, .select2-container--default .select2-selection--single .select2-search__field, .tt-hint, .tt-query, .typeahead {
@@ -198,7 +198,7 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
                                 <div class="form-group">
                                     <label style="font-weight:bold;font-size:16px;">Publicación dirigida al mercado:</label>
                                     <label style="display:block;font-weight:bold;font-size:12px;">Si planeas abordar un tema vinculado a un país, selecciona cuál</label>
-                                    <select name="country" id="type" class="form-control font-weight-bold" style="color:#71B951;" autocomplete="off" required>
+                                    <select name="country" id="country" class="form-control font-weight-bold" style="color:#71B951;" autocomplete="off" required>
                                         <option value="" selected="true">Selecciona uno..</option>
                                         <option value="gg">*** NINGUNO EN ESPECÍFICO / TEMA GLOBAL ***</option>
                                         <option value="ar">Argentina</option>
@@ -245,7 +245,7 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
                                 <div class="form-group">
                                     <label id="tecnologiasLabel" style="font-weight:bold;font-size:16px;">Tecnologías de IT: (opcional)</label>
                                     <label style="display:block;font-weight:bold;font-size:12px;margin:0px;">( maximo 4 tecnologías )</label>
-                                    <div class="d-flex border p-2 pt-0">
+                                    <div class="d-flex border p-2 pt-0"  style="flex-wrap: wrap;">
                                         @foreach ($technologies as $key => $tec)
                                         <div class="form-check mr-1 mt-1 mb-1 badge badge-primary">
                                             <input type="checkbox" class="form-check-input tech-checkbox" id="tc{{$key}}" name="tech-{{$tec->id}}" value="{{$tec->id}}" style="float: left;position: relative;left: 20px;">
@@ -282,21 +282,35 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
                                 </div>
                                 <label style="font-weight:bold;font-size:16px;">Imagen de portada:</label>
                                 <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
-                                    <label class="btn btn-secondary p-5 col-6">
-                                        <input type="radio" name="options" id="option1" autocomplete="off"> <i class="mdi mdi-cloud-upload"></i> Subir imagen propia
+                                    <label class="btn btn-secondary p-4 col-6" style="height:65px;">
+                                        <input type="radio" name="options" id="radioUploadImages" autocomplete="off"> <i class="mdi mdi-cloud-upload"></i> Subir imagen propia
                                     </label>
-                                    <label class="btn btn-secondary p-5 col-6">
-                                        <input type="radio" name="options" id="option2" autocomplete="off"><i class="mdi mdi-file-image"></i> Seleccionar una imagen
+                                    <label class="btn btn-secondary p-4 col-6" style="height:65px;">
+                                        <input type="radio" name="options" id="radioListImages" autocomplete="off"><i class="mdi mdi-file-image"></i> Seleccionar una imagen
                                     </label>
                                 </div>
                                 <div class="form-group">
                                     <div id="imageSelection" style="display: none;">
-                                        <label style="font-weight:bold;font-size:16px;">Selecciona la imagen más adecuada al tema:</label>
+                                        <label style="font-weight:bold;font-size:16px;margin-top:7px;">Selecciona la imagen más adecuada al tema:</label>
                                         <div class="image-radios row px-3">
                                             <!-- Aquí se generan los radiobuttons con las imágenes -->
                                         </div>
                                     </div>
                                 </div>
+                                <div id="imageUpload" class="form-group" style="width:250px;display: none;">
+                                    <!-- edit image --->                                    
+                                    <div id="slim" class="slim mb-2 p-2" 
+                                         data-button-edit-title="Editar"
+                                         data-button-remove-title="Borrar"
+                                         data-label="Agregar Imagen <p><i class='material-icons touch' style='font-size:40px;'>touch_app</i></p>"
+                                         data-ratio="1:1"
+                                         data-size="250,250"
+                                         data-max-file-size="2"
+                                         data-fetcher="/slim-cropper-uploading/server/fetch.php"
+                                         data-meta-user-id="1" >
+                                         <input type="file" id="image" name="image" accept="image/png, image/jpeg"  />
+                                    </div>                            
+                                </div> 
                                 
                                 @if(Auth::user()->register_by == 'web' && Auth::user()->email_verified_at == null /*|| Auth::user()->completeProfile == false*/)
                                     <div class="form-group">
@@ -425,16 +439,26 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
 @section('script')
 <script>
     $(document).ready(function() {
-        $('#categorySelect').change(function() {
+        $('#radioUploadImages').change(function() {
+            $('#imageSelection').hide();
+            $('#imageUpload').show();
+        });
+        $('#radioListImages').change(function() {
             var categoryId = $(this).val();
             if (categoryId) {
+                $('#imageUpload').hide();
                 $('#imageSelection').show();
-                var imageUrls = ["imagen1.jpg", "imagen2.jpg", "imagen3.jpg", "imagen4.jpg", "imagen5.jpg", "imagen6.jpg", "imagen7.jpg", "imagen8.jpg", "imagen9.jpg", "imagen10.jpg", "imagen11.jpg", "imagen12.jpg"];
+
+                let co = $("#country").val();
+                let routeImg = './images/category_posts/';
+                var imageUrlsCountry = [routeImg+co+"/1.png", routeImg+co+"/2.png", routeImg+co+"/3.png", routeImg+co+"/4.png", routeImg+co+"/5.png", routeImg+co+"/6.png"];
+                var imageUrls = [routeImg+"1.png", routeImg+"2.png", routeImg+"3.png", routeImg+"4.png", routeImg+"5.png", routeImg+"6.png", routeImg+"7.png", routeImg+"8.png", routeImg+"9.png", routeImg+"10.png", routeImg+"11.png", routeImg+"12.png", routeImg+"13.png", routeImg+"14.png", routeImg+"15.png", routeImg+"16.png", routeImg+"17.png", routeImg+"18.png", routeImg+"19.png", routeImg+"20.png", routeImg+"21.png", routeImg+"22.png", routeImg+"23.png", routeImg+"24.png", routeImg+"25.png", routeImg+"26.png", routeImg+"27.png", routeImg+"28.png", routeImg+"29.png", routeImg+"30.png"];
+                var combinedImageUrls = imageUrlsCountry.concat(imageUrls);
                 $('.image-radios').empty(); // Limpiamos cualquier radiobutton anterior
-                $.each(imageUrls, function(index, imageUrl) {
-                    var radioHtml = '<div class="form-check mr-1 mt-1 mb-1 col-6 col-md-3 badge badge-primary">';
-                    radioHtml += '<input type="radio" class="form-check-input" id="imageRadio' + index + '" value="' + imageUrl + '" style="float: left;position: relative;left: 20px;">';
-                    radioHtml += '<label class="form-check-label mt-1 ml-2 text-dark font-weight-bold" for="imageRadio' + index + '"><img src="' + imageUrl + '" alt="Imagen ' + (index + 1) + '"></label>';
+                $.each(combinedImageUrls, function(index, imageUrl) {
+                    var radioHtml = '<div class="form-check mt-1 mb-1 col-4 col-md-2 badge badge-primary" style="background: #e9e9e9;border: 1px solid silver;">';
+                    radioHtml += '<input type="radio" class="form-check-input" id="imageRadio' + index + '" name="imageRadioGroup" value="' + imageUrl + '" style="float: left;position: relative;left: 20px;">';
+                    radioHtml += '<label class="form-check-label mt-1 ml-2 text-dark font-weight-bold" for="imageRadio' + index + '"><img src="' + imageUrl + '" alt="Imagen ' + (index + 1) + '" style="width:100%;border-radius:10px;"></label>';
                     radioHtml += '</div>';
                     $('.image-radios').append(radioHtml);
                 });
