@@ -58,6 +58,11 @@
         .zoomable-image:hover {
             transform: scale(1.1); /* Cambiar el valor para ajustar el nivel de zoom */
         }
+        /* Estilo para rotar el ícono */
+        .rotate-icon {
+            transform: rotate(180deg);
+            transition: transform 0.3s ease; /* Transición suave */
+        }
         @media (max-width: 767px){
             #contHome{
                 padding-top: 40px !important;
@@ -322,8 +327,6 @@ $arrIconCountries = [
                         @foreach($libraries as $key => $application)
                             @if($application->type == 'Busco')
                                 @php
-                                    
-
                                     $icons = [
                                             'Programación Web' => '<i class="mdi mdi-cloud-tags" style="font-size:16px;position: relative;top: 1.2px;"></i>',
                                             'Wordpress' => '<i class="mdi mdi-wordpress" style="font-size:16px;position: relative;top: 1.2px;"></i>',
@@ -478,7 +481,16 @@ $arrIconCountries = [
         
 
                     <div class="tab-content" id="pills-tabContent">
-                        <div class="tab-pane fade show" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">    
+                        <div class="tab-pane fade show" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"> 
+                        <!-- btn postear -->
+                        <div class="card mb-2" style="border-radius:20px;">
+                            <div class="card-body pt-2 pb-2 px-3 text-center">     
+                                <button type="button" id="publicar" class="p-1 col-md-120 text-center font-weight-bold text-white" style="font-size:18px;width:100%;background:#55c12e;cursor:pointer;border:none;border-radius:12px;">
+                                    Postear Short <i class="mdi mdi-plus"></i>
+                                </button>                       
+                            </div>
+                        </div> 
+                        <!-- end postear -->  
                         @foreach($applications as $key => $application)
                             @if($application->type == 'Ofrezco' && $application->created_at < '2022-02-01 00:00:00')
                                 @php
@@ -551,8 +563,7 @@ $arrIconCountries = [
                                                     @endphp
                                                     <p style="font-size:15px;margin-bottom:42px;">{{$text}}</p>
                                                     <p class="category" style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:5px 12px;width:max-content;position:absolute;bottom:10px;left:22px !important;margin:0px;display:inline-block;">{!! $iconCatApp !!}</p>
-                                                    <p class="comments" style="font-size:13px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;position:absolute;left:65px;bottom:10px;margin:0px;display:inline-block;padding-right: 40px;">19 Comentarios <i class="mdi mdi-arrow-down-drop-circle-outline" style="font-size: 18px;position: absolute;top: 4px;right: 3px;margin-right: 4px;"></i></p>
-                                                    
+                                                    <p class="comments" data-toggle="collapse" href="#collapseCommentsShorts{{$application->id}}" role="button" aria-expanded="false" aria-controls="collapseCommentsShorts{{$application->id}}" style="font-size:13px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;position:absolute;left:65px;bottom:10px;margin:0px;display:inline-block;padding-right: 40px;">19 Comentarios <i class="mdi mdi-arrow-down-drop-circle-outline" style="font-size: 18px;position: absolute;top: 4px;right: 3px;margin-right: 4px;"></i></p>
                                                 
                                                     @auth
                                                         @if($application->user->id != Auth::user()->id)
@@ -593,8 +604,42 @@ $arrIconCountries = [
                                                         </button>
                                                     @endguest
                                                 </p>
-                                                <p class="text-left mb-2 mt-0" style="color:black;top:2px;right:17px;position: absolute;font-weight:bold;">hace {{$application->diff}}</p>                                    
+                                                <p class="text-left mb-2 mt-0" style="color:black;top:2px;right:17px;position: absolute;font-weight:bold;">hace {{$application->diff}}</p>  
                                             </div>
+                                            <!-- comments -->
+                                            <div class="collapse w-100" id="collapseCommentsShorts{{$application->id}}" style="box-shadow: none;margin-top: 10px;border-color: silver;">
+                                                <div class="card" style="box-sizing: none;box-shadow: none;border-color: silver;">
+                                                    <div class="card-bod p-3">
+                                                        <textarea class="form-control mb-1" id="validationTextarea" placeholder="Agrega un comentario…" style="border: 1px solid rgb(85, 193, 46); font-size: 14px; line-height: 14px;border-radius:4px;"></textarea>
+                                                        <button type="button" class="btn btn-primary btn-block text-white mb-3" href="/publicar" style="font-size:18px;">Comentar</button>
+                                                        <div class="mb-2" style="background: #f0f0f0;padding: 10px;border-radius: 12px;">
+                                                            <h5 class="m-0">19 Comentarios</h5>
+                                                        </div>
+                                                        <div class="mb-2" style="background: #f0f0f0;padding: 10px;border-radius: 12px;">
+                                                            <div class="col-12 p-0" style="">
+                                                                <img class="rounded-circle mt-0 mb-0 mr-1 " src="/images/users/14THtvZvtsB7CojA.jpg" style="width:30px;height:30px;  border:2px solid grey " data-toggle="tooltip" data-placement="top" title="" alt="FREDDI" data-original-title="FREDDI">
+                                                                <p class="font-weight-bold m-0 mt-2 communityNameUS" style="display:inline;position: relative;top:3px;">
+                                                                    <span><a href="/p/nyyykds7yxwp0uzqywxkxpkurfqqemec">FREDDI</a></span>
+                                                                    <i class="ml-1 flag-icon flag-icon-co" title="co" id="co" style="position: relative;top: 0px;"></i>
+                                                                </p>
+                                                            </div>
+                                                            <p class="m-0 mt-1">Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.</p>
+                                                        </div>
+
+                                                        <div class="mb-2" style="background: #f0f0f0;padding: 10px;border-radius: 12px;">
+                                                            <div class="col-12 p-0" style="">
+                                                                <img class="rounded-circle mt-0 mb-0 mr-1 " src="/images/users/14THtvZvtsB7CojA.jpg" style="width:30px;height:30px;  border:2px solid grey " data-toggle="tooltip" data-placement="top" title="" alt="FREDDI" data-original-title="FREDDI">
+                                                                <p class="font-weight-bold m-0 mt-2 communityNameUS" style="display:inline;position: relative;top:3px;">
+                                                                    <span><a href="/p/nyyykds7yxwp0uzqywxkxpkurfqqemec">Mauricio Díaz</a></span>
+                                                                    <i class="ml-1 flag-icon flag-icon-uy" title="uy" id="uy" style="position: relative;top: 0px;"></i>
+                                                                </p>
+                                                            </div>
+                                                            <p class="m-0 mt-1">Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- comments end -->
                                         </div>
                                     </div>
                                   </div>    
@@ -1202,6 +1247,15 @@ $arrIconCountries = [
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script>
     $(document).ready(function(){ 
+
+
+        //Gira el icono al abrir el acordeon de comentario
+        $('.comments').on('click', function(){
+            // Encontrar el ícono dentro del elemento con la clase 'comments' y rotarlo 180 grados
+            $(this).find('.mdi').toggleClass('rotate-icon');
+        });
+        //-----
+
         
         $('#compartir,#downCompartir').click(function(){            
             if($('.publica').is(':visible')){
