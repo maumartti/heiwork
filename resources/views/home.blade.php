@@ -463,15 +463,18 @@ $arrIconCountries = [
                             </div> -->
                             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                               @if(Request::segment(2) != 'Ofrezco')
-                                <li class="nav-item" style="width:50%;" role="presentation">
-                                  <a class="nav-link active p-3  @if(Request::segment(2) == 'Busco') active @endif" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" @if(Request::segment(2) == 'Busco') aria-selected="true" @else aria-selected="false" @endif><i class="mdi mdi-file-multiple" style="font-size: 17px;position: relative;top: -2px;margin-right: 3px;"></i> Temas</a>                             
+                                <li class="nav-item" style="width:33.333%;" role="presentation">
+                                  <a class="nav-link active p-3  @if(Request::segment(2) == 'Busco') active @endif" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" @if(Request::segment(2) == 'Busco') aria-selected="true" @else aria-selected="false" @endif><i class="mdi mdi-file-multiple" style="font-size: 17px;position: relative;top: -2px;margin-right: 3px;"></i> Posts</a>                             
                                 </li>
                                 @endif
                                 @if(Request::segment(2) != 'Busco')  
-                                <li class="nav-item" style="width:50%;" role="presentation">
+                                <li class="nav-item" style="width:33.333%;" role="presentation">
                                   <a class="nav-link p-3" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true"><i class="mdi mdi-tooltip-text" style="margin-right:2px;"></i> Shorts</a>
                                 </li>
-                              @endif
+                                @endif
+                                <li class="nav-item" style="width:33.333%;" role="presentation">
+                                  <a class="nav-link p-3" id="pills-jobs-tab" data-toggle="pill" href="#pills-jobs" role="tab" aria-controls="pills-jobs" aria-selected="true"><i class="mdi mdi-briefcase" style="margin-right:2px;"></i> Jobs</a>
+                                </li>
                             </ul>
 
                         </div>
@@ -856,17 +859,141 @@ $arrIconCountries = [
                                 </div>
                             </div>
 
-                        @if(count($applications) == 0 )
-                            <div class="col-lg-12 grid-margin stretch-card p-0 mb-2">           
-                              <div class="card" style="border-radius:20px;">
-                                <div class="card-body pt-3 pb-3 text-center">                            
-                                    <div class="p-5 text-center">
-                                        <h2 class="text-gray">Sin resultados</h2>
+                            @if(count($applications) == 0 )
+                                <div class="col-lg-12 grid-margin stretch-card p-0 mb-2">           
+                                <div class="card" style="border-radius:20px;">
+                                    <div class="card-body pt-3 pb-3 text-center">                            
+                                        <div class="p-5 text-center">
+                                            <h2 class="text-gray">Sin resultados</h2>
+                                        </div>
                                     </div>
                                 </div>
-                               </div>
-                            </div>            
-                        @endif   
+                                </div>            
+                            @endif   
+                        </div> 
+                        <div class="tab-pane  active @if(Request::segment(2) == 'Busco') show active @endif" id="pills-jobs" role="tabpanel" aria-labelledby="pills-jobs-tab">
+                            <!-- <div class="col-lg-12 grid-margin stretch-card p-0 mb-2">           
+                                <div class="card" style="border-radius:20px;">
+                                    <div class="card-body pt-3 pb-0">
+                                        <h4 class="mb-3">Mercados IT</h4>
+                                        <a href="#"><p style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:2px 0px;display:inline-block;"><img src="/images/earth.svg" style="width:16px;position:relative;top: -2px;"> Global</p></a>
+                                        <a href="#"><p style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:2px 0px;display:inline-block;"><i class="ml-1 flag-icon flag-icon-ar" title="ar" id="ar" style="position:relative;top:1px;"></i> Argentina</p></a>
+                                        <a href="#"><p style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:2px 0px;display:inline-block;"><i class="ml-1 flag-icon flag-icon-au" title="au" id="au" style="position:relative;top:1px;"></i> Australia</p></a>
+                                        <a href="#"><p style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:2px 0px;display:inline-block;"><i class="ml-1 flag-icon flag-icon-ca" title="ca" id="ca" style="position:relative;top:1px;"></i> Canadá</p></a>
+                                        <a href="#"><p style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:2px 0px;display:inline-block;"><i class="ml-1 flag-icon flag-icon-cl" title="cl" id="cl" style="position:relative;top:1px;"></i> Chile</p></a>
+                                        <a href="#"><p style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:2px 0px;display:inline-block;"><i class="ml-1 flag-icon flag-icon-co" title="co" id="co" style="position:relative;top:1px;"></i> Colombia</p></a>
+                                        <a href="#"><p style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:2px 0px;display:inline-block;"><i class="ml-1 flag-icon flag-icon-es" title="es" id="es" style="position:relative;top:1px;"></i> España</p></a>
+                                        <a href="#"><p style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:2px 0px;display:inline-block;"><i class="ml-1 flag-icon flag-icon-mx" title="mx" id="mx" style="position:relative;top:1px;"></i> Mexico</p></a>
+                                        <a href="#"><p style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;margin:2px 0px;display:inline-block;"><i class="ml-1 flag-icon flag-icon-pe" title="pe" id="pe" style="position:relative;top:1px;"></i> Perú</p></a>
+                                    </div>
+                                    <a href="#"><p style="font-size:13px;font-weight:bold;border-radius: 20px;padding:3px 12px;width:max-content;margin:0px;display:inline-block;width: 100%;text-align: center;padding: 0px;"><i class="mdi mdi-arrow-down-drop-circle" title="ver todos" style="font-size:16px;"></i> Ver Todos</p></a>
+                                </div>
+                            </div> -->
+
+
+
+
+
+                            <div class="col-lg-12 grid-margin stretch-card p-0 mb-2">           
+                                <div class="card" style="border-radius:20px;">
+                                    <div class="card-body pt-3 pb-3 px-2">
+                                    <!-- temas de la comunidad -->
+                                    @foreach($posts as $key => $post)
+                                        @if($post)
+                                            @php
+                                                $userName = explode(' ',$post->user->name);
+                                            @endphp    
+                                            <div class="col-lg-12 grid-margin stretch-card p-0 mb-2">           
+                                            <div class="card" style="border-radius:20px;">
+                                                <div class="card-body pt-3 pb-3 px-2">
+
+                                                <!-- temas de la comunidad -->
+                                                    <div class="d-flex justify-content-end align-items-center"">
+                                                        <div class="col-md-12 px-4 py-3" style="background:#F8F8F8;border-radius: 20px;text-align:left;position:relative;">
+                                                            <h3 class="titlePost mt-0 mb-0 font-weight-bold">
+                                                                <!-- <img class="rounded-circle mt-1 mb-0 mr-1 float-left" src="/images/users/{{($post->user->image == null ? 'no-user.png' : $post->user->image)}}" style="width:34px;height:34px; @if($post->user->plan == 'professional') border:2px solid #55c12e @elseif($post->user->plan == 'premium') border:2px solid #007bff @else border:2px solid grey @endif" data-toggle="tooltip" data-placement="top" title="{{$userName[0]}}" alt="{{$userName[0]}}"> -->
+                                                                <a href="/p/{{$post->url}}/{{$post->id}}">{{$post->title}}</a>
+                                                            </h3>
+                                                            @php                                                       
+                                                            $text = strip_tags($post->cita);//quitamos etiquetas html
+                                                            @endphp
+                                                            <img src="/images/category_posts/m{{$key}}.png" class="zoomable-image" style="float: left;height:66px;width:66px !important;border-radius:8px;margin-right:8px;margin-top:10px;">
+                                                            <p class="mt-1" style="font-size:15px;margin-bottom:0px;">{{$text}}</p>
+                                                            <ul class="list-inline p-0 mb-1 mt-0">
+                                                                <li class="list-inline-item mr-1">
+                                                                    <p data-toggle="tooltip" data-html="true" title="" data-original-title="<em><b>{{$post->categoryPost->name}}</b>" style="font-weight:bold;background:#e3e5e2;border-radius: 20px;padding:4px 5px;bottom:10px;margin:0px;display:inline-block;height: 24px;text-align: center;/*! margin-top: 4px; */position: relative;top: 8px;">
+                                                                        <i class="ml-1 {{$iconsClass[$post->categoryPost->name]}}" style="font-size:16px;margin: 0px !important;top: -7px;left: -1px;position: relative;"></i><span style="position: relative;top: -9px;font-size:11px;">{{$post->categoryPost->name}}</span>                                                                                           
+                                                                    </p>
+                                                                </li><li class="list-inline-item mx-1 separateTiem">|</li>
+                                                                <li class="list-inline-item separateTiem">
+                                                                @if($post->country == 'gg')
+                                                                    <strong>Tema Global</strong><p class="pr-0" data-toggle="tooltip" data-placement="top" title="Tema Global" style="font-size:11px;font-weight:bold;border-radius: 20px;padding:5px 8px;width:max-content;margin:2px 0px;display:inline-block;"><img src="/images/earth.svg" style="width:16px;position:relative;top: -2px;" alt="ícono del mundo"></p>
+                                                                @else
+                                                                    <p class="d-inline-block" data-toggle="tooltip" data-placement="top" title="Refiere a: {{$post->country}}" style="font-size:11px;font-weight:bold;border-radius:8px;padding:3px ;width:max-content;margin:0px;"><strong class="mr-1 text-uppercase">{{$arrIconCountries[$post->country]}}</strong><i class="ml-1 flag-icon flag-icon-{{$post->country}}" title="{{$post->country}}" id="{{$post->country}}" style="position:relative;top:1px;"></i></p>
+                                                                @endif
+                                                                </li><li class="list-inline-item separateTiem">|</li>
+                                                                @if($post->tec1)<li class="list-inline-item"><a href="#"><strong>{{$post->tecPost1->name}}</strong></a></li>@endif
+                                                                @if($post->tec2)<li class="list-inline-item"><a href="#"><strong>{{$post->tecPost2->name}}</strong></a></li>@endif
+                                                                @if($post->tec3)<li class="list-inline-item"><a href="#"><strong>{{$post->tecPost3->name}}</strong></a></li>@endif
+                                                                @if($post->tec4)<li class="list-inline-item"><a href="#"><strong>{{$post->tecPost4->name}}</strong></a></li>@endif
+                                                            </ul>
+                                                            <div class="row">
+                                                                <div class="col-4 col-md-2 px-1" style="width: 230px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;padding-left: 0.8rem !important;">
+                                                                    <i class="ml-1 flag-icon flag-icon-{{$post->user->country}}" title="{{$post->user->country}}" id="{{$post->user->country}}" style="position:absolute;top:24px;left:42px;font-size:12px;"></i>
+                                                                    <img class="rounded-circle mt-1 mb-0 mr-1 " src="/images/users/{{($post->user->image == null ? 'no-user.png' : $post->user->image)}}" style="margin: 8px 0px auto !important;width:30px;height:30px; @if($post->user->plan == 'professional') border:2px solid #55c12e @elseif($post->user->plan == 'premium') border:2px solid #007bff @else border:2px solid grey @endif" data-toggle="tooltip" data-placement="top" title="{{$userName[0]}}" alt="{{$userName[0]}}">
+                                                                    <p class="font-weight-bold m-0 mt-2 communityNameUS" style="display: inline; position: relative; top:-2px;">
+                                                                        <span><a href="/p/{{$post->user->code}}">{{$userName[0]}}</a></span>
+                                                                    </p>
+                                                                </div>
+                                                                <div class="col-4 col-md-2 px-1">
+                                                                    <div class="mb-0 mt-2 text-center"  data-toggle="tooltip" data-placement="bottom" title="vistas" style="cursor:pointer;border:1px solid #28a745;border-radius:4px;padding: 4px;font-size: 8px;background: #e7ffd9;color:#28a745;font-weight: bold;">
+                                                                        <p class="m-0" style="font-size: 14px;font-weight: bold;"><i class="mdi mdi-eye"></i> {{$post->views}}</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-4 col-md-2 px-1">
+                                                                    <div class="mb-0 mt-2 cont1 text-center" style="padding:4px;font-size:0.8rem;color:#286ba7;cursor:pointer;background: #ebf3ff;border:1px solid;border-radius:4px;font-weight:bold;right:0px;margin-bottom: 0px !important;"  data-toggle="tooltip" data-placement="bottom" title="Comentarios">
+                                                                        <p class="m-0" style="font-size:14px;font-weight:bold;"> <i class="mdi mdi-tooltip-text"></i> 0</p>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- <div class="col-1 col-md-1  px-1">
+                                                                    <div class="mb-0 mt-0 pt-2 pl-0 cont1 text-left" style="padding:4px;font-size:0.8rem;color:#286ba7;cursor:pointer;font-weight:bold;right:0px;margin-bottom: 0px !important;"  data-toggle="tooltip" data-placement="bottom" title="Ofrece empleo">
+                                                                    <p data-toggle="tooltip" data-html="true" title="" style="font-size:8px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding: 8px;bottom:10px;margin:0px;display:inline-block;height: 33px;text-align: center;" data-original-title="<em><b>Aplicaciones de escritorio</b>">
+                                                                        <i class="ml-1 mdi mdi mdi-code-array" style="font-size:18px;margin: 0px !important;top: -6px;position: relative;"></i>                                                                                             
+                                                                    </p>
+                                                                    </div>
+                                                                </div> -->
+                                                            </div>
+                                                            <div class="text-right pr-2" style="top:-2px;position:absolute;width:100%;left: 0px;">
+                                                                
+                                                                <!-- <p data-toggle="tooltip" data-html="true" title="" data-original-title="<em><b>{{$post->categoryPost->name}}</b>" style="font-weight:bold;background:#e3e5e2;border-radius: 20px;padding: 5px;bottom:10px;margin:0px;display:inline-block;height: 24px;text-align: center;/*! margin-top: 4px; */position: relative;top: 8px;">
+                                                                    <i class="ml-1 {{$iconsClass[$post->categoryPost->name]}}" style="font-size:16px;margin: 0px !important;top: -7px;left: -1px;position: relative;"></i><span style="position: relative;top: -9px;font-size:11px;">{{$post->categoryPost->name}}</span>                                                                                           
+                                                                </p>-->
+                                                                <p class="m-0 p-0" data-toggle="tooltip" data-html="true" title="" data-original-title="<em><b>{{$post->categoryPost->name}}</b>">
+                                                                    <span style="color:#2e2e2e;font-weight:bold;font-size:13px;position:relative;top:2px;">Publicado hace {{$post->diff}}</span>                                                                                       
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>    
+                                            </div>
+                                        @endif
+                                    @endforeach
+                                    </div>
+                                </div>
+                            </div>
+
+                            @if(count($applications) == 0 )
+                                <div class="col-lg-12 grid-margin stretch-card p-0 mb-2">           
+                                <div class="card" style="border-radius:20px;">
+                                    <div class="card-body pt-3 pb-3 text-center">                            
+                                        <div class="p-5 text-center">
+                                            <h2 class="text-gray">Sin resultados</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>            
+                            @endif   
                         </div> 
                     </div>        
                 </div>  
