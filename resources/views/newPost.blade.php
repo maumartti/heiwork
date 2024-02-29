@@ -243,6 +243,15 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
                                     </select>
                                 </div>
                                 <div class="form-group">
+                                    <label style="font-weight:bold;font-size:16px;">Categoría:</label>
+                                    <select name="category_id" id="categorySelect" class="form-control font-weight-bold" style="color:#71B951;" autocomplete="off" required>
+                                        <option value="">Selecciona uno..</option>
+                                        @foreach ($categoriesPost as $cat)
+                                        <option value="{{$cat->id}}">{{$cat->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">
                                     <label id="tecnologiasLabel" style="font-weight:bold;font-size:16px;">Tecnologías de IT: (opcional)</label>
                                     <label style="display:block;font-weight:bold;font-size:12px;margin:0px;">( maximo 4 tecnologías )</label>
                                     <div class="d-flex border p-2 pt-0"  style="flex-wrap: wrap;">
@@ -270,15 +279,6 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
                                     <!--<small id="emailHelp" class="form-text" style="color:black;line-height: 1.2;">
                                         Puede colocar información de contacto si desea para que le contacten directo
                                      </small>-->   
-                                </div>
-                                <div class="form-group">
-                                    <label style="font-weight:bold;font-size:16px;">Categoría:</label>
-                                    <select name="category_id" id="categorySelect" class="form-control font-weight-bold" style="color:#71B951;" autocomplete="off" required>
-                                        <option value="">Selecciona uno..</option>
-                                        @foreach ($categoriesPost as $cat)
-                                        <option value="{{$cat->id}}">{{$cat->name}}</option>
-                                        @endforeach
-                                    </select>
                                 </div>
                                 <label style="font-weight:bold;font-size:16px;">Imagen de portada:</label>
                                 <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">

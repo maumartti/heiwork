@@ -5,7 +5,7 @@
 @section('head')
 
     @if(Request::segment(2) == 'Ofrezco')
-    <title>Comunidad IT | HeiWork</title>
+    <title>Comunidad Digital | HeiWork</title>
     <link rel="canonical" href="https://heiwork.com">
     <meta name="description" content="Comunidad de profesionales IT en heiwork.com, comunidad enfocada a brindar datos del mercado laboral para, freelancers del mundo IT, nomades digitáles que quieren emigrar, programadores, diseñadores, y más.">
     @elseif(Request::segment(2) == 'Busco')
@@ -13,7 +13,7 @@
     <link rel="canonical" href="https://heiwork.com">
     <meta name="description" content="Comunidad de profesionales IT en heiwork.com, comunidad enfocada a brindar datos del mercado laboral para, freelancers del mundo IT, nomades digitáles que quieren emigrar, programadores, diseñadores, y más.">
     @else
-    <title>HeiWork | Comunidad IT</title>
+    <title>HeiWork | Comunidad Digital</title>
     <link rel="canonical" href="https://heiwork.com">
     <meta name="description" content="Comunidad de profesionales IT en heiwork.com, comunidad enfocada a brindar datos del mercado laboral para, freelancers del mundo IT, nomades digitáles que quieren emigrar, programadores, diseñadores, y más.">
     <meta name="keywords" content="trabajo freelance, Mercado laboral, programador, e-commerce, heiwork.com">
@@ -284,8 +284,8 @@ $arrIconCountries = [
                                         </p>
                                     </div>   
                                 @else    
-                                    <h1 style="font-size: 1.6rem;text-align:center;">Heiwork - Comunidad IT</h1>
-                                    <p>Forma parte de <strong>la comunidad de programadores y profesionales del mundio IT</strong>,es una comunidad creada para que puedas compartir informacieon y ver ofertas de <strong>trabajo freelance</strong> puedes aplicar a ofertas de <strong><a href="/teletrabajo-freelance">teletrabajo</a></strong> en toda la región, Latinoamérica y el mundo. Regístrate gratis y publica tus habilidades en nuestra plataforma diseñada de forma ágil y práctica, <strong>consigue los mejores resultados hoy mismo.</strong></p>
+                                    <h1 style="font-size: 1.6rem;text-align:center;">Heiwork - Comunidad Digital</h1>
+                                    <p>Forma parte de <strong>la comunidad de programadores y profesionales del mundo Digital</strong>,es una comunidad creada para que puedas compartir informacieon y ver ofertas de <strong>trabajo freelance</strong> puedes aplicar a ofertas de <strong><a href="/teletrabajo-freelance">teletrabajo</a></strong> en toda la región, Latinoamérica y el mundo. Regístrate gratis y publica tus habilidades en nuestra plataforma diseñada de forma ágil y práctica, <strong>consigue los mejores resultados hoy mismo.</strong></p>
                                     <div style="border:2px solid white;background:white;border-radius:10px;width:100%;display:flex;margin-bottom:10px;">
                                         <img src="/images/h111.png" class="m-auto w-100" alt="trabajos y proyectos freelance"  style="border-radius:10px;">
                                         <!--<img src="/images/h33.jpeg" class="m-auto w-50" alt="diseñadora freelancer" style="border-radius:10px;">-->
@@ -473,7 +473,7 @@ $arrIconCountries = [
                                 </li>
                                 @endif
                                 <li class="nav-item" style="width:33.333%;" role="presentation">
-                                  <a class="nav-link p-3" id="pills-jobs-tab" data-toggle="pill" href="#pills-jobs" role="tab" aria-controls="pills-jobs" aria-selected="true"><i class="mdi mdi-briefcase" style="margin-right:2px;"></i> Jobs</a>
+                                  <a class="nav-link p-3" id="pills-jobs-tab" data-toggle="pill" href="#pills-jobs" role="tab" aria-controls="pills-jobs" aria-selected="true"><i class="mdi mdi-chart-bar" style="margin-right:2px;"></i> Data</a>
                                 </li>
                             </ul>
 
