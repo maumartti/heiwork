@@ -516,6 +516,8 @@ class HomeController extends Controller
 
         if(Auth::user()->publications > 0){//si tiene publicaciones
             $data = $request->all();
+            //dd($data);
+            unset($data['options']);
             $data['user_id'] = Auth::user()->id;
             $data['code'] = str_pad(rand(1, 9999), 4, '0', STR_PAD_LEFT);
             //dd($data);
@@ -586,6 +588,21 @@ class HomeController extends Controller
             if($data['country'] && $data['country'] != 'gg'){
                 $data['country_icon'] = $arrIconCountries[$data['country']];
             }
+
+            //procesamos la imagen del post
+            if($data['image'] && $data['image'] != "" && $data['image'] != null){// si trae una imagen que subio el usuario
+                $imageJson = json_decode($request->image,true);
+                $imageCode = $imageJson['output']['image'];//codigo64 imagen
+                if($imageCode){
+                    if($imageCode != null && $imageCode != 'null'){
+                        //guardamos imagen      
+                        $data['image'] = $tools->saveImage64('/images/posts/', $imageCode);
+                    }
+                }
+            }elseif(isset($data['imageRadioGroup'])){//se selcciono una imagen de las ya cargadas
+                $data['image'] = $data['imageRadioGroup']; //save the url of image
+            }
+            //-
 
             $post = Post::create($data);
             $post->save();

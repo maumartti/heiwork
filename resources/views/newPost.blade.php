@@ -171,7 +171,7 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
                     <div class="col-lg-12 grid-margin stretch-card p-0 mb-2"> 
                       <div class="card" style="border-radius:20px;">
                         <div class="card-body pt-3 pb-3">
-                            <h3 class="text-center mb-3">Realizar publicación <i class="mdi mdi-plus-circle-outline" style="position:relative;top:2.2px;"></i></h3>          
+                            <h3 class="text-center mb-3">Realizar un post <i class="mdi mdi-plus-circle-outline" style="position:relative;top:2.2px;"></i></h3>          
                             <!-- <h4 style="font-size:1rem;">Postula tus habilidades o el proyecto en cuál necesitas contratar un profesional</h4> -->
                             @if ($errors->any())
                                 <div class="alert alert-danger">
@@ -281,6 +281,7 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
                                      </small>-->   
                                 </div>
                                 <label style="font-weight:bold;font-size:16px;">Imagen de portada:</label>
+                                <label id="alertSelectCountry" style="display:block;font-weight:bold;font-size:12px;color:red;">Selecciona (Publicación dirigida al mercado)</label>
                                 <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
                                     <label class="btn btn-secondary p-4 col-6" style="height:65px;">
                                         <input type="radio" name="options" id="radioUploadImages" autocomplete="off"> <i class="mdi mdi-cloud-upload"></i> Subir imagen propia
@@ -320,7 +321,7 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
                                     </div>
                                 @else
                                 <div class="form-group">
-                                    <button type="input" class="btn btn-primary btn-block btn-lg" style="display:inline-block;">Publicar</button>
+                                    <button type="input" id="btnInput" class="btn btn-primary btn-block btn-lg" style="display:inline-block;">Publicar</button>
                                 </div>
                                 @endif
                             </form>
@@ -438,6 +439,36 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
 
 @section('script')
 <script>
+
+    //si no seleciono country queda bloqueado elegir imagen y boton enviar
+    $(document).ready(function() {
+        // Función para verificar si el select con id 'country' está seleccionado
+        function isCountrySelected() {
+            return $('#country').val() !== '';
+        }
+        // Función para desactivar los radio buttons y mostrar el mensaje de alerta
+        function disableRadioButtonsAndShowAlert() {
+            $('#radioUploadImages, #radioListImages').prop('disabled', true);
+            $('#alertSelectCountry').show();
+            $('#btnInput').attr('disabled', true);
+        }
+        // Verificar el estado del select cuando la página se carga inicialmente
+        if (!isCountrySelected()) {
+            disableRadioButtonsAndShowAlert();
+        }
+        // Verificar el estado del select cada vez que cambia
+        $('#country').change(function() {
+            if (!isCountrySelected()) {
+                disableRadioButtonsAndShowAlert();
+            } else {
+                $('#radioUploadImages, #radioListImages').prop('disabled', false);
+                $('#alertSelectCountry').hide();
+                $('#btnInput').attr('disabled', false);
+            }
+        });
+    });
+
+
     $(document).ready(function() {
         $('#radioUploadImages').change(function() {
             $('#imageSelection').hide();
