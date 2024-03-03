@@ -588,7 +588,7 @@ class HomeController extends Controller
             if($data['country'] && $data['country'] != 'gg'){
                 $data['country_icon'] = $arrIconCountries[$data['country']];
             }
-
+            //dd($data['image_radio_group']);
             //procesamos la imagen del post
             if($data['image'] && $data['image'] != "" && $data['image'] != null){// si trae una imagen que subio el usuario
                 $imageJson = json_decode($request->image,true);
@@ -597,10 +597,13 @@ class HomeController extends Controller
                     if($imageCode != null && $imageCode != 'null'){
                         //guardamos imagen      
                         $data['image'] = $tools->saveImage64('/images/posts/', $imageCode);
+                        $data['image_upload'] = 1;
                     }
                 }
-            }elseif(isset($data['imageRadioGroup'])){//se selcciono una imagen de las ya cargadas
-                $data['image'] = $data['imageRadioGroup']; //save the url of image
+            }
+            if(isset($data['image_radio_group'])){//se selcciono una imagen de las ya cargadas
+                $data['image'] = $data['image_radio_group']; //save the url of image
+                unset($data['image_radio_group']);
             }
             //-
 

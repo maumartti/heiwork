@@ -417,12 +417,12 @@ textarea{
         'Crear o editar audio, video' => 'mdi mdi-file-video',
         'Modelos 3D' => 'mdi mdi-printer-3d',
         'Fotografía' => 'mdi mdi-film',
-        'Diseño de moda' => 'mdi mdi-tshirt-crew',
+        'Diseño gráfico' => 'mdi mdi-tshirt-crew',
         'Redacción y Traducción' => 'mdi mdi-xda',
         'Marketing Digital y Ventas' => 'mdi mdi-cart',
         'SEO' => 'mdi mdi-search-web',
         'Soporte Administrativo' => 'mdi mdi-desktop-mac',
-        'Legal' => 'mdi mdi-script',
+        'Tecnología' => 'mdi mdi-script',
         'Finanzas y Negocios' => 'mdi mdi-chart-line-stacked',
         'Ingeniería y Arquitectura' => 'mdi mdi-ungroup',
         'Trámites y visas' => 'mdi mdi-file-document',
@@ -595,13 +595,29 @@ textarea{
                                             <!-- <img src="/images/category_posts/m7.png" style="float: left;height:105px;width:105px !important;border-radius:8px;margin-right:8px;margin-top:6px;"> -->
                                             {!! $post->text !!}</div>
                                             <!-- end content -->
-                                            <ul class="list-inline p-0 mb-1 mt-2">
-                                                <li class="list-inline-item"><a href="#"><strong>Nuxt</strong></a></li>
+                                            <ul class="list-inline p-0 mb-1 mt-0 ">
+                                                <li class="">
+                                                    @if($post->image_upload == 1)
+                                                        <img src="/images/posts/{{$post->image}}" class="zoomable-image" style="float: left;height:66px;width:66px !important;border-radius:8px;margin-right:8px;">
+                                                    @else
+                                                        <img src="{{$post->image}}" class="zoomable-image" style="float: left;height:66px;width:66px !important;border-radius:8px;margin-right:8px;">
+                                                    @endif
+                                                </li>
+                                                <li class=""><span style="color:#2e2e2e;font-weight:bold;margin-top: 0px !important;font-size:11px;top:-4px;position:relative;">Publicado hace 2 horas</span></li>
+                                                <li class="">
+                                                    <p class="d-inline-block" data-toggle="tooltip" data-html="true" title="<em>Categoría: <b>{{$post->categoryPost->name}}</b>" style="font-size:8px;font-weight:bold;background:#e3e5e2;border-radius: 8px;padding:3px 5px;bottom:10px;margin:0px;display:inline-block;height:23px;text-align: center;">
+                                                        <i class="ml-1 mdi {{$icons[$post->categoryPost->name]}}" style="font-size:18px;margin: 0px !important;top: -8px;position: relative;"></i>                                                                                             
+                                                        @if($freelancer->rubro2 == null && $freelancer->rubro3 == null && $freelancer->rubro4 == null)
+                                                        <span style="float: right;margin-left:4px;font-size: 11px;top: -3px;position: relative;">
+                                                            {{$post->categoryPost->name}}
+                                                        </span>
+                                                        @endif
+                                                    </p>
+                                                </li>
+                                                <!-- <li class="list-inline-item"><a href="#"><strong>Nuxt</strong></a></li>
                                                 <li class="list-inline-item"><a href="#"><strong>JavaScript</strong></a></li>
                                                 <li class="list-inline-item"><a href="#"><strong>Vue</strong></a></li>
-                                                <li class="list-inline-item"><a href="#"><strong>Asure</strong></a></li>
-                                                <li class="list-inline-item separateTiem">|</li>
-                                                <li class="list-inline-item"><span style="color:#2e2e2e;font-weight:bold;margin-top: 0px !important;font-size:11px;">Publicado hace 2 horas</span></li>
+                                                <li class="list-inline-item"><a href="#"><strong>Asure</strong></a></li> -->
                                             </ul>    
                                         </div>
                                     </div>

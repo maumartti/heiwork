@@ -155,12 +155,12 @@ $icons = [
     'Crear o editar audio, video' => '<i class="mdi mdi-file-video" style="font-size:16px;position: relative;top: 1.2px;"></i>',
     'Modelos 3D' => '<i class="mdi mdi-printer-3d" style="font-size:16px;position: relative;top: 1.2px;"></i>',
     'Fotografía' => '<i class="mdi mdi-film" style="font-size:16px;position: relative;top: 1.2px;"></i>',
-    'Diseño de moda' => '<i class="mdi mdi-tshirt-crew" style="font-size:16px;position: relative;top: 1.2px;"></i>',
+    'Diseño gráfico' => '<i class="mdi mdi-tshirt-crew" style="font-size:16px;position: relative;top: 1.2px;"></i>',
     'Redacción y Traducción' => '<i class="mdi mdi-xda" style="font-size:16px;position: relative;top: 1.2px;"></i>',
     'Marketing Digital y Ventas' => '<i class="mdi mdi-cart" style="font-size:16px;position: relative;top: 1.2px;"></i>',
     'SEO' => '<i class="mdi mdi-search-web" style="font-size:16px;position: relative;top: 1.2px;"></i>',
     'Soporte Administrativo' => '<i class="mdi mdi-desktop-mac" style="font-size:16px;position: relative;top: 1.2px;"></i>',
-    'Legal' => '<i class="mdi mdi-script" style="font-size:16px;position: relative;top: 1.2px;"></i>',
+    'Tecnología' => '<i class="mdi mdi-script" style="font-size:16px;position: relative;top: 1.2px;"></i>',
     'Finanzas y Negocios' => '<i class="mdi mdi-chart-line-stacked" style="font-size:16px;position: relative;top: 1.2px;"></i>',
     'Ingeniería y Arquitectura' => '<i class="mdi mdi-ungroup" style="font-size:16px;position: relative;top: 1.2px;"></i>',
     'Trámites y visas' => '<i class="mdi mdi-file-document" style="font-size:16px;position: relative;top: 1.2px;"></i>',
@@ -179,12 +179,12 @@ $iconsClass = [
     'Crear o editar audio, video' => 'mdi mdi-file-video',
     'Modelos 3D' => 'mdi mdi-printer-3d',
     'Fotografía' => 'mdi mdi-film',
-    'Diseño de moda' => 'mdi mdi-tshirt-crew',
+    'Diseño gráfico' => 'mdi mdi-tshirt-crew',
     'Redacción y Traducción' => 'mdi mdi-xda',
     'Marketing Digital y Ventas' => 'mdi mdi-cart',
     'SEO' => 'mdi mdi-search-web',
     'Soporte Administrativo' => 'mdi mdi-desktop-mac',
-    'Legal' => 'mdi mdi-script',
+    'Tecnología' => 'mdi mdi-script',
     'Finanzas y Negocios' => 'mdi mdi-chart-line-stacked',
     'Ingeniería y Arquitectura' => 'mdi mdi-ungroup',
     'Trámites y visas' => 'mdi mdi-file-document',
@@ -338,12 +338,12 @@ $arrIconCountries = [
                                             'Crear o editar audio, video' => '<i class="mdi mdi-file-video" style="font-size:16px;position: relative;top: 1.2px;"></i>',
                                             'Modelos 3D' => '<i class="mdi mdi-printer-3d" style="font-size:16px;position: relative;top: 1.2px;"></i>',
                                             'Fotografía' => '<i class="mdi mdi-film" style="font-size:16px;position: relative;top: 1.2px;"></i>',
-                                            'Diseño de moda' => '<i class="mdi mdi-tshirt-crew" style="font-size:16px;position: relative;top: 1.2px;"></i>',
+                                            'Diseño de gráfico' => '<i class="mdi mdi-tshirt-crew" style="font-size:16px;position: relative;top: 1.2px;"></i>',
                                             'Redacción y Traducción' => '<i class="mdi mdi-xda" style="font-size:16px;position: relative;top: 1.2px;"></i>',
                                             'Marketing Digital y Ventas' => '<i class="mdi mdi-cart" style="font-size:16px;position: relative;top: 1.2px;"></i>',
                                             'SEO' => '<i class="mdi mdi-search-web" style="font-size:16px;position: relative;top: 1.2px;"></i>',
                                             'Soporte Administrativo' => '<i class="mdi mdi-desktop-mac" style="font-size:16px;position: relative;top: 1.2px;"></i>',
-                                            'Legal' => '<i class="mdi mdi-script" style="font-size:16px;position: relative;top: 1.2px;"></i>',
+                                            'Tecnología' => '<i class="mdi mdi-script" style="font-size:16px;position: relative;top: 1.2px;"></i>',
                                             'Finanzas y Negocios' => '<i class="mdi mdi-chart-line-stacked" style="font-size:16px;position: relative;top: 1.2px;"></i>',
                                             'Ingeniería y Arquitectura' => '<i class="mdi mdi-ungroup" style="font-size:16px;position: relative;top: 1.2px;"></i>',
                                             'Trámites y visas' => '<i class="mdi mdi-file-document" style="font-size:16px;position: relative;top: 1.2px;"></i>',
@@ -793,7 +793,11 @@ $arrIconCountries = [
                                                             @php                                                       
                                                             $text = strip_tags($post->cita);//quitamos etiquetas html
                                                             @endphp
-                                                            <img src="/images/category_posts/m{{$key}}.png" class="zoomable-image" style="float: left;height:66px;width:66px !important;border-radius:8px;margin-right:8px;margin-top:10px;">
+                                                            @if($post->image_upload == 1)
+                                                                <img src="/images/posts/{{$post->image}}" class="zoomable-image" style="float: left;height:66px;width:66px !important;border-radius:8px;margin-right:8px;margin-top:10px;">
+                                                            @else
+                                                                <img src="{{$post->image}}" class="zoomable-image" style="float: left;height:66px;width:66px !important;border-radius:8px;margin-right:8px;margin-top:10px;">
+                                                            @endif
                                                             <p class="mt-1" style="font-size:15px;margin-bottom:0px;">{{$text}}</p>
                                                             <ul class="list-inline p-0 mb-1 mt-0">
                                                                 <li class="list-inline-item mr-1">

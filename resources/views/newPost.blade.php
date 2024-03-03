@@ -481,14 +481,14 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
                 $('#imageSelection').show();
 
                 let co = $("#country").val();
-                let routeImg = './images/category_posts/';
+                let routeImg = '/images/category_posts/';
                 var imageUrlsCountry = [routeImg+co+"/1.png", routeImg+co+"/2.png", routeImg+co+"/3.png", routeImg+co+"/4.png", routeImg+co+"/5.png", routeImg+co+"/6.png"];
                 var imageUrls = [routeImg+"1.png", routeImg+"2.png", routeImg+"3.png", routeImg+"4.png", routeImg+"5.png", routeImg+"6.png", routeImg+"7.png", routeImg+"8.png", routeImg+"9.png", routeImg+"10.png", routeImg+"11.png", routeImg+"12.png", routeImg+"13.png", routeImg+"14.png", routeImg+"15.png", routeImg+"16.png", routeImg+"17.png", routeImg+"18.png", routeImg+"19.png", routeImg+"20.png", routeImg+"21.png", routeImg+"22.png", routeImg+"23.png", routeImg+"24.png", routeImg+"25.png", routeImg+"26.png", routeImg+"27.png", routeImg+"28.png", routeImg+"29.png", routeImg+"30.png"];
                 var combinedImageUrls = imageUrlsCountry.concat(imageUrls);
                 $('.image-radios').empty(); // Limpiamos cualquier radiobutton anterior
                 $.each(combinedImageUrls, function(index, imageUrl) {
                     var radioHtml = '<div class="form-check mt-1 mb-1 col-4 col-md-2 badge badge-primary" style="background: #e9e9e9;border: 1px solid silver;">';
-                    radioHtml += '<input type="radio" class="form-check-input" id="imageRadio' + index + '" name="imageRadioGroup" value="' + imageUrl + '" style="float: left;position: relative;left: 20px;">';
+                    radioHtml += '<input type="radio" class="form-check-input" id="imageRadio' + index + '" name="image_radio_group" value="' + imageUrl + '" style="float: left;position: relative;left: 20px;">';
                     radioHtml += '<label class="form-check-label mt-1 ml-2 text-dark font-weight-bold" for="imageRadio' + index + '"><img src="' + imageUrl + '" alt="Imagen ' + (index + 1) + '" style="width:100%;border-radius:10px;"></label>';
                     radioHtml += '</div>';
                     $('.image-radios').append(radioHtml);
