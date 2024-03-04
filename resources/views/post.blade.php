@@ -23,7 +23,7 @@ if(Auth::check()){
     <meta name="theme-color" content=" #ffffff">
     <meta property="og:site_name" content="HEIWORK">
     <meta property="og:url" content="https://heiwork.com/p/{{$post->url}}/{{$post->id}}}">
-    <meta property="og:image" content="https://heiwork.com/images/category_posts/{{$post->categoryPost->image}}">
+    <meta property="og:image" content="https://heiwork.com{{$post->image}}">
     <meta property="og:title" content="{{$post->title}} | Heiwork">
     <meta property="og:description" content="{{ ($post->country_icon ? $post->country_icon : '') }} {{$post->cita}}">
     <meta property="og:type" content="website" />
@@ -32,10 +32,9 @@ if(Auth::check()){
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:description" content="{{ ($post->country_icon ? $post->country_icon : '') }} {{$post->cita}}" />
     <meta name="twitter:title" content="{{$post->title}} | Heiwork" />
-    <meta name="twitter:image" content="https://heiwork.com/images/category_posts/{{$post->categoryPost->image}}" />
+    <meta name="twitter:image" content="https://heiwork.com{{$post->image}}" />
     <meta property="og:image:width" content="300">
     <meta property="og:image:height" content="300">
-    <meta property="og:image" content="https://heiwork.com/images/category_posts/{{$post->categoryPost->image}}">
 
 <!-- galery -->
 <link href="/PhotoSwipe%20Responsive%20JavaScript%20Image%20Gallery_files/site.css" rel="stylesheet">
@@ -420,6 +419,7 @@ textarea{
         'Diseño gráfico' => 'mdi mdi-tshirt-crew',
         'Redacción y Traducción' => 'mdi mdi-xda',
         'Marketing Digital y Ventas' => 'mdi mdi-cart',
+        'Marketing Digital' => 'mdi mdi-cart',
         'SEO' => 'mdi mdi-search-web',
         'Soporte Administrativo' => 'mdi mdi-desktop-mac',
         'Tecnología' => 'mdi mdi-script',
@@ -598,7 +598,7 @@ textarea{
                                             <ul class="list-inline p-0 mb-1 mt-0 ">
                                                 <li class="">
                                                     @if($post->image_upload == 1)
-                                                        <img src="/images/posts/{{$post->image}}" class="zoomable-image" style="float: left;height:66px;width:66px !important;border-radius:8px;margin-right:8px;">
+                                                        <img src="{{$post->image}}" class="zoomable-image" style="float: left;height:66px;width:66px !important;border-radius:8px;margin-right:8px;">
                                                     @else
                                                         <img src="{{$post->image}}" class="zoomable-image" style="float: left;height:66px;width:66px !important;border-radius:8px;margin-right:8px;">
                                                     @endif

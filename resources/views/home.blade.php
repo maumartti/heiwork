@@ -157,7 +157,7 @@ $icons = [
     'Fotografía' => '<i class="mdi mdi-film" style="font-size:16px;position: relative;top: 1.2px;"></i>',
     'Diseño gráfico' => '<i class="mdi mdi-tshirt-crew" style="font-size:16px;position: relative;top: 1.2px;"></i>',
     'Redacción y Traducción' => '<i class="mdi mdi-xda" style="font-size:16px;position: relative;top: 1.2px;"></i>',
-    'Marketing Digital y Ventas' => '<i class="mdi mdi-cart" style="font-size:16px;position: relative;top: 1.2px;"></i>',
+    'Marketing Digital' => '<i class="mdi mdi-cart" style="font-size:16px;position: relative;top: 1.2px;"></i>',
     'SEO' => '<i class="mdi mdi-search-web" style="font-size:16px;position: relative;top: 1.2px;"></i>',
     'Soporte Administrativo' => '<i class="mdi mdi-desktop-mac" style="font-size:16px;position: relative;top: 1.2px;"></i>',
     'Tecnología' => '<i class="mdi mdi-script" style="font-size:16px;position: relative;top: 1.2px;"></i>',
@@ -181,7 +181,7 @@ $iconsClass = [
     'Fotografía' => 'mdi mdi-film',
     'Diseño gráfico' => 'mdi mdi-tshirt-crew',
     'Redacción y Traducción' => 'mdi mdi-xda',
-    'Marketing Digital y Ventas' => 'mdi mdi-cart',
+    'Marketing Digital' => 'mdi mdi-cart',
     'SEO' => 'mdi mdi-search-web',
     'Soporte Administrativo' => 'mdi mdi-desktop-mac',
     'Tecnología' => 'mdi mdi-script',
@@ -340,7 +340,7 @@ $arrIconCountries = [
                                             'Fotografía' => '<i class="mdi mdi-film" style="font-size:16px;position: relative;top: 1.2px;"></i>',
                                             'Diseño de gráfico' => '<i class="mdi mdi-tshirt-crew" style="font-size:16px;position: relative;top: 1.2px;"></i>',
                                             'Redacción y Traducción' => '<i class="mdi mdi-xda" style="font-size:16px;position: relative;top: 1.2px;"></i>',
-                                            'Marketing Digital y Ventas' => '<i class="mdi mdi-cart" style="font-size:16px;position: relative;top: 1.2px;"></i>',
+                                            'Marketing Digital' => '<i class="mdi mdi-cart" style="font-size:16px;position: relative;top: 1.2px;"></i>',
                                             'SEO' => '<i class="mdi mdi-search-web" style="font-size:16px;position: relative;top: 1.2px;"></i>',
                                             'Soporte Administrativo' => '<i class="mdi mdi-desktop-mac" style="font-size:16px;position: relative;top: 1.2px;"></i>',
                                             'Tecnología' => '<i class="mdi mdi-script" style="font-size:16px;position: relative;top: 1.2px;"></i>',
@@ -505,7 +505,7 @@ $arrIconCountries = [
                                             $iconCatApp = $value;
                                         }
                                     }
-                                    if($application->category == 'Marketing Digital y Ventas'){
+                                    if($application->category == 'Marketing Digital'){
                                         $categoryName = 'Marketing';
                                     }else if($application->category == 'Aplicaciones de escritorio'){
                                         $categoryName = 'Aplicaciones esc';
@@ -794,7 +794,7 @@ $arrIconCountries = [
                                                             $text = strip_tags($post->cita);//quitamos etiquetas html
                                                             @endphp
                                                             @if($post->image_upload == 1)
-                                                                <img src="/images/posts/{{$post->image}}" class="zoomable-image" style="float: left;height:66px;width:66px !important;border-radius:8px;margin-right:8px;margin-top:10px;">
+                                                                <img src="{{$post->image}}" class="zoomable-image" style="float: left;height:66px;width:66px !important;border-radius:8px;margin-right:8px;margin-top:10px;">
                                                             @else
                                                                 <img src="{{$post->image}}" class="zoomable-image" style="float: left;height:66px;width:66px !important;border-radius:8px;margin-right:8px;margin-top:10px;">
                                                             @endif

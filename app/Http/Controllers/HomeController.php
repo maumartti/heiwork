@@ -596,7 +596,7 @@ class HomeController extends Controller
                 if($imageCode){
                     if($imageCode != null && $imageCode != 'null'){
                         //guardamos imagen      
-                        $data['image'] = $tools->saveImage64('/images/posts/', $imageCode);
+                        $data['image'] = '/images/posts/'.$tools->saveImage64('/images/posts/', $imageCode);
                         $data['image_upload'] = 1;
                     }
                 }
