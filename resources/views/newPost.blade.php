@@ -265,7 +265,6 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
                                 </div>
 
 
-                         
                                 <div class="form-group">
                                      <label style="font-weight:bold;font-size:16px;">Cita: ( 120 caracteres min ):</label>
                                      <textarea name="cita" id="cita"  style="line-height:1.2rem;color:#71B951;" placeholder="Escribe un resumen de que trata el tema ..." cols="30" rows="4" class="form-control font-weight-bold" minlength="140" maxlength="250" ></textarea>

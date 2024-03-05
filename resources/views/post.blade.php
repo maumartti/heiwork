@@ -603,7 +603,7 @@ textarea{
                                                         <img src="{{$post->image}}" class="zoomable-image" style="float: left;height:66px;width:66px !important;border-radius:8px;margin-right:8px;">
                                                     @endif
                                                 </li>
-                                                <li class=""><span style="color:#2e2e2e;font-weight:bold;margin-top: 0px !important;font-size:11px;top:-4px;position:relative;">Publicado hace 2 horas</span></li>
+                                                <li class=""><span style="color:#2e2e2e;font-weight:bold;margin-top: 0px !important;font-size:11px;top:-4px;position:relative;">Publicado {{$post->created_at->format('d/m/Y')}}</span></li>
                                                 <li class="">
                                                     <p class="d-inline-block" data-toggle="tooltip" data-html="true" title="<em>Categoría: <b>{{$post->categoryPost->name}}</b>" style="font-size:8px;font-weight:bold;background:#e3e5e2;border-radius: 8px;padding:3px 5px;bottom:10px;margin:0px;display:inline-block;height:23px;text-align: center;">
                                                         <i class="ml-1 mdi {{$icons[$post->categoryPost->name]}}" style="font-size:18px;margin: 0px !important;top: -8px;position: relative;"></i>                                                                                             
