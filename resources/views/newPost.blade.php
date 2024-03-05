@@ -281,7 +281,7 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
                                      </small>-->   
                                 </div>
                                 <label style="font-weight:bold;font-size:16px;">Imagen de portada:</label>
-                                <label id="alertSelectCountry" style="display:block;font-weight:bold;font-size:12px;color:red;">Selecciona (Publicación dirigida al mercado)</label>
+                                <label id="alertSelectCountry" style="display:block;font-weight:bold;font-size:12px;color:red;">Selecciona (Publicación dirigida al mercado) Arriba <i class="mdi mdi-arrow-up-bold"></i></label>
                                 <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
                                     <label class="btn btn-secondary p-4 col-6" style="height:65px;">
                                         <input type="radio" name="options" id="radioUploadImages" autocomplete="off"> <i class="mdi mdi-cloud-upload"></i> Subir imagen propia
