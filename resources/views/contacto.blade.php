@@ -92,7 +92,8 @@
                         </div>
                     @endif
                     <div class="col-md-7 pl-0 pb-5">
-                    <form method="POST" id="formContact" action="/sendMessageContact">
+                        <!-- ruta form : /sendMessageContact -->
+                    <form method="POST" id="formContact" action="">
                     {{ csrf_field() }}
                         <div class="form-group">
                             <label>Nombre:</label>
@@ -119,7 +120,7 @@
                         </div>
 
                         <div class="form-group pb-5">
-                            <input type="submit" class="form-control btn btn-sm btn-primary" style="width:100px;"value="Enviar">
+                            <input type="submit" class="form-control btn btn-sm btn-primary" style="width:100px;"value="Enviar" disabled>
                         </div>   
                     </form>
                     <cite style="color:#949494;font-size:14px;">heiwork company - Av. Luis Alberto Herrera 1248, Montevideo, Uruguay</cite>
