@@ -219,7 +219,6 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
                                         <option value="fi">Finlandia</option>
                                         <option value="sv">El Salvador</option>
                                         <option value="fr">Francia</option>
-                                        <option value="gd">Granada</option>
                                         <option value="gt">Guatemala</option>
                                         <option value="hn">Honduras</option>
                                         <option value="ie">Irlanda</option>
