@@ -630,6 +630,10 @@ textarea{
                                         <div class="card" style="border-radius:0px;border-radius:10px;">
                                             <div class="card-body pt-3 pb-3">
                                                 <h4>Comentar post</h4>
+                                                <textarea name="comment" id="comment"  style="line-height:1.2rem;color:#71B951;" placeholder="Escribe ..." cols="30" rows="4" class="form-control" minlength="10" maxlength="250" ></textarea>
+                                                <div class="form-group mt-3">
+                                                    <button type="input" id="btnInput" class="btn btn-primary" style="display:inline-block;">Enviar <i class="mdi mdi-send ml-2"></i></button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

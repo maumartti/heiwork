@@ -496,6 +496,19 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
             }
         });
     });
+
+    //para el submit si no se ha seleccionado una imagen 
+    $(document).ready(function() {
+        $("#btnInput").click(function(e) {
+            // Verificar si ambos campos están vacíos
+            var imageValue = $('input[name="image"]').val();
+            var imageRadioGroupValue = $('input[name="image_radio_group"]:checked').val();
+            if (!imageValue && !imageRadioGroupValue) {
+                e.preventDefault(); // Evitar el envío del formulario
+                alert("selecciona o agrega una Imagen");
+            }
+        });
+    });
 </script>
 <!-- Selecciona solo 4 checkbox -->
 <script>
