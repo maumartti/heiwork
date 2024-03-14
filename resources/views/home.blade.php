@@ -167,6 +167,7 @@ $icons = [
     'Bases de Datos' => '<i class="mdi mdi-database" style="font-size:16px;position: relative;top: 1.2px;"></i>',
     'Noticias' => '<i class="mdi mdi-bullhorn" style="font-size:16px;position: relative;top: 1.2px;"></i>',
     'Software escritorio' => '<i class="mdi mdi-bullhorn" style="font-size:16px;position: relative;top: 1.2px;"></i>',
+    'Temas generales' => '<i class="mdi mdi-bullhorn" style="font-size:16px;position: relative;top: 1.2px;"></i>',
 ];
 $iconsClass = [
     'Programación Web' => 'mdi mdi-cloud-tags',
@@ -191,6 +192,7 @@ $iconsClass = [
     'Bases de Datos' => 'mdi mdi-database',
     'Noticias' => 'mdi mdi-bullhorn',
     'Software escritorio' => 'mdi mdi-bullhorn',
+    'Temas generales' => 'mdi mdi-bullhorn',
 ];
 $arrIconCountries = [
     'ar' => 'Argentina',
@@ -463,18 +465,18 @@ $arrIconCountries = [
                             </div> -->
                             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                               @if(Request::segment(2) != 'Ofrezco')
-                                <li class="nav-item" style="width:50%;" role="presentation">
+                                <li class="nav-item" style="width:33.333%;" role="presentation">
                                   <a class="nav-link active p-3  @if(Request::segment(2) == 'Busco') active @endif" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" @if(Request::segment(2) == 'Busco') aria-selected="true" @else aria-selected="false" @endif><i class="mdi mdi-file-multiple" style="font-size: 17px;position: relative;top: -2px;margin-right: 3px;"></i> Posts</a>                             
                                 </li>
                                 @endif
                                 @if(Request::segment(2) != 'Busco')  
-                                <li class="nav-item" style="width:50%;" role="presentation">
+                                <li class="nav-item" style="width:33.333%;" role="presentation">
                                   <a class="nav-link p-3" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true"><i class="mdi mdi-tooltip-text" style="margin-right:2px;"></i> Shorts</a>
                                 </li>
                                 @endif
-                                <!-- <li class="nav-item" style="width:33.333%;" role="presentation">
-                                  <a class="nav-link p-3" id="pills-jobs-tab" data-toggle="pill" href="#pills-jobs" role="tab" aria-controls="pills-jobs" aria-selected="true"><i class="mdi mdi-chart-bar" style="margin-right:2px;"></i> Data</a>
-                                </li> -->
+                                <li class="nav-item" style="width:33.333%;" role="presentation">
+                                  <a class="nav-link p-3" id="pills-jobs-tab" data-toggle="pill" href="#pills-jobs" role="tab" aria-controls="pills-jobs" aria-selected="true"><i class="mdi mdi-bullhorn" style="margin-right:2px;"></i> Offers</a>
+                                </li>
                             </ul>
 
                         </div>

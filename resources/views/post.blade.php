@@ -429,6 +429,7 @@ textarea{
         'Bases de Datos' => 'mdi mdi-database',
         'Noticias' => 'mdi mdi-bullhorn',
         'Software escritorio' => 'mdi mdi-bullhorn',
+        'Temas generales' => 'mdi mdi-bullhorn',
     ];
 
 

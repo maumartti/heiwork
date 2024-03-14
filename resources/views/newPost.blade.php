@@ -278,6 +278,18 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
                                         Puede colocar información de contacto si desea para que le contacten directo
                                      </small>-->   
                                 </div>
+                                <div class="form-group">
+                                    <label style="font-weight:bold;font-size:16px;">Tipo de publicación:</label>
+                                    <select name="type" id="type" class="form-control font-weight-bold" style="color:#71B951;" autocomplete="off" required>
+                                        <option value="" selected="true">Selecciona uno..</option>
+                                        <option value="post">Post con información sobre un tema</option>
+                                        <option value="job">Oferta de trabajo o promoción de un Servicio</option>
+                                    </select>    
+                                </div> 
+                                <div class="form-group">
+                                     <label style="font-weight:bold;font-size:16px;">WHATSAPP de contacto: (opcional) (solo para: trabajo / servicio)</label>
+                                     <input name="whatsApp" id="whatsApp" onkeypress="return /[+0-9 ]/i.test(event.key)"  style="color:#71B951;" type="text" class="form-control font-weight-bold" placeholder="+598 91432288" maxlength="20" required>
+                                </div>      
                                 <label style="font-weight:bold;font-size:16px;">Imagen de portada:</label>
                                 <label id="alertSelectCountry" style="display:block;font-weight:bold;font-size:12px;color:red;">Selecciona (Publicación dirigida al mercado) Arriba <i class="mdi mdi-arrow-up-bold"></i></label>
                                 <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
