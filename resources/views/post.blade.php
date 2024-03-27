@@ -63,7 +63,7 @@ if(Auth::check()){
     }
     blockquote{
         border-left: 5px solid silver;
-        padding-left: 10px;
+        padding: 10px;
         background: #f3f3f3;
     }
     .image > img{
@@ -191,6 +191,26 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
 .contFilter{
     height: 40px;
     overflow: hidden
+}
+.contact-pill {
+  background-color: rgb(17, 143, 64);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 10px;
+  width: 135px
+}
+.contact-pill {
+  display: flex;
+  align-items: center;
+  background-color: #15B350;
+  border-radius: 50px;
+  /* padding: 6px 2px 6px 15px; */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
+}
+.contact-img {
+  width: 33px;
+  height:33px;
+  border-radius: 100%;
+  margin-left:9px;
 }
 textarea{
     font-weight: 400 !important;
@@ -604,9 +624,9 @@ textarea{
                                                         <img src="{{$post->image}}" class="zoomable-image" style="float: left;height:66px;width:66px !important;border-radius:8px;margin-right:8px;">
                                                     @endif
                                                 </li>
-                                                <li class=""><span style="color:#2e2e2e;font-weight:bold;margin-top: 0px !important;font-size:11px;top:-4px;position:relative;">Publicado {{$post->created_at->format('d/m/Y')}}</span></li>
+                                                <li class=""><span style="color:#2e2e2e;font-weight:bold;margin-top: 0px !important;font-size:14px;top:-4px;position:relative;">Publicado <time datetime="{{$post->created_at}}">{{$post->created_at->format('d/m/Y')}}</time></span></li>
                                                 <li class="">
-                                                    <p class="d-inline-block" data-toggle="tooltip" data-html="true" title="Copiar enlace" style="font-size:8px;font-weight:bold;background:#e3e5e2;border-radius: 8px;padding:3px 5px;bottom:10px;margin:0px;display:inline-block;height:23px;text-align: center;">
+                                                    <p class="d-inline-block" data-toggle="tooltip" data-html="true" title="Copiar enlace" style="font-size:10px;font-weight:bold;background:#e3e5e2;border-radius: 8px;padding:13px 9px;bottom:10px;margin:0px;display:inline-block;height:40px;text-align: center;">
                                                         <i class="ml-1 mdi mdi-content-copy" style="font-size:18px;margin: 0px !important;top: -8px;position: relative;"></i>                                                                                             
                                                         @if($freelancer->rubro2 == null && $freelancer->rubro3 == null && $freelancer->rubro4 == null)
                                                         <span style="float: right;margin-left:4px;font-size: 11px;top: -3px;position: relative;">
@@ -619,8 +639,30 @@ textarea{
                                                 <li class="list-inline-item"><a href="#"><strong>JavaScript</strong></a></li>
                                                 <li class="list-inline-item"><a href="#"><strong>Vue</strong></a></li>
                                                 <li class="list-inline-item"><a href="#"><strong>Asure</strong></a></li> -->
-                                            </ul>    
+                                            </ul>
+                                            <br>
                                         </div>
+                                        <!-- seccion contacto al creador del post -->
+                                        @if($post->whatsapp)
+                                        <div class="col-12 p-0 pt-2 my-0">
+                                            <h4 class="text-capitalize mb-1" style="color:#139142;"><strong>{{$freelancerName[0]}} ha dejado un de WhatsApp de contacto <i class="mdi mdi-comment-text-outline"></i></strong></h4>
+                                            <div class="row py-0 px-2">
+                                                <div class="col-3 col-md-1 p-0 mt-2 text-center">
+                                                    <img class="rounded-circle m-auto mt-1 mb-1" src="/images/users/{{($post->user->image == null ? 'no-user.png' : $post->user->image)}}" style="width:60px;height:60px; @if($freelancer->plan == 'professional') border:4px solid #55c12e @elseif($freelancer->plan == 'premium') border:4px solid #007bff @else border:4px solid grey @endif" data-toggle="tooltip" data-placement="top" title="{{$freelancerName[0]}}" alt="{{$freelancerName[0]}} - freelancer de {{$allCountries[$freelancer->country]}}">   
+                                                </div>
+                                                <div class="col-9 col-md-7 p-1 pt-2">
+                                                    <h4 class="mb-1 font-weight-bold"><a href="/freelancer/{{$freelancer->code}}">{{$freelancerName[0]}} {{$freelancerSurname}}</a> <i class="ml-1 flag-icon flag-icon-{{$post->user->country}}" title="{{$post->user->country}}" id="{{$post->user->country}}" style="position:relative;top:-1px;"></i></h4>
+                                                    <a href="https://wa.me/+59891403253" target="_blank">
+                                                        <div class="contact-pill">
+                                                            <div style="margin-left:15px;font-size:14px; color: white; text-align: center; --darkreader-inline-color: #e8e6e3;font-weight:bold;" data-darkreader-inline-color="">WhatsApp</div>
+                                                            <img src="/images/wp2.png" alt="WhatsApp" class="contact-img">
+                                                        </div>
+                                                    </a>
+                                                </div>     
+                                            </div>
+                                        </div>
+                                        @endif
+                                        <!-- end contacto -->
                                     </div>
                                 </div>
                             </div>

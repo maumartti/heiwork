@@ -288,7 +288,7 @@ a.social_bt.facebook::before, a.social_bt.google::before, a.social_bt.linkedin::
                                 </div> 
                                 <div class="form-group">
                                      <label style="font-weight:bold;font-size:16px;">WHATSAPP de contacto: (opcional) (solo para: trabajo / servicio)</label>
-                                     <input name="whatsApp" id="whatsApp" onkeypress="return /[+0-9 ]/i.test(event.key)"  style="color:#71B951;" type="text" class="form-control font-weight-bold" placeholder="+598 91432288" maxlength="20" required>
+                                     <input name="whatsApp" id="whatsApp" onkeypress="return /[+0-9 ]/i.test(event.key)"  style="color:#71B951;" type="text" class="form-control font-weight-bold" placeholder="+598 91432288" maxlength="20">
                                 </div>      
                                 <label style="font-weight:bold;font-size:16px;">Imagen de portada:</label>
                                 <label id="alertSelectCountry" style="display:block;font-weight:bold;font-size:12px;color:red;">Selecciona (Publicación dirigida al mercado) Arriba <i class="mdi mdi-arrow-up-bold"></i></label>

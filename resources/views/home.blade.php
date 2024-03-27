@@ -851,7 +851,7 @@ $arrIconCountries = [
                                                                     <i class="ml-1 {{$iconsClass[$post->categoryPost->name]}}" style="font-size:16px;margin: 0px !important;top: -7px;left: -1px;position: relative;"></i><span style="position: relative;top: -9px;font-size:11px;">{{$post->categoryPost->name}}</span>                                                                                           
                                                                 </p>-->
                                                                 <p class="m-0 p-0" data-toggle="tooltip" data-html="true" title="" data-original-title="<em><b>{{$post->categoryPost->name}}</b>">
-                                                                    <span style="color:#2e2e2e;font-weight:bold;font-size:13px;position:relative;top:2px;">Publicado hace {{$post->diff}}</span>                                                                                       
+                                                                    <span style="color:#2e2e2e;font-weight:bold;font-size:13px;position:relative;top:2px;">Publicado hace <time datetime="{{$post->created_at}}">{{$post->diff}}</span>                                                                                       
                                                                 </p>
                                                             </div>
                                                         </div>
