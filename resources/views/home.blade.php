@@ -530,7 +530,7 @@ $arrIconCountries = [
                                     <div class="card-body pt-3 pb-3">
 
                                         <div class="row">
-                                            <div class="col-md-2 text-center">
+                                            <!-- <div class="col-md-2 text-center">
                                                 <div style="width: ;width: 90px;margin: auto;position: relative;">
                                                 @if($application->user->plan == 'professional')
                                                     <span class="badge badge-light badge-pill" style="height: 21.4px;width: 22px;font-weight:bold;padding-top:5px;padding-top:5px;padding-top:5px;background:#55c12e;position: absolute;right:0px;top: 67px;border: 1px solid #458e2b;" data-toggle="tooltip" data-placement="top" title="Usuario profesional">
@@ -545,8 +545,8 @@ $arrIconCountries = [
                                                 </div>
                                                 <p class="font-weight-bold communityNameUS" style="margin-bottom:0.5rem !important;"><span><a href="/freelancer/{{$application->user->code}}">{{substr($userName[0],0,9)}}</a></span><i class="ml-1 flag-icon flag-icon-{{$application->user->country}}" title="{{$application->user->country}}" id="{{$application->user->country}}" style="position:relative;top:1px;"></i></p>
                                                
-                                            </div>
-                                            <div class="col-md-10 px-4 py-3" style="background:#EFFBEA;border-radius: 20px;text-align:left;position:relative;">
+                                            </div> -->
+                                            <div class="col-12 px-4 py-3" style="background:#F8F8F8;border-radius: 20px;text-align:left;position:relative;">
                                                 @php
                                                 //title link
                                                 $link = str_replace(' ','-',strtolower($application->title));
@@ -558,17 +558,23 @@ $arrIconCountries = [
                                                 $link = str_replace('ó','o',$link);
                                                 $link = str_replace('ú','u',$link);
                                                 @endphp
-                                                <h3 class="mt-2 mb-1 font-weight-bold">
-                                                    <a href="/oferta/{{$link}}/{{$application->id}}">{{$application->title}}</a>
-                                                </h3>
+                                                <div class="col-4 col-md-2 p-0" style="width: 230px;white-space: nowrap;">
+                                                    <img class="rounded-circle mt-1 mb-0 mr-1 " src="/images/users/{{($application->user->image == null ? 'no-user.png' : $application->user->image)}}" style="margin: 8px 0px auto !important;width:30px;height:30px; @if($application->user->plan == 'professional') border:2px solid #55c12e @elseif($application->user->plan == 'premium') border:2px solid #007bff @else border:2px solid grey @endif" data-toggle="tooltip" data-placement="top" title="{{$userName[0]}}" alt="{{$userName[0]}}">
+                                                    <p class="font-weight-bold m-0 mt-2 communityNameUS" style="display: inline; position: relative; top:6px;font-size: 18px;">
+                                                        <span>
+                                                            <i class="ml-1 flag-icon flag-icon-{{$application->user->country}}" title="{{$application->user->country}}" id="{{$application->user->country}}" style="font-size:16px;"></i>
+                                                            <a href="/p/{{$application->user->code}}">{{$userName[0]}}</a>
+                                                        </span>
+                                                    </p>
+                                                </div>
                                                     @php
                                                         $text = substr($application->text,0,174);//cortamos menor a 160
                                                         $text = substr($text, 0, strrpos($text, ' '));//evita cortar palabras                                                        
                                                         $text = strip_tags($text);//quitamos etiquetas html
                                                     @endphp
                                                     <p style="font-size:15px;margin-bottom:42px;">{{$text}}</p>
-                                                    <p class="category" style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:5px 12px;width:max-content;position:absolute;bottom:10px;left:22px !important;margin:0px;display:inline-block;">{!! $iconCatApp !!}</p>
-                                                    <p class="comments" data-toggle="collapse" href="#collapseCommentsShorts{{$application->id}}" role="button" aria-expanded="false" aria-controls="collapseCommentsShorts{{$application->id}}" style="font-size:13px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;position:absolute;left:65px;bottom:10px;margin:0px;display:inline-block;padding-right: 40px;">19 Comentarios <i class="mdi mdi-arrow-down-drop-circle-outline" style="font-size: 18px;position: absolute;top: 4px;right: 3px;margin-right: 4px;"></i></p>
+                                                    <!-- <p class="category" style="font-size:11px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:5px 12px;width:max-content;position:absolute;bottom:10px;left:22px !important;margin:0px;display:inline-block;">{!! $iconCatApp !!}</p> -->
+                                                    <p class="comments" data-toggle="collapse" href="#collapseCommentsShorts{{$application->id}}" role="button" aria-expanded="false" aria-controls="collapseCommentsShorts{{$application->id}}" style="font-size:13px;font-weight:bold;background:#c8eab8;border-radius: 20px;padding:7.5px 12px;width:max-content;position:absolute;left:24px;bottom:10px;margin:0px;display:inline-block;padding-right: 40px;">19 Comentarios <i class="mdi mdi-arrow-down-drop-circle-outline" style="font-size: 18px;position: absolute;top: 4px;right: 3px;margin-right: 4px;"></i></p>
                                                 
                                                     @auth
                                                         @if($application->user->id != Auth::user()->id)
@@ -615,8 +621,8 @@ $arrIconCountries = [
                                             <div class="collapse w-100" id="collapseCommentsShorts{{$application->id}}" style="box-shadow: none;margin-top: 10px;border-color: silver;">
                                                 <div class="card" style="box-sizing: none;box-shadow: none;border-color: silver;">
                                                     <div class="card-bod p-3">
-                                                        <textarea class="form-control mb-1" id="validationTextarea" placeholder="Agrega un comentario…" style="border: 1px solid rgb(85, 193, 46); font-size: 14px; line-height: 14px;border-radius:4px;"></textarea>
-                                                        <button type="button" class="btn btn-primary btn-block text-white mb-3" href="/publicar" style="font-size:18px;">Comentar</button>
+                                                        <!-- <textarea class="form-control mb-1" id="validationTextarea" placeholder="Agrega un comentario…" style="border: 1px solid rgb(85, 193, 46); font-size: 14px; line-height: 14px;border-radius:4px;"></textarea> -->
+                                                        <!-- <button type="button" class="btn btn-primary btn-block text-white mb-3" href="/publicar" style="font-size:18px;">Comentar</button> -->
                                                         <div class="mb-2" style="background: #f0f0f0;padding: 10px;border-radius: 12px;">
                                                             <h5 class="m-0">19 Comentarios</h5>
                                                         </div>
@@ -749,7 +755,7 @@ $arrIconCountries = [
 
 
 
-                        <div class="tab-pane  active @if(Request::segment(2) == 'Busco') show active @endif" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        <div class="tab-pane  active @if(Request::segment(2) == 'Busco')  @endif" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                             <!-- <div class="col-lg-12 grid-margin stretch-card p-0 mb-2">           
                                 <div class="card" style="border-radius:20px;">
                                     <div class="card-body pt-3 pb-0">
@@ -777,7 +783,7 @@ $arrIconCountries = [
                                     <div class="card-body pt-3 pb-3 px-2">
                                     <!-- temas de la comunidad -->
                                     @foreach($posts as $key => $post)
-                                        @if($post)
+                                        @if($post->type == 'post')
                                             @php
                                                 $userName = explode(' ',$post->user->name);
                                             @endphp    
@@ -800,7 +806,7 @@ $arrIconCountries = [
                                                             @else
                                                                 <img src="{{$post->image}}" class="zoomable-image" style="float: left;height:66px;width:66px !important;border-radius:8px;margin-right:8px;margin-top:10px;">
                                                             @endif
-                                                            <p class="mt-1" style="font-size:15px;margin-bottom:0px;">{{$text}}</p>
+                                                            <p class="mt-1" style="font-size:15px;margin-bottom:0px;min-height:72px;">{{$text}}</p>
                                                             <ul class="list-inline p-0 mb-1 mt-0">
                                                                 <li class="list-inline-item mr-1">
                                                                     <p data-toggle="tooltip" data-html="true" title="" data-original-title="<em><b>{{$post->categoryPost->name}}</b>" style="font-weight:bold;background:#e3e5e2;border-radius: 20px;padding:4px 5px;bottom:10px;margin:0px;display:inline-block;height: 24px;text-align: center;/*! margin-top: 4px; */position: relative;top: 8px;">
@@ -813,11 +819,12 @@ $arrIconCountries = [
                                                                 @else
                                                                     <p class="d-inline-block" data-toggle="tooltip" data-placement="top" title="Refiere a: {{$post->country}}" style="font-size:11px;font-weight:bold;border-radius:8px;padding:3px ;width:max-content;margin:0px;"><strong class="mr-1 text-uppercase">{{$arrIconCountries[$post->country]}}</strong><i class="ml-1 flag-icon flag-icon-{{$post->country}}" title="{{$post->country}}" id="{{$post->country}}" style="position:relative;top:1px;"></i></p>
                                                                 @endif
-                                                                </li><li class="list-inline-item separateTiem">|</li>
+                                                                </li>
+                                                                <!-- <li class="list-inline-item separateTiem">|</li>
                                                                 @if($post->tec1)<li class="list-inline-item"><a href="#"><strong>{{$post->tecPost1->name}}</strong></a></li>@endif
                                                                 @if($post->tec2)<li class="list-inline-item"><a href="#"><strong>{{$post->tecPost2->name}}</strong></a></li>@endif
                                                                 @if($post->tec3)<li class="list-inline-item"><a href="#"><strong>{{$post->tecPost3->name}}</strong></a></li>@endif
-                                                                @if($post->tec4)<li class="list-inline-item"><a href="#"><strong>{{$post->tecPost4->name}}</strong></a></li>@endif
+                                                                @if($post->tec4)<li class="list-inline-item"><a href="#"><strong>{{$post->tecPost4->name}}</strong></a></li>@endif -->
                                                             </ul>
                                                             <div class="row">
                                                                 <div class="col-4 col-md-2 px-1" style="width: 230px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;padding-left: 0.8rem !important;">
@@ -905,7 +912,7 @@ $arrIconCountries = [
                                     <div class="card-body pt-3 pb-3 px-2">
                                     <!-- temas de la comunidad -->
                                     @foreach($posts as $key => $post)
-                                        @if($post)
+                                        @if($post->type == 'job')
                                             @php
                                                 $userName = explode(' ',$post->user->name);
                                             @endphp    
@@ -923,25 +930,27 @@ $arrIconCountries = [
                                                             @php                                                       
                                                             $text = strip_tags($post->cita);//quitamos etiquetas html
                                                             @endphp
-                                                            <img src="/images/category_posts/m{{$key}}.png" class="zoomable-image" style="float: left;height:66px;width:66px !important;border-radius:8px;margin-right:8px;margin-top:10px;">
-                                                            <p class="mt-1" style="font-size:15px;margin-bottom:0px;">{{$text}}</p>
+                                                            <img src="{{$post->image}}" class="zoomable-image" style="float: left;height:66px;width:66px !important;border-radius:8px;margin-right:8px;margin-top:10px;">
+                                                            <p class="mt-1" style="font-size:15px;margin-bottom:0px;min-height:72px;">{{$text}}</p>
                                                             <ul class="list-inline p-0 mb-1 mt-0">
                                                                 <li class="list-inline-item mr-1">
                                                                     <p data-toggle="tooltip" data-html="true" title="" data-original-title="<em><b>{{$post->categoryPost->name}}</b>" style="font-weight:bold;background:#e3e5e2;border-radius: 20px;padding:4px 5px;bottom:10px;margin:0px;display:inline-block;height: 24px;text-align: center;/*! margin-top: 4px; */position: relative;top: 8px;">
                                                                         <i class="ml-1 {{$iconsClass[$post->categoryPost->name]}}" style="font-size:16px;margin: 0px !important;top: -7px;left: -1px;position: relative;"></i><span style="position: relative;top: -9px;font-size:11px;">{{$post->categoryPost->name}}</span>                                                                                           
                                                                     </p>
-                                                                </li><li class="list-inline-item mx-1 separateTiem">|</li>
+                                                                </li>
+                                                                <li class="list-inline-item mx-1 separateTiem">|</li>
                                                                 <li class="list-inline-item separateTiem">
                                                                 @if($post->country == 'gg')
                                                                     <strong>Tema Global</strong><p class="pr-0" data-toggle="tooltip" data-placement="top" title="Tema Global" style="font-size:11px;font-weight:bold;border-radius: 20px;padding:5px 8px;width:max-content;margin:2px 0px;display:inline-block;"><img src="/images/earth.svg" style="width:16px;position:relative;top: -2px;" alt="ícono del mundo"></p>
                                                                 @else
                                                                     <p class="d-inline-block" data-toggle="tooltip" data-placement="top" title="Refiere a: {{$post->country}}" style="font-size:11px;font-weight:bold;border-radius:8px;padding:3px ;width:max-content;margin:0px;"><strong class="mr-1 text-uppercase">{{$arrIconCountries[$post->country]}}</strong><i class="ml-1 flag-icon flag-icon-{{$post->country}}" title="{{$post->country}}" id="{{$post->country}}" style="position:relative;top:1px;"></i></p>
                                                                 @endif
-                                                                </li><li class="list-inline-item separateTiem">|</li>
+                                                                </li>
+                                                                <!-- <li class="list-inline-item separateTiem">|</li>
                                                                 @if($post->tec1)<li class="list-inline-item"><a href="#"><strong>{{$post->tecPost1->name}}</strong></a></li>@endif
                                                                 @if($post->tec2)<li class="list-inline-item"><a href="#"><strong>{{$post->tecPost2->name}}</strong></a></li>@endif
                                                                 @if($post->tec3)<li class="list-inline-item"><a href="#"><strong>{{$post->tecPost3->name}}</strong></a></li>@endif
-                                                                @if($post->tec4)<li class="list-inline-item"><a href="#"><strong>{{$post->tecPost4->name}}</strong></a></li>@endif
+                                                                @if($post->tec4)<li class="list-inline-item"><a href="#"><strong>{{$post->tecPost4->name}}</strong></a></li>@endif -->
                                                             </ul>
                                                             <div class="row">
                                                                 <div class="col-4 col-md-2 px-1" style="width: 230px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;padding-left: 0.8rem !important;">

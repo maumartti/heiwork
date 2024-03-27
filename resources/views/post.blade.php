@@ -626,7 +626,7 @@ textarea{
                                                 </li>
                                                 <li class=""><span style="color:#2e2e2e;font-weight:bold;margin-top: 0px !important;font-size:14px;top:-4px;position:relative;">Publicado <time datetime="{{$post->created_at}}">{{$post->created_at->format('d/m/Y')}}</time></span></li>
                                                 <li class="">
-                                                    <p class="d-inline-block" data-toggle="tooltip" data-html="true" title="Copiar enlace" style="font-size:10px;font-weight:bold;background:#e3e5e2;border-radius: 8px;padding:13px 9px;bottom:10px;margin:0px;display:inline-block;height:40px;text-align: center;">
+                                                    <p class="d-inline-block" data-toggle="tooltip" data-html="true" title="Copiar enlace" style="font-size:10px;font-weight:bold;background:#e3e5e2;border-radius: 8px;padding:13px 9px;bottom:10px;margin:0px;display:inline-block;height:40px;text-align: center;margin-top:2px;">
                                                         <i class="ml-1 mdi mdi-content-copy" style="font-size:18px;margin: 0px !important;top: -8px;position: relative;"></i>                                                                                             
                                                         @if($freelancer->rubro2 == null && $freelancer->rubro3 == null && $freelancer->rubro4 == null)
                                                         <span style="float: right;margin-left:4px;font-size: 11px;top: -3px;position: relative;">
