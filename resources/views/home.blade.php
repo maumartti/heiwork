@@ -828,19 +828,19 @@ $arrIconCountries = [
                                                             </ul>
                                                             <div class="row">
                                                                 <div class="col-4 col-md-2 px-1" style="width: 230px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;padding-left: 0.8rem !important;">
-                                                                    <i class="ml-1 flag-icon flag-icon-{{$post->user->country}}" title="{{$post->user->country}}" id="{{$post->user->country}}" style="position:absolute;top:24px;left:42px;font-size:12px;"></i>
+                                                                    <i class="ml-1 flag-icon flag-icon-{{$post->user->country}}" title="{{$post->user->country}}" id="{{$post->user->country}}" style="position:absolute;top:24px;left:32px;font-size:12px;"></i>
                                                                     <img class="rounded-circle mt-1 mb-0 mr-1 " src="/images/users/{{($post->user->image == null ? 'no-user.png' : $post->user->image)}}" style="margin: 8px 0px auto !important;width:30px;height:30px; @if($post->user->plan == 'professional') border:2px solid #55c12e @elseif($post->user->plan == 'premium') border:2px solid #007bff @else border:2px solid grey @endif" data-toggle="tooltip" data-placement="top" title="{{$userName[0]}}" alt="{{$userName[0]}}">
-                                                                    <p class="font-weight-bold m-0 mt-2 communityNameUS" style="display: inline; position: relative; top:-2px;">
+                                                                    <p class="font-weight-bold m-0 mt-2 communityNameUS" style="display: inline; position: relative; top:14px;left: 10px;font-size: 16px;">
                                                                         <span><a href="/p/{{$post->user->code}}">{{$userName[0]}}</a></span>
                                                                     </p>
                                                                 </div>
                                                                 <div class="col-4 col-md-2 px-1">
-                                                                    <div class="mb-0 mt-2 text-center"  data-toggle="tooltip" data-placement="bottom" title="vistas" style="cursor:pointer;border:1px solid #28a745;border-radius:4px;padding: 4px;font-size: 8px;background: #e7ffd9;color:#28a745;font-weight: bold;">
+                                                                    <div class="mb-0 mt-2 text-center"  data-toggle="tooltip" data-placement="bottom" title="vistas" style="cursor:pointer;border:1px solid #ddd;border-radius:10px;padding: 4px;font-size: 8px;background:#ededed;font-weight: bold;">
                                                                         <p class="m-0" style="font-size: 14px;font-weight: bold;"><i class="mdi mdi-eye"></i> {{$post->views}}</p>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-4 col-md-2 px-1">
-                                                                    <div class="mb-0 mt-2 cont1 text-center" style="padding:4px;font-size:0.8rem;color:#286ba7;cursor:pointer;background: #ebf3ff;border:1px solid;border-radius:4px;font-weight:bold;right:0px;margin-bottom: 0px !important;"  data-toggle="tooltip" data-placement="bottom" title="Comentarios">
+                                                                    <div class="mb-0 mt-2 cont1 text-center" style="padding:4px;font-size:0.8rem;cursor:pointer;background:#ededed;border:1px solid #ddd;border-radius:10px;font-weight:bold;right:0px;margin-bottom: 0px !important;"  data-toggle="tooltip" data-placement="bottom" title="Comentarios">
                                                                         <p class="m-0" style="font-size:14px;font-weight:bold;"> <i class="mdi mdi-tooltip-text"></i> 0</p>
                                                                     </div>
                                                                 </div>
@@ -954,19 +954,19 @@ $arrIconCountries = [
                                                             </ul>
                                                             <div class="row">
                                                                 <div class="col-4 col-md-2 px-1" style="width: 230px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;padding-left: 0.8rem !important;">
-                                                                    <i class="ml-1 flag-icon flag-icon-{{$post->user->country}}" title="{{$post->user->country}}" id="{{$post->user->country}}" style="position:absolute;top:24px;left:42px;font-size:12px;"></i>
+                                                                    <i class="ml-1 flag-icon flag-icon-{{$post->user->country}}" title="{{$post->user->country}}" id="{{$post->user->country}}" style="position:absolute;top:24px;left:32px;font-size:12px;"></i>
                                                                     <img class="rounded-circle mt-1 mb-0 mr-1 " src="/images/users/{{($post->user->image == null ? 'no-user.png' : $post->user->image)}}" style="margin: 8px 0px auto !important;width:30px;height:30px; @if($post->user->plan == 'professional') border:2px solid #55c12e @elseif($post->user->plan == 'premium') border:2px solid #007bff @else border:2px solid grey @endif" data-toggle="tooltip" data-placement="top" title="{{$userName[0]}}" alt="{{$userName[0]}}">
-                                                                    <p class="font-weight-bold m-0 mt-2 communityNameUS" style="display: inline; position: relative; top:-2px;">
+                                                                    <p class="font-weight-bold m-0 mt-2 communityNameUS" style="display: inline; position: relative; top:14px;left: 10px;font-size: 16px;">
                                                                         <span><a href="/p/{{$post->user->code}}">{{$userName[0]}}</a></span>
                                                                     </p>
                                                                 </div>
                                                                 <div class="col-4 col-md-2 px-1">
-                                                                    <div class="mb-0 mt-2 text-center"  data-toggle="tooltip" data-placement="bottom" title="vistas" style="cursor:pointer;border:1px solid #28a745;border-radius:4px;padding: 4px;font-size: 8px;background: #e7ffd9;color:#28a745;font-weight: bold;">
+                                                                    <div class="mb-0 mt-2 text-center"  data-toggle="tooltip" data-placement="bottom" title="vistas" style="cursor:pointer;border:1px solid #ddd;border-radius:10px;padding: 4px;font-size: 8px;background:#ededed;font-weight: bold;">
                                                                         <p class="m-0" style="font-size: 14px;font-weight: bold;"><i class="mdi mdi-eye"></i> {{$post->views}}</p>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-4 col-md-2 px-1">
-                                                                    <div class="mb-0 mt-2 cont1 text-center" style="padding:4px;font-size:0.8rem;color:#286ba7;cursor:pointer;background: #ebf3ff;border:1px solid;border-radius:4px;font-weight:bold;right:0px;margin-bottom: 0px !important;"  data-toggle="tooltip" data-placement="bottom" title="Comentarios">
+                                                                    <div class="mb-0 mt-2 cont1 text-center" style="padding:4px;font-size:0.8rem;cursor:pointer;background:#ededed;border:1px solid #ddd;border-radius:10px;font-weight:bold;right:0px;margin-bottom: 0px !important;"  data-toggle="tooltip" data-placement="bottom" title="Comentarios">
                                                                         <p class="m-0" style="font-size:14px;font-weight:bold;"> <i class="mdi mdi-tooltip-text"></i> 0</p>
                                                                     </div>
                                                                 </div>
